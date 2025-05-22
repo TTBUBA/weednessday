@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: 18487349cd298ad48bb79c5b32b29215
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8407099408872834079
+    second: Basic_Grass_Biom_things_0
+  - first:
+      213: -4483405589367954294
+    second: Basic_Grass_Biom_things_1
+  - first:
+      213: -5349162287720021793
+    second: Basic_Grass_Biom_things_2
+  - first:
+      213: 3904590873319227916
+    second: Basic_Grass_Biom_things_3
+  - first:
+      213: 6553798187587934576
+    second: Basic_Grass_Biom_things_4
+  - first:
+      213: -3361698288007970698
+    second: Basic_Grass_Biom_things_5
+  - first:
+      213: 7676768948492145327
+    second: Basic_Grass_Biom_things_6
+  - first:
+      213: -2476217457421026210
+    second: Basic_Grass_Biom_things_7
+  - first:
+      213: 8507885531282197233
+    second: Basic_Grass_Biom_things_8
+  - first:
+      213: 1833829121678256577
+    second: Basic_Grass_Biom_things_9
+  - first:
+      213: -6670602494816968044
+    second: Basic_Grass_Biom_things_10
+  - first:
+      213: -8012251555257809038
+    second: Basic_Grass_Biom_things_11
+  - first:
+      213: 7268384422062842137
+    second: Basic_Grass_Biom_things_12
+  - first:
+      213: 3335431313823277835
+    second: Basic_Grass_Biom_things_13
+  - first:
+      213: 1885927974880641005
+    second: Basic_Grass_Biom_things_14
+  - first:
+      213: 8535626180064015413
+    second: Basic_Grass_Biom_things_15
+  - first:
+      213: -2921803470163051551
+    second: Basic_Grass_Biom_things_16
+  - first:
+      213: -4589374451575535494
+    second: Basic_Grass_Biom_things_17
+  - first:
+      213: 1864594044337740870
+    second: Basic_Grass_Biom_things_18
+  - first:
+      213: 91600111087901135
+    second: Basic_Grass_Biom_things_19
+  - first:
+      213: 3599093014651263459
+    second: Basic_Grass_Biom_things_20
+  - first:
+      213: 7916597692037867068
+    second: Basic_Grass_Biom_things_21
+  - first:
+      213: -5031486422384086316
+    second: Basic_Grass_Biom_things_22
+  - first:
+      213: -156893179128996210
+    second: Basic_Grass_Biom_things_23
+  - first:
+      213: 1807493274958205077
+    second: Basic_Grass_Biom_things_24
+  - first:
+      213: 4343652473070856246
+    second: Basic_Grass_Biom_things_25
+  - first:
+      213: 6170355760825025116
+    second: Basic_Grass_Biom_things_26
+  - first:
+      213: 4843801229222195905
+    second: Basic_Grass_Biom_things_27
+  - first:
+      213: 4234501361853811480
+    second: Basic_Grass_Biom_things_28
+  - first:
+      213: 5529813397668788036
+    second: Basic_Grass_Biom_things_29
+  - first:
+      213: 8034090694681843622
+    second: Basic_Grass_Biom_things_30
+  - first:
+      213: 3458278394240470359
+    second: Basic_Grass_Biom_things_31
+  - first:
+      213: -8199537052879894385
+    second: Basic_Grass_Biom_things_32
+  - first:
+      213: 8695683358697833278
+    second: Basic_Grass_Biom_things_33
+  - first:
+      213: -4416082339687184195
+    second: Basic_Grass_Biom_things_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Basic_Grass_Biom_things_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 51
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f140341ae540ca470800000000000000
+      internalID: 8407099408872834079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Grass_Biom_things_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 47
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84e8bdde5eb7c1c0800000000000000
+      internalID: -4483405589367954294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Grass_Biom_things_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 47
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd0488a8d35f3c5b0800000000000000
+      internalID: -5349162287720021793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d2c8be93611f8634db580a05a22728d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Basic_Grass_Biom_things_0: 8407099408872834079
+      Basic_Grass_Biom_things_1: -4483405589367954294
+      Basic_Grass_Biom_things_10: -6670602494816968044
+      Basic_Grass_Biom_things_11: -8012251555257809038
+      Basic_Grass_Biom_things_12: 7268384422062842137
+      Basic_Grass_Biom_things_13: 3335431313823277835
+      Basic_Grass_Biom_things_14: 1885927974880641005
+      Basic_Grass_Biom_things_15: 8535626180064015413
+      Basic_Grass_Biom_things_16: -2921803470163051551
+      Basic_Grass_Biom_things_17: -4589374451575535494
+      Basic_Grass_Biom_things_18: 1864594044337740870
+      Basic_Grass_Biom_things_19: 91600111087901135
+      Basic_Grass_Biom_things_2: -5349162287720021793
+      Basic_Grass_Biom_things_20: 3599093014651263459
+      Basic_Grass_Biom_things_21: 7916597692037867068
+      Basic_Grass_Biom_things_22: -5031486422384086316
+      Basic_Grass_Biom_things_23: -156893179128996210
+      Basic_Grass_Biom_things_24: 1807493274958205077
+      Basic_Grass_Biom_things_25: 4343652473070856246
+      Basic_Grass_Biom_things_26: 6170355760825025116
+      Basic_Grass_Biom_things_27: 4843801229222195905
+      Basic_Grass_Biom_things_28: 4234501361853811480
+      Basic_Grass_Biom_things_29: 5529813397668788036
+      Basic_Grass_Biom_things_3: 3904590873319227916
+      Basic_Grass_Biom_things_30: 8034090694681843622
+      Basic_Grass_Biom_things_31: 3458278394240470359
+      Basic_Grass_Biom_things_32: -8199537052879894385
+      Basic_Grass_Biom_things_33: 8695683358697833278
+      Basic_Grass_Biom_things_34: -4416082339687184195
+      Basic_Grass_Biom_things_4: 6553798187587934576
+      Basic_Grass_Biom_things_5: -3361698288007970698
+      Basic_Grass_Biom_things_6: 7676768948492145327
+      Basic_Grass_Biom_things_7: -2476217457421026210
+      Basic_Grass_Biom_things_8: 8507885531282197233
+      Basic_Grass_Biom_things_9: 1833829121678256577
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
