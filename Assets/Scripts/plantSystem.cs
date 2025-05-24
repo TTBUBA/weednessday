@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class PlantSystem : MonoBehaviour
 {
+    [SerializeField] private bool ActivePlant;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private Sprite Weed;
 
@@ -14,7 +15,7 @@ public class PlantSystem : MonoBehaviour
     [SerializeField] private Vector3 MousePos;
     [SerializeField] private Vector3Int cellPos;
 
-
+    
 
     //===Input System===//
     [SerializeField] private InputActionReference ButtPlant;
@@ -40,7 +41,8 @@ public class PlantSystem : MonoBehaviour
 
     private void Plant(InputAction.CallbackContext context)
     {
-        if(weedObjects.ContainsKey(cellPos))
+        if (!ActivePlant) return;
+        if (weedObjects.ContainsKey(cellPos))
         {
             Debug.Log("Weed already planted here.");
             return;
