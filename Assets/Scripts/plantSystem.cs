@@ -9,7 +9,8 @@ public class PlantSystem : MonoBehaviour
     [SerializeField] private bool ActivePlant;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private Sprite Weed;
-
+    [SerializeField] private GameObject SelectBox;
+    [SerializeField] private GameObject PointPlat;
 
     private Dictionary<Vector3Int, GameObject> weedObjects = new Dictionary<Vector3Int, GameObject>();
     [SerializeField] private Vector3 MousePos;
@@ -37,6 +38,7 @@ public class PlantSystem : MonoBehaviour
         MousePos = Mouse.current.position.ReadValue();
         MousePos = Camera.main.ScreenToWorldPoint(MousePos);
         cellPos = tilemap.WorldToCell(MousePos);
+        SelectBox.transform.position = tilemap.GetCellCenterWorld(cellPos);
     }
 
     private void Plant(InputAction.CallbackContext context)
@@ -47,9 +49,12 @@ public class PlantSystem : MonoBehaviour
             Debug.Log("Weed already planted here.");
             return;
         }
+
         GameObject weed = new GameObject("Weed");
         weed.transform.position = tilemap.GetCellCenterWorld(cellPos);
         SpriteRenderer spriteRenderer = weed.AddComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 2; 
+        spriteRenderer.transform.parent = PointPlat.transform;// set parent to PointPlat
         spriteRenderer.sprite = Weed;
         weedObjects[cellPos] = weed;
     }
