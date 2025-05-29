@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bc5a0b8f9fb33446b1fad412ef32da6
+guid: 6a801dcd829239d41ad509e349623614
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -55,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,9 +113,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 11
-        height: 11
+        y: 8
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: SelectBox_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 21
-        width: 11
-        height: 11
+        x: 0
+        y: 0
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: SelectBox_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 11
-        height: 11
+        x: 9
+        y: 8
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: SelectBox_3
       rect:
         serializedVersion: 2
-        x: 21
+        x: 9
         y: 0
-        width: 11
-        height: 11
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
