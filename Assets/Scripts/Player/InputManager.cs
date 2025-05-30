@@ -1,16 +1,33 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private InputActionReference Butt_OpenInventory;
+
+
+    private void OnEnable()
     {
-        
+        Butt_OpenInventory.action.Enable();
+        Butt_OpenInventory.action.performed += OnOpenInventory;
+        Butt_OpenInventory.action.canceled += OnCloseInventory;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        Butt_OpenInventory.action.Disable();
+        Butt_OpenInventory.action.performed -= OnOpenInventory;
+        Butt_OpenInventory.action.canceled -= OnCloseInventory;
+    }
+
+    public void OnOpenInventory(InputAction.CallbackContext context)
+    {
+        InventoryManager.Instance.OpenInventory();
+    }
+
+    public void OnCloseInventory(InputAction.CallbackContext context)
+    {
+        InventoryManager.Instance.CloseInventory();
     }
 }
+

@@ -36,6 +36,8 @@ public class PlantSystem : MonoBehaviour
     void Update()
     {
         MousePos = Mouse.current.position.ReadValue();
+
+        if(!Camera.main) return;
         MousePos = Camera.main.ScreenToWorldPoint(MousePos);
         cellPos = tilemap.WorldToCell(MousePos);
         SelectBox.transform.position = tilemap.GetCellCenterWorld(cellPos);
