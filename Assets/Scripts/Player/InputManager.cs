@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
+
+    [Header("Input-Inventory")]
     [SerializeField] private InputActionReference Butt_OpenInventory;
 
 

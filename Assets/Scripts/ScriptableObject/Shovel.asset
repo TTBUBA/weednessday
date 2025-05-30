@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f8cd6d0c29c822489f57dd07e850469, type: 3}
-  m_Name: Pala
+  m_Name: Shovel
   m_EditorClassIdentifier: 
-  NameTools: Zappa
-  ToolsImages: {fileID: 4301844918096825189, guid: b2fa212224ba694418d95a9b9afcef5e, type: 3}
+  NameTools: Shovel
+  ToolsImages: {fileID: -3766519690804746565, guid: 0731d4da21e72e8438ba01bd2e870fd1, type: 3}
   ToolsID: 1

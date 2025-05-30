@@ -8,13 +8,12 @@ public class InventoryManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject PlayerObjSelect;
 
-    private bool isOpenInventory = false;
     [Header("Inventory-Ui")]
     [SerializeField] private GameObject PanelUi;
 
     public SlootData CurrentSlotSelect;
     public int IdSlotCurrent;
-
+    private bool isOpenInventory = false;
     private void Awake()
     {
         if (Instance == null)
@@ -25,9 +24,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-
         UpdateUi();
-
     }
 
     public void OpenInventory()
@@ -44,7 +41,10 @@ public class InventoryManager : MonoBehaviour
 
     private void UpdateUi()
     {
-        PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = CurrentSlotSelect.ToolsImages;
+        if (CurrentSlotSelect != null && isOpenInventory)
+        {
+            PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = CurrentSlotSelect.ToolsImages;
+        }
     }
 
 }

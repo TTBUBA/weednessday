@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+
 public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public SlootData slootData;
