@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 6a801dcd829239d41ad509e349623614
+guid: efdb61e1313ccff4dbc6890dd92cae61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -138416896358893855
-    second: SelectBox_0
+      213: 2287180073504147590
+    second: SpriteSheetWeed_0
   - first:
-      213: -7325837167177428444
-    second: SelectBox_1
+      213: 8337247842150439663
+    second: SpriteSheetWeed_1
   - first:
-      213: -1254668611328657186
-    second: SelectBox_2
+      213: -5879246955640051753
+    second: SpriteSheetWeed_2
   - first:
-      213: 6864426555185112062
-    second: SelectBox_3
+      213: 6777735484821835591
+    second: SpriteSheetWeed_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SelectBox_0
+      name: SpriteSheetWeed_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e6bd9de09e341ef0800000000000000
-      internalID: -138416896358893855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SelectBox_1
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.48088408, y: -0.000836504}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 422190019e5655a90800000000000000
-      internalID: -7325837167177428444
+      spriteID: 688019aa822bdbf10800000000000000
+      internalID: 2287180073504147590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SelectBox_2
+      name: SpriteSheetWeed_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed83ce6ab85869ee0800000000000000
-      internalID: -1254668611328657186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SelectBox_3
-      rect:
-        serializedVersion: 2
-        x: 9
+        x: 17
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 14
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.018916612}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef321982597534f50800000000000000
-      internalID: 6864426555185112062
+      spriteID: fead4c36dbad3b370800000000000000
+      internalID: 8337247842150439663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetWeed_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 14
+        height: 20
+      alignment: 9
+      pivot: {x: 0.53003913, y: -0.002748001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7274e1b08b86ea0800000000000000
+      internalID: -5879246955640051753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetWeed_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 17
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5449784, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f8d52738a5f0e50800000000000000
+      internalID: 6777735484821835591
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d186ca380889f304f93b3f7011ccbfd9
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SelectBox_0: -138416896358893855
-      SelectBox_1: -7325837167177428444
-      SelectBox_2: -1254668611328657186
-      SelectBox_3: 6864426555185112062
+      SpriteSheetWeed_0: 2287180073504147590
+      SpriteSheetWeed_1: 8337247842150439663
+      SpriteSheetWeed_2: -5879246955640051753
+      SpriteSheetWeed_3: 6777735484821835591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

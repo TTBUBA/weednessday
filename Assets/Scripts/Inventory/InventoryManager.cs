@@ -30,6 +30,11 @@ public class InventoryManager : MonoBehaviour
     public void OpenInventory()
     {
        PanelUi.SetActive(true);
+
+
+
+
+
        isOpenInventory = true;
     }
 

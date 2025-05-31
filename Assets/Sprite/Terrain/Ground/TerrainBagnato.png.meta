@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 6a801dcd829239d41ad509e349623614
+guid: 6daa7312677dc25428e7ea6ffaef9416
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -138416896358893855
-    second: SelectBox_0
-  - first:
-      213: -7325837167177428444
-    second: SelectBox_1
-  - first:
-      213: -1254668611328657186
-    second: SelectBox_2
-  - first:
-      213: 6864426555185112062
-    second: SelectBox_3
+      213: 306611863334689739
+    second: TerrainBagnato_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,35 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SelectBox_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e6bd9de09e341ef0800000000000000
-      internalID: -138416896358893855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SelectBox_1
+      name: TerrainBagnato_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 422190019e5655a90800000000000000
-      internalID: -7325837167177428444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SelectBox_2
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 8
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed83ce6ab85869ee0800000000000000
-      internalID: -1254668611328657186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SelectBox_3
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef321982597534f50800000000000000
-      internalID: 6864426555185112062
+      spriteID: bcb1cfd7ddd414400800000000000000
+      internalID: 306611863334689739
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SelectBox_0: -138416896358893855
-      SelectBox_1: -7325837167177428444
-      SelectBox_2: -1254668611328657186
-      SelectBox_3: 6864426555185112062
+      TerrainBagnato_0: 306611863334689739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8cd6d0c29c822489f57dd07e850469, type: 3}
   m_Name: Watering can
   m_EditorClassIdentifier: 
-  NameTools: Watering can
+  NameTools: WateringCan
   ToolsImages: {fileID: 9185831007109974393, guid: 8ab4d88372b28154fb32610a853ed432, type: 3}
   ToolsID: 2
