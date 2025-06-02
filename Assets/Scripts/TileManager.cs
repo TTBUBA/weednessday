@@ -10,6 +10,7 @@ public class TileManager : MonoBehaviour
     void Start()
     {
         DrawTile.gameObject.SetActive(false);
+
     }
 
     public void ActiveDrawTile()

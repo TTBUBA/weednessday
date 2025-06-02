@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -15,7 +15,7 @@ public class PlantSystem : MonoBehaviour
 
     [SerializeField] private bool ActivePlant;
     [SerializeField] private bool ActiveShovel;
-    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private Tilemap tilemapGround;
     [SerializeField] private Camera CamPlayer;
 
     [Header("Terrain-Tile")]
@@ -26,13 +26,15 @@ public class PlantSystem : MonoBehaviour
     [SerializeField] private GameObject SelectBox;
     [SerializeField] private GameObject PointPlat;
 
+    [SerializeField] private Plant plant; 
     private Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
     [SerializeField] private Vector3 MousePos;
     [SerializeField] private Vector3Int cellPos;
-    private TerrainState currentTerrainState = TerrainState.None;
+
 
     //===Input System===//
     [SerializeField] private InputActionReference ButtPlant;
+    [SerializeField] private InputActionReference buttCollect;
 
     public enum TerrainState
     {
@@ -46,24 +48,52 @@ public class PlantSystem : MonoBehaviour
     {
         ButtPlant.action.Enable();
         ButtPlant.action.performed += Plant;
+        buttCollect.action.Enable();
+        buttCollect.action.performed += CollectPlant;
     }
     private void OnDisable()
     {
         ButtPlant.action.Disable();
         ButtPlant.action.performed -= Plant;
+        buttCollect.action.Enable();
+        buttCollect.action.performed += CollectPlant;
+    }
+
+    private void Awake()
+    {
+        BoundsInt bounds = tilemapGround.cellBounds;    
+        for(int x = bounds.xMin; x < bounds.xMax; x++)
+        {
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
+            {
+                Vector3Int pos = new Vector3Int(x, y, 0);
+                TileBase tile = tilemapGround.GetTile(pos);
+                if (tile != null)
+                {
+                    //CellOccupate[cell] = new WeedData { StateTerrain = TerrainState.None }; 
+                    GameObject plant = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(pos), Quaternion.identity);
+                    plant.transform.parent = PointPlat.transform; 
+                }
+            }
+        }
     }
     void Update()
     {
         MousePos = Mouse.current.position.ReadValue();
         MousePos = CamPlayer.ScreenToWorldPoint(MousePos);
-        cellPos = tilemap.WorldToCell(MousePos);
-        SelectBox.transform.position = tilemap.GetCellCenterWorld(cellPos);
+        cellPos = tilemapGround.WorldToCell(MousePos);
+        SelectBox.transform.position = tilemapGround.GetCellCenterWorld(cellPos);
     }
 
     //checks the terrain state of the cell at the given position
     private TerrainState GetTerrainState(Vector3Int cell)
     {
         return CellOccupate.TryGetValue(cell, out WeedData data) ? data.StateTerrain : TerrainState.None;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        plant = collision.GetComponent<Plant>();
     }
     private void Plant(InputAction.CallbackContext context)
     {
@@ -86,28 +116,42 @@ public class PlantSystem : MonoBehaviour
         // Check if the terrain is dry before planting
         if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
         {
-            GameObject plant = Instantiate(WeedPlant, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
-            plant.GetComponent<Plant>().GrowthPlant(); // Start the growth process of the plant
-            plant.transform.parent = PointPlat.transform; // set parent to PointPlat
             /*
-            GameObject weed = new GameObject("Weed");
-            weed.transform.position = tilemap.GetCellCenterWorld(cellPos);
-            SpriteRenderer spriteRenderer = weed.AddComponent<SpriteRenderer>();
-            spriteRenderer.sortingOrder = 2;
-            spriteRenderer.transform.parent = PointPlat.transform;// set parent to PointPlat
-            spriteRenderer.sprite = Weed;
-            */
-            CellOccupate[cellPos] = new WeedData {WeedObject = plant, StateTerrain = TerrainState.planted };//set the terrain state to planted
+           GameObject plant = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(cellPos), Quaternion.identity);
+           plant.transform.parent = PointPlat.transform; // set parent to PointPlat
+           GameObject weed = new GameObject("Weed");
+           weed.transform.position = tilemap.GetCellCenterWorld(cellPos);
+           SpriteRenderer spriteRenderer = weed.AddComponent<SpriteRenderer>();
+           spriteRenderer.sortingOrder = 2;
+           spriteRenderer.transform.parent = PointPlat.transform;// set parent to PointPlat
+           spriteRenderer.sprite = Weed;
+           */
+            plant.GetComponent<Plant>().GrowthPlant(); // Start the growth process of the plant
+            CellOccupate[cellPos] = new WeedData {WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
             if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
         }
     }
 
+    private void CollectPlant(InputAction.CallbackContext context)
+    {
+        var Inventory = InventoryManager.Instance.CurrentSlotSelect;
+
+        if (GetTerrainState(cellPos) == TerrainState.planted && Inventory.NameTools == "Basket" && plant.FinishGrowth)
+        {
+            plant.GetComponent<Plant>().ResetPlant(); 
+            CellOccupate[cellPos] = new WeedData
+            {
+                StateTerrain = TerrainState.None
+            };
+            CellOccupate.Remove(cellPos); 
+            tilemapGround.SetTile(cellPos, WetTile);
+        }
+    }
     private void HoeTerrain()
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
         {
-            tilemap.SetTile(cellPos, DryTile);
-            currentTerrainState = TerrainState.Dry;
+            tilemapGround.SetTile(cellPos, DryTile);
             CellOccupate[cellPos] = new WeedData
             {
                 StateTerrain = TerrainState.Dry
@@ -119,8 +163,7 @@ public class PlantSystem : MonoBehaviour
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry)
         {
-            tilemap.SetTile(cellPos, WetTile);
-            currentTerrainState = TerrainState.wet;
+            tilemapGround.SetTile(cellPos, WetTile);
             CellOccupate[cellPos] = new WeedData
             {
                 StateTerrain = TerrainState.wet
