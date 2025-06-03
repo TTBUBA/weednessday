@@ -7,12 +7,16 @@ public class InputManager : MonoBehaviour
     [Header("Input-Inventory")]
     [SerializeField] private InputActionReference Butt_OpenInventory;
 
+    [Header("Input-PlacementObject")]
+    [SerializeField] private InputActionReference Butt_PlaceObject;
 
     private void OnEnable()
     {
         Butt_OpenInventory.action.Enable();
         Butt_OpenInventory.action.performed += OnOpenInventory;
         Butt_OpenInventory.action.canceled += OnCloseInventory;
+        Butt_PlaceObject.action.Enable();
+        Butt_PlaceObject.action.performed += PlaceObject;
     }
 
     private void OnDisable()
@@ -20,6 +24,8 @@ public class InputManager : MonoBehaviour
         Butt_OpenInventory.action.Disable();
         Butt_OpenInventory.action.performed -= OnOpenInventory;
         Butt_OpenInventory.action.canceled -= OnCloseInventory;
+        Butt_PlaceObject.action.Disable();
+        Butt_PlaceObject.action.performed -= PlaceObject;
     }
 
     public void OnOpenInventory(InputAction.CallbackContext context)
@@ -31,5 +37,14 @@ public class InputManager : MonoBehaviour
     {
         InventoryManager.Instance.CloseInventory();
     }
+
+    public void PlaceObject(InputAction.CallbackContext context)
+    {
+        PlacementManager.Instance.PlaceObject();
+        //Debug.Log("Object Placed at: " + PlacementManager.Instance.CurrentplaceableObject.Object.name);
+        Debug.Log("Click");
+    }
+
+
 }
 

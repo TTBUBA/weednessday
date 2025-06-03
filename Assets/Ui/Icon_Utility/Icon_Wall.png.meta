@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa0b9f64cc15c5d479ab390658878c5a
+guid: b12742f0cec7f6544969f2eb81e4a5ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3797251272856746426
-    second: Assaut-rifle-1_0
+      213: -6026266321714558976
+    second: Icon_Wall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Assaut-rifle-1_0
+      name: Icon_Wall_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
-        width: 64
-        height: 22
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab9b689f9eb82b430800000000000000
-      internalID: 3797251272856746426
+      spriteID: 008cd4c75b66e5ca0800000000000000
+      internalID: -6026266321714558976
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dd241dc90b42dba4cb4b965a662ba434
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Assaut-rifle-1_0: 3797251272856746426
+      Icon_Wall_0: -6026266321714558976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

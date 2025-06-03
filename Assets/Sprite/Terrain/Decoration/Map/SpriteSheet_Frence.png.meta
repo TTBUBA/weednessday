@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa0b9f64cc15c5d479ab390658878c5a
+guid: c30260450b25d5f469cec42d31171985
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3797251272856746426
-    second: Assaut-rifle-1_0
+      213: -3085621016084161151
+    second: SpriteSheet_Frence_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Assaut-rifle-1_0
+      name: SpriteSheet_Frence_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 64
-        height: 22
+        x: 3
+        y: 16
+        width: 58
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab9b689f9eb82b430800000000000000
-      internalID: 3797251272856746426
+      spriteID: 18dd2d0c80cad25d0800000000000000
+      internalID: -3085621016084161151
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Assaut-rifle-1_0: 3797251272856746426
+      SpriteSheet_Frence_0: -3085621016084161151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
