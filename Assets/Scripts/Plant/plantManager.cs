@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
-public class PlantSystem : MonoBehaviour
+public class PlantManager : MonoBehaviour
 {
     //use this struct to store weed data for use in the dictionary
     public struct WeedData
@@ -55,8 +54,8 @@ public class PlantSystem : MonoBehaviour
     {
         ButtPlant.action.Disable();
         ButtPlant.action.performed -= Plant;
-        buttCollect.action.Enable();
-        buttCollect.action.performed += CollectPlant;
+        buttCollect.action.Disable();
+        buttCollect.action.performed -= CollectPlant;
     }
 
     private void Awake()

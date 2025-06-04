@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d5743bc6050a65469e1f0f8cd02872c, type: 3}
-  m_Name: Wall
+  m_Name: Fence
   m_EditorClassIdentifier: 
-  UtilityName: Wall
+  UtilityName: Fence
   UtilityDescription: 
-  UtilityIcon: {fileID: -6026266321714558976, guid: b12742f0cec7f6544969f2eb81e4a5ba, type: 3}
+  UtilityIcon: {fileID: -155257334527174606, guid: a4ccd5ca48fb5434fa18d003e4b61d84, type: 3}
   UtilityID: 0
   UtilityCost: 10
-  Object: {fileID: 11400000, guid: 5fbaec303eeee2f4ca98213429310169, type: 2}
+  Object: {fileID: 11400000, guid: 25875e8901270c542827c66905fdfab6, type: 2}

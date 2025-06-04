@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class PlacedObject : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
+public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     public PlaceableObjectData placeableObjectData;
     public Image Icon;
@@ -12,6 +12,7 @@ public class PlacedObject : MonoBehaviour,IPointerEnterHandler, IPointerExitHand
     {
         Icon.sprite = placeableObjectData.UtilityIcon;
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         PlacementManager.Instance.CurrentplaceableObject = placeableObjectData;
@@ -23,6 +24,10 @@ public class PlacedObject : MonoBehaviour,IPointerEnterHandler, IPointerExitHand
         AnimPointerExit();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        PlacementManager.Instance.Panel_Utility.SetActive(false);
+    }
     private void AnimPointerEnter()
     {
         transform.DOScale(1.1f, 0.2f).SetEase(Ease.OutBack);
@@ -32,5 +37,4 @@ public class PlacedObject : MonoBehaviour,IPointerEnterHandler, IPointerExitHand
     {
         transform.DOScale(1.0f, 0.2f).SetEase(Ease.OutBack);
     }
-
 }

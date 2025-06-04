@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
@@ -9,14 +10,27 @@ public class InputManager : MonoBehaviour
 
     [Header("Input-PlacementObject")]
     [SerializeField] private InputActionReference Butt_PlaceObject;
+    [SerializeField] private InputActionReference Butt_RemoveObjectPlace;
+    [SerializeField] private InputActionReference Butt_OpenPanelUtility;
+    [SerializeField] private InputActionReference Butt_ClosePanelUtility;
 
+    public PlacementManager PlacementManager;
     private void OnEnable()
     {
         Butt_OpenInventory.action.Enable();
         Butt_OpenInventory.action.performed += OnOpenInventory;
         Butt_OpenInventory.action.canceled += OnCloseInventory;
+
         Butt_PlaceObject.action.Enable();
+        Butt_RemoveObjectPlace.action.Enable();
         Butt_PlaceObject.action.performed += PlaceObject;
+        Butt_RemoveObjectPlace.action.performed += RemoveObjectPlace;
+
+
+        Butt_OpenPanelUtility.action.Enable();
+        Butt_ClosePanelUtility.action.Enable();
+        Butt_OpenPanelUtility.action.performed += OnOpenPanelUtitli;
+        Butt_ClosePanelUtility.action.performed += OnClosePanelUtitli;
     }
 
     private void OnDisable()
@@ -24,8 +38,16 @@ public class InputManager : MonoBehaviour
         Butt_OpenInventory.action.Disable();
         Butt_OpenInventory.action.performed -= OnOpenInventory;
         Butt_OpenInventory.action.canceled -= OnCloseInventory;
+
         Butt_PlaceObject.action.Disable();
+        Butt_RemoveObjectPlace.action.Disable();
         Butt_PlaceObject.action.performed -= PlaceObject;
+        Butt_RemoveObjectPlace.action.performed -= RemoveObjectPlace;
+
+        Butt_OpenPanelUtility.action.Disable();
+        Butt_ClosePanelUtility.action.Disable();
+        Butt_OpenPanelUtility.action.performed -= OnOpenPanelUtitli;
+        Butt_ClosePanelUtility.action.performed -= OnClosePanelUtitli;
     }
 
     public void OnOpenInventory(InputAction.CallbackContext context)
@@ -40,11 +62,20 @@ public class InputManager : MonoBehaviour
 
     public void PlaceObject(InputAction.CallbackContext context)
     {
-        PlacementManager.Instance.PlaceObject();
-        //Debug.Log("Object Placed at: " + PlacementManager.Instance.CurrentplaceableObject.Object.name);
-        Debug.Log("Click");
+        PlacementManager.PlaceObject();
+    }
+    private void RemoveObjectPlace(InputAction.CallbackContext context)
+    {
+        PlacementManager.RemoveObjectPlace();
+    }
+    public void OnOpenPanelUtitli(InputAction.CallbackContext context)
+    {
+        PlacementManager.ActivePanel();
     }
 
-
+    public void OnClosePanelUtitli(InputAction.CallbackContext context)
+    {
+        PlacementManager.DeactivePanel();
+    }
 }
 

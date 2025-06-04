@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RemoveObjetPlacement",
+                    "type": "Button",
+                    "id": "1d9eb8d1-25cb-42c5-b777-393a1d2ff241",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -306,11 +315,22 @@
                 {
                     "name": "",
                     "id": "d0c07d25-9afa-45da-8c6f-30ba13d93d58",
-                    "path": "<Keyboard>/h",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PlacementObjet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "010ce9ba-b0a9-44b3-be70-08b4f946cd39",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveObjetPlacement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -333,6 +353,24 @@
                     "name": "OpenInventory",
                     "type": "Button",
                     "id": "f019776f-d4d3-4eb4-a8f6-08c899a31712",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPanelUtilty",
+                    "type": "Button",
+                    "id": "43b0e1de-e70b-4f44-b04e-f23b891ec460",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClosePanelUtilty",
+                    "type": "Button",
+                    "id": "f23e0bc5-de6d-4cbe-abad-a21618fe20a0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -612,6 +650,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e16ed5ef-a811-48b5-b7d3-5a01bb04fa32",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelUtilty",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36ab9730-fe5a-45ba-b712-a18eeda298a0",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelUtilty",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b0fab08-db07-485d-bb6c-ca160baa3b98",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanelUtilty",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
