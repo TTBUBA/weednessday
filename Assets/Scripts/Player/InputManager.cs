@@ -14,7 +14,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputActionReference Butt_OpenPanelUtility;
     [SerializeField] private InputActionReference Butt_ClosePanelUtility;
 
+
     public PlacementManager PlacementManager;
+    public UiManager Uimanager;
     private void OnEnable()
     {
         Butt_OpenInventory.action.Enable();
@@ -52,14 +54,12 @@ public class InputManager : MonoBehaviour
 
     public void OnOpenInventory(InputAction.CallbackContext context)
     {
-        InventoryManager.Instance.OpenInventory();
+        Uimanager.OpenPanelInventory();
     }
-
     public void OnCloseInventory(InputAction.CallbackContext context)
     {
-        InventoryManager.Instance.CloseInventory();
+        Uimanager.ClosePanelInventory();
     }
-
     public void PlaceObject(InputAction.CallbackContext context)
     {
         PlacementManager.PlaceObject();
@@ -70,12 +70,11 @@ public class InputManager : MonoBehaviour
     }
     public void OnOpenPanelUtitli(InputAction.CallbackContext context)
     {
-        PlacementManager.ActivePanel();
+        Uimanager.OpenPanelUtilty();
     }
-
     public void OnClosePanelUtitli(InputAction.CallbackContext context)
     {
-        PlacementManager.DeactivePanel();
+        Uimanager.ClosePanelUtilty();
     }
 }
 

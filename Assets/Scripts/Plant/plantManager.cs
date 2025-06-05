@@ -13,7 +13,6 @@ public class PlantManager : MonoBehaviour
     }
 
     [SerializeField] private bool ActivePlant;
-    [SerializeField] private bool ActiveShovel;
     [SerializeField] private Tilemap tilemapGround;
     [SerializeField] private Camera CamPlayer;
 
@@ -27,14 +26,14 @@ public class PlantManager : MonoBehaviour
 
     [SerializeField] private Plant plant; 
     private Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
-    [SerializeField] private Vector3 MousePos;
-    [SerializeField] private Vector3Int cellPos;
+
 
 
     //===Input System===//
     [SerializeField] private InputActionReference ButtPlant;
     [SerializeField] private InputActionReference buttCollect;
 
+    public MouseManager MouseManager;
     public enum TerrainState
     {
         None,
@@ -76,13 +75,6 @@ public class PlantManager : MonoBehaviour
             }
         }
     }
-    void Update()
-    {
-        MousePos = Mouse.current.position.ReadValue();
-        MousePos = CamPlayer.ScreenToWorldPoint(MousePos);
-        cellPos = tilemapGround.WorldToCell(MousePos);
-        SelectBox.transform.position = tilemapGround.GetCellCenterWorld(cellPos);
-    }
 
     //checks the terrain state of the cell at the given position
     private TerrainState GetTerrainState(Vector3Int cell)
@@ -90,44 +82,39 @@ public class PlantManager : MonoBehaviour
         return CellOccupate.TryGetValue(cell, out WeedData data) ? data.StateTerrain : TerrainState.None;
     }
 
+    private Vector3Int cellPos => MouseManager.GetMousePosition();
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         plant = collision.GetComponent<Plant>();
     }
     private void Plant(InputAction.CallbackContext context)
     {
-        var Inventory = InventoryManager.Instance.CurrentSlotSelect;
-
-        if (!ActivePlant) return;
-
-        if (Inventory.NameTools == "Shovel")
+        if(!PlacementManager.Instance.DrawModeActive)
         {
-            HoeTerrain();
-            return;
-        }
+            var Inventory = InventoryManager.Instance.CurrentSlotSelect;
 
-        if (Inventory.NameTools == "WateringCan")
-        {
-            WetTerrain();
-            return;
-        }
+            if (!ActivePlant) return;
 
-        // Check if the terrain is dry before planting
-        if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
-        {
-            /*
-           GameObject plant = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(cellPos), Quaternion.identity);
-           plant.transform.parent = PointPlat.transform; // set parent to PointPlat
-           GameObject weed = new GameObject("Weed");
-           weed.transform.position = tilemap.GetCellCenterWorld(cellPos);
-           SpriteRenderer spriteRenderer = weed.AddComponent<SpriteRenderer>();
-           spriteRenderer.sortingOrder = 2;
-           spriteRenderer.transform.parent = PointPlat.transform;// set parent to PointPlat
-           spriteRenderer.sprite = Weed;
-           */
-            plant.GetComponent<Plant>().GrowthPlant(); // Start the growth process of the plant
-            CellOccupate[cellPos] = new WeedData {WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
-            if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
+            if (Inventory.NameTools == "Shovel")
+            {
+                HoeTerrain();
+                return;
+            }
+
+            if (Inventory.NameTools == "WateringCan")
+            {
+                WetTerrain();
+                return;
+            }
+
+            // Check if the terrain is dry before planting
+            if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
+            {
+                plant.GetComponent<Plant>().GrowthPlant(); // Start the growth process of the plant
+                CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
+                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
+            }
         }
     }
 
@@ -146,6 +133,8 @@ public class PlantManager : MonoBehaviour
             tilemapGround.SetTile(cellPos, WetTile);
         }
     }
+
+    //changing the state to dry if the player has a shovel and the terrain
     private void HoeTerrain()
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
@@ -158,6 +147,7 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    //changing the state to wet if the player has a watering can and the terrain is dry
     private void WetTerrain()
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry)

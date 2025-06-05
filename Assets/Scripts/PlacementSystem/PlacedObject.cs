@@ -8,6 +8,7 @@ public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHand
     public PlaceableObjectData placeableObjectData;
     public Image Icon;
 
+    public UiManager UiManager;
     void Start()
     {
         Icon.sprite = placeableObjectData.UtilityIcon;
@@ -26,7 +27,7 @@ public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PlacementManager.Instance.Panel_Utility.SetActive(false);
+        UiManager.Panel_Utility.SetActive(false);
     }
     private void AnimPointerEnter()
     {
