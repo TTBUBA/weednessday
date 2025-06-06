@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
+using UnityEngine.UI;
+
 
 public class UiManager : MonoBehaviour
 {
@@ -12,12 +15,18 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject Panel_Inventory;
     [SerializeField] private GameObject Butt_OpenPanel_Inventory;
 
+    [Header("Managers")]
+    [SerializeField] private Image BarLife;
+    [SerializeField] private TextMeshProUGUI Text_CurrentMoney;
+
 
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlacementManager placementManager;
+    [SerializeField] private PlayerManager playerManager;
     private void Update()
     {
-        UpdateUi();
+        UiInventory();
+        UiPlayer();
     }
 
     public void OpenPanelInventory()
@@ -54,11 +63,17 @@ public class UiManager : MonoBehaviour
         placementManager.DrawModeActive = false;
     }
 
-    private void UpdateUi()
+    private void UiInventory()
     {
         if (inventoryManager.CurrentSlotSelect != null && inventoryManager.isOpenInventory)
         {
             inventoryManager.PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = inventoryManager.CurrentSlotSelect.ToolsImages;
         }
+    }
+
+    private void UiPlayer()
+    {
+        BarLife.fillAmount = playerManager.PlayerLife;
+        Text_CurrentMoney.text = playerManager.CurrentMoney.ToString();
     }
 }
