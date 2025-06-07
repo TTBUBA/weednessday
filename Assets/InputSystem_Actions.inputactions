@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Collect",
+                    "name": "CollectPlant",
                     "type": "Button",
                     "id": "2e0065ac-89da-4fe8-ac12-41f0b93c9abd",
                     "expectedControlType": "",
@@ -317,7 +317,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Collect",
+                    "action": "CollectPlant",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

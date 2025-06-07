@@ -14,9 +14,16 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputActionReference Butt_OpenPanelUtility;
     [SerializeField] private InputActionReference Butt_ClosePanelUtility;
 
+    [Header("Input-Player")]
+    [SerializeField] private InputActionReference Butt_PlantWeed;
+    [SerializeField] private InputActionReference Butt_CollectWeed;
 
+    
     public PlacementManager PlacementManager;
     public UiManager Uimanager;
+    public PlantManager PlantManager;
+
+
     private void OnEnable()
     {
         Butt_OpenInventory.action.Enable();
@@ -31,8 +38,14 @@ public class InputManager : MonoBehaviour
 
         Butt_OpenPanelUtility.action.Enable();
         Butt_ClosePanelUtility.action.Enable();
-        Butt_OpenPanelUtility.action.performed += OnOpenPanelUtitli;
-        Butt_ClosePanelUtility.action.performed += OnClosePanelUtitli;
+        Butt_OpenPanelUtility.action.performed += OnOpenPanelUtilty;
+        Butt_ClosePanelUtility.action.performed += OnCloseOpenPanelUtilty;
+
+        Butt_PlantWeed.action.Enable();
+        Butt_PlantWeed.action.performed += PlantWeed;
+        Butt_CollectWeed.action.Enable();
+        Butt_CollectWeed.action.performed += CollectWeed;
+
     }
 
     private void OnDisable()
@@ -48,8 +61,13 @@ public class InputManager : MonoBehaviour
 
         Butt_OpenPanelUtility.action.Disable();
         Butt_ClosePanelUtility.action.Disable();
-        Butt_OpenPanelUtility.action.performed -= OnOpenPanelUtitli;
-        Butt_ClosePanelUtility.action.performed -= OnClosePanelUtitli;
+        Butt_OpenPanelUtility.action.performed -= OnOpenPanelUtilty;
+        Butt_ClosePanelUtility.action.performed -= OnCloseOpenPanelUtilty;
+
+        Butt_PlantWeed.action.Enable();
+        Butt_PlantWeed.action.performed -= PlantWeed;
+        Butt_CollectWeed.action.Enable();
+        Butt_CollectWeed.action.performed -= CollectWeed;
     }
 
     public void OnOpenInventory(InputAction.CallbackContext context)
@@ -62,19 +80,31 @@ public class InputManager : MonoBehaviour
     }
     public void PlaceObject(InputAction.CallbackContext context)
     {
+        if (!PlacementManager.IsPlacementActive) return;
         PlacementManager.PlaceObject();
     }
     private void RemoveObjectPlace(InputAction.CallbackContext context)
     {
+        if (!PlacementManager.IsPlacementActive) return;
         PlacementManager.RemoveObjectPlace();
     }
-    public void OnOpenPanelUtitli(InputAction.CallbackContext context)
+    public void OnOpenPanelUtilty(InputAction.CallbackContext context)
     {
         Uimanager.OpenPanelUtilty();
     }
-    public void OnClosePanelUtitli(InputAction.CallbackContext context)
+    public void OnCloseOpenPanelUtilty(InputAction.CallbackContext context)
     {
         Uimanager.ClosePanelUtilty();
+    }
+
+    public void PlantWeed(InputAction.CallbackContext context)
+    {
+        PlantManager.Plant();
+    }
+
+    public void CollectWeed(InputAction.CallbackContext context)
+    {
+        PlantManager.CollectPlant();
     }
 }
 

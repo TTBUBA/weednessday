@@ -31141,7 +31141,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 550786103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1709458331}
+        m_TargetAssemblyTypeName: PlacementManager, Assembly-CSharp
+        m_MethodName: SelectObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &550786103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31379,10 +31391,10 @@ RectTransform:
   - {fileID: 1335681756}
   m_Father: {fileID: 2104944761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 155, y: -125}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605247190
 MonoBehaviour:
@@ -31645,7 +31657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BUY
+  m_text: Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
   m_sharedMaterial: {fileID: 2797306205078824054, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
@@ -31789,7 +31801,7 @@ GameObject:
   - component: {fileID: 902087772}
   - component: {fileID: 902087771}
   m_Layer: 5
-  m_Name: Text_Space
+  m_Name: Text_SpaceOccupied
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31809,10 +31821,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1245872444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160, y: -170}
+  m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902087771
 MonoBehaviour:
@@ -31834,7 +31846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spazio occupato: 1x1'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
   m_sharedMaterial: {fileID: 2797306205078824054, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
@@ -31928,7 +31940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &962989239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32238,6 +32250,10 @@ MonoBehaviour:
   Panel_Utility: {fileID: 962989238}
   Butt_OpenPanelUtilty: {fileID: 1031864135}
   DrawTile: {fileID: 1262022864}
+  ImgCurrentUtily: {fileID: 561733147}
+  Text_UtilityName: {fileID: 1547157281}
+  Text_UtilitySpaceOccupied: {fileID: 902087771}
+  Text_UtilityCost: {fileID: 1746944037}
   Panel_Inventory: {fileID: 1498654693}
   Butt_OpenPanel_Inventory: {fileID: 2142337792}
   BarLife: {fileID: 631001156}
@@ -61172,7 +61188,7 @@ GameObject:
   - component: {fileID: 1470451439}
   - component: {fileID: 1470451438}
   m_Layer: 5
-  m_Name: BackGroundUtility_Upgrade
+  m_Name: BackGroundUtility_Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61309,10 +61325,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1245872444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160, y: -40}
+  m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547157281
 MonoBehaviour:
@@ -61334,7 +61350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wall
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
   m_sharedMaterial: {fileID: 2797306205078824054, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
@@ -61824,9 +61840,8 @@ MonoBehaviour:
   SelectBox: {fileID: 2044702033}
   PointPlat: {fileID: 467460815}
   plant: {fileID: 0}
-  ButtPlant: {fileID: 344403403055412702, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  buttCollect: {fileID: -6623671053449922792, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   MouseManager: {fileID: 1709458333}
+  placementManager: {fileID: 1709458331}
 --- !u!61 &1709458330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61886,10 +61901,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentplaceableObject: {fileID: 0}
+  PanelUtilty: {fileID: 962989238}
   CamPlayer: {fileID: 519420031}
   Tm_ObjectPlacement: {fileID: 2001638912}
   DrawModeActive: 0
+  IsPlacementActive: 0
   MouseManager: {fileID: 1709458333}
+  PlayerManager: {fileID: 1709458334}
+  plantManager: {fileID: 1709458329}
 --- !u!114 &1709458332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61908,8 +61927,11 @@ MonoBehaviour:
   Butt_RemoveObjectPlace: {fileID: -2269956332936852862, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_OpenPanelUtility: {fileID: 5231421435439689416, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_ClosePanelUtility: {fileID: -5570976641474679850, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
+  Butt_PlantWeed: {fileID: 344403403055412702, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
+  Butt_CollectWeed: {fileID: -6623671053449922792, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   PlacementManager: {fileID: 1709458331}
   Uimanager: {fileID: 1223114008}
+  PlantManager: {fileID: 1709458329}
 --- !u!114 &1709458333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62044,12 +62066,12 @@ GameObject:
   - component: {fileID: 1746944038}
   - component: {fileID: 1746944037}
   m_Layer: 5
-  m_Name: Text_Resistenza
+  m_Name: Text_Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1746944036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62089,7 +62111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resistenza
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
   m_sharedMaterial: {fileID: 2797306205078824054, guid: 3d492db21a2180e4299b6cc29980edfe, type: 2}
@@ -62921,10 +62943,10 @@ RectTransform:
   - {fileID: 261989570}
   m_Father: {fileID: 2104944761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 385, y: -125}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079578868
 MonoBehaviour:

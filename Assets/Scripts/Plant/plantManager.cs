@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class PlantManager : MonoBehaviour
@@ -25,36 +24,16 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private GameObject PointPlat;
 
     [SerializeField] private Plant plant; 
-    private Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
-
-
-
-    //===Input System===//
-    [SerializeField] private InputActionReference ButtPlant;
-    [SerializeField] private InputActionReference buttCollect;
+    public Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
 
     public MouseManager MouseManager;
+    public PlacementManager placementManager;
     public enum TerrainState
     {
         None,
         Dry,
         wet,
         planted
-    }
-
-    private void OnEnable()
-    {
-        ButtPlant.action.Enable();
-        ButtPlant.action.performed += Plant;
-        buttCollect.action.Enable();
-        buttCollect.action.performed += CollectPlant;
-    }
-    private void OnDisable()
-    {
-        ButtPlant.action.Disable();
-        ButtPlant.action.performed -= Plant;
-        buttCollect.action.Disable();
-        buttCollect.action.performed -= CollectPlant;
     }
 
     private void Awake()
@@ -88,9 +67,10 @@ public class PlantManager : MonoBehaviour
     {
         plant = collision.GetComponent<Plant>();
     }
-    private void Plant(InputAction.CallbackContext context)
+
+    public void Plant()
     {
-        if(!PlacementManager.Instance.DrawModeActive)
+        if(!PlacementManager.Instance.DrawModeActive && !placementManager.CellOccupateObj.ContainsKey(cellPos))
         {
             var Inventory = InventoryManager.Instance.CurrentSlotSelect;
 
@@ -118,7 +98,7 @@ public class PlantManager : MonoBehaviour
         }
     }
 
-    private void CollectPlant(InputAction.CallbackContext context)
+    public void CollectPlant()
     {
         var Inventory = InventoryManager.Instance.CurrentSlotSelect;
 

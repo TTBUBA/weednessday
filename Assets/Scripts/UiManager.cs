@@ -10,6 +10,10 @@ public class UiManager : MonoBehaviour
     public GameObject Panel_Utility;
     [SerializeField] private GameObject Butt_OpenPanelUtilty;
     [SerializeField] private Tilemap DrawTile;
+    [SerializeField] private Image ImgCurrentUtily;
+    [SerializeField] private TextMeshProUGUI Text_UtilityName;
+    [SerializeField] private TextMeshProUGUI Text_UtilitySpaceOccupied;
+    [SerializeField] private TextMeshProUGUI Text_UtilityCost;
 
     [Header("Panels-Inventory")]
     [SerializeField] private GameObject Panel_Inventory;
@@ -27,8 +31,18 @@ public class UiManager : MonoBehaviour
     {
         UiInventory();
         UiPlayer();
+        UiPanelUtilty();
     }
 
+    public void UiPanelUtilty()
+    {
+        if (!placementManager.CurrentplaceableObject) { return; }
+
+        ImgCurrentUtily.sprite = placementManager.CurrentplaceableObject.UtilityIcon;
+        Text_UtilityName.text = placementManager.CurrentplaceableObject.UtilityName;
+        Text_UtilitySpaceOccupied.text = "Space Occupied:" + placementManager.CurrentplaceableObject.SpaceOccupied;
+        Text_UtilityCost.text = "Price:" + placementManager.CurrentplaceableObject.Cost.ToString();
+    }
     public void OpenPanelInventory()
     {
         Panel_Inventory.SetActive(true);
@@ -44,7 +58,6 @@ public class UiManager : MonoBehaviour
         Butt_OpenPanelUtilty.SetActive(true);
         inventoryManager.isOpenInventory = false;
     }
-
     public void OpenPanelUtilty()
     {
         Panel_Utility.SetActive(true);
@@ -53,7 +66,6 @@ public class UiManager : MonoBehaviour
         DrawTile.gameObject.SetActive(true);
         placementManager.DrawModeActive = true;
     }
-
     public void ClosePanelUtilty()
     {
         Panel_Utility.SetActive(false);
@@ -62,7 +74,6 @@ public class UiManager : MonoBehaviour
         DrawTile.gameObject.SetActive(false);
         placementManager.DrawModeActive = false;
     }
-
     private void UiInventory()
     {
         if (inventoryManager.CurrentSlotSelect != null && inventoryManager.isOpenInventory)
@@ -70,7 +81,6 @@ public class UiManager : MonoBehaviour
             inventoryManager.PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = inventoryManager.CurrentSlotSelect.ToolsImages;
         }
     }
-
     private void UiPlayer()
     {
         BarLife.fillAmount = playerManager.PlayerLife;

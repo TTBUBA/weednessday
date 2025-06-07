@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   UtilityName: Wall
+  SpaceOccupied: 1x1
   UtilityDescription: 
-  UtilityIcon: {fileID: -6026266321714558976, guid: b12742f0cec7f6544969f2eb81e4a5ba, type: 3}
   UtilityID: 0
-  UtilityCost: 10
+  Cost: 15
+  UtilityIcon: {fileID: -6026266321714558976, guid: b12742f0cec7f6544969f2eb81e4a5ba, type: 3}
   Object: {fileID: 11400000, guid: 5fbaec303eeee2f4ca98213429310169, type: 2}

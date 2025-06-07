@@ -14,9 +14,13 @@ public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHand
         Icon.sprite = placeableObjectData.UtilityIcon;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         PlacementManager.Instance.CurrentplaceableObject = placeableObjectData;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
         AnimPointerEnter();
     }
 
@@ -25,10 +29,6 @@ public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHand
         AnimPointerExit();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        UiManager.Panel_Utility.SetActive(false);
-    }
     private void AnimPointerEnter()
     {
         transform.DOScale(1.1f, 0.2f).SetEase(Ease.OutBack);

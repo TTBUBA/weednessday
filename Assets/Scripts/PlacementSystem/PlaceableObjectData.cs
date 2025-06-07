@@ -4,10 +4,11 @@ using UnityEngine;
 public class PlaceableObjectData : ScriptableObject
 {
     public string UtilityName;
+    public string SpaceOccupied;
     public string UtilityDescription;
-    public Sprite UtilityIcon;
     public int UtilityID;
-    public int UtilityCost;
+    public int Cost;
+    public Sprite UtilityIcon;
     public RuleTile Object;
 
 }
