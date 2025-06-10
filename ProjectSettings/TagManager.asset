@@ -44,5 +44,11 @@ TagManager:
   - name: Up
     uniqueID: 393169221
     locked: 0
+  - name: obj_Placement
+    uniqueID: 3412122331
+    locked: 0
+  - name: Ui
+    uniqueID: 1491425937
+    locked: 0
   m_RenderingLayers:
   - Default

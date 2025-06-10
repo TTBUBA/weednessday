@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 052dd933718cea644a2dcc2e91f27ed3
+guid: f50bff2993ed3064d9536d70b8556628
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Barile_Produzione
+  - name: Cella3
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.53846157, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 20
+      width: 26
       height: 32
-    spriteID: d4b91f8ef093bb044a6b8be065673c19
+    spriteID: 3240ce34a3e29f441940653f53400dbd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3963314969
+      value0: 1301445798
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Barile_Produzione
+    name: Cella3
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Barile_Produzione
+    - name: Incubatrice
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 6
+        x: 2
         y: 0
-        width: 20
+        width: 26
         height: 32
-      spriteId: d4b91f8ef093bb044a6b8be065673c19
+      spriteId: 3240ce34a3e29f441940653f53400dbd
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -182,4 +182,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 32, y: 64}
+  previousTextureSize: {x: 64, y: 64}

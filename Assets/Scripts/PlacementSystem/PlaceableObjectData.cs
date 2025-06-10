@@ -9,6 +9,7 @@ public class PlaceableObjectData : ScriptableObject
     public int UtilityID;
     public int Cost;
     public Sprite UtilityIcon;
+    public GameObject UtilityPrefab;
     public RuleTile Object;
 
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 82839f9ff666c2f4a9888634459c51c7
+guid: 36fa89bf1307b2a49a20a01e59fb641b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 921866815035661258
-    second: PanelSolar_0
+      213: 3564591858580322509
+    second: Pozzo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PanelSolar_0
+      name: Pozzo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 5
+        y: 3
+        width: 22
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: acbdb68ebf02bcc00800000000000000
-      internalID: 921866815035661258
+      spriteID: dc8fdebc869f77130800000000000000
+      internalID: 3564591858580322509
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PanelSolar_0: 921866815035661258
+      Pozzo_0: 3564591858580322509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

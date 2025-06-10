@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de459b2de634cda4592b23b3e0c80366
+guid: 3ccbb86ef4cf27649b139db184805509
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7639968752368290038
-    second: Barile_Produzione_0
+      213: 9082429109045791810
+    second: Laser_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barile_Produzione_0
+      name: Laser_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 22
-        height: 32
+        x: 1
+        y: 1
+        width: 31
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a07f004e5e069f590800000000000000
-      internalID: -7639968752368290038
+      spriteID: 24c875667254b0e70800000000000000
+      internalID: 9082429109045791810
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barile_Produzione_0: -7639968752368290038
+      Laser_0: 9082429109045791810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

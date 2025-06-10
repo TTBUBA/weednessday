@@ -5,6 +5,8 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    [SerializeField] private SlootManager[] slootManager;
+
     [Header("Player")]
     public GameObject PlayerObjSelect;
 

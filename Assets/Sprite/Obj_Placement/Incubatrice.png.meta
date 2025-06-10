@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0164471925963224e872573b9ab3ae7c
+guid: ab09930a358b43743944750f08628bd5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1133053759056385186
-    second: Cella_0
+      213: 4327675445959388729
+    second: Cella_Glass_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cella_0
+      name: Incubatrice
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 57
-        height: 47
+        x: 1
+        y: 0
+        width: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5be50cfb959640f0800000000000000
-      internalID: -1133053759056385186
+      spriteID: 93ee69b93edfe0c30800000000000000
+      internalID: 4327675445959388729
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cella_0: -1133053759056385186
+      Incubatrice: 4327675445959388729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

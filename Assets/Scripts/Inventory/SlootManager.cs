@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public SlootData slootData;
+    public bool IsStorageSlot = false;
+    public Image iconTools;
 
+    private void Awake()
+    {
+        iconTools.sprite = slootData.ToolsImages;
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         InventoryManager.Instance.CurrentSlotSelect = slootData;
