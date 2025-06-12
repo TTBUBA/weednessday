@@ -32529,7 +32529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a3fd2b8c76a64bac18ab0fa5b9942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slootData: {fileID: 11400000, guid: 8fdb84792fd2b6d4a80ea35ca97cfe4f, type: 2}
+  slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
   iconTools: {fileID: 12664851}
