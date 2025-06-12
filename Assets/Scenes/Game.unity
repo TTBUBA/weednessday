@@ -32529,7 +32529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a3fd2b8c76a64bac18ab0fa5b9942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slootData: {fileID: 0}
+  slootData: {fileID: 11400000, guid: 8fdb84792fd2b6d4a80ea35ca97cfe4f, type: 2}
   CurrentStorage: 0
   StorageFull: 0
   iconTools: {fileID: 12664851}
@@ -32816,7 +32816,6 @@ MonoBehaviour:
   CurrentSlotSelect: {fileID: 0}
   Obj:
   - {fileID: 11400000, guid: 96be0219452887541aa0f02cf040e8a3, type: 2}
-  - {fileID: 11400000, guid: 1da8be2ebbcfb344ab2ecf0053ba7109, type: 2}
   weed: {fileID: 11400000, guid: 96be0219452887541aa0f02cf040e8a3, type: 2}
   IdSlotCurrent: 0
   isOpenInventory: 0
@@ -64955,7 +64954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a3fd2b8c76a64bac18ab0fa5b9942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slootData: {fileID: 0}
+  slootData: {fileID: 11400000, guid: 96be0219452887541aa0f02cf040e8a3, type: 2}
   CurrentStorage: 0
   StorageFull: 0
   iconTools: {fileID: 1478623511}

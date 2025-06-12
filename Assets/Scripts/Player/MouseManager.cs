@@ -49,4 +49,9 @@ public class MouseManager : MonoBehaviour
         return cellPos;
     }
 
+    public Vector3 GetMouseWorldPosition()
+    {
+        return MousePos;
+    }
+
 }

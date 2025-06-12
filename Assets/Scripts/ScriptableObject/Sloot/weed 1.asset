@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f8cd6d0c29c822489f57dd07e850469, type: 3}
-  m_Name: Watering can
+  m_Name: weed 1
   m_EditorClassIdentifier: 
-  NameTools: WateringCan
-  ToolsImages: {fileID: 9185831007109974393, guid: 8ab4d88372b28154fb32610a853ed432, type: 3}
-  ToolsID: 2
+  NameTools: Weed2
+  ToolsImages: {fileID: -7418158857583555208, guid: fcd345d12a0b12d44b042b575bb3efd9, type: 3}
+  ToolsID: 4
   MaxStorage: 10
-  itemType: 1
+  itemType: 0

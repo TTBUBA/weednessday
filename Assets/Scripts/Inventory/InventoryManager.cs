@@ -67,4 +67,23 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
+
+    public void DropItem(SlootManager fromSlot, SlootManager toSlot)
+    {
+        SlootData tempSlootData = fromSlot.slootData;
+        int tempStorage = fromSlot.CurrentStorage;
+        bool tempStorageFull = fromSlot.StorageFull;
+
+        fromSlot.slootData = toSlot.slootData;
+        fromSlot.CurrentStorage = toSlot.CurrentStorage;
+        fromSlot.StorageFull = toSlot.StorageFull;
+
+        toSlot.slootData = tempSlootData;
+        toSlot.CurrentStorage = tempStorage;
+        toSlot.StorageFull = tempStorageFull;
+
+        toSlot.UpdateSlot();
+        fromSlot.UpdateSlot();
+    }
+
 }
