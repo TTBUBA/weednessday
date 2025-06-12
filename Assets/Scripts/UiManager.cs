@@ -17,7 +17,6 @@ public class UiManager : MonoBehaviour
 
     [Header("Panels-Inventory")]
     [SerializeField] private GameObject Panel_Inventory;
-    [SerializeField] private GameObject Butt_OpenPanel_Inventory;
 
     [Header("Managers")]
     [SerializeField] private Image BarLife;
@@ -46,23 +45,18 @@ public class UiManager : MonoBehaviour
     public void OpenPanelInventory()
     {
         Panel_Inventory.SetActive(true);
-        Butt_OpenPanel_Inventory.SetActive(false);
-        Butt_OpenPanelUtilty.SetActive(false);
         inventoryManager.isOpenInventory = true;
 
     }
     public void ClosePanelInventory()
     {
         Panel_Inventory.SetActive(false);
-        Butt_OpenPanel_Inventory.SetActive(true);
-        Butt_OpenPanelUtilty.SetActive(true);
         inventoryManager.isOpenInventory = false;
     }
     public void OpenPanelUtilty()
     {
         Panel_Utility.SetActive(true);
         Butt_OpenPanelUtilty.SetActive(false);
-        Butt_OpenPanel_Inventory.SetActive(false);
         DrawTile.gameObject.SetActive(true);
         placementManager.DrawModeActive = true;
     }
@@ -70,7 +64,6 @@ public class UiManager : MonoBehaviour
     {
         Panel_Utility.SetActive(false);
         Butt_OpenPanelUtilty.SetActive(true);
-        Butt_OpenPanel_Inventory.SetActive(true);
         DrawTile.gameObject.SetActive(false);
         placementManager.DrawModeActive = false;
     }

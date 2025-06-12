@@ -2,21 +2,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using UnityEngine.UI;
-
+using TMPro;
 public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public SlootData slootData;
-    public bool IsStorageSlot = false;
+    public int CurrentStorage;
+    public bool StorageFull = false;
     public Image iconTools;
+    public TextMeshProUGUI CountText;
 
     private void Awake()
     {
-        iconTools.sprite = slootData.ToolsImages;
+        UpdateSlot();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         InventoryManager.Instance.CurrentSlotSelect = slootData;
-        InventoryManager.Instance.IdSlotCurrent = slootData.ToolsID;
         AnimationSlotEnter();
     }
 
@@ -36,6 +37,20 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private void AnimationSlotExit()
     {
         transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
+    }
+
+    public void UpdateSlot()
+    {
+        if(slootData != null)
+        {
+            iconTools.sprite = slootData.ToolsImages;
+            CountText.text = CurrentStorage.ToString();
+        }
+        else
+        {
+            iconTools.sprite = null;
+            CountText.text = string.Empty;
+        }
     }
 
 }

@@ -9,7 +9,7 @@ public class SlootData : ScriptableObject
     public string NameTools;
     public Sprite ToolsImages;
     public int ToolsID;
-    public int Count;
+    public int MaxStorage;
     public ItemType itemType;
 }
 
