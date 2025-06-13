@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenUtilty",
+                    "type": "Button",
+                    "id": "ae877d4f-ff12-42ee-b9f5-0563c0ae06d2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -373,6 +382,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31ad4040-6a0c-407a-b944-dd30cb96b9d4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenUtilty",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -692,17 +712,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e16ed5ef-a811-48b5-b7d3-5a01bb04fa32",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenPanelUtilty",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

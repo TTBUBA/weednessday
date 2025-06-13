@@ -18,11 +18,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputActionReference Butt_PlantWeed;
     [SerializeField] private InputActionReference Butt_CollectWeed;
 
-    
     public PlacementManager PlacementManager;
     public UiManager Uimanager;
-    public PlantManager PlantManager;
-
+    public PlantManager PlantManager; 
 
     private void OnEnable()
     {
@@ -96,12 +94,10 @@ public class InputManager : MonoBehaviour
     {
         Uimanager.ClosePanelUtilty();
     }
-
     public void PlantWeed(InputAction.CallbackContext context)
     {
         PlantManager.Plant();
     }
-
     public void CollectWeed(InputAction.CallbackContext context)
     {
         PlantManager.CollectPlant();

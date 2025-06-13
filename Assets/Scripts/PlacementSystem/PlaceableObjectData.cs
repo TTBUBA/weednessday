@@ -10,6 +10,12 @@ public class PlaceableObjectData : ScriptableObject
     public int Cost;
     public Sprite UtilityIcon;
     public GameObject UtilityPrefab;
+    public PlaceableObjectType Type;
     public RuleTile Object;
+}
 
+public enum PlaceableObjectType
+{
+    Utility,
+    Decoration
 }

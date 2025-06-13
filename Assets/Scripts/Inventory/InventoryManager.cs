@@ -7,12 +7,13 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     [SerializeField] private List<SlootManager> slootManager = new List<SlootManager>();
+    [SerializeField] private List<SlootManager> SlootChest = new List<SlootManager>();
+
 
     [Header("Player")]
     public GameObject PlayerObjSelect;
 
     public SlootData CurrentSlotSelect;
-
     public SlootData[] Obj;
     public SlootData weed;
     public int IdSlotCurrent;
