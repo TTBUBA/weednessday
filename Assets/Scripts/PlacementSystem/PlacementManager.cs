@@ -9,6 +9,7 @@ public class PlacementManager : MonoBehaviour
 
     [Header("Placement Settings")]
     public PlaceableObjectData CurrentplaceableObject;
+    public barrelSystem barrelsystem;
     [SerializeField] private GameObject PanelUtilty;
     [SerializeField] private Camera CamPlayer;
     [SerializeField] private Tilemap Tm_ObjectPlacement;
@@ -59,6 +60,7 @@ public class PlacementManager : MonoBehaviour
             Obj.transform.parent = ParentObjspawn.transform; 
             CellOccupateObj[cellpos] = CurrentplaceableObject;
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
+
 
             var barrel = Obj.GetComponent<barrelSystem>();
             if (barrel)

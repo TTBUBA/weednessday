@@ -35,6 +35,7 @@ public class barrelSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             IsOpen = false;
+            PanelSloot.SetActive(false);
         }
     }
 

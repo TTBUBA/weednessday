@@ -11,6 +11,7 @@ public class SlootData : ScriptableObject
     public int ToolsID;
     public int MaxStorage;
     public ItemType itemType;
+
 }
 
 public enum ItemType
