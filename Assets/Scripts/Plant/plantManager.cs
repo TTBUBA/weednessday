@@ -86,6 +86,7 @@ public class PlantManager : MonoBehaviour
             if (Inventory.NameTools == "WateringCan")
             {
                 WetTerrain();
+                if(WateringCan.waterAmount <= 0.1f) { return; } // Check if the watering can has water
                 WateringCan.Use(0.1f);
                 return;
             }

@@ -88,7 +88,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void UpdateSlot()
     {
-        if (slootData != null && slootData.itemType != ItemType.Static)
+        if (slootData != null && slootData.itemType != ItemType.Seed)
         {
             iconTools.sprite = slootData.ToolsImages;
             CountText.text = CurrentStorage > 0 ? CurrentStorage.ToString() : string.Empty;

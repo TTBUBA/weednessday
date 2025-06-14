@@ -18,10 +18,6 @@ public class WellSystem : MonoBehaviour
 
 
     [SerializeField] private Canvas canvas;
-
-    private SlootData slootData;
-    private bool IsCollision;
-
     private void Awake()
     {
         Butt_Refill.onClick.AddListener(ChargeWaterCan);
@@ -31,10 +27,7 @@ public class WellSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(InventoryManager.CurrentSlotSelect.NameTools == "WateringCan")
-            {
-                PanelBarWater.SetActive(true);
-            }
+            PanelBarWater.SetActive(true);
         }
     }
 
@@ -43,7 +36,6 @@ public class WellSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PanelBarWater.SetActive(false);
-            IsCollision = false;
         }
     }
     private void ChargeWaterCan()
@@ -61,10 +53,10 @@ public class WellSystem : MonoBehaviour
         }
     }
 
-    public void SetData(Camera camera, SlootData slootData, WateringCan wateringCan)
+    public void SetData(Camera camera, InventoryManager inventory, WateringCan wateringCan)
     {
         canvas.worldCamera = camera;
-        InventoryManager.CurrentSlotSelect = slootData;
+        InventoryManager = inventory;
         WateringCan = wateringCan;
     }
 }

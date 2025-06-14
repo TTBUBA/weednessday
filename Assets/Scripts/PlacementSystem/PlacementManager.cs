@@ -71,7 +71,7 @@ public class PlacementManager : MonoBehaviour
             }
             if (WellSystem)
             {
-                WellSystem.SetData(CamPlayer, InventoryManager.CurrentSlotSelect, WateringCan);
+                WellSystem.SetData(CamPlayer, InventoryManager, WateringCan);
             }
         }
     }
