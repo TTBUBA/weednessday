@@ -28,6 +28,7 @@ public class PlantManager : MonoBehaviour
 
     public MouseManager MouseManager;
     public PlacementManager placementManager;
+    public WateringCan WateringCan;
     public enum TerrainState
     {
         None,
@@ -85,6 +86,7 @@ public class PlantManager : MonoBehaviour
             if (Inventory.NameTools == "WateringCan")
             {
                 WetTerrain();
+                WateringCan.Use(0.1f);
                 return;
             }
 

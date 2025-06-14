@@ -26,7 +26,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (!isDragging)
         {
             InventoryManager.Instance.CurrentSlotSelect = slootData;
-            //AnimationSlotEnter();
+            AnimationSlotEnter();
         }
     }
 
@@ -34,9 +34,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (!isDragging)
         {
-            InventoryManager.Instance.CurrentSlotSelect = null;
-            InventoryManager.Instance.IdSlotCurrent = 0;
-            //AnimationSlotExit();
+            AnimationSlotExit();
         }
     }
 
@@ -90,17 +88,15 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void UpdateSlot()
     {
-        if (slootData != null)
+        if (slootData != null && slootData.itemType != ItemType.Static)
         {
             iconTools.sprite = slootData.ToolsImages;
             CountText.text = CurrentStorage > 0 ? CurrentStorage.ToString() : string.Empty;
-            iconTools.color = Color.white;
         }
         else
         {
             iconTools.sprite = null;
             CountText.text = string.Empty;
-            iconTools.color = Color.clear;
         }
     }
 }

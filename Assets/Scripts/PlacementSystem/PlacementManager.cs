@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -25,6 +24,8 @@ public class PlacementManager : MonoBehaviour
     public MouseManager MouseManager;
     public PlayerManager PlayerManager;
     public PlantManager plantManager;
+    public WateringCan WateringCan;
+    public InventoryManager InventoryManager;
     private void Awake()
     {
         Instance = this;
@@ -63,9 +64,14 @@ public class PlacementManager : MonoBehaviour
 
 
             var barrel = Obj.GetComponent<barrelSystem>();
+            var WellSystem = Obj.GetComponent<WellSystem>();
             if (barrel)
             {
                 barrel.SetCamera(CamPlayer);
+            }
+            if (WellSystem)
+            {
+                WellSystem.SetData(CamPlayer, InventoryManager.CurrentSlotSelect, WateringCan);
             }
         }
     }

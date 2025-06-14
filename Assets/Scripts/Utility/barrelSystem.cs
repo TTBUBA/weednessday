@@ -11,7 +11,7 @@ public class barrelSystem : MonoBehaviour
     [SerializeField] private bool IsOpen = false;
     [SerializeField] private Canvas canvas;
     [SerializeField] private InputActionReference Butt_OpenPanel;
-
+    [SerializeField] private InventoryManager InventoryManager;
     private void OnEnable()
     {
         Butt_OpenPanel.action.Enable();

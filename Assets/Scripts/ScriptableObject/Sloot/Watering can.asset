@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: WateringCan
   ToolsImages: {fileID: 9185831007109974393, guid: 8ab4d88372b28154fb32610a853ed432, type: 3}
   ToolsID: 2
-  MaxStorage: 10
+  MaxStorage: 0
   itemType: 1
