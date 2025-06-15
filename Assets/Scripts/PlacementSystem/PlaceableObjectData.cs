@@ -5,6 +5,7 @@ public class PlaceableObjectData : ScriptableObject
 {
     public string UtilityName;
     public string SpaceOccupied;
+    public int SpaceOccupiedX , SpaceOccupiedY;
     public string UtilityDescription;
     public int UtilityID;
     public int Cost;

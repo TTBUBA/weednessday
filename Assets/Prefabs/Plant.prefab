@@ -108,6 +108,7 @@ MonoBehaviour:
   - {fileID: -5879246955640051753, guid: efdb61e1313ccff4dbc6890dd92cae61, type: 3}
   - {fileID: 6777735484821835591, guid: efdb61e1313ccff4dbc6890dd92cae61, type: 3}
   CurrentIndex: 0
+  Time: 5
   FinishGrowth: 0
 --- !u!61 &5378579784784901307
 BoxCollider2D:

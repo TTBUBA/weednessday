@@ -88,15 +88,10 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void UpdateSlot()
     {
-        if (slootData != null && slootData.itemType != ItemType.Seed)
+        if (slootData != null)
         {
             iconTools.sprite = slootData.ToolsImages;
             CountText.text = CurrentStorage > 0 ? CurrentStorage.ToString() : string.Empty;
-        }
-        else
-        {
-            iconTools.sprite = null;
-            CountText.text = string.Empty;
         }
     }
 }

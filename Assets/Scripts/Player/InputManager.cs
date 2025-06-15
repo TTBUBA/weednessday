@@ -20,7 +20,8 @@ public class InputManager : MonoBehaviour
 
     public PlacementManager PlacementManager;
     public UiManager Uimanager;
-    public PlantManager PlantManager; 
+    public PlantManager PlantManager;
+    public InventoryManager InventoryManager;
 
     private void OnEnable()
     {
@@ -96,10 +97,13 @@ public class InputManager : MonoBehaviour
     }
     public void PlantWeed(InputAction.CallbackContext context)
     {
+        //if (InventoryManager.CurrentSlotSelect.NameTools != "Shovel")  return;
+        //if (InventoryManager.CurrentSlotSelect.NameTools != "WateringCan") return;
         PlantManager.Plant();
     }
     public void CollectWeed(InputAction.CallbackContext context)
     {
+        if(!PlantManager.plant.FinishGrowth) return;
         PlantManager.CollectPlant();
     }
 }

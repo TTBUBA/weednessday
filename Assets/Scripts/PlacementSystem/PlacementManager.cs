@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -19,7 +20,7 @@ public class PlacementManager : MonoBehaviour
     public bool IsPlacementActive = false;
 
     public Dictionary<Vector3Int, PlaceableObjectData> CellOccupateObj = new Dictionary<Vector3Int, PlaceableObjectData>();
-   
+    private int test;
     [Header("Managers")]
     public MouseManager MouseManager;
     public PlayerManager PlayerManager;
@@ -48,6 +49,7 @@ public class PlacementManager : MonoBehaviour
         if (CellOccupateObj.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied
         if (plantManager.CellOccupate.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied by a plant
 
+        //position of the object olnly is decoration 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Decoration)
         {
             Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
@@ -55,13 +57,13 @@ public class PlacementManager : MonoBehaviour
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
         }
 
+        //position of the object olnly is utility 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Utility)
         {
             GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
             Obj.transform.parent = ParentObjspawn.transform; 
             CellOccupateObj[cellpos] = CurrentplaceableObject;
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
-
 
             var barrel = Obj.GetComponent<barrelSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();

@@ -32210,7 +32210,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.109999895, y: 17.09, z: -10}
+  m_LocalPosition: {x: 1.3100014, y: 17.39, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65511,7 +65511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAmount: 100
-  maxWaterAmount: 10
   Text_CurrentWater: {fileID: 629548544}
 --- !u!1 &1438300445
 GameObject:
@@ -67155,7 +67154,7 @@ Transform:
   m_GameObject: {fileID: 1709458322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16.87, z: 0}
+  m_LocalPosition: {x: 1.2000008, y: 17.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -67352,6 +67351,7 @@ MonoBehaviour:
   PlacementManager: {fileID: 1709458331}
   Uimanager: {fileID: 1223114008}
   PlantManager: {fileID: 1709458329}
+  InventoryManager: {fileID: 0}
 --- !u!114 &1709458333
 MonoBehaviour:
   m_ObjectHideFlags: 0

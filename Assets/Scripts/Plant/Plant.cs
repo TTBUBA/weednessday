@@ -5,20 +5,11 @@ public class Plant : MonoBehaviour
 {
     [SerializeField] private Sprite[] plants;
     [SerializeField] private int CurrentIndex;
+    [SerializeField] public int time;
     [SerializeField] public bool FinishGrowth;
-
     public void GrowthPlant()
     {
         StartCoroutine(TimeGrowth());
-        
-        if(CurrentIndex >= plants.Length - 1)
-        {
-            FinishGrowth = true;
-        }
-        else
-        {
-            FinishGrowth = false;
-        }
     }
 
     public void ResetPlant()
@@ -33,9 +24,10 @@ public class Plant : MonoBehaviour
         while (CurrentIndex < plants.Length - 1)
         {
             GetComponent<SpriteRenderer>().sprite = plants[CurrentIndex];
-            yield return new WaitForSeconds(5f);
+            time = Random.Range(5, 10);
+            yield return new WaitForSeconds(time);
             CurrentIndex++;
         }
-
+        FinishGrowth = true;
     }
 }

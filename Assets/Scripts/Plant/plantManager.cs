@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -23,7 +24,7 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private GameObject SelectBox;
     [SerializeField] private GameObject PointPlat;
 
-    [SerializeField] private Plant plant; 
+    public Plant plant; 
     public Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
 
     public MouseManager MouseManager;
@@ -102,15 +103,16 @@ public class PlantManager : MonoBehaviour
     public void CollectPlant()
     {
         var Inventory = InventoryManager.Instance.CurrentSlotSelect;
-
+        Debug.Log(GetTerrainState(cellPos));
         if (GetTerrainState(cellPos) == TerrainState.planted && Inventory.NameTools == "Basket" && plant.FinishGrowth)
         {
-            plant.GetComponent<Plant>().ResetPlant(); 
+            Debug.Log(GetTerrainState(cellPos));
+            plant.GetComponent<Plant>().ResetPlant();
             CellOccupate[cellPos] = new WeedData
             {
                 StateTerrain = TerrainState.None
             };
-            CellOccupate.Remove(cellPos); 
+            CellOccupate.Remove(cellPos);
             tilemapGround.SetTile(cellPos, WetTile);
         }
     }
@@ -141,7 +143,25 @@ public class PlantManager : MonoBehaviour
             {
                 StateTerrain = TerrainState.wet
             };
-
+            StartCoroutine(changeStateTerrain());
         }
     }
+
+    IEnumerator changeStateTerrain()
+    {
+        float RandomValue = Random.Range(2, 3);
+        yield return new WaitForSeconds(RandomValue);
+        foreach (var cell in CellOccupate.Keys)
+        {
+            if (CellOccupate.TryGetValue(cell, out WeedData data) && data.StateTerrain == TerrainState.wet)
+            {
+                tilemapGround.SetTile(cell, DryTile);
+                CellOccupate[cellPos] = new WeedData
+                {
+                    StateTerrain = TerrainState.Dry
+                };
+            }
+        }
+    }
+
 }
