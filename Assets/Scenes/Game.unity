@@ -65510,7 +65510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b9bed4917f9204e91b8aa067366d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterAmount: 1
+  waterAmount: 100
+  maxWaterAmount: 10
   Text_CurrentWater: {fileID: 629548544}
 --- !u!1 &1438300445
 GameObject:

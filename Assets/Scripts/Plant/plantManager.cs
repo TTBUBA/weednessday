@@ -86,8 +86,6 @@ public class PlantManager : MonoBehaviour
             if (Inventory.NameTools == "WateringCan")
             {
                 WetTerrain();
-                if(WateringCan.waterAmount <= 0.1f) { return; } // Check if the watering can has water
-                WateringCan.Use(0.1f);
                 return;
             }
 
@@ -135,6 +133,9 @@ public class PlantManager : MonoBehaviour
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry)
         {
+            if (WateringCan.waterAmount <= 0f) { return; } // Check if the watering can has water
+            int RandomValue = Random.Range(1, 10);
+            WateringCan.Use(RandomValue);
             tilemapGround.SetTile(cellPos, WetTile);
             CellOccupate[cellPos] = new WeedData
             {

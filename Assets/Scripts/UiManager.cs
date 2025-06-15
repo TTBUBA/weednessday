@@ -22,10 +22,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Image BarLife;
     [SerializeField] private TextMeshProUGUI Text_CurrentMoney;
 
-
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlacementManager placementManager;
     [SerializeField] private PlayerManager playerManager;
+
     private void Update()
     {
         UiInventory();
@@ -74,7 +74,7 @@ public class UiManager : MonoBehaviour
             inventoryManager.PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = inventoryManager.CurrentSlotSelect.ToolsImages;
         }
     }
-
+    
     private void UiPlayer()
     {
         BarLife.fillAmount = playerManager.PlayerLife;

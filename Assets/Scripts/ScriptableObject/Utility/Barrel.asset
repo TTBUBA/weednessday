@@ -17,7 +17,7 @@ MonoBehaviour:
   UtilityDescription: 
   UtilityID: 0
   Cost: 15
-  UtilityIcon: {fileID: 0}
+  UtilityIcon: {fileID: 6525673820922262904, guid: 776e3786a11451d448fc03920d8c6fe6, type: 3}
   UtilityPrefab: {fileID: 2392837758880929816, guid: 8bf37e71c3f9183418bb5a84b2908a7c, type: 3}
   Type: 0
   Object: {fileID: 0}

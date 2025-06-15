@@ -76,15 +76,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "OpenUtilty",
-                    "type": "Button",
-                    "id": "ae877d4f-ff12-42ee-b9f5-0563c0ae06d2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -384,17 +375,6 @@
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "31ad4040-6a0c-407a-b944-dd30cb96b9d4",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenUtilty",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -433,6 +413,33 @@
                     "name": "ClosePanelUtilty",
                     "type": "Button",
                     "id": "f23e0bc5-de6d-4cbe-abad-a21618fe20a0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenUtilty",
+                    "type": "Button",
+                    "id": "a9d0ecc5-f271-419f-a5a7-520db736370b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClosePanelWater",
+                    "type": "Button",
+                    "id": "91e102f3-5de7-4608-801f-ede570e4eef9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPanelWater",
+                    "type": "Button",
+                    "id": "449f2ea1-c48f-4ecd-a279-ab84a88fa687",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -734,6 +741,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClosePanelUtilty",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5b646c1-454e-4db6-80b3-483f44c23ff9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenUtilty",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f23a447-ab65-4bd0-9279-e5cae24043fc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanelWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0bc92405-f72c-434d-b6c4-f823378fae4a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanelWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4276fad-ae32-4ffd-8459-c4688177ddd1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c39a9f2-a341-4aae-be69-0c1b593f7ec8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelWater",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

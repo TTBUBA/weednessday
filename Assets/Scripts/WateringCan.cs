@@ -4,21 +4,21 @@ using UnityEngine;
 public class WateringCan : MonoBehaviour
 {
     public static WateringCan Instance { get; private set; }
-    public float waterAmount = 1f;
+    public int waterAmount = 100;
     [SerializeField] private TextMeshProUGUI Text_CurrentWater;
 
-    public void Fill(float amount)
+    public void Fill(int amount)
     {
         waterAmount += amount;
     }
 
-    public void Use(float amount)
+    public void Use(int amount)
     {
         waterAmount -= amount;
     }
 
     private void Update()
     {
-        Text_CurrentWater.text = waterAmount.ToString();
+        Text_CurrentWater.text = waterAmount.ToString() + "%";
     }
 }
