@@ -31,7 +31,6 @@ public class PlacementManager : MonoBehaviour
     {
         Instance = this;
     }
-
     private Vector3Int cellpos => MouseManager.GetMousePosition();
 
     public void SelectObject()
@@ -49,22 +48,39 @@ public class PlacementManager : MonoBehaviour
         if (CellOccupateObj.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied
         if (plantManager.CellOccupate.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied by a plant
 
-        //position of the object olnly is decoration 
+        //position of the object only is decoration 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Decoration)
         {
             Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
-            CellOccupateObj[cellpos] = CurrentplaceableObject;
+
+            //this create a cube araund the object create
+            for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+            {
+                for (int y = -CurrentplaceableObject.SpaceOccupiedX; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                {
+                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                    CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                }
+            }
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
         }
 
-        //position of the object olnly is utility 
+        //position of the object only is utility 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Utility)
         {
             GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
             Obj.transform.parent = ParentObjspawn.transform; 
-            CellOccupateObj[cellpos] = CurrentplaceableObject;
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
 
+            //this create a cube around the object create
+            for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+            {
+                for (int y = -CurrentplaceableObject.SpaceOccupiedX; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                {
+                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                    CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                }
+            }
             var barrel = Obj.GetComponent<barrelSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();
             if (barrel)
@@ -83,7 +99,16 @@ public class PlacementManager : MonoBehaviour
         if (DrawModeActive)
         {
             Tm_ObjectPlacement.SetTile(cellpos, null);
-            CellOccupateObj.Remove(cellpos);
+
+            // Remove the object from the CellOccupateObj dictionary
+            for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+            {
+                for (int y = -CurrentplaceableObject.SpaceOccupiedX; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                {
+                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                    CellOccupateObj.Remove(cellpos + positionOffset);
+                }
+            }
         }
     }
 }

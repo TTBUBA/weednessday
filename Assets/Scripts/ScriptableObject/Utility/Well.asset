@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UtilityName: well
   SpaceOccupied: 1x1
+  SpaceOccupiedX: 2
+  SpaceOccupiedY: 2
   UtilityDescription: 
   UtilityID: 0
   Cost: 50
