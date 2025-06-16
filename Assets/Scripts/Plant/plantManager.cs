@@ -91,9 +91,20 @@ public class PlantManager : MonoBehaviour
             }
 
             // Check if the terrain is dry before planting
-            if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
+            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "Weed")
             {
-                plant.GetComponent<Plant>().GrowthPlant(); // Start the growth process of the plant
+                //StartCoroutine(DecisionTimeGrowth());
+                float Time = Random.Range(20f, 40f);
+                plant.GetComponent<Plant>().time = Time;
+                plant.GetComponent<Plant>().GrowthPlant(); // start the growth process of the plant
+                CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
+                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
+            }
+            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
+            {
+                float Time = Random.Range(5f, 10f);
+                plant.GetComponent<Plant>().time = Time;
+                plant.GetComponent<Plant>().GrowthPlant(); // start the growth process of the plant
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
             }
@@ -143,24 +154,21 @@ public class PlantManager : MonoBehaviour
             {
                 StateTerrain = TerrainState.wet
             };
-            StartCoroutine(changeStateTerrain());
+            StartCoroutine(changeStateTerrain(cellPos));
         }
     }
 
-    IEnumerator changeStateTerrain()
+    IEnumerator changeStateTerrain(Vector3Int cell)
     {
-        float RandomValue = Random.Range(2, 3);
+        float RandomValue = Random.Range(40, 200);
         yield return new WaitForSeconds(RandomValue);
-        foreach (var cell in CellOccupate.Keys)
+        if (CellOccupate.TryGetValue(cell, out WeedData data) && data.StateTerrain == TerrainState.wet)
         {
-            if (CellOccupate.TryGetValue(cell, out WeedData data) && data.StateTerrain == TerrainState.wet)
+            tilemapGround.SetTile(cell, DryTile);
+            CellOccupate[cell] = new WeedData
             {
-                tilemapGround.SetTile(cell, DryTile);
-                CellOccupate[cellPos] = new WeedData
-                {
-                    StateTerrain = TerrainState.Dry
-                };
-            }
+                StateTerrain = TerrainState.Dry
+            };
         }
     }
 

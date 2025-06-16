@@ -5,7 +5,7 @@ public class Plant : MonoBehaviour
 {
     [SerializeField] private Sprite[] plants;
     [SerializeField] private int CurrentIndex;
-    [SerializeField] public int time;
+    [SerializeField] public float time;
     [SerializeField] public bool FinishGrowth;
     public void GrowthPlant()
     {
@@ -24,7 +24,6 @@ public class Plant : MonoBehaviour
         while (CurrentIndex < plants.Length - 1)
         {
             GetComponent<SpriteRenderer>().sprite = plants[CurrentIndex];
-            time = Random.Range(5, 10);
             yield return new WaitForSeconds(time);
             CurrentIndex++;
         }
