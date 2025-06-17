@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class InventoryManager : MonoBehaviour 
 {
@@ -14,7 +13,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject PlayerObjSelect;
 
     public SlootData CurrentSlotSelect;
-    public SlootData[] Obj;
+    public SlootManager CurrentSlootManager;
+    public SlootData Seedweed;
     public SlootData weed;
     public int IdSlotCurrent;
     public bool isOpenInventory = false;
@@ -28,11 +28,19 @@ public class InventoryManager : MonoBehaviour
 
     public void Test()
     {
-        int i = Random.Range(0, Obj.Length);
-        SlootData data = Obj[i];
-        AddItem(data);
+        AddItem(Seedweed);
     }
 
+    public void Addweed()
+    {
+        AddItem(weed);
+    }
+
+    public void RemoveSeedWeed()
+    {
+        RemoveItem(Seedweed);
+        Debug.Log("Remove Seed Weed");
+    }
     public bool AddItem(SlootData item)
     {
         if(item.itemType != ItemType.Static)
@@ -68,7 +76,26 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
-
+    public bool RemoveItem(SlootData item)
+    {
+        if (item.itemType != ItemType.Static)
+        {
+            foreach (var slot in slootManager)
+            {
+                if (slot.slootData == item && slot.CurrentStorage < slot.slootData.MaxStorage)
+                {
+                    slot.CurrentStorage--;
+                    slot.UpdateSlot();
+                    if (slot.CurrentStorage >= slot.slootData.MaxStorage)
+                    {
+                        slot.StorageFull = true;
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public void DropItem(SlootManager fromSlot, SlootManager toSlot)
     {
         SlootData tempSlootData = fromSlot.slootData;

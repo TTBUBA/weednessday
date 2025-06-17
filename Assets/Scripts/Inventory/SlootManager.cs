@@ -26,6 +26,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (!isDragging)
         {
             InventoryManager.Instance.CurrentSlotSelect = slootData;
+            InventoryManager.Instance.CurrentSlootManager = this;
             AnimationSlotEnter();
         }
     }
@@ -90,8 +91,15 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (slootData != null)
         {
+            iconTools.gameObject.SetActive(true);
             iconTools.sprite = slootData.ToolsImages;
             CountText.text = CurrentStorage > 0 ? CurrentStorage.ToString() : string.Empty;
+        }
+        else
+        {
+            iconTools.gameObject.SetActive(false);
+            iconTools.sprite = null;
+            CountText.text = string.Empty;
         }
     }
 }

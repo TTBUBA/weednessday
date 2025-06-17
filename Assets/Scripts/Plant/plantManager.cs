@@ -30,6 +30,7 @@ public class PlantManager : MonoBehaviour
     public MouseManager MouseManager;
     public PlacementManager placementManager;
     public WateringCan WateringCan;
+    public InventoryManager InventoryManager;
     public enum TerrainState
     {
         None,
@@ -75,6 +76,7 @@ public class PlantManager : MonoBehaviour
         if(!PlacementManager.Instance.DrawModeActive && !placementManager.CellOccupateObj.ContainsKey(cellPos))
         {
             var Inventory = InventoryManager.Instance.CurrentSlotSelect;
+            var slotmanager = InventoryManager.Instance.CurrentSlootManager;
 
             if (!ActivePlant) return;
 
@@ -91,22 +93,23 @@ public class PlantManager : MonoBehaviour
             }
 
             // Check if the terrain is dry before planting
-            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "Weed")
+            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
-                //StartCoroutine(DecisionTimeGrowth());
+                InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(20f, 40f);
                 plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant(); // start the growth process of the plant
+                plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
-                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
+                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
             }
-            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "Weed")
+            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
+                InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(5f, 10f);
                 plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant(); // start the growth process of the plant
+                plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
-                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied
+                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
             }
         }
     }
@@ -114,10 +117,10 @@ public class PlantManager : MonoBehaviour
     public void CollectPlant()
     {
         var Inventory = InventoryManager.Instance.CurrentSlotSelect;
-        Debug.Log(GetTerrainState(cellPos));
+
         if (GetTerrainState(cellPos) == TerrainState.planted && Inventory.NameTools == "Basket" && plant.FinishGrowth)
         {
-            Debug.Log(GetTerrainState(cellPos));
+            InventoryManager.Instance.AddItem(InventoryManager.Instance.weed);
             plant.GetComponent<Plant>().ResetPlant();
             CellOccupate[cellPos] = new WeedData
             {

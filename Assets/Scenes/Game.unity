@@ -32843,8 +32843,8 @@ MonoBehaviour:
   - {fileID: 0}
   PlayerObjSelect: {fileID: 1463654239}
   CurrentSlotSelect: {fileID: 0}
-  Obj:
-  - {fileID: 11400000, guid: 96be0219452887541aa0f02cf040e8a3, type: 2}
+  CurrentSlootManager: {fileID: 0}
+  Seedweed: {fileID: 11400000, guid: 32f958c00e360ef44b42eac57ed9653d, type: 2}
   weed: {fileID: 11400000, guid: 96be0219452887541aa0f02cf040e8a3, type: 2}
   IdSlotCurrent: 0
   isOpenInventory: 0
@@ -67477,6 +67477,7 @@ MonoBehaviour:
   MouseManager: {fileID: 1709458333}
   placementManager: {fileID: 1709458331}
   WateringCan: {fileID: 1437099757}
+  InventoryManager: {fileID: 579743082}
 --- !u!61 &1709458330
 BoxCollider2D:
   m_ObjectHideFlags: 0
