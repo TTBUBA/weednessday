@@ -39,7 +39,6 @@ public class InventoryManager : MonoBehaviour
     public void RemoveSeedWeed()
     {
         RemoveItem(Seedweed);
-        Debug.Log("Remove Seed Weed");
     }
     public bool AddItem(SlootData item)
     {
