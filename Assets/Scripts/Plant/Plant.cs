@@ -1,14 +1,20 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Plant : MonoBehaviour
 {
     [SerializeField] private Sprite[] plants;
     [SerializeField] private int CurrentIndex;
-    [SerializeField] public float time;
-    [SerializeField] public bool FinishGrowth;
+    public float time;
+    public float TimeBase;
+    public bool FinishGrowth;
+    public bool IsWet;
+
     public void GrowthPlant()
     {
+        TimeBase = time;
         StartCoroutine(TimeGrowth());
     }
 
@@ -18,7 +24,6 @@ public class Plant : MonoBehaviour
         FinishGrowth = false;
         GetComponent<SpriteRenderer>().sprite = null;
     }
-
     IEnumerator TimeGrowth()
     {
         while (CurrentIndex < plants.Length - 1)
@@ -28,5 +33,6 @@ public class Plant : MonoBehaviour
             CurrentIndex++;
         }
         FinishGrowth = true;
+        time = TimeBase;
     }
 }

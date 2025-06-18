@@ -24,13 +24,16 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private GameObject SelectBox;
     [SerializeField] private GameObject PointPlat;
 
+    public int MultiplyTime;
     public Plant plant; 
     public Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
+    public List<Plant> PlantsCreate = new List<Plant>();
 
     public MouseManager MouseManager;
     public PlacementManager placementManager;
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
+
     public enum TerrainState
     {
         None,
@@ -52,14 +55,34 @@ public class PlantManager : MonoBehaviour
                 {
                     //CellOccupate[cell] = new WeedData { StateTerrain = TerrainState.None }; 
                     GameObject plant = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(pos), Quaternion.identity);
+                    PlantsCreate.Add(plant.GetComponent<Plant>());
                     plant.transform.parent = PointPlat.transform; 
                 }
             }
         }
     }
 
+    private void Update()
+    {
+        foreach(var plant in PlantsCreate)
+        {
+            Vector3Int CurrentCellPos = tilemapGround.WorldToCell(plant.transform.position);
+
+            if (GetTerrainState(CurrentCellPos) == TerrainState.wet && !plant.IsWet)
+            {
+               plant.time = plant.TimeBase / 2f;
+               plant.IsWet = true; 
+            }
+            else if (GetTerrainState(CurrentCellPos) == TerrainState.Dry && plant.IsWet)
+            {
+                plant.time = plant.TimeBase;
+                plant.IsWet = false;
+            }
+        }
+    }
+
     //checks the terrain state of the cell at the given position
-    private TerrainState GetTerrainState(Vector3Int cell)
+    public TerrainState GetTerrainState(Vector3Int cell)
     {
         return CellOccupate.TryGetValue(cell, out WeedData data) ? data.StateTerrain : TerrainState.None;
     }
@@ -113,7 +136,6 @@ public class PlantManager : MonoBehaviour
             }
         }
     }
-
     public void CollectPlant()
     {
         var Inventory = InventoryManager.Instance.CurrentSlotSelect;
@@ -147,7 +169,7 @@ public class PlantManager : MonoBehaviour
     //changing the state to wet if the player has a watering can and the terrain is dry
     private void WetTerrain()
     {
-        if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry)
+        if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry || GetTerrainState(cellPos) == TerrainState.planted)
         {
             if (WateringCan.waterAmount <= 0f) { return; } // Check if the watering can has water
             int RandomValue = Random.Range(1, 10);
