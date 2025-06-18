@@ -174,6 +174,7 @@ public class PlantManager : MonoBehaviour
             if (WateringCan.waterAmount <= 0f) { return; } // Check if the watering can has water
             int RandomValue = Random.Range(1, 10);
             WateringCan.Use(RandomValue);
+            WateringCan.Text_CurrentWater.text = WateringCan.waterAmount.ToString() + "%";
             tilemapGround.SetTile(cellPos, WetTile);
             CellOccupate[cellPos] = new WeedData
             {

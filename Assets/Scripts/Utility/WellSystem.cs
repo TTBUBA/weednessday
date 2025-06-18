@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -85,6 +84,7 @@ public class WellSystem : MonoBehaviour
             LevelWater = WateringCan.waterAmount;
             barWater.fillAmount = LevelWater / 100f;
             WateringCan.Fill(5);
+            WateringCan.Text_CurrentWater.text = WateringCan.waterAmount.ToString() + "%";
         }
     }
 
