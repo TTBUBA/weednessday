@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 093512896e0945744a3d926b9042f546
+guid: 750bfe30fe5d1784798617f9806ef8bf
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Icon_TomiPhone
+  - name: Icon_Browser
     originalName: 
-    pivot: {x: 0.5, y: -0.16666667}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 28
-      height: 24
-    spriteID: 789785c400bc6a543aa7c205f51c83da
+      width: 19
+      height: 15
+    spriteID: b46a65a89c6ec6642af77e8effb377e4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2905808179
+      value0: 1655968752
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Icon_TomiPhone
+    name: Icon_Browser
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Icon_TomiPhone
+    - name: Icon_Browser
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 2
-        y: 4
-        width: 28
-        height: 24
-      spriteId: 789785c400bc6a543aa7c205f51c83da
+        x: 0
+        y: 0
+        width: 19
+        height: 15
+      spriteId: b46a65a89c6ec6642af77e8effb377e4
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 64, y: 32}
+  canvasSize: {x: 19, y: 15}
+  previousTextureSize: {x: 32, y: 32}
