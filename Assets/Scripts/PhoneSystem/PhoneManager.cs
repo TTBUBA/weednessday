@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PhoneManager : MonoBehaviour
 {
+    [SerializeField] private List<PhoneManager> phones = new List<PhoneManager>();
+
+    public PhoneApp CurrentAppSelect;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
