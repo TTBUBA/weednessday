@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class AppMessagingManager : MonoBehaviour
 {
-    [SerializeField] private List<MessageSystem> ListMessage = new List<MessageSystem>();
+    public List<MessageSystem> ListMessage = new List<MessageSystem>();
     [SerializeField] private Transform ParentMessageContainer;
     [SerializeField] private MessageSystem MessagePrefab;
+    string[] Customers = new string[]
+    {
+        "Bonghilda",
+        "Erbinator",
+        "Mr.Always",
+        "Lemon",
+        "Lady",
+        "Dopephano",
+        "Puff",
+        "Jointzilla",
+        "Captain",
+        "Mary",
+        "Crystal",
+        "Greenburn",
+        "Ganjalf",
+        "Cheech",
+        "Sativar"
+    };
+
+
 
     public PlayerManager PlayerManager;
-    public string[] NameUser = { "John", "Alice", "Bob", "Charlie", "Diana" };
+    public AppManager AppManager;   
+    public AppSetting AppSetting;
+
     public void CreateNewMessage()
     {
         StartCoroutine(spawnMessage());
@@ -17,17 +39,32 @@ public class AppMessagingManager : MonoBehaviour
 
     IEnumerator spawnMessage()
     {
-        while(true)
+        while (true)
         {
+            if (ListMessage.Count >= 10)
+            {
+                yield return new WaitForSeconds(1f);
+                continue;
+            }
+            if (!AppManager.IsActiveApp)
+            {
+                yield return new WaitForSeconds(1f);
+                continue;
+            }
+
             int time = Random.Range(1, 2);
             yield return new WaitForSeconds(time);
             GameObject newMessage = Instantiate(MessagePrefab.gameObject, transform);
             MessageSystem message = newMessage.GetComponent<MessageSystem>();
-            message.NameUser = NameUser[Random.Range(0, NameUser.Length)];
+            message.NameUser = Customers[Random.Range(0, Customers.Length)];
             message.UserNameText.text = message.NameUser;
             message.PlayerManager = PlayerManager;
-            Debug.Log("New message from: " + message.NameUser);
+            message.AppMessagingManager = this;
+            ListMessage.Add(message);
             newMessage.transform.SetParent(ParentMessageContainer);
+            AppSetting.CurrentNoticationManager.Play();
+            //AppSetting.CurrentNoticationManager.volume = 0.4f;
         }
     }
+
 }

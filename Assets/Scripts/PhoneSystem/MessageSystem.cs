@@ -8,6 +8,7 @@ public class MessageSystem : MonoBehaviour
     [SerializeField] public string NameUser;
     [SerializeField] private string MessageText;
     [SerializeField] private int PriceOffering;
+    [SerializeField] private int TotalWeed;
 
     [Header("UI Components")]
     [SerializeField] private Image UserIconComponent;
@@ -16,21 +17,27 @@ public class MessageSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PriceText;
 
     public PlayerManager PlayerManager;
+    public AppMessagingManager AppMessagingManager;
     private void Awake()
     {
+        TotalWeed = Random.Range(1, 5);
         UserIconComponent.sprite = UserIcon;
         UserNameText.text = NameUser;
-        MessageTextComponent.text = MessageText;
+        MessageTextComponent.text = TotalWeed + "-" + MessageText.ToString();
         PriceText.text = PriceOffering.ToString() + "$";
+        AppMessagingManager.CreateNewMessage();
     }
     public void AcceptOffering()
     {
         PlayerManager.CurrentMoney += PriceOffering;
         this.gameObject.SetActive(false);
+        AppMessagingManager.ListMessage.Remove(this);
+        InventoryManager.Instance.Removeweed(TotalWeed);
     }
 
     public void RejectOffering()
     {
         this.gameObject.SetActive(false);
+        AppMessagingManager.ListMessage.Remove(this);
     }
 }

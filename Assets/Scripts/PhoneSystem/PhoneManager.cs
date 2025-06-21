@@ -5,16 +5,6 @@ public class PhoneManager : MonoBehaviour
 {
     [SerializeField] private List<PhoneManager> phones = new List<PhoneManager>();
 
-    public PhoneApp CurrentAppSelect;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public AppManager CurrentAppSelect;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

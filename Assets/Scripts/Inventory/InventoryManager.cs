@@ -36,9 +36,14 @@ public class InventoryManager : MonoBehaviour
         AddItem(weed);
     }
 
+    public void Removeweed(int totalRemove)
+    {
+        RemoveItem(weed, totalRemove);
+    }
+
     public void RemoveSeedWeed()
     {
-        RemoveItem(Seedweed);
+        RemoveItem(Seedweed, 1);
     }
     public bool AddItem(SlootData item)
     {
@@ -75,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
-    public bool RemoveItem(SlootData item)
+    public bool RemoveItem(SlootData item, int total)
     {
         if (item.itemType != ItemType.Static)
         {
@@ -83,7 +88,7 @@ public class InventoryManager : MonoBehaviour
             {
                 if (slot.slootData == item && slot.CurrentStorage < slot.slootData.MaxStorage)
                 {
-                    slot.CurrentStorage--;
+                    slot.CurrentStorage -= total;
                     slot.UpdateSlot();
                     if (slot.CurrentStorage >= slot.slootData.MaxStorage)
                     {
