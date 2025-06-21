@@ -17,12 +17,17 @@ public class InputManager : MonoBehaviour
     [Header("Input-Player")]
     [SerializeField] private InputActionReference Butt_PlantWeed;
     [SerializeField] private InputActionReference Butt_CollectWeed;
+    [SerializeField] private InputActionReference Butt_openPhone;
+    [SerializeField] private InputActionReference Butt_closePhone;
 
+
+
+    [SerializeField]
     public PlacementManager PlacementManager;
     public UiManager Uimanager;
     public PlantManager PlantManager;
     public InventoryManager InventoryManager;
-
+    public PhoneManager PhoneManager;
     private void OnEnable()
     {
         Butt_OpenInventory.action.Enable();
@@ -44,6 +49,12 @@ public class InputManager : MonoBehaviour
         Butt_PlantWeed.action.performed += PlantWeed;
         Butt_CollectWeed.action.Enable();
         Butt_CollectWeed.action.performed += CollectWeed;
+
+        Butt_openPhone.action.Enable();
+        Butt_openPhone.action.performed += OpenPhone;
+
+        Butt_closePhone.action.Enable();
+        Butt_closePhone.action.performed += ClosePhone;
 
     }
 
@@ -67,6 +78,12 @@ public class InputManager : MonoBehaviour
         Butt_PlantWeed.action.performed -= PlantWeed;
         Butt_CollectWeed.action.Enable();
         Butt_CollectWeed.action.performed -= CollectWeed;
+
+        Butt_openPhone.action.Disable();
+        Butt_openPhone.action.performed -= OpenPhone;
+
+        Butt_closePhone.action.Disable();
+        Butt_closePhone.action.performed -= ClosePhone;
     }
 
     public void OnOpenInventory(InputAction.CallbackContext context)
@@ -105,6 +122,16 @@ public class InputManager : MonoBehaviour
     {
         if(!PlantManager.plant.FinishGrowth) return;
         PlantManager.CollectPlant();
+    }
+
+    public void OpenPhone(InputAction.CallbackContext context)
+    {
+        PhoneManager.OpenPhone();
+    }
+
+    public void ClosePhone(InputAction.CallbackContext context)
+    {
+        PhoneManager.ClosePhone();
     }
 }
 

@@ -506,6 +506,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPhone",
+                    "type": "Button",
+                    "id": "fef0b53c-60b3-4756-8893-42b9971a5b66",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClosePhone",
+                    "type": "Button",
+                    "id": "b6eb4e14-b716-473d-be8b-44e4a0f5dc1c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -858,6 +876,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenPanelWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9769aa07-ee50-493d-80d3-0909205f6c3f",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81967211-c05d-49dc-91e3-4501ac5cd486",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePhone",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
