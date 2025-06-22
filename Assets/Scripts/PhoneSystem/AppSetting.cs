@@ -12,6 +12,7 @@ public class AppSetting : MonoBehaviour
     [SerializeField] private GameObject ContainerAppSetting;
     [SerializeField] private GameObject PanelNotification;
     [SerializeField] private GameObject ContainerApp;
+    [SerializeField] private GameObject Butt_QuitApp;
     public void ClosePanelSetting()
     {
         ContainerApp.SetActive(true);

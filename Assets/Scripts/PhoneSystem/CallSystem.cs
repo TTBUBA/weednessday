@@ -10,6 +10,12 @@ public class CallSystem : MonoBehaviour
     [SerializeField] private GameObject PanelContainerApp;
     [SerializeField] private TextMeshProUGUI TextNumber;
     [SerializeField] private List<int> numbersValid;
+
+    [Header("Sound")]
+    [SerializeField] private AudioSource Audio_1;
+    [SerializeField] private AudioSource Audio_2;
+    [SerializeField] private AudioSource Audio_3;
+
     public void NumberSelect(int number)
     {
         TextNumber.text += number.ToString();
@@ -24,11 +30,22 @@ public class CallSystem : MonoBehaviour
             if (numbersValid.Contains(number))
             {
                 TextNumber.text = string.Empty;
-                Debug.Log("Calling: " + TextNumber.text);
+                switch(number)
+                {
+                    case 43545778:
+                        Audio_1.Play();
+                        break;
+                    case 14487659:
+                        Audio_2.Play();
+                        break;
+                    case 96806475:
+                        Audio_3.Play();
+                        break;
+                }
             }
             else
             {
-                Debug.Log("Number not valid: " + number);
+                TextNumber.text = string.Empty;
             }
         }
     }
