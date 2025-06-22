@@ -9,10 +9,6 @@ public class AppGame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI CounterClicker;
     [SerializeField] private AudioSource Ballon_Bop;
 
-    private void Awake()
-    {
-        StartCoroutine(spawnobj());
-    }
 
     private void OnEnable()
     {
