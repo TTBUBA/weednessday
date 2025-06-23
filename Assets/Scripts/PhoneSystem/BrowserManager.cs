@@ -15,11 +15,6 @@ public class BrowserManager : MonoBehaviour
     [SerializeField] private Button searchButton;
     [SerializeField] private TMP_InputField inputField;
 
-
-    private void Update()
-    {
-        //SearchSite(inputField.text);
-    }
     public void SearchSite(string site)
     {
         site = inputField.text;
