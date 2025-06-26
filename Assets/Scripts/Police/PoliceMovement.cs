@@ -9,8 +9,12 @@ public class PoliceMovement : MonoBehaviour
     [SerializeField] private float MaxDistanceTarget;
     [SerializeField] private GameObject targetPosition;
     [SerializeField] private bool ActiveMovement;
+
+    public PoliceGun policeGun;
     private Ray2D ray;
     private RaycastHit2D hit;
+    private Coroutine ShootCoroutine;
+
 
     // Update is called once per frame
     void Update()
@@ -31,16 +35,24 @@ public class PoliceMovement : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, Radius,LayerMask.GetMask("Player"));
         float Distance = Vector2.Distance(transform.position, targetPosition.transform.position);
-        //Debug.Log("Distance: " + Distance);
 
         if (hit != null && hit.CompareTag("Player"))
         {
-            Debug.Log("Hit: " + hit.name);
             ActiveMovement = true;
+            policeGun.EnableGun = true;
+
+            if(ShootCoroutine == null)
+                ShootCoroutine = policeGun.StartCoroutine(policeGun.ActiveShoot());
         }
         else
         {
             ActiveMovement = false;
+            policeGun.EnableGun = false;
+            if (ShootCoroutine != null)
+            {
+                policeGun.StopCoroutine(ShootCoroutine);
+                ShootCoroutine = null;
+            }
         }
     }
 
