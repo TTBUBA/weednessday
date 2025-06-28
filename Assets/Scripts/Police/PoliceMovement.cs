@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PoliceMovement : MonoBehaviour
@@ -9,21 +10,28 @@ public class PoliceMovement : MonoBehaviour
     [SerializeField] private float MaxDistanceTarget;
     [SerializeField] private GameObject targetPosition;
     [SerializeField] private bool ActiveMovement;
+    [SerializeField] private LayerMask LayerMask;
+    [SerializeField] private Vector2 MovementDirection;
 
+    [SerializeField] private Vector2 direction;
     public PoliceGun policeGun;
     private Ray2D ray;
     private RaycastHit2D hit;
     private Coroutine ShootCoroutine;
 
+    private void Awake()
+    {
+        StartCoroutine(ChooseDirection());
+    }
 
-    // Update is called once per frame
     void Update()
     {
         Raycast();
+        MoveToTarget();
         Move();
     }
 
-    private void Move()
+    private void MoveToTarget()
     {
         if (targetPosition == null) { return; }
         if (!ActiveMovement) { return; }
@@ -56,6 +64,28 @@ public class PoliceMovement : MonoBehaviour
         }
     }
 
+    private void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, MovementDirection, speed * Time.deltaTime);
+    }
+
+    IEnumerator ChooseDirection()
+    {
+        while (true)
+        {
+            float Distance = Random.Range(0f, 5f);
+            float Angle = Random.Range(0f, 360f);
+            float angleRad = Angle * Mathf.Deg2Rad;
+            Vector2 LinerFollow = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(Angle));
+            MovementDirection = new Vector2(transform.position.x + Distance, transform.position.y + Distance) + LinerFollow;
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ChooseDirection();
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -63,6 +93,8 @@ public class PoliceMovement : MonoBehaviour
         {
             Gizmos.DrawLine(transform.position, targetPosition.transform.position);
         }
-        Gizmos.DrawWireSphere(transform.position, Radius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, MovementDirection);
+
     }
 }

@@ -11,7 +11,6 @@ public class PoliceGun : MonoBehaviour
     [SerializeField] private Transform ContainerAmmo;
     [SerializeField] private Transform targetPosition;
     [SerializeField] private AudioSource SoundShoot;
-    [SerializeField] private List<GameObject> AmmoList;
     [SerializeField] private List<Vector3> PosTarget;
     public float TimeFire;
     public bool EnableGun;
@@ -36,7 +35,6 @@ public class PoliceGun : MonoBehaviour
         rb.AddForce(Gun.transform.up * 1f, ForceMode2D.Impulse);
         float randomDrag = Random.Range(0.3f, 1f);
         rb.linearDamping = randomDrag;
-        AmmoList.Add(Obj);
         PosTarget.Add(targetPosition.position);
     }
 
@@ -62,14 +60,6 @@ public class PoliceGun : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
-        foreach (GameObject ammo in AmmoList)
-        {
-            if (ammo != null)
-            {
-                Gizmos.DrawLine(Gun.transform.position, ammo.transform.position);
-            }
-        }
 
         foreach (Vector3 pos in PosTarget)
         {
