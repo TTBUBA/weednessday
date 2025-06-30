@@ -23,6 +23,10 @@ public class DebugManager : MonoBehaviour
     private Thread threadcpu;
     private float updateInterval = 0.5f;
 
+
+    [Header("Manager")]
+    public GameManager m_GameManager;
+
     private void Awake()
     {
         cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
@@ -95,4 +99,13 @@ public class DebugManager : MonoBehaviour
         Text_Timescale.text = "Timescale: " + Time.timeScale.ToString("F1");
     }
 
+    public void ButtActiveRandomBoat()
+    {
+        m_GameManager.ActiveRandomBoat();   
+    }
+
+    public void ButtReturnBaseBoat()
+    {
+        m_GameManager.ReturnBaseBoat();
+    }
 }

@@ -94,7 +94,10 @@ public class PoliceMovement : MonoBehaviour
             Gizmos.DrawLine(transform.position, targetPosition.transform.position);
         }
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, MovementDirection);
+        if(MovementDirection != null)
+        {
+            Gizmos.DrawLine(transform.position, MovementDirection);
+        }
 
     }
 }
