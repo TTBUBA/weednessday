@@ -12,6 +12,7 @@ public class PoliceGun : MonoBehaviour
     [SerializeField] private Transform targetPosition;
     [SerializeField] private AudioSource SoundShoot;
     [SerializeField] private List<Vector3> PosTarget;
+    [SerializeField] private int AmmoCount = 30;
     public float TimeFire;
     public bool EnableGun;
 
@@ -26,6 +27,7 @@ public class PoliceGun : MonoBehaviour
 
     public void Shoot()
     {
+        if (AmmoCount <= 0) { return; }
         GameObject Obj = Instantiate(Ammo, Gun.transform.position, Quaternion.identity);
         SoundShoot.Play();
         float randomAngle = Random.Range(-10f, 10f);
@@ -36,18 +38,35 @@ public class PoliceGun : MonoBehaviour
         float randomDrag = Random.Range(0.3f, 1f);
         rb.linearDamping = randomDrag;
         PosTarget.Add(targetPosition.position);
+        AmmoCount--;
     }
 
+    //Reload Gun
+    IEnumerator Reload()
+    {
+        while (AmmoCount <= 30)
+        {
+            yield return new WaitForSeconds(0.5f);
+            AmmoCount++;
+        }
+    }
+
+    //Active Shoot Coroutine
     public IEnumerator ActiveShoot()
     {
         while (EnableGun)
         {
+
             Shoot();
             yield return new WaitForSeconds(TimeFire);
-            Debug.Log("Shoot");
+            if (AmmoCount <= 0)
+            {
+                yield return StartCoroutine(Reload());
+            }
         }
     }
 
+    //Track Position of player
     private void GunTrackPlayer()
     {
         Vector3 PosTarget = new Vector2(targetPosition.position.x, targetPosition.position.y);
@@ -57,6 +76,7 @@ public class PoliceGun : MonoBehaviour
         Gun.transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
+    //DEBUG//
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
