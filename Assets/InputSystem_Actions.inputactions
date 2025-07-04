@@ -490,6 +490,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "CloseUtilty",
+                    "type": "Button",
+                    "id": "be133610-356d-435c-933f-405508de01f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ClosePanelWater",
                     "type": "Button",
                     "id": "91e102f3-5de7-4608-801f-ede570e4eef9",
@@ -832,6 +841,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenUtilty",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7510127b-75e3-4cac-8f2c-b758c27ae31f",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseUtilty",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

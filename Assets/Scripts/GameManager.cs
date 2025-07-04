@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     }
     public void ActiveRandomBoat()
     {
-
-        if(Cicle_DayNight.CurrentHours == 3 && !BoatSpawned)
+        if (Cicle_DayNight.CurrentHours == 3 && !BoatSpawned)
         {
+
             MovementBoat movementBoat = m_Boats[Random.Range(0, m_Boats.Length)];
             boat = movementBoat;
             boat.ActiveBoat();

@@ -17,6 +17,6 @@ public class PlaceableObjectData : ScriptableObject
 
 public enum PlaceableObjectType
 {
-    Utility,
-    Decoration
+    Tile,
+    Prefabs,
 }

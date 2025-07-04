@@ -18,7 +18,7 @@ public class PoliceMovement : MonoBehaviour
     [SerializeField] private float TimerReturn = 10f;
     public bool ActiveMovement = true;
     public bool ReturnBaseActive;
-    public Vector2 StartPos;
+    public Vector3 StartPos;
     public Vector2 MovementDirection;
 
     public PoliceGun policeGun;
@@ -28,7 +28,7 @@ public class PoliceMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        StartPos = PointSpawn.transform.position;
+        StartPos = transform.position;
         ActiveMovement = true;
         ReturnBaseActive = false;
         StartCoroutine(ChooseDirection());

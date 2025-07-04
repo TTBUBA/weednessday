@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5743bc6050a65469e1f0f8cd02872c, type: 3}
+  m_Name: Chest
+  m_EditorClassIdentifier: 
+  UtilityName: Chest
+  SpaceOccupied: 1x1
+  SpaceOccupiedX: 0
+  SpaceOccupiedY: 0
+  UtilityDescription: 
+  UtilityID: 0
+  Cost: 50
+  UtilityIcon: {fileID: 3440385213206880287, guid: bb84a3bc8dd54194e875e7de4c8de80b, type: 3}
+  UtilityPrefab: {fileID: 2392837758880929816, guid: 8bf37e71c3f9183418bb5a84b2908a7c, type: 3}
+  Type: 0
+  Object: {fileID: 0}

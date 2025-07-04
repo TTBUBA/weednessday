@@ -8,6 +8,7 @@ public class MovementBoat : MonoBehaviour
     [SerializeField] private GameObject PointFinal;
     [SerializeField] private Light2D LightBlue;
     [SerializeField] private Light2D LightRed;
+    [SerializeField] private AudioSource AudioSiren;
     public GameObject CurrentPoint;
     private Vector3 StartPos;
     public bool BoatRight;
@@ -38,6 +39,7 @@ public class MovementBoat : MonoBehaviour
         SetRandomDestination();
         stateBoat = BoatState.Moving;
         speed = 4f;
+        AudioSiren.Play();
     }
 
     private void ActiveMovement()
@@ -60,7 +62,7 @@ public class MovementBoat : MonoBehaviour
             stateBoat = BoatState.Idle;
             speed = 0;
             transform.position = StartPos;
-
+            AudioSiren.Stop();
         }
     }
 
@@ -69,6 +71,7 @@ public class MovementBoat : MonoBehaviour
         stateBoat = BoatState.Moving;
         CurrentPoint = PointFinal;
         speed = 4f;
+        AudioSiren.Play();
     }
 
     private void SetRandomDestination()

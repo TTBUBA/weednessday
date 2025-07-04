@@ -8,30 +8,41 @@ public class SpawnPolice : MonoBehaviour
     private Vector3 PosPolice;
     public MovementBoat MovementBoat;
     public GameManager m_GameManager;
-
+    public bool CoroutineActive = false;
     private void Update()
     {
-        if (m_GameManager.boat != null && m_GameManager.boat.speed == 0)
+        if (m_GameManager.boat != null && m_GameManager.boat.speed == 0 && !CoroutineActive)
         {
             ActivePolice();
+            StartCoroutine(ActivePoliceSingle());
         }
     }
 
     public void ActivePolice()
     {
+
         foreach (var police in Police)
         {
-            police.gameObject.SetActive(true);
+            if (m_GameManager.boat.BoatRight)
+            {
+                PosPolice = m_GameManager.PointDestination.transform.position - new Vector3(5f, 0, 0);
+                police.transform.position = PosPolice;
+            }
+            else
+            {
+                PosPolice = m_GameManager.PointDestination.transform.position + new Vector3(5f, 0, 0);
+                police.transform.position = PosPolice;
+            }
         }
-        if (m_GameManager.boat.BoatRight)
+    }
+
+    IEnumerator ActivePoliceSingle()
+    {
+        yield return new WaitForSeconds(1f);
+        CoroutineActive = true;
+        for (int i = 0; i < Police.Length; i++)
         {
-            PosPolice = m_GameManager.PointDestination.transform.position - new Vector3(5f,0,0);
-            PointspawnPolice.transform.position = PosPolice;
-        }
-        else
-        {
-            PosPolice = m_GameManager.PointDestination.transform.position + new Vector3(5f,0, 0);
-            PointspawnPolice.transform.position = PosPolice;
+            Police[i].gameObject.SetActive(true);
         }
     }
 }
