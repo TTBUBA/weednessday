@@ -103,6 +103,7 @@ public class PlantManager : MonoBehaviour
 
             if (!ActivePlant) return;
 
+            /*
             if (Inventory.NameTools == "Shovel")
             {
                 HoeTerrain();
@@ -114,6 +115,9 @@ public class PlantManager : MonoBehaviour
                 WetTerrain();
                 return;
             }
+
+            */
+
 
             // Check if the terrain is dry before planting
             if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
@@ -154,7 +158,7 @@ public class PlantManager : MonoBehaviour
     }
 
     //changing the state to dry if the player has a shovel and the terrain
-    private void HoeTerrain()
+    public void HoeTerrain()
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
         {
@@ -167,7 +171,7 @@ public class PlantManager : MonoBehaviour
     }
 
     //changing the state to wet if the player has a watering can and the terrain is dry
-    private void WetTerrain()
+    public void WetTerrain()
     {
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry || GetTerrainState(cellPos) == TerrainState.planted)
         {

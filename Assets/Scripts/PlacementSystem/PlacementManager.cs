@@ -1,4 +1,3 @@
-using NUnit.Framework.Internal;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -81,11 +80,11 @@ public class PlacementManager : MonoBehaviour
                     CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
                 }
             }
-            var barrel = Obj.GetComponent<ChestSystem>();
+            var Chest = Obj.GetComponent<ChestSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();
-            if (barrel)
+            if (Chest)
             {
-                barrel.SetCamera(CamPlayer);
+                Chest.SetData(CamPlayer, InventoryManager);
             }
             if (WellSystem)
             {

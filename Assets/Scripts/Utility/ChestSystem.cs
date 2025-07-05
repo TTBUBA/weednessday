@@ -1,13 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ChestSystem : MonoBehaviour
 {
-    [SerializeField] private List<SlootManager> SlootBarrel = new List<SlootManager>();
+    [SerializeField] private List<SlootManager> sloolTest = new List<SlootManager>();
+    [SerializeField] private List<SlootManager> slootPlayer = new List<SlootManager>();
+    [SerializeField] private List<SlootManager> SlootChest = new List<SlootManager>();
 
+
+    [SerializeField] private Sprite ChestOpen;
+    [SerializeField] private Sprite chestClose;
 
     [SerializeField] private GameObject PanelSloot;
     [SerializeField] private GameObject butt_panel;
@@ -17,6 +23,16 @@ public class ChestSystem : MonoBehaviour
     [SerializeField] private InputActionReference Butt_OpenPanel;
     [SerializeField] private InputActionReference Butt_ClosePanel;
     [SerializeField] private InventoryManager InventoryManager;
+
+    private void Start()
+    {
+
+        //esclude the first 2 slots which are reserved for the player
+        if (InventoryManager != null)
+        {
+            slootPlayer = InventoryManager.slootManager.Skip(2).ToList();
+        }
+    }
 
     private void OnEnable()
     {
@@ -62,6 +78,8 @@ public class ChestSystem : MonoBehaviour
         {
             PanelSloot.SetActive(true);
             text_panel.text = "Press 'Q'";
+            SetSlotChest();
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = ChestOpen;
         }
     }
 
@@ -71,11 +89,27 @@ public class ChestSystem : MonoBehaviour
         {
             PanelSloot.SetActive(false);
             text_panel.text = "Press 'E'";
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = chestClose;
         }
     }
 
-    public void SetCamera(Camera camera)
+    // This method sets the sloot data for each sloot in the slootPlayer list
+    public void SetSlotChest()
+    {
+        foreach (var sloot in slootPlayer)
+        {
+            for (int i = 0; i < SlootChest.Count; i++)
+            {
+                sloot.slootData = SlootChest[i].slootData;
+            }
+        }
+    }
+
+
+    // setdata camera & set inventorymanager
+    public void SetData(Camera camera , InventoryManager inventoryManager )
     {
         canvas.worldCamera = camera;
+        InventoryManager = inventoryManager;
     }
 }

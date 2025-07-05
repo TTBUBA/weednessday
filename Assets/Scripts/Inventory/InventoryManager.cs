@@ -5,8 +5,8 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [SerializeField] private List<SlootManager> slootManager = new List<SlootManager>();
-    [SerializeField] private List<SlootManager> SlootChest = new List<SlootManager>();
+    public List<SlootManager> slootManager = new List<SlootManager>();
+    //[SerializeField] private List<SlootManager> SlootChest = new List<SlootManager>();
 
 
     [Header("Player")]
