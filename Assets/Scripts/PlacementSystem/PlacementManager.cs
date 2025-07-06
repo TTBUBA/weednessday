@@ -19,18 +19,24 @@ public class PlacementManager : MonoBehaviour
     public bool IsPlacementActive = false;
 
     public Dictionary<Vector3Int, PlaceableObjectData> CellOccupateObj = new Dictionary<Vector3Int, PlaceableObjectData>();
-    private int test;
+
+
+
     [Header("Managers")]
     public MouseManager MouseManager;
     public PlayerManager PlayerManager;
     public PlantManager plantManager;
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
+    public Cicle_DayNight CicleDayNight;
     private void Awake()
     {
         Instance = this;
     }
+
+    //Get the current cell position on the mousePosition
     private Vector3Int cellpos => MouseManager.GetMousePosition();
+
 
     public void SelectObject()
     {
@@ -41,13 +47,14 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
+
     // place the object at the current cell position
     public void PlaceObject()
     {
         if (CellOccupateObj.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied
         if (plantManager.CellOccupate.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied by a plant
 
-        //position of the object only is prefabs 
+        //position of the object only is tile 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Prefabs)
         {
             Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
@@ -64,7 +71,7 @@ public class PlacementManager : MonoBehaviour
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
         }
 
-        //position of the object only is tile 
+        //position of the object only is prefabs 
         if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Tile)
         {
             GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
@@ -80,8 +87,12 @@ public class PlacementManager : MonoBehaviour
                     CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
                 }
             }
+
+
+            //When the object is create, set the data for the specific components in the object
             var Chest = Obj.GetComponent<ChestSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();
+            var PoleLight = Obj.GetComponent<PoleLight>();
             if (Chest)
             {
                 Chest.SetData(CamPlayer, InventoryManager);
@@ -90,9 +101,15 @@ public class PlacementManager : MonoBehaviour
             {
                 WellSystem.SetData(CamPlayer, InventoryManager, WateringCan);
             }
+            if (PoleLight)
+            {
+                PoleLight.SetData(CicleDayNight);
+            }
+
         }
     }
 
+    // Remove the object from the tilemap and the CellOccupateObj dictionary
     public void RemoveObjectPlace()
     {
         if (DrawModeActive)

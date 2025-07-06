@@ -1,0 +1,38 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
+//Active and disactive Light in determined hour in the day
+public class PoleLight : MonoBehaviour
+{
+    [SerializeField] private Light2D poleLight;
+
+    private Cicle_DayNight Clock;
+
+    private void Start()
+    {
+        StartCoroutine(ActiveLight());
+    }
+
+    IEnumerator ActiveLight()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            if(Clock.CurrentHours > 19)
+            {
+                poleLight.enabled = true;
+            }
+            if (Clock.CurrentHours > 8)
+            {
+                poleLight.enabled = false;
+            }
+        }
+    }
+
+    public void SetData(Cicle_DayNight CicleDayNight)
+    {
+        Clock = CicleDayNight;
+    }
+}
+

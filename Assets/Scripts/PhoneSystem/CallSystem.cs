@@ -22,9 +22,10 @@ public class CallSystem : MonoBehaviour
     }
 
     public void ButtonCall()
-    {
-        if (TextNumber.text.Length < 0) { return; }
+    { 
+        if (TextNumber.text.Length == 0) { return; }
 
+        //check the number is valid 
         if(int.TryParse(TextNumber.text,out int number))
         {
             if (numbersValid.Contains(number))

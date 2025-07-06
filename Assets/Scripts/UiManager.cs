@@ -73,8 +73,7 @@ public class UiManager : MonoBehaviour
         {
             inventoryManager.PlayerObjSelect.GetComponent<SpriteRenderer>().sprite = inventoryManager.CurrentSlotSelect.ToolsImages;
         }
-    }
-    
+    }   
     private void UiPlayer()
     {
         BarLife.fillAmount = playerManager.PlayerLife;

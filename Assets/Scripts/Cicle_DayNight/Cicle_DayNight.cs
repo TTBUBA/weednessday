@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Cicle_DayNight : MonoBehaviour
-{
+{ 
     [SerializeField] private Light2D light2D;
     public float CurrentHours;
     public float CurrentMinutes;
