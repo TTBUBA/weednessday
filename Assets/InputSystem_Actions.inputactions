@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseDrog",
+                    "type": "Button",
+                    "id": "c63387c7-cba9-4a92-a1ee-e7e3a7be22ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -475,6 +484,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DecreseSpeedWord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ff06cab-1c1a-45c1-b32d-570de9a9a323",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseDrog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d796099-e721-4e58-8a86-ed6f115bb537",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseDrog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

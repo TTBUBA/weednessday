@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputActionReference Butt_CollectWeed;
     [SerializeField] private InputActionReference Butt_openPhone;
     [SerializeField] private InputActionReference Butt_closePhone;
+    [SerializeField] private InputActionReference Butt_UseDrog;
+
 
     [Header("Manager References")]
     [SerializeField] public PlacementManager PlacementManager;
@@ -29,6 +32,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] public PlantManager PlantManager;
     [SerializeField] public InventoryManager InventoryManager;
     [SerializeField] public PhoneManager PhoneManager;
+    [SerializeField] public PlayerManager playerManager;
 
     private void OnEnable()
     {
@@ -103,6 +107,13 @@ public class InputManager : MonoBehaviour
         {
             Butt_closePhone.action.Enable();
             Butt_closePhone.action.performed += ClosePhone;
+        }
+
+        //Player input
+        if (Butt_UseDrog != null)
+        {
+            Butt_UseDrog.action.Enable();
+            Butt_UseDrog.action.performed += Butt_SmokeWeed;
         }
     }
 
@@ -179,6 +190,13 @@ public class InputManager : MonoBehaviour
         {
             Butt_closePhone.action.Disable();
             Butt_closePhone.action.performed -= ClosePhone;
+        }
+
+        //Player input
+        if (Butt_UseDrog != null)
+        {
+            Butt_UseDrog.action.Disable();
+            Butt_UseDrog.action.performed -= Butt_SmokeWeed;
         }
     }
 
@@ -274,5 +292,11 @@ public class InputManager : MonoBehaviour
         {
             PhoneManager.ClosePhone();
         }
+    }
+
+    //Player Input
+    private void Butt_SmokeWeed(InputAction.CallbackContext context)
+    {
+        playerManager.UseWeed();
     }
 }

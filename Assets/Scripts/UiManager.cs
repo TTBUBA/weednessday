@@ -18,10 +18,13 @@ public class UiManager : MonoBehaviour
     [Header("Panels-Inventory")]
     [SerializeField] private GameObject Panel_Inventory;
 
-    [Header("Managers")]
+    [Header("Player-Ui")]
     [SerializeField] private Image BarLife;
     [SerializeField] private TextMeshProUGUI Text_CurrentMoney;
+    [SerializeField] private GameObject Butt_UseDrog;
 
+
+    [Header("Managers")]
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlacementManager placementManager;
     [SerializeField] private PlayerManager playerManager;
@@ -31,6 +34,7 @@ public class UiManager : MonoBehaviour
         UiInventory();
         UiPlayer();
         UiPanelUtilty();
+        UiButtonUseDrog();
     }
 
     public void UiPanelUtilty()
@@ -78,5 +82,19 @@ public class UiManager : MonoBehaviour
     {
         BarLife.fillAmount = playerManager.PlayerLife;
         Text_CurrentMoney.text = playerManager.CurrentMoney.ToString();
+    }
+
+    private void UiButtonUseDrog()
+    {
+        if(inventoryManager.CurrentSlotSelect == null) { return; }
+
+        if (inventoryManager.CurrentSlotSelect.NameTools == "Cane" && playerManager.ActiveButtun)
+        {
+           Butt_UseDrog.SetActive(true);
+        }
+        else
+        {
+            Butt_UseDrog.SetActive(false);
+        }
     }
 }

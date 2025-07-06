@@ -14,8 +14,10 @@ public class InventoryManager : MonoBehaviour
 
     public SlootData CurrentSlotSelect;
     public SlootManager CurrentSlootManager;
+
     public SlootData Seedweed;
     public SlootData weed;
+    public SlootData Cane;
     public int IdSlotCurrent;
     public bool isOpenInventory = false;
     private void Awake()
@@ -40,6 +42,17 @@ public class InventoryManager : MonoBehaviour
     {
         RemoveItem(weed, totalRemove);
     }
+
+    public void AddCane()
+    {
+        AddItem(Cane);
+    }
+
+    public void RemoveCane()
+    {
+        RemoveItem(Cane, 1);
+    }
+
 
     public void RemoveSeedWeed()
     {
