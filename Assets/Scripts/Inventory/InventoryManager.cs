@@ -30,12 +30,12 @@ public class InventoryManager : MonoBehaviour
 
     public void Test()
     {
-        AddItem(Seedweed);
+        AddItem(Seedweed, 1);
     }
 
     public void Addweed()
     {
-        AddItem(weed);
+        AddItem(weed, 1);
     }
 
     public void Removeweed(int totalRemove)
@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddCane()
     {
-        AddItem(Cane);
+        AddItem(Cane,1);
     }
 
     public void RemoveCane()
@@ -58,7 +58,8 @@ public class InventoryManager : MonoBehaviour
     {
         RemoveItem(Seedweed, 1);
     }
-    public bool AddItem(SlootData item)
+
+    public bool AddItem(SlootData item, int amount)
     {
         if(item.itemType != ItemType.Static)
         {

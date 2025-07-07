@@ -146,7 +146,8 @@ public class PlantManager : MonoBehaviour
 
         if (GetTerrainState(cellPos) == TerrainState.planted && Inventory.NameTools == "Basket" && plant.FinishGrowth)
         {
-            InventoryManager.Instance.AddItem(InventoryManager.Instance.weed);
+            int RandomValue = Random.Range(1, 3);
+            InventoryManager.Instance.AddItem(InventoryManager.Instance.weed, RandomValue);
             plant.GetComponent<Plant>().ResetPlant();
             CellOccupate[cellPos] = new WeedData
             {
