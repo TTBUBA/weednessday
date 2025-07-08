@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7613d2b127c7b864687ac24797a656d0
+guid: b38882ba1f341614aa58c1a1b24f0d01
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Icon_PoliceStar
+  - name: SpriteSheet_Player
     originalName: 
-    pivot: {x: 0.53333336, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 15
-      height: 16
-    spriteID: 3dd2fe86458ca7e489dbfc5d192db58a
+      width: 64
+      height: 32
+    spriteID: b3882e681b2867b4c81292803b5c6909
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2428324498
+      value0: 2524644770
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Icon_PoliceStar
+    name: SpriteSheet_Player
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Icon_PoliceStar
+    - name: SpriteSheet_Player
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 15
-        height: 16
-      spriteId: 3dd2fe86458ca7e489dbfc5d192db58a
+        width: 64
+        height: 32
+      spriteId: b3882e681b2867b4c81292803b5c6909
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 64, y: 32}
+  previousTextureSize: {x: 128, y: 64}

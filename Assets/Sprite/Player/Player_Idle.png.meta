@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e9400bedfabb75a4c9771b05b26bc56e
+guid: f46e9273cb1eb3f46828d78e4833f339
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8032874355346787029
-    second: Icon_PoliceStar_0
+      213: -467307283419413426
+    second: Player_Idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_PoliceStar_0
+      name: Player_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,15 +121,15 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 1, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5da4acb8aa08a7f60800000000000000
-      internalID: 8032874355346787029
+      spriteID: e4445da608ac389f0800000000000000
+      internalID: -467307283419413426
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ac77ae686c2c7ba4b901cafca77ce443
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Icon_PoliceStar_0: 8032874355346787029
+      Player_Idle_0: -467307283419413426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7613d2b127c7b864687ac24797a656d0
+guid: ec5da882a5f808e4bacca1e897129a9a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Icon_PoliceStar
+  - name: Player_Idle
     originalName: 
-    pivot: {x: 0.53333336, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 15
+      width: 16
       height: 16
-    spriteID: 3dd2fe86458ca7e489dbfc5d192db58a
+    spriteID: e5a299a7c7f1300449ae5e4069af2c6d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2428324498
+      value0: 2719575506
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Icon_PoliceStar
+    name: Player_Idle
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Icon_PoliceStar
+    - name: Player_Idle
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 15
+        width: 16
         height: 16
-      spriteId: 3dd2fe86458ca7e489dbfc5d192db58a
+      spriteId: e5a299a7c7f1300449ae5e4069af2c6d
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

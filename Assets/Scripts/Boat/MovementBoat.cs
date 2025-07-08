@@ -34,6 +34,7 @@ public class MovementBoat : MonoBehaviour
         ActiveMovement();
     }
 
+    //Active Boat
     public void ActiveBoat()
     {
         SetRandomDestination();
@@ -42,20 +43,23 @@ public class MovementBoat : MonoBehaviour
         AudioSiren.Play();
     }
 
+    //Active movement of the boat
     private void ActiveMovement()
     {
 
         if (stateBoat == BoatState.Moving && CurrentPoint != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, CurrentPoint.transform.position ,speed * Time.deltaTime);
-        } 
+        }
 
-        if(CurrentPoint != null && Vector2.Distance(transform.position, CurrentPoint.transform.position) < 0.1)
+
+        if (CurrentPoint != null && Vector2.Distance(transform.position, CurrentPoint.transform.position) < 0.1)
         {
             stateBoat = BoatState.Idle;
             speed = 0;
         }
 
+        // If the boat is moving to the final point, stop it and return to the start position
         if (Vector2.Distance(transform.position, PointFinal.transform.position) < 0.1f)
         {
             CurrentPoint = null;
@@ -66,6 +70,7 @@ public class MovementBoat : MonoBehaviour
         }
     }
 
+    //return boat to the final point
     public void ReturnBase()
     {
         stateBoat = BoatState.Moving;
@@ -74,6 +79,7 @@ public class MovementBoat : MonoBehaviour
         AudioSiren.Play();
     }
 
+    //Set a random destination from the array of positions
     private void SetRandomDestination()
     {
         if (m_Position.Length == 0) return;
@@ -81,6 +87,7 @@ public class MovementBoat : MonoBehaviour
         CurrentPoint = m_Position[randomIndex];
     }
 
+    //Animation of the lights on the boat
     IEnumerator AnimationLight()
     {
         while (ActiveLight)

@@ -9,6 +9,7 @@ public class SpawnPolice : MonoBehaviour
     public MovementBoat MovementBoat;
     public GameManager m_GameManager;
     public bool CoroutineActive = false;
+
     private void Update()
     {
         if (m_GameManager.boat != null && m_GameManager.boat.speed == 0 && !CoroutineActive)
@@ -18,6 +19,7 @@ public class SpawnPolice : MonoBehaviour
         }
     }
 
+    //Active police when boat is stopped
     public void ActivePolice()
     {
 
@@ -36,6 +38,7 @@ public class SpawnPolice : MonoBehaviour
         }
     }
 
+    //Active 1 police after 1 second
     IEnumerator ActivePoliceSingle()
     {
         yield return new WaitForSeconds(1f);

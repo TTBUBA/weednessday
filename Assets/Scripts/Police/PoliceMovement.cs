@@ -43,6 +43,7 @@ public class PoliceMovement : MonoBehaviour
         ReturnBase();
     }
 
+    //Move the police to the target position
     private void MoveToTarget()
     {
         if (targetPosition == null) { return; }
@@ -51,6 +52,7 @@ public class PoliceMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(Target.x - MaxDistanceTarget, Target.y - MaxDistanceTarget), speed * Time.deltaTime);
     }
 
+    //Check obstacles and player in the radius of the police
     private void Raycast()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, Radius,LayerMask.GetMask("Player"));
@@ -76,12 +78,15 @@ public class PoliceMovement : MonoBehaviour
         }
     }
 
+    //Move the police to the random position
     private void Move()
     {
         if (!ActiveMovement) { return; }
         transform.position = Vector2.MoveTowards(transform.position, MovementDirection, speed * Time.deltaTime);
     }
 
+
+    //Return the position of the police to the start position
     private void ReturnBase()
     {
         if (ReturnBaseActive)

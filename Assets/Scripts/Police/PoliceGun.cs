@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PoliceGun : MonoBehaviour
 {
@@ -25,6 +24,7 @@ public class PoliceGun : MonoBehaviour
         GunTrackPlayer();
     }
 
+    //Shoot bullet in the position of the player
     public void Shoot()
     {
         if (AmmoCount <= 0) { return; }
@@ -37,6 +37,7 @@ public class PoliceGun : MonoBehaviour
         rb.AddForce(Gun.transform.up * 1f, ForceMode2D.Impulse);
         float randomDrag = Random.Range(0.3f, 1f);
         rb.linearDamping = randomDrag;
+
         PosTarget.Add(targetPosition.position);
         AmmoCount--;
     }

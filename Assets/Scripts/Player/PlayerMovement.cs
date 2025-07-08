@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public static Direction direction;
     public static Vector3Int currentCell;
 
+    private Animator animatorPlayer;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        animatorPlayer = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
         rb.linearVelocity = moveInput * speed; 
+        animatorPlayer.SetFloat("Right", moveInput.x);
+        animatorPlayer.SetFloat("Left", -moveInput.x);
     }
     private void UpdateCurrentDirection()
     {
