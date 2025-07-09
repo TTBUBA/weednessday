@@ -26,6 +26,7 @@ public class WordGenerator : MonoBehaviour
     [SerializeField] private Tilemap Nature;
     [SerializeField] private Tile[] SpriteNature;
 
+    public PlayerMovement playerMovement;
     void Awake()
     {
         currentChunkOrigin = firstChunkOrigin;
@@ -74,7 +75,7 @@ public class WordGenerator : MonoBehaviour
         Vector3Int playerPos = PlayerMovement.currentCell;
 
         //check if the player is in the chunk
-        switch (PlayerMovement.direction)
+        switch (playerMovement.direction)
         {
             case PlayerMovement.Direction.up:
                 if (playerPos.y >= currentChunkOrigin.y + ChunkSize - 2)
@@ -133,7 +134,7 @@ public class WordGenerator : MonoBehaviour
         Vector3Int playerPos = PlayerMovement.currentCell;
 
 
-        switch (PlayerMovement.direction)
+        switch (playerMovement.direction)
         {
             case PlayerMovement.Direction.up:
                 if (playerPos.y >= currentChunkOrigin.y + ChunkSize - 2)

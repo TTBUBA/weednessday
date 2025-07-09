@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a0fbfa1ab676214bbc57645ada352bc
+guid: f1c1d471bf58a1a4f99956c32ab6b6e7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -126,22 +126,52 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  animatedSpriteImportData: []
+  animatedSpriteImportData:
+  - name: SpriteSheet_PlayerAxeRight
+    originalName: 
+    pivot: {x: 0.5294118, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 272
+      height: 25
+    spriteID: 09e6e3afd72a1a946b3dcc09cf9e212e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1471023628
+      value0: 771955340
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Icon_ButtAppcall
+    name: SpriteSheet_PlayerAxeRight
     layerFlags: 0
     layerType: 0
     blendMode: 0
-    cells: []
+    cells:
+    - name: SpriteSheet_PlayerAxeRight
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 272
+        height: 25
+      spriteId: 09e6e3afd72a1a946b3dcc09cf9e212e
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -152,4 +182,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 288, y: 32}
-  previousTextureSize: {x: 0, y: 0}
+  previousTextureSize: {x: 512, y: 64}

@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseAxe",
+                    "type": "Button",
+                    "id": "a1ad9382-55ee-40fc-a1c8-07e73baa0553",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -506,6 +515,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseDrog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c183cc6-896c-4db2-9b92-eae7d9dfeb5f",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseAxe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

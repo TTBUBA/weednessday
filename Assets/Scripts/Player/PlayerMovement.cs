@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private Tilemap tile;
-    public static Direction direction;
+    public Direction direction;
     public static Vector3Int currentCell;
 
-    private Animator animatorPlayer;
+    public Animator animatorPlayer;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
