@@ -1,16 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class AxeManager : MonoBehaviour
 {
-    public Animator AnimAxe;
+    [SerializeField] private Animator AnimAxe;
+    [SerializeField] private bool ActiveAxe;
 
-    public bool ActiveAxe;
+    [Header("Ui Axe")]
+    [SerializeField] private GameObject ButtAxe;
 
-
+    public Tree CurrentTree;
     public PlayerMovement movementPlayer;
-
     public InputActionReference Butt_ActiveAxe;
 
     private void OnEnable()
@@ -30,7 +32,7 @@ public class AxeManager : MonoBehaviour
         ActiveAxe = true;
         AnimAxe.SetBool("ActiveAxe", ActiveAxe);
         StartCoroutine(AnimDisactiveAxe());
-
+        CurrentTree.TreeHit();
         if (ActiveAxe)
         {
             switch (movementPlayer.direction)
@@ -50,5 +52,23 @@ public class AxeManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         ActiveAxe = false;
         AnimAxe.SetBool("ActiveAxe", ActiveAxe);
+        //movementPlayer.animatorPlayer.SetBool("ActiveAxeRight", ActiveAxe);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Tree"))
+        {
+            CurrentTree = collision.gameObject.GetComponent<Tree>();
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Tree"))
+        {
+            CurrentTree = null;
+        }
     }
 }
