@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-public class WellSystem : MonoBehaviour
+public class  WellSystem : MonoBehaviour
 {
     [Header("Ui")]
     [SerializeField] private GameObject PanelBarWater;

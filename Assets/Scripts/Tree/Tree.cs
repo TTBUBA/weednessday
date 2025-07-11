@@ -36,6 +36,7 @@ public class Tree : MonoBehaviour
         //float TimeGrowth = Random.Range(40f, 60f);
         yield return new WaitForSeconds(2f);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = Sp_Tree;
+        Health = 100;
     }
 
 

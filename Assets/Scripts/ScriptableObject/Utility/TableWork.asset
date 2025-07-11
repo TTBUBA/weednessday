@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d5743bc6050a65469e1f0f8cd02872c, type: 3}
-  m_Name: Wall
+  m_Name: TableWork
   m_EditorClassIdentifier: 
-  UtilityName: Wall
-  SpaceOccupied: 1x1
-  SpaceOccupiedX: 0
-  SpaceOccupiedY: 0
+  UtilityName: Table work
+  SpaceOccupied: 3x2
+  SpaceOccupiedX: 3
+  SpaceOccupiedY: 2
   UtilityDescription: 
   UtilityID: 0
-  Cost: 15
-  UtilityIcon: {fileID: -6026266321714558976, guid: b12742f0cec7f6544969f2eb81e4a5ba, type: 3}
-  UtilityPrefab: {fileID: 0}
-  Type: 0
-  Object: {fileID: 11400000, guid: 5fbaec303eeee2f4ca98213429310169, type: 2}
+  Cost: 500
+  UtilityIcon: {fileID: 7807699668187343237, guid: 4a3e7047ed25cdf428cc990496f012dd, type: 3}
+  UtilityPrefab: {fileID: 2457069278282457741, guid: e24a015ec3f8a1a43831273cbfddfbb4, type: 3}
+  Type: 1
+  Object: {fileID: 0}

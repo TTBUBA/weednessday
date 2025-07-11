@@ -55,7 +55,7 @@ public class PlacementManager : MonoBehaviour
         if (plantManager.CellOccupate.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied by a plant
 
         //position of the object only is tile 
-        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Prefabs)
+        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Tile)
         {
             Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
 
@@ -72,7 +72,7 @@ public class PlacementManager : MonoBehaviour
         }
 
         //position of the object only is prefabs 
-        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Tile)
+        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Prefabs)
         {
             GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
             Obj.transform.parent = ParentObjspawn.transform; 
@@ -93,6 +93,7 @@ public class PlacementManager : MonoBehaviour
             var Chest = Obj.GetComponent<ChestSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();
             var PoleLight = Obj.GetComponent<PoleLight>();
+            var TableCrafting = Obj.GetComponent<CraftingManager>();
             if (Chest)
             {
                 Chest.SetData(CamPlayer, InventoryManager);
@@ -104,6 +105,10 @@ public class PlacementManager : MonoBehaviour
             if (PoleLight)
             {
                 PoleLight.SetData(CicleDayNight);
+            }
+            if (TableCrafting)
+            {
+                TableCrafting.SetData(CamPlayer, InventoryManager);
             }
 
         }
