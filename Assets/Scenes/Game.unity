@@ -646,7 +646,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f5cfdf98f9a33b49bdd99ce03cb8f49, type: 2}
+  - {fileID: 2100000, guid: 3d923ff8f78f21440880b644d64c386a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34032,6 +34032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -34522,6 +34526,10 @@ PrefabInstance:
     - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Name
       value: Tree1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
@@ -38191,6 +38199,10 @@ PrefabInstance:
     - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Name
       value: Tree1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
@@ -60627,6 +60639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -61262,6 +61278,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &561695839
 GameObject:
   m_ObjectHideFlags: 0
@@ -61668,6 +61686,10 @@ PrefabInstance:
     - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
       propertyPath: m_Name
       value: Tree2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65787,6 +65809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -66157,6 +66183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66234,6 +66264,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &785717990
 GameObject:
   m_ObjectHideFlags: 0
@@ -66947,6 +66979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -67080,6 +67116,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &826272311
 GameObject:
   m_ObjectHideFlags: 0
@@ -67501,6 +67539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67712,6 +67754,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &868141401
 GameObject:
   m_ObjectHideFlags: 0
@@ -69077,6 +69121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -69236,6 +69284,10 @@ PrefabInstance:
     - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
       propertyPath: m_Name
       value: Tree2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69848,6 +69900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69925,6 +69981,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &962989238
 GameObject:
   m_ObjectHideFlags: 0
@@ -70034,6 +70092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70111,6 +70173,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &972057659 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
@@ -70658,6 +70722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70740,6 +70808,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1024802937
 GameObject:
   m_ObjectHideFlags: 0
@@ -70977,6 +71047,10 @@ PrefabInstance:
     - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Name
       value: Tree1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
@@ -71242,6 +71316,10 @@ PrefabInstance:
     - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
       propertyPath: m_Name
       value: Tree2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71595,6 +71673,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1086286229
 GameObject:
   m_ObjectHideFlags: 0
@@ -71797,6 +71877,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1093113228
 GameObject:
   m_ObjectHideFlags: 0
@@ -73020,6 +73102,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1132173319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
@@ -75072,6 +75156,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1267988785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
@@ -75138,6 +75224,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1267998785
 GameObject:
   m_ObjectHideFlags: 0
@@ -78323,6 +78411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -78400,6 +78492,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1310797386
 GameObject:
   m_ObjectHideFlags: 0
@@ -78731,6 +78825,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1318847008
 GameObject:
   m_ObjectHideFlags: 0
@@ -79681,6 +79777,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1356068355
 GameObject:
   m_ObjectHideFlags: 0
@@ -108706,6 +108804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108783,6 +108885,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1453623764
 GameObject:
   m_ObjectHideFlags: 0
@@ -109614,6 +109718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -109691,6 +109799,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1489996077
 GameObject:
   m_ObjectHideFlags: 0
@@ -109898,6 +110008,10 @@ PrefabInstance:
     - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
       propertyPath: m_Name
       value: Tree2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -110325,6 +110439,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1527013482
 GameObject:
   m_ObjectHideFlags: 0
@@ -110855,6 +110971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -110988,6 +111108,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1001 &1552910115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110999,6 +111121,10 @@ PrefabInstance:
     - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Name
       value: Tree1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
@@ -111133,6 +111259,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1559006658
 GameObject:
   m_ObjectHideFlags: 0
@@ -111478,6 +111606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -111611,6 +111743,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1589584117
 GameObject:
   m_ObjectHideFlags: 0
@@ -113693,6 +113827,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1699761882
 GameObject:
   m_ObjectHideFlags: 0
@@ -117504,6 +117640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 378193368424183375, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 1186554842979702680, guid: 3e930968bd25b734092594afde51d3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -117637,6 +117777,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &1928180528
 GameObject:
   m_ObjectHideFlags: 0
@@ -121398,6 +121540,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: bd836f0f972f68944b84015ca2eb5296, type: 3}
   Sp_Tree: {fileID: -8954697528864646954, guid: 82a4f01b1a120e644a7f86f73ad50d66, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!61 &2085216580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -121459,6 +121603,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 0}
   Sp_Tree: {fileID: 0}
   Health: 100
+  Item: {fileID: 0}
+  InventoryManager: {fileID: 0}
 --- !u!1 &2085483152
 GameObject:
   m_ObjectHideFlags: 0
@@ -121894,6 +122040,8 @@ MonoBehaviour:
   Sp_trunk: {fileID: 21300000, guid: ed9e4452707e4b546b91f32edf887425, type: 3}
   Sp_Tree: {fileID: 5584789582678320961, guid: 6b7f535de17270c42a529aa2178bfdda, type: 3}
   Health: 40
+  Item: {fileID: 11400000, guid: da10e9d235e18c044ba979ffaec3af23, type: 2}
+  InventoryManager: {fileID: 579743082}
 --- !u!1 &2112579729
 GameObject:
   m_ObjectHideFlags: 0

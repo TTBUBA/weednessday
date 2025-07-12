@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 30f0c78548e34cf46b3571a790f72ea7
+guid: cb05a6aac2842424b97825cde921b8c5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Icon_Weed
+  - name: Icon_Sheet
     originalName: 
-    pivot: {x: 0.4615385, y: -0.2}
+    pivot: {x: 0.5, y: -0.15384616}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 10
-    spriteID: 37d1b4ea289b7214d823456f53843984
+      width: 16
+      height: 13
+    spriteID: ebd05325d96697948a713f46881bc04f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,43 +153,31 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2409604415
+      value0: 926154595
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Icon_Weed
+    name: Icon_Sheet
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Icon_Weed
+    - name: Icon_Sheet
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 2
+        x: 0
         y: 2
-        width: 13
-        height: 10
-      spriteId: 37d1b4ea289b7214d823456f53843984
+        width: 16
+        height: 13
+      spriteId: ebd05325d96697948a713f46881bc04f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
   tileSets: []
-  platformSettings:
-  - name: Default
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

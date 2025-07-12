@@ -8,12 +8,16 @@ public class Tree : MonoBehaviour
     [Header("Settings Tree")]
     [SerializeField] private Sprite Sp_trunk;
     [SerializeField] private Sprite Sp_Tree;
-    [SerializeField] private int Health = 100; 
+    [SerializeField] private int Health = 100;
+    [SerializeField] private SlootData Item;
+    public InventoryManager InventoryManager;
     
     public void TreeHit()
     {
         int randomVal = Random.Range(1, 5);
+        int Itemval = Random.Range(1, 3);
         Health -= randomVal;
+        InventoryManager.AddItem(Item, Itemval);
         if (Health <= 0)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Sp_trunk;
