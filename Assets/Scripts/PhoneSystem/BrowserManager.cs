@@ -6,10 +6,12 @@ using TMPro;
 public class BrowserManager : MonoBehaviour
 {
     [SerializeField] private List<string> nameSite = new List<string>();
-   // public string CurrentSiteWrite;
+
 
     [Header("Site")]
     [SerializeField] private GameObject site_adust;
+    [SerializeField] private GameObject site_aweez;
+
 
     [Header("Ui")]
     [SerializeField] private Button searchButton;
@@ -24,6 +26,9 @@ public class BrowserManager : MonoBehaviour
             {
                 case "adust":
                     site_adust.SetActive(true);
+                    break;
+                case "hercules":
+                    site_aweez.SetActive(true);
                     break;
             }
         }
