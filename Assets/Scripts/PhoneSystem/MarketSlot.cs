@@ -68,5 +68,7 @@ public class MarketSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void RemoveSlot()
     {
         Destroy(gameObject);
+        marketManager.TotalPriceCart -= CurrentPrice;
+        marketManager.Text_PriceTotal.text = "Total: " + marketManager.TotalPriceCart.ToString() + "$";
     }
 }
