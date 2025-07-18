@@ -45,9 +45,9 @@ public class MarketSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             CurrentPrice += PriceItem;
             Price_Item.text = CurrentPrice.ToString() + "$";
             Text_TotalItem.text = quantity.ToString();
-            //marketManager.marketSlots.Add(quantity, this);
             marketManager.TotalPriceCart += PriceItem;
             marketManager.Text_PriceTotal.text = "Total: "+ marketManager.TotalPriceCart.ToString() + "$";
+            marketManager.UpdateCartItem(this,quantity);// update the item in the cart
         }
     }
 
@@ -59,9 +59,9 @@ public class MarketSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             CurrentPrice -= PriceItem;
             Price_Item.text = CurrentPrice.ToString() + "$";
             Text_TotalItem.text = quantity.ToString();
-            //marketManager.marketSlots.Remove(quantity);
             marketManager.TotalPriceCart -= PriceItem;
             marketManager.Text_PriceTotal.text = "Total: " + marketManager.TotalPriceCart.ToString() + "$";
+            marketManager.UpdateCartItem(this, quantity);//update the item in the cart
         }
     }
 
@@ -70,5 +70,6 @@ public class MarketSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         Destroy(gameObject);
         marketManager.TotalPriceCart -= CurrentPrice;
         marketManager.Text_PriceTotal.text = "Total: " + marketManager.TotalPriceCart.ToString() + "$";
+        marketManager.UpdateCartItem(this, 0);//remove the item from the cart
     }
 }

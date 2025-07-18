@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bfdb46add7d3d64091ee188896f7807
+guid: 29d40306eb27c8748aeea9d9648d1420
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Bottle
+  - name: Icon_Iron
     originalName: 
-    pivot: {x: 0.5, y: -0.06666667}
+    pivot: {x: 0.53333336, y: -0.07692308}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 14
-      height: 30
-    spriteID: 3ca8535ed3bab1f4484d0da4ec88fd39
+      width: 15
+      height: 13
+    spriteID: 2597c6c6b99f08844a61663abfd992e9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4009677158
+      value0: 1999154822
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Bottle
+    name: Icon_Iron
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Bottle
+    - name: Icon_Iron
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 9
-        y: 2
-        width: 14
-        height: 30
-      spriteId: 3ca8535ed3bab1f4484d0da4ec88fd39
+        x: 0
+        y: 1
+        width: 15
+        height: 13
+      spriteId: 2597c6c6b99f08844a61663abfd992e9
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 32, y: 64}
+  canvasSize: {x: 16, y: 16}
+  previousTextureSize: {x: 32, y: 32}

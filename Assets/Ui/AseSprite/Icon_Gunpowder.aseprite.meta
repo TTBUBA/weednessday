@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bfdb46add7d3d64091ee188896f7807
+guid: 6d29580d0d29642419a71d9215405301
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Bottle
+  - name: Icon_Gunpowder
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.53333336, y: -0.4}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 6
-      height: 16
-    spriteID: 3ca8535ed3bab1f4484d0da4ec88fd39
+      width: 15
+      height: 10
+    spriteID: d6821dcd325538742b14ab71ced98498
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4009677158
+      value0: 3960894403
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Bottle
+    name: Icon_Gunpowder
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Icon_Bottle
+    - name: Icon_Gunpowder
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 0
-        width: 6
-        height: 16
-      spriteId: 3ca8535ed3bab1f4484d0da4ec88fd39
+        x: 0
+        y: 4
+        width: 15
+        height: 10
+      spriteId: d6821dcd325538742b14ab71ced98498
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -182,4 +182,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 16, y: 32}
+  previousTextureSize: {x: 32, y: 32}

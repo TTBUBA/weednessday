@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class MarketManager : MonoBehaviour
 {
+    public class ItemCard
+    {
+        public int quantity;
+        public MarketSlot MarketSlot;
+    }
+
     public MarketSlot currentSlot;
     public PlayerManager playerManager;
     public int TotalItemAddCart;
-    public Dictionary<int, MarketSlot> marketSlots = new Dictionary<int, MarketSlot>();
+    public List<ItemCard> cartItems = new List<ItemCard>();
+    public List<GameObject> ObjSpawn = new List<GameObject>();
     public GameObject Obj_Spawn;
     public Transform PointSpawn;
     public int TotalPriceCart;
+    public bool isOrderMade = false;
+    
 
     [Header("Ui")]
     [SerializeField] private TextMeshProUGUI Text_ItemInTheCart;
     public TextMeshProUGUI Text_PriceTotal;
 
+    public InventoryManager InventoryManager;
+    public Boat_Order boatOrder;
+    public BoxOrder boxOrder;
 
-    public void MakeOrder()
+    public void AddToCart()
     {
-        if(playerManager.CurrentMoney >= currentSlot.CurrentPrice)
+        if (playerManager.CurrentMoney >= currentSlot.CurrentPrice)
         {
             TotalItemAddCart++;
             Text_ItemInTheCart.text = TotalItemAddCart.ToString();
             GameObject obj = Instantiate(Obj_Spawn);
             obj.transform.SetParent(PointSpawn, false);
+            ObjSpawn.Add(obj);
             MarketSlot marketSlot = obj.GetComponent<MarketSlot>();
             marketSlot.SlootMarket = currentSlot.SlootMarket;
             marketSlot.marketManager = this;
@@ -32,17 +45,59 @@ public class MarketManager : MonoBehaviour
             marketSlot.CurrentPrice = currentSlot.PriceItem;
             TotalPriceCart += marketSlot.CurrentPrice;
             Text_PriceTotal.text = "Total: " + TotalPriceCart.ToString() + "$";
-            //marketSlots.Add(marketSlot.quantity, marketSlot);
+
+            //Save Item in the cart
+            ItemCard item= new ItemCard();
+            item.MarketSlot = marketSlot;
+            item.quantity = marketSlot.quantity;
+            cartItems.Add(item);
         }
         else
         {
             Debug.Log("Order not made. because not have money.");
         }
-        /*
-        foreach(KeyValuePair<int, MarketSlot> slot in marketSlots)
+    }
+    public void MakeOrder()
+    {
+        if (!isOrderMade && !boxOrder.OpenBox)
         {
-            Debug.Log("Price Total" + slot.Value.CurrentPrice + slot.Value.PriceItem);
+            isOrderMade = true;
+            boatOrder.StartCoroutine(boatOrder.TimeDelivery());
+            foreach (var item in cartItems)
+            {
+                playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player
+
+                BoxOrder.ItemChest chestItem = new BoxOrder.ItemChest();
+                chestItem.quantity = item.quantity;
+                chestItem.MarketSlot = item.MarketSlot;
+
+                boxOrder.chestItems.Add(chestItem);
+
+                item.quantity = 0; // Reset the quantity after adding to the box order
+                item.MarketSlot = null; // Reset the market slot after adding to the box order
+
+                foreach (var obj in ObjSpawn)
+                {
+                    Destroy(obj);
+                    TotalPriceCart = 0; // Reset the total price after the order is made
+                    Text_PriceTotal.text = "Total: " + TotalPriceCart.ToString() + "$";
+                }
+            }
         }
-        */
+    }
+
+    //Update the cart item quantity and remove
+    public void UpdateCartItem(MarketSlot marketSlot,int newQuantiy)
+    {
+        var item = cartItems.Find(i => i.MarketSlot == currentSlot);
+        if (item != null)
+        {
+            item.quantity = newQuantiy;   
+            if(newQuantiy <= 0)
+            {
+                cartItems.Remove(item);
+            }
+        }
     }
 }
+

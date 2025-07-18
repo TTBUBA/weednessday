@@ -10,13 +10,15 @@ public class BrowserManager : MonoBehaviour
 
     [Header("Site")]
     [SerializeField] private GameObject site_adust;
-    [SerializeField] private GameObject site_aweez;
-
+    [SerializeField] private GameObject site_hercules;
+   
 
     [Header("Ui")]
     [SerializeField] private Button searchButton;
     [SerializeField] private TMP_InputField inputField;
-
+    [SerializeField] private TextMeshProUGUI Text_NameSite;
+    [SerializeField] private GameObject Bar_Search;
+    [SerializeField] private GameObject Obj_NameSite;
     public void SearchSite(string site)
     {
         site = inputField.text;
@@ -26,9 +28,15 @@ public class BrowserManager : MonoBehaviour
             {
                 case "adust":
                     site_adust.SetActive(true);
+                    Bar_Search.SetActive(false);
+                    Obj_NameSite.SetActive(true);
+                    Text_NameSite.text = site;
                     break;
                 case "hercules":
-                    site_aweez.SetActive(true);
+                    site_hercules.SetActive(true);
+                    Bar_Search.SetActive(false);
+                    Obj_NameSite.SetActive(true);
+                    Text_NameSite.text = site;
                     break;
             }
         }

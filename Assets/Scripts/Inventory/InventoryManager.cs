@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Addweed()
     {
-        AddItem(weed, 1);
+        AddItem(weed, 2);
     }
 
     public void Removeweed(int totalRemove)
@@ -59,9 +59,11 @@ public class InventoryManager : MonoBehaviour
         RemoveItem(Seedweed, 1);
     }
 
+    //Add item 
     public bool AddItem(SlootData item, int amount)
     {
-        if(item.itemType != ItemType.Static)
+        // Check if the item is null or not
+        if(item.itemType != ItemType.Seed)
         {
             foreach (var slot in slootManager)
             {
@@ -78,6 +80,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        // Check if the item is not static and if there is an empty slot
         if (item.itemType != ItemType.Static)
         {
             foreach (var slot in slootManager)
@@ -85,7 +88,7 @@ public class InventoryManager : MonoBehaviour
                 if (slot.slootData == null)
                 {
                     slot.slootData = item;
-                    slot.CurrentStorage = 1;
+                    slot.CurrentStorage = amount;
                     slot.StorageFull = (slot.CurrentStorage >= slot.slootData.MaxStorage);
                     slot.UpdateSlot();
                     return true;

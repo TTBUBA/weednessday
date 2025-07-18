@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
 
     public void UseWeed()
     {
-        if(InventoryManager.CurrentSlotSelect.NameTools == "Cane" && EffectWeed.ActiveDrog && ActiveButtun)
+        if(InventoryManager.CurrentSlotSelect != null && InventoryManager.CurrentSlotSelect.NameTools == "Cane" && EffectWeed.ActiveDrog && ActiveButtun)
         {
             InventoryManager.RemoveCane();
             ActiveButtun = false;
