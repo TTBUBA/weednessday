@@ -5,9 +5,7 @@ using UnityEngine.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    [SerializeField] private Tilemap tile;
     public Direction direction;
-    public static Vector3Int currentCell;
 
     public Animator animatorPlayer;
     private Rigidbody2D rb;
@@ -34,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         UpdateCurrentDirection();
-
-        currentCell = tile.WorldToCell(transform.position);
     }
 
     private void Move()

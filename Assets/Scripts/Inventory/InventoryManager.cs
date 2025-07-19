@@ -6,8 +6,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     public List<SlootManager> slootManager = new List<SlootManager>();
-    //[SerializeField] private List<SlootManager> SlootChest = new List<SlootManager>();
-
+    public GameObject PanelInventory;
 
     [Header("Player")]
     public GameObject PlayerObjSelect;
