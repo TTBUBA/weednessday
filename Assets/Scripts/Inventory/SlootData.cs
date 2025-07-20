@@ -16,6 +16,6 @@ public class SlootData : ScriptableObject
 
 public enum ItemType
 {
-    Seed,
-    Static
+    singleItem,
+    MultiplyItem
 }

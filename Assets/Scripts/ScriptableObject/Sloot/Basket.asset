@@ -16,4 +16,4 @@ MonoBehaviour:
   ToolsImages: {fileID: 8768041848901560463, guid: a2638c33c82f2944f8c77fc44654eda6, type: 3}
   ToolsID: 3
   MaxStorage: 0
-  itemType: 1
+  itemType: 0

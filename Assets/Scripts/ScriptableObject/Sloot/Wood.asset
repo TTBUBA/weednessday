@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: Wood
   ToolsImages: {fileID: 8451732302723008997, guid: 7c86bacf5f686064da2229047275a84f, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

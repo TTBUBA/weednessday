@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: gunpowder
   ToolsImages: {fileID: 6862741857630512283, guid: 6d29580d0d29642419a71d9215405301, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

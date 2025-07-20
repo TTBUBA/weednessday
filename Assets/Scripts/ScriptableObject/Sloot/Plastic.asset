@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: plastic
   ToolsImages: {fileID: 4145100776150910970, guid: f21df7deec5846941a39f75880462b98, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

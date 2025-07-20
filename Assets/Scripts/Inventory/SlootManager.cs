@@ -91,14 +91,15 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (slootData != null)
         {
-            iconTools.gameObject.SetActive(true);
+            iconTools.enabled = true;
             iconTools.sprite = slootData.ToolsImages;
             CountText.text = CurrentStorage > 0 ? CurrentStorage.ToString() : string.Empty;
         }
-        else
+        else if(CurrentStorage < 1)
         {
-            iconTools.gameObject.SetActive(false);
-            iconTools.sprite = null;
+            iconTools.enabled = false;
+            StorageFull = false;
+            slootData = null;
             CountText.text = string.Empty;
         }
     }

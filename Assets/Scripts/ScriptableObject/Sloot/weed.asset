@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: Weed
   ToolsImages: {fileID: -7418158857583555208, guid: fcd345d12a0b12d44b042b575bb3efd9, type: 3}
   ToolsID: 4
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8cd6d0c29c822489f57dd07e850469, type: 3}
   m_Name: Trash
   m_EditorClassIdentifier: 
-  NameTools: Trash
+  NameTools: trash
   ToolsImages: {fileID: 8953708090894084404, guid: 680393f0ca3e57b4eb2aadf73a05c1b8, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

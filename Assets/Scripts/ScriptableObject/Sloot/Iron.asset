@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: iron
   ToolsImages: {fileID: -5087236317990375530, guid: 29d40306eb27c8748aeea9d9648d1420, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: Sheet
   ToolsImages: {fileID: -4975620319825820556, guid: cb05a6aac2842424b97825cde921b8c5, type: 3}
   ToolsID: 0
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1

@@ -15,5 +15,5 @@ MonoBehaviour:
   NameTools: SeedWeed
   ToolsImages: {fileID: 8966876307974586816, guid: 70cf598eb4453dd4b9df04140feae4a2, type: 3}
   ToolsID: 5
-  MaxStorage: 10
-  itemType: 0
+  MaxStorage: 32
+  itemType: 1
