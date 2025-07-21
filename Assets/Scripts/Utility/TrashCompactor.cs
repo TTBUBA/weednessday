@@ -1,5 +1,10 @@
+using System;
 using System.Collections;
+using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class TrashCompactor : MonoBehaviour
@@ -8,22 +13,105 @@ public class TrashCompactor : MonoBehaviour
     [SerializeField] private SlootManager CurrentData;
     [SerializeField] private SlootManager slootTrash;
     [SerializeField] private float TimeToCompact = 1f;
+    [SerializeField] private Light2D LightOn;
+    [SerializeField] private Light2D LightOff;
+
+
+    [Header("Input")]
+    [SerializeField] private InputActionReference Butt_OpenTrashCompactor;
+    [SerializeField] private InputActionReference Butt_CloseTrashCompactor;
+
+    [Header("Ui")]
+    [SerializeField] private GameObject PanelTrashCompactor;
+    [SerializeField] private GameObject Button;
+    [SerializeField] private TextMeshProUGUI Text_Button;
+    [SerializeField] private GameObject PanelInventoryPlayer;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private Image BarProgress;
+    [SerializeField] private bool IsOpen = false;
+    [SerializeField] private bool ActiveLight;
 
     private Coroutine coroutineTrash;
 
-    public InventoryManager inventoryManager;
+    public InventoryManager InventoryManager;
 
     private void Start()
     {
         coroutineTrash = StartCoroutine(ActiveTrashCompactor());
+        slootTrash.iconTools.enabled = false;
     }
 
+    private void OnEnable()
+    {
+        Butt_OpenTrashCompactor.action.Enable();
+        Butt_OpenTrashCompactor.action.performed += OpenTrashCompactor;
+        Butt_CloseTrashCompactor.action.Enable();
+        Butt_CloseTrashCompactor.action.performed += CloseTrashCompactor;
+    }
+
+    private void OnDisable()
+    {
+        Butt_OpenTrashCompactor.action.Disable();
+        Butt_OpenTrashCompactor.action.performed -= OpenTrashCompactor;
+        Butt_CloseTrashCompactor.action.Disable();
+        Butt_CloseTrashCompactor.action.performed -= CloseTrashCompactor;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Button.SetActive(true);
+            Text_Button.text = "Press 'E'";
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Button.SetActive(false);
+            PanelTrashCompactor.SetActive(false);
+            Text_Button.text = "Press 'E'";
+        }
+    }
+
+    private void OpenTrashCompactor(InputAction.CallbackContext context)
+    {
+        if (!IsOpen) 
+        {
+            IsOpen = true;
+            foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
+            {
+                slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+            }
+            PanelTrashCompactor.SetActive(true);
+            Text_Button.text = "Press 'Q'";
+        }
+    }
+    private void CloseTrashCompactor(InputAction.CallbackContext context)
+    {
+        if (IsOpen) 
+        {
+            IsOpen = false;
+            foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
+            {
+                slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
+            }
+            PanelTrashCompactor.SetActive(false);
+            Text_Button.text = "Press 'E'";
+        }
+    }
+
+
+    //active the button and add item to the inventory
     public void CompactTrash()
     {
         if (CurrentData.slootData != null && CurrentData.slootData.NameTools == "plastic")
         {
-            inventoryManager.AddItem(slootTrash.slootData, slootTrash.CurrentStorage);
+            InventoryManager.AddItem(slootTrash.slootData, slootTrash.CurrentStorage);
             slootTrash.CurrentStorage = 0;
+            slootTrash.iconTools.enabled = false;
         }
     }
 
@@ -32,25 +120,56 @@ public class TrashCompactor : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(TimeToCompact);
-
             if (CurrentData.slootData != null && CurrentData.slootData.NameTools == "plastic")
             {
-                if (CurrentData.CurrentStorage > 0 && slootTrash.CurrentStorage <= slootTrash.slootData.MaxStorage - 1)
+                BarProgress.fillAmount += 0.1f;
+                slootTrash.iconTools.enabled = true;
+
+                // Check if the bar is full and if there is space in the trash compactor
+                if (BarProgress.fillAmount >= 1f && CurrentData.CurrentStorage > 0 && slootTrash.CurrentStorage <= slootTrash.slootData.MaxStorage - 1)
                 {
                     CurrentData.CurrentStorage--;
                     slootTrash.CurrentStorage++;
                     slootTrash.UpdateSlot();
                     CurrentData.UpdateSlot();
+                    BarProgress.fillAmount = 0f;
+                    LightOn.enabled = true;
+                    ActiveLight = false;
 
+                    //reset data when storage is empty 
                     if (CurrentData.CurrentStorage < 1)
                     {
+                        ActiveLight = true;
                         CurrentData.StorageFull = false;
                         CurrentData.slootData = null;
                         CurrentData.iconTools.enabled = false;
+                        LightOff.enabled = false;
                     }
-                    Debug.Log("Compattazione eseguita");
                 }
             }
+            else if(CurrentData.slootData != null && slootTrash.CurrentStorage <= 1)
+            {
+                LightOn.enabled = false;
+                LightOff.enabled = true;
+            }
         }
+    }
+
+    //Animation of the lights on the boat
+    IEnumerator AnimationLight()
+    {
+        while (ActiveLight)
+        {
+            yield return new WaitForSeconds(0.5f);
+            LightOn.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            LightOn.enabled = false;
+        }
+    }
+    //set data
+    public void SetData(Camera camera, InventoryManager inventoryManager)
+    {
+        canvas.worldCamera = camera;
+        InventoryManager = inventoryManager;
     }
 }

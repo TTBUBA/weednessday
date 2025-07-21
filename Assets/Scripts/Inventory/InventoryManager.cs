@@ -133,11 +133,6 @@ public class InventoryManager : MonoBehaviour
         int tempStorage = fromSlot.CurrentStorage;
         bool tempStorageFull = fromSlot.StorageFull;
 
-        if (fromSlot.CurrentStorage >= fromSlot.slootData.MaxStorage)
-        {
-            AddItem(tempSlootData, tempStorage);
-            Debug.Log("Cannot drop item, target slot is full.");
-        }
 
         fromSlot.slootData = toSlot.slootData;
         fromSlot.CurrentStorage += toSlot.CurrentStorage;

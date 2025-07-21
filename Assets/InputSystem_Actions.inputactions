@@ -684,6 +684,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenTrashCompactor",
+                    "type": "Button",
+                    "id": "9d6abecb-3773-4dd2-9e14-3e02dc84e001",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseTrashCompactor",
+                    "type": "Button",
+                    "id": "70c2348d-6b77-48ae-b216-ece48b048288",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1113,6 +1131,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "CloseTableCrafting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff2aa983-e515-4f6e-9e66-f081904d9f1a",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenTrashCompactor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e47b3fb-736e-45f3-bd0d-c7ec3c017584",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenTrashCompactor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "250c0065-5881-4078-b555-4166f0faea78",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseTrashCompactor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f5120bf-6475-4b6f-9cdc-ec0b2d77c55e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseTrashCompactor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
