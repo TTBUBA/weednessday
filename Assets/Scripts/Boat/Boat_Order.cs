@@ -58,8 +58,9 @@ public class Boat_Order : MonoBehaviour
 
     public IEnumerator TimeDelivery()
     {
-        timedelivery = Random.Range(300, 500);
+        timedelivery = Random.Range(5000, 6000);
         yield return new WaitForSeconds(timedelivery);
         ActiveBoat = true;
+        Debug.Log("Time deliver real" + timedelivery / 60 + "Minutes");
     }
 }

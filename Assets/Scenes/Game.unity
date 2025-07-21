@@ -36126,6 +36126,7 @@ MonoBehaviour:
   canvas: {fileID: 196546842}
   BarProgress: {fileID: 1966523687}
   IsOpen: 0
+  ActiveLight: 0
   InventoryManager: {fileID: 579743082}
 --- !u!1 &439354592
 GameObject:
@@ -64365,7 +64366,7 @@ MonoBehaviour:
   CurrentHours: 9
   CurrentMinutes: 0
   LightNight: 0.2
-  IncreseTime: 2
+  IncreseTime: 1.5
 --- !u!1 &731563345 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7682477366617608554, guid: 05df1ef8ce6f02442a75581d689b3fb4, type: 3}
