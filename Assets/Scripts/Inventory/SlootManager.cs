@@ -11,7 +11,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public bool StorageFull = false;
     public Image iconTools;
     public TextMeshProUGUI CountText;
-
+    public bool InUse;
 
     private Vector3 iconOriginalPosition;
     private bool isDragging = false;

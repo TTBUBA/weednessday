@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -15,7 +15,8 @@ public class TrashCompactor : MonoBehaviour
     [SerializeField] private float TimeToCompact = 1f;
     [SerializeField] private Light2D LightOn;
     [SerializeField] private Light2D LightOff;
-
+    [SerializeField] private List<SlootManager> slootManager = new List<SlootManager>();
+    [SerializeField] private GameObject slootManagerPrefab;
 
     [Header("Input")]
     [SerializeField] private InputActionReference Butt_OpenTrashCompactor;
@@ -30,7 +31,7 @@ public class TrashCompactor : MonoBehaviour
     [SerializeField] private Image BarProgress;
     [SerializeField] private bool IsOpen = false;
     [SerializeField] private bool ActiveLight;
-
+    [SerializeField] private bool InCollision;
     private Coroutine coroutineTrash;
 
     public InventoryManager InventoryManager;
@@ -63,6 +64,7 @@ public class TrashCompactor : MonoBehaviour
         {
             Button.SetActive(true);
             Text_Button.text = "Press 'E'";
+            InCollision = true;
         }
     }
 
@@ -73,31 +75,45 @@ public class TrashCompactor : MonoBehaviour
             Button.SetActive(false);
             PanelTrashCompactor.SetActive(false);
             Text_Button.text = "Press 'E'";
+            InCollision = false;
         }
     }
 
     private void OpenTrashCompactor(InputAction.CallbackContext context)
     {
-        if (!IsOpen) 
+        if (!IsOpen && InCollision) 
         {
             IsOpen = true;
+
+            slootManager.Clear();
+
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
-                slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+                if (!slot.InUse)
+                {
+                    slot.InUse = true;
+                    slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+                }
             }
+
             PanelTrashCompactor.SetActive(true);
             Text_Button.text = "Press 'Q'";
         }
     }
+
     private void CloseTrashCompactor(InputAction.CallbackContext context)
     {
-        if (IsOpen) 
+        if (IsOpen && InCollision) 
         {
             IsOpen = false;
-            foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
+
+            foreach (var slot in slootManager)
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
+                slot.InUse = false;
             }
+
+            slootManager.Clear();
             PanelTrashCompactor.SetActive(false);
             Text_Button.text = "Press 'E'";
         }

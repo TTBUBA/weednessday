@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animatorPlayer;
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     private PlayerInput playerInput;
 
     public enum Direction
@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
         rb.linearVelocity = moveInput * speed; 
         animatorPlayer.SetFloat("Right", moveInput.x);
         animatorPlayer.SetFloat("Left", -moveInput.x);

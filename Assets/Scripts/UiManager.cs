@@ -70,6 +70,8 @@ public class UiManager : MonoBehaviour
         Butt_OpenPanelUtilty.SetActive(true);
         DrawTile.gameObject.SetActive(false);
         placementManager.DrawModeActive = false;
+        placementManager.CurrentplaceableObject = null;
+        placementManager.IsPlacementActive = false;
     }
     private void UiInventory()
     {

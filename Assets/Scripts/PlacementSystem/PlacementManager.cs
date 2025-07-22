@@ -93,7 +93,7 @@ public class PlacementManager : MonoBehaviour
             var Chest = Obj.GetComponent<ChestSystem>();
             var WellSystem = Obj.GetComponent<WellSystem>();
             var PoleLight = Obj.GetComponent<PoleLight>();
-            var TableCrafting = Obj.GetComponent<CraftingManager>();
+            var TrashCompactor = Obj.GetComponent<TrashCompactor>();
             if (Chest)
             {
                 Chest.SetData(CamPlayer, InventoryManager);
@@ -106,11 +106,10 @@ public class PlacementManager : MonoBehaviour
             {
                 PoleLight.SetData(CicleDayNight);
             }
-            if (TableCrafting)
+            if(TrashCompactor)
             {
-                TableCrafting.SetData(CamPlayer, InventoryManager);
+                TrashCompactor.SetData(CamPlayer, InventoryManager);
             }
-
         }
     }
 

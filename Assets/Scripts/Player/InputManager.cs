@@ -1,302 +1,162 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//This script occupies the role of managing player inputs 
-public class InputManager : MonoBehaviour
+// This script handles player input and delegates logic to other managers.
+public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
-    [SerializeField] private PlayerInput playerInput;
-
-    [Header("Input-Inventory")]
-    [SerializeField] private InputActionReference Butt_OpenInventory;
-
-    [Header("Input-PlacementObject")]
-    [SerializeField] private InputActionReference Butt_PlaceObject;
-    [SerializeField] private InputActionReference Butt_RemoveObjectPlace;
-    [SerializeField] private InputActionReference Butt_OpenPanelUtility;
-    [SerializeField] private InputActionReference Butt_ClosePanelUtility;
-
-    [Header("Input-Player")]
-    [SerializeField] private InputActionReference Butt_PlantWeed;
-    [SerializeField] private InputActionReference Butt_HoeTerrain;
-    [SerializeField] private InputActionReference Butt_WetTerrain;
-    [SerializeField] private InputActionReference Butt_CollectWeed;
-    [SerializeField] private InputActionReference Butt_openPhone;
-    [SerializeField] private InputActionReference Butt_closePhone;
-    [SerializeField] private InputActionReference Butt_UseDrog;
-
+    public InputSystem_Actions inputActions;
 
     [Header("Manager References")]
-    [SerializeField] public PlacementManager PlacementManager;
-    [SerializeField] public UiManager Uimanager;
-    [SerializeField] public PlantManager PlantManager;
-    [SerializeField] public InventoryManager InventoryManager;
-    [SerializeField] public PhoneManager PhoneManager;
-    [SerializeField] public PlayerManager playerManager;
+    public PlacementManager PlacementManager;
+    public UiManager Uimanager;
+    public PlantManager PlantManager;
+    public InventoryManager InventoryManager;
+    public PhoneManager PhoneManager;
+    public PlayerManager playerManager;
+    public PlayerMovement PlayerMovement;
+    public MouseManager MouseManager;
+
+    private void Awake()
+    {
+        inputActions = new InputSystem_Actions();
+        inputActions.Player.SetCallbacks(this);
+    }
 
     private void OnEnable()
     {
-        // Inventory inputs
-        if (Butt_OpenInventory != null)
-        {
-            Butt_OpenInventory.action.Enable();
-            Butt_OpenInventory.action.performed += OnOpenInventory;
-            Butt_OpenInventory.action.canceled += OnCloseInventory;
-        }
-
-        // Placement inputs
-        if (Butt_PlaceObject != null)
-        {
-            Butt_PlaceObject.action.Enable();
-            Butt_PlaceObject.action.performed += PlaceObject;
-        }
-
-        if (Butt_RemoveObjectPlace != null)
-        {
-            Butt_RemoveObjectPlace.action.Enable();
-            Butt_RemoveObjectPlace.action.performed += RemoveObjectPlace;
-        }
-
-        // Panel utility inputs
-        if (Butt_OpenPanelUtility != null)
-        {
-            Butt_OpenPanelUtility.action.Enable();
-            Butt_OpenPanelUtility.action.performed += OnOpenPanelUtilty;
-        }
-
-        if (Butt_ClosePanelUtility != null)
-        {
-            Butt_ClosePanelUtility.action.Enable();
-            Butt_ClosePanelUtility.action.performed += OnCloseOpenPanelUtilty;
-        }
-
-        // Plant inputs
-        if (Butt_PlantWeed != null)
-        {
-            Butt_PlantWeed.action.Enable();
-            Butt_PlantWeed.action.performed += PlantWeed;
-        }
-
-        if (Butt_CollectWeed != null)
-        {
-            Butt_CollectWeed.action.Enable();
-            Butt_CollectWeed.action.performed += CollectWeed;
-        }
-
-        // Tool inputs
-        if (Butt_HoeTerrain != null)
-        {
-            Butt_HoeTerrain.action.Enable();
-            Butt_HoeTerrain.action.performed += HoeTerrain;
-        }
-
-        if (Butt_WetTerrain != null)
-        {
-            Butt_WetTerrain.action.Enable();
-            Butt_WetTerrain.action.performed += WetTerrain;
-        }
-
-        // Phone inputs
-        if (Butt_openPhone != null)
-        {
-            Butt_openPhone.action.Enable();
-            Butt_openPhone.action.performed += OpenPhone;
-        }
-
-        if (Butt_closePhone != null)
-        {
-            Butt_closePhone.action.Enable();
-            Butt_closePhone.action.performed += ClosePhone;
-        }
-
-        //Player input
-        if (Butt_UseDrog != null)
-        {
-            Butt_UseDrog.action.Enable();
-            Butt_UseDrog.action.performed += Butt_SmokeWeed;
-        }
+        inputActions.Player.Enable();
     }
 
     private void OnDisable()
     {
-        // Inventory inputs
-        if (Butt_OpenInventory != null)
-        {
-            Butt_OpenInventory.action.Disable();
-            Butt_OpenInventory.action.performed -= OnOpenInventory;
-            Butt_OpenInventory.action.canceled -= OnCloseInventory;
-        }
-
-        // Placement inputs
-        if (Butt_PlaceObject != null)
-        {
-            Butt_PlaceObject.action.Disable();
-            Butt_PlaceObject.action.performed -= PlaceObject;
-        }
-
-        if (Butt_RemoveObjectPlace != null)
-        {
-            Butt_RemoveObjectPlace.action.Disable();
-            Butt_RemoveObjectPlace.action.performed -= RemoveObjectPlace;
-        }
-
-        // Panel utility inputs
-        if (Butt_OpenPanelUtility != null)
-        {
-            Butt_OpenPanelUtility.action.Disable();
-            Butt_OpenPanelUtility.action.performed -= OnOpenPanelUtilty;
-        }
-
-        if (Butt_ClosePanelUtility != null)
-        {
-            Butt_ClosePanelUtility.action.Disable();
-            Butt_ClosePanelUtility.action.performed -= OnCloseOpenPanelUtilty;
-        }
-
-        // Plant inputs
-        if (Butt_PlantWeed != null)
-        {
-            Butt_PlantWeed.action.Disable(); // Era Enable() - BUG CORRETTO
-            Butt_PlantWeed.action.performed -= PlantWeed;
-        }
-
-        if (Butt_CollectWeed != null)
-        {
-            Butt_CollectWeed.action.Disable(); // Era Enable() - BUG CORRETTO
-            Butt_CollectWeed.action.performed -= CollectWeed;
-        }
-
-        // Tool inputs
-        if (Butt_HoeTerrain != null)
-        {
-            Butt_HoeTerrain.action.Disable();
-            Butt_HoeTerrain.action.performed -= HoeTerrain;
-        }
-
-        if (Butt_WetTerrain != null)
-        {
-            Butt_WetTerrain.action.Disable();
-            Butt_WetTerrain.action.performed -= WetTerrain;
-        }
-
-        // Phone inputs
-        if (Butt_openPhone != null)
-        {
-            Butt_openPhone.action.Disable();
-            Butt_openPhone.action.performed -= OpenPhone;
-        }
-
-        if (Butt_closePhone != null)
-        {
-            Butt_closePhone.action.Disable();
-            Butt_closePhone.action.performed -= ClosePhone;
-        }
-
-        //Player input
-        if (Butt_UseDrog != null)
-        {
-            Butt_UseDrog.action.Disable();
-            Butt_UseDrog.action.performed -= Butt_SmokeWeed;
-        }
+        inputActions.Player.Disable();
     }
 
-    // Inventory methods
+    // Inventory
     public void OnOpenInventory(InputAction.CallbackContext context)
     {
-        if (Uimanager != null)
-        {
-            Uimanager.OpenPanelInventory();
-        }
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.OpenPanelInventory();
     }
 
     public void OnCloseInventory(InputAction.CallbackContext context)
     {
-        if (Uimanager != null)
-        {
-            Uimanager.ClosePanelInventory();
-        }
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.ClosePanelInventory();
     }
 
-    // Placement methods
-    public void PlaceObject(InputAction.CallbackContext context)
+    // Placement
+    public void OnPlacementObjet(InputAction.CallbackContext context)
     {
-        if (PlacementManager == null || !PlacementManager.IsPlacementActive) return;
+        if (!context.performed || PlacementManager == null) return;
         PlacementManager.PlaceObject();
     }
 
-    private void RemoveObjectPlace(InputAction.CallbackContext context)
+    public void OnRemoveObjetPlacement(InputAction.CallbackContext context)
     {
-        if (PlacementManager == null || !PlacementManager.IsPlacementActive) return;
+        if (!context.performed || PlacementManager == null) return;
         PlacementManager.RemoveObjectPlace();
     }
 
-    // Panel utility methods
+    // UI Utility
     public void OnOpenPanelUtilty(InputAction.CallbackContext context)
     {
-        if (Uimanager != null)
-        {
-            Uimanager.OpenPanelUtilty();
-        }
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.OpenPanelUtilty();
     }
 
     public void OnCloseOpenPanelUtilty(InputAction.CallbackContext context)
     {
-        if (Uimanager != null)
-        {
-            Uimanager.ClosePanelUtilty();
-        }
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.ClosePanelUtilty();
     }
 
-    // Plant methods
-    public void PlantWeed(InputAction.CallbackContext context)
+    // Planting
+    public void OnPlant(InputAction.CallbackContext context)
     {
-        if (InventoryManager.CurrentSlotSelect == null) { return; }
-        if (InventoryManager.CurrentSlotSelect.NameTools != "SeedWeed") { return; }
-
+        if (!context.performed || InventoryManager.CurrentSlotSelect?.NameTools != "SeedWeed") return;
         PlantManager.Plant();
     }
 
-    // Tool methods
-    public void HoeTerrain(InputAction.CallbackContext context)
+    public void OnHoeTerrain(InputAction.CallbackContext context)
     {
-        if (InventoryManager.CurrentSlotSelect == null || InventoryManager.CurrentSlotSelect.NameTools != "Shovel") { return; }
+        if (!context.performed || InventoryManager.CurrentSlotSelect?.NameTools != "Shovel") return;
         PlantManager.HoeTerrain();
     }
 
-    public void WetTerrain(InputAction.CallbackContext context)
+    public void OnWetTerrain(InputAction.CallbackContext context)
     {
-        if (InventoryManager.CurrentSlotSelect == null || InventoryManager.CurrentSlotSelect.NameTools != "WateringCan") { return; }
-
+        if (!context.performed || InventoryManager.CurrentSlotSelect?.NameTools != "WateringCan") return;
         PlantManager.WetTerrain();
     }
 
-    public void CollectWeed(InputAction.CallbackContext context)
+    public void OnCollectPlant(InputAction.CallbackContext context)
     {
-        if ( PlantManager.plant == null || !PlantManager.plant.FinishGrowth) { return; }
-
+        if (!context.performed || PlantManager.plant == null || !PlantManager.plant.FinishGrowth) return;
         PlantManager.CollectPlant();
     }
 
-    // Phone methods
-    public void OpenPhone(InputAction.CallbackContext context)
+    // Phone
+    public void OnOpenPhone(InputAction.CallbackContext context)
     {
-        if (PhoneManager != null)
-        {
-            PhoneManager.OpenPhone();
-        }
+        if (!context.performed || PhoneManager == null) return;
+        PhoneManager.OpenPhone();
     }
 
-    public void ClosePhone(InputAction.CallbackContext context)
+    public void OnClosePhone(InputAction.CallbackContext context)
     {
-        if (PhoneManager != null)
-        {
-            PhoneManager.ClosePhone();
-        }
+        if (!context.performed || PhoneManager == null) return;
+        PhoneManager.ClosePhone();
     }
 
-    //Player Input
-    private void Butt_SmokeWeed(InputAction.CallbackContext context)
+    // Player Movement
+    public void OnMove(InputAction.CallbackContext context)
     {
+        if (playerManager == null) return;
+        Vector2 input = context.ReadValue<Vector2>();
+        PlayerMovement.moveInput = input;
+    }
+    public void OnMousePos(InputAction.CallbackContext context)
+    {
+        if(!context.performed) return;
+        Vector2 PosMouse = context.ReadValue<Vector2>();
+        MouseManager.UpdateCursorsPos(PosMouse);
+    }
+
+
+    // Interaction
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+    }
+
+    // Speed Word (optional features)
+    public void OnIncreseSpeedWord(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnDecreseSpeedWord(InputAction.CallbackContext context)
+    {
+    }
+
+    // Tools & Actions
+    public void OnUseDrog(InputAction.CallbackContext context)
+    {
+        if (!context.performed || playerManager == null) return;
         playerManager.UseWeed();
     }
+
+    public void OnUseAxe(InputAction.CallbackContext context)
+    {
+    }
+
+    // Orders / Boxes
+    public void OnOpenBoxOrder(InputAction.CallbackContext context)
+    {
+    }
+
+    // Controller Mode
+    public void OnController(InputAction.CallbackContext context)
+    {
+    }
+
 }

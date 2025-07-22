@@ -65,9 +65,14 @@ public class ChestSystem : MonoBehaviour
             PanelSloot.SetActive(true);
             text_panel.text = "Press 'Q'";
             this.gameObject.GetComponent<SpriteRenderer>().sprite = ChestOpen;
+
             foreach(var slot in InventoryManager.slootManager.Skip(5).ToList())
-            {             
-                slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+            {
+                if (!slot.InUse)
+                {
+                    slot.InUse = true;
+                    slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+                }
             }
         }
     }
@@ -81,7 +86,11 @@ public class ChestSystem : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().sprite = chestClose;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
-                slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
+                if (slot.InUse)
+                {
+                    slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+                    slot.InUse = false;
+                }
             }
         }
     }
