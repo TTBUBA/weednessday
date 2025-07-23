@@ -113090,10 +113090,6 @@ MonoBehaviour:
     m_ActionName: 'Player/MousePos[/Mouse/position]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
-    m_ActionName: 'UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: f019776f-d4d3-4eb4-a8f6-08c899a31712
     m_ActionName: 'UI/OpenInventory[/Keyboard/b]'
   - m_PersistentCalls:
@@ -113144,6 +113140,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 70c2348d-6b77-48ae-b216-ece48b048288
     m_ActionName: 'UI/CloseTrashCompactor[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 598d9ecc-74d3-4b99-bc2f-76299159a79e
+    m_ActionName: 'Player/StickMove[/DualShock4GamepadHID/rightStick]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94a5f572-0c8a-45ca-9c06-8be953fa6043
+    m_ActionName: 'UI/Test[/Keyboard/h]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -113286,7 +113290,7 @@ MonoBehaviour:
   MousePos: {x: 0, y: 0, z: 0}
   cellPos: {x: 0, y: 0, z: 0}
   PositionController: {x: 0, y: 0}
-  SpeedController: 5
+  SpeedController: 3
   isUsingController: 0
 --- !u!114 &1709458334
 MonoBehaviour:

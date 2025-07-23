@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // This script handles player input and delegates logic to other managers.
-public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
+public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, InputSystem_Actions.IUIActions
 {
     public InputSystem_Actions inputActions;
 
@@ -20,29 +20,19 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         inputActions = new InputSystem_Actions();
         inputActions.Player.SetCallbacks(this);
+        inputActions.UI.SetCallbacks(this);
     }
 
     private void OnEnable()
     {
         inputActions.Player.Enable();
+        inputActions.UI.Enable();
     }
 
     private void OnDisable()
     {
         inputActions.Player.Disable();
-    }
-
-    // Inventory
-    public void OnOpenInventory(InputAction.CallbackContext context)
-    {
-        if (!context.performed || Uimanager == null) return;
-        Uimanager.OpenPanelInventory();
-    }
-
-    public void OnCloseInventory(InputAction.CallbackContext context)
-    {
-        if (!context.performed || Uimanager == null) return;
-        Uimanager.ClosePanelInventory();
+        inputActions.UI.Disable();
     }
 
     // Placement
@@ -56,19 +46,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (!context.performed || PlacementManager == null) return;
         PlacementManager.RemoveObjectPlace();
-    }
-
-    // UI Utility
-    public void OnOpenPanelUtilty(InputAction.CallbackContext context)
-    {
-        if (!context.performed || Uimanager == null) return;
-        Uimanager.OpenPanelUtilty();
-    }
-
-    public void OnCloseOpenPanelUtilty(InputAction.CallbackContext context)
-    {
-        if (!context.performed || Uimanager == null) return;
-        Uimanager.ClosePanelUtilty();
     }
 
     // Planting
@@ -120,16 +97,23 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if(!context.performed) return;
         Vector2 PosMouse = context.ReadValue<Vector2>();
+        MouseManager.isUsingController = false;
         MouseManager.UpdateCursorsPos(PosMouse);
     }
-
+    public void OnStickMove(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        Vector2 PosController = context.ReadValue<Vector2>();
+        MouseManager.isUsingController = true;
+        MouseManager.UpdateCursorController(PosController);
+    }
 
     // Interaction
     public void OnInteract(InputAction.CallbackContext context)
     {
     }
 
-    // Speed Word (optional features)
+    // Speed Word 
     public void OnIncreseSpeedWord(InputAction.CallbackContext context)
     {
     }
@@ -154,9 +138,63 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
     }
 
-    // Controller Mode
-    public void OnController(InputAction.CallbackContext context)
+    //========Input Ui========//
+
+    // Inventory
+    public void OnOpenInventory(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        Uimanager.OpenPanelInventory();
+    }
+
+    public void OnCloseInventory(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        Uimanager.ClosePanelInventory();
+    }
+
+    // Utility Panels
+    public void OnOpenPanelUtilty(InputAction.CallbackContext context)
+    {
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.OpenPanelUtilty();
+    }
+
+    public void OnClosePanelUtilty(InputAction.CallbackContext context)
+    {
+        if (!context.performed || Uimanager == null) return;
+        Uimanager.ClosePanelUtilty();
+    }
+
+    public void OnClosePanelWater(InputAction.CallbackContext context)
     {
     }
 
+    public void OnOpenPanelWater(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnOpenTableCrafting(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnCloseTableCrafting(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnOpenTrashCompactor(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnCloseTrashCompactor(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnOpenUtilty(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnCloseUtilty(InputAction.CallbackContext context)
+    {
+    }
 }

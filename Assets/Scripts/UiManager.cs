@@ -3,7 +3,6 @@ using UnityEngine.Tilemaps;
 using TMPro;
 using UnityEngine.UI;
 
-
 public class UiManager : MonoBehaviour
 {
     [Header("Panels-Utilty")]

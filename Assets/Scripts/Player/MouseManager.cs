@@ -16,8 +16,7 @@ public class MouseManager : MonoBehaviour
 
     [Header("Input-Controller")]
     [SerializeField] private float SpeedController;
-    [SerializeField] private bool isUsingController;
-
+    public bool isUsingController;
 
     private void Awake()
     {
@@ -27,30 +26,26 @@ public class MouseManager : MonoBehaviour
         }
     }
 
-    /*
-    // This method is called when the controller is moved
-    public void OnControllerMoved(InputAction.CallbackContext context)
+    public void UpdateCursorController(Vector2 posCursor)
     {
         isUsingController = true;
 
-        Vector2 ControllerPos = context.ReadValue<Vector2>();
-
-        PositionController += ControllerPos * SpeedController * Time.deltaTime * 100f;
+        PositionController += posCursor * SpeedController * Time.deltaTime * 100f;
 
         PositionController.x = Mathf.Clamp(PositionController.x, 0, Screen.width);
         PositionController.y = Mathf.Clamp(PositionController.y, 0, Screen.height);
 
         UpdateCursorsPos(PositionController);
     }
-    */
 
     //Update the position of the cursors mouse 
     public void UpdateCursorsPos(Vector2 posCursor)
     {
-        //Vector3 worldPos = CamPlayer.ScreenToWorldPoint(new Vector3(posCursor.x, posCursor.y, CamPlayer.nearClipPlane));
-        //worldPos.z = 0;
+        Vector3 worldPos = CamPlayer.ScreenToWorldPoint(new Vector3(posCursor.x, posCursor.y, CamPlayer.nearClipPlane));
+        worldPos.z = 0;
 
-        MousePos = CamPlayer.ScreenToWorldPoint(posCursor);
+        worldPos = posCursor;
+        MousePos = CamPlayer.ScreenToWorldPoint(worldPos);
         cellPos = tilemapGround.WorldToCell(MousePos);
         SelectBox.transform.position = tilemapGround.GetCellCenterWorld(cellPos);
     }
