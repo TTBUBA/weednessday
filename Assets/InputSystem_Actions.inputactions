@@ -139,6 +139,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RightClick",
+                    "type": "Button",
+                    "id": "77dfe59e-fb5c-4fc3-acf9-5663c28f5894",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftClickMouse",
+                    "type": "Button",
+                    "id": "6bc2dd10-1d8e-40f5-859e-226bcb78f151",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -375,6 +393,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2d743020-ae75-41df-923e-e424054d13e3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoeTerrain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6a89ae9d-8fb8-4265-974c-5c546644b4ac",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -386,8 +415,30 @@
                 },
                 {
                     "name": "",
+                    "id": "1bcd59cd-5dc6-47c5-9fb6-302d6f091826",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WetTerrain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a1602fcd-d28b-49ca-9f6a-c6bdc9212862",
                     "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CollectPlant",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c81f0f8a-9c3f-48c8-bbd2-c99214cf7195",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -537,6 +588,28 @@
                     "action": "StickMove",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe24be35-fee3-4e8f-aab7-dad98ab3bc7c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6335b3a2-b1cd-4ad4-8574-310e43028773",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftClickMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -660,6 +733,51 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NextSlotController",
+                    "type": "Button",
+                    "id": "e270e630-53ad-44bc-9659-718799ab1ff8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PreviousSlotController",
+                    "type": "Button",
+                    "id": "fb351709-94f5-4f89-9ae8-18419ddc90a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DragController",
+                    "type": "Button",
+                    "id": "7702c022-0742-457c-a483-97189417d9b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DropController",
+                    "type": "Button",
+                    "id": "9764c3a0-75f2-4ce8-b042-e113f34adc2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Navigate",
+                    "type": "Value",
+                    "id": "1a019dd9-b61f-4086-8a3c-17706f9d5eb7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -852,8 +970,8 @@
                 },
                 {
                     "name": "",
-                    "id": "ff2aa983-e515-4f6e-9e66-f081904d9f1a",
-                    "path": "",
+                    "id": "3e47b3fb-736e-45f3-bd0d-c7ec3c017584",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -863,8 +981,8 @@
                 },
                 {
                     "name": "",
-                    "id": "3e47b3fb-736e-45f3-bd0d-c7ec3c017584",
-                    "path": "<Keyboard>/e",
+                    "id": "ff2aa983-e515-4f6e-9e66-f081904d9f1a",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -880,6 +998,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "CloseTrashCompactor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44a995ef-93ca-4bb2-817a-6aaf4b21bf7c",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseTrashCompactor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d4d769a-8084-4fd0-b6d2-1c8c5dbea643",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextSlotController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5941bdd8-e77c-44fa-acb1-de711f01533e",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousSlotController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c54e0d1b-058c-4b5b-8049-862afdaac99d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9fd50e63-71a4-4fc9-93b6-f8b9b05b1b5e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8439f282-cd86-4af9-a92f-1648baa29515",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

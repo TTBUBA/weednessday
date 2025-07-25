@@ -12,16 +12,26 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Image iconTools;
     public TextMeshProUGUI CountText;
     public bool InUse;
-
+    public int Index;
     private Vector3 iconOriginalPosition;
     private bool isDragging = false;
-
+    private EventSystem eventSystem;
     private void Awake()
     {
         UpdateSlot();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!isDragging)
+        {
+            InventoryManager.Instance.CurrentSlotSelect = slootData;
+            InventoryManager.Instance.CurrentSlootManager = this;
+            AnimationSlotEnter();
+        }
+    }
+
+    public void OnPointerEnterr()
     {
         if (!isDragging)
         {
@@ -39,12 +49,12 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    private void AnimationSlotEnter()
+    public void AnimationSlotEnter()
     {
         transform.DOScale(1.2f, 0.2f).SetEase(Ease.OutBack);
     }
 
-    private void AnimationSlotExit()
+    public void AnimationSlotExit()
     {
         transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
     }

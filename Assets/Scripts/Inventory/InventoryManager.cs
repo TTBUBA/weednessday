@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryManager : MonoBehaviour 
 {
@@ -13,6 +14,8 @@ public class InventoryManager : MonoBehaviour
 
     public SlootData CurrentSlotSelect;
     public SlootManager CurrentSlootManager;
+    public int CurrentIndex;
+
 
     //ITEM DEBUG//
     public SlootData Seedweed;
@@ -20,10 +23,12 @@ public class InventoryManager : MonoBehaviour
     public SlootData Cane;
     public SlootData Plastic;
     //=========//
-    public int IdSlotCurrent;
     public bool isOpenInventory = false;
+    public SlootManager draggedSlotController;
+
     private void Awake()
     {
+        EventSystem.current.SetSelectedGameObject(slootManager[0].gameObject);
         if (Instance == null)
         {
             Instance = this;
@@ -35,12 +40,10 @@ public class InventoryManager : MonoBehaviour
     {
         AddItem(Seedweed, 1);
     }
-
     public void Addweed()
     {
         AddItem(weed, 2);
     }
-
     public void Removeweed(int totalRemove)
     {
         RemoveItem(weed, totalRemove);
@@ -56,7 +59,6 @@ public class InventoryManager : MonoBehaviour
         RemoveItem(Cane, 1);
     }
 
-
     public void RemoveSeedWeed()
     {
         RemoveItem(Seedweed, 1);
@@ -68,6 +70,57 @@ public class InventoryManager : MonoBehaviour
     }
     //================//
 
+    public void NextSlotController()
+    {
+        if (CurrentIndex >= 0 && CurrentIndex < slootManager.Count)
+        {
+            slootManager[CurrentIndex].AnimationSlotExit();
+        }
+        if(CurrentIndex >= slootManager.Count)
+        {
+            CurrentIndex = 0;
+        }
+        CurrentIndex++;
+        CurrentSlotSelect = slootManager[CurrentIndex].slootData;
+        slootManager[CurrentIndex].AnimationSlotEnter();
+
+    }
+
+    public void PreviousSlotController()
+    {
+        if (CurrentIndex >= 0 && CurrentIndex < slootManager.Count)
+        {
+            slootManager[CurrentIndex].AnimationSlotExit();
+        }
+
+        CurrentIndex--;
+        if (CurrentIndex < 0)
+        {
+            CurrentIndex = slootManager.Count - 1; // Loop to the last slot
+        }
+        CurrentSlotSelect = slootManager[CurrentIndex].slootData;
+        slootManager[CurrentIndex].AnimationSlotEnter();
+    }
+
+    public void DragItemController()
+    {
+        var draggedSlot = slootManager[CurrentIndex];
+        draggedSlotController = draggedSlot;
+        if (draggedSlot.slootData != null && draggedSlot.CurrentStorage > 0)
+        {
+            draggedSlot.iconTools.transform.SetAsLastSibling();
+            draggedSlot.iconTools.transform.position = Input.mousePosition;
+        }
+    }
+
+    public void DropItemController()
+    {
+        var ObjectSelected = EventSystem.current.currentSelectedGameObject;
+        CurrentSlootManager = ObjectSelected.GetComponent<SlootManager>();
+        DropItem(CurrentSlootManager, draggedSlotController);
+        draggedSlotController = null;
+
+    }
 
     //Add item 
     public bool AddItem(SlootData item, int amount)

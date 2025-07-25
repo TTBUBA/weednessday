@@ -940,6 +940,7 @@ MonoBehaviour:
   LightOn: {fileID: 7967090883727000210}
   LightOff: {fileID: 3438379108178783610}
   slootManager: []
+  slootManagerPrefab: {fileID: 0}
   Butt_OpenTrashCompactor: {fileID: 8709509032421074730, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_CloseTrashCompactor: {fileID: 585569832324067046, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   PanelTrashCompactor: {fileID: 2693557059618067340}
@@ -950,6 +951,7 @@ MonoBehaviour:
   BarProgress: {fileID: 529980370873192741}
   IsOpen: 0
   ActiveLight: 0
+  InCollision: 0
   InventoryManager: {fileID: 0}
 --- !u!1 &3882887629041707216
 GameObject:
@@ -1398,6 +1400,7 @@ GameObject:
   - component: {fileID: 2479695595543124216}
   - component: {fileID: 1518089064797737790}
   - component: {fileID: 8906543382561211543}
+  - component: {fileID: 3212906188156752042}
   m_Layer: 5
   m_Name: Slot_Plastic
   m_TagString: Untagged
@@ -1481,6 +1484,49 @@ MonoBehaviour:
   StorageFull: 0
   iconTools: {fileID: 1373608066774539333}
   CountText: {fileID: 9108222183642299028}
+  InUse: 0
+  Index: 0
+--- !u!114 &3212906188156752042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580015479311691876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a98125502f715b4b83cfb77b434e436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 4
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1518089064797737790}
 --- !u!1 &4705332572616897417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1951,8 @@ MonoBehaviour:
   StorageFull: 0
   iconTools: {fileID: 7420200258087473201}
   CountText: {fileID: 3225224597945206146}
+  InUse: 0
+  Index: 0
 --- !u!1 &6992841457707964989
 GameObject:
   m_ObjectHideFlags: 0

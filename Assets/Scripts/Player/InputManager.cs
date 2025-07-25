@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public PlayerManager playerManager;
     public PlayerMovement PlayerMovement;
     public MouseManager MouseManager;
-
+    public UIItemSelector UIItemSelector;
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -143,14 +143,14 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     // Inventory
     public void OnOpenInventory(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-        Uimanager.OpenPanelInventory();
-    }
-
-    public void OnCloseInventory(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
-        Uimanager.ClosePanelInventory();
+        if (!context.performed)
+        {
+            Uimanager.OpenPanelInventory();
+        }
+        if(context.canceled)
+        {
+            Uimanager.ClosePanelInventory();
+        }
     }
 
     // Utility Panels
@@ -195,6 +195,49 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     }
 
     public void OnCloseUtilty(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnNextSlotController(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            InventoryManager.NextSlotController();
+        }
+    }
+    public void OnPreviousSlotController(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            InventoryManager.PreviousSlotController();
+        }
+    }
+
+    public void OnDragController(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            InventoryManager.DragItemController();
+        }
+    }
+
+    public void OnDropController(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            InventoryManager.DropItemController();
+        }
+    }
+
+    public void OnNavigate(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnLeftClickMouse(InputAction.CallbackContext context)
     {
     }
 }

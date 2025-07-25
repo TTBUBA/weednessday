@@ -225,6 +225,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""77dfe59e-fb5c-4fc3-acf9-5663c28f5894"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClickMouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bc2dd10-1d8e-40f5-859e-226bcb78f151"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -461,6 +479,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2d743020-ae75-41df-923e-e424054d13e3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoeTerrain"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6a89ae9d-8fb8-4265-974c-5c546644b4ac"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -472,8 +501,30 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1bcd59cd-5dc6-47c5-9fb6-302d6f091826"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WetTerrain"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a1602fcd-d28b-49ca-9f6a-c6bdc9212862"",
                     ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CollectPlant"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c81f0f8a-9c3f-48c8-bbd2-c99214cf7195"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -623,6 +674,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""StickMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe24be35-fee3-4e8f-aab7-dad98ab3bc7c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6335b3a2-b1cd-4ad4-8574-310e43028773"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClickMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -746,6 +819,51 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextSlotController"",
+                    ""type"": ""Button"",
+                    ""id"": ""e270e630-53ad-44bc-9659-718799ab1ff8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousSlotController"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb351709-94f5-4f89-9ae8-18419ddc90a6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DragController"",
+                    ""type"": ""Button"",
+                    ""id"": ""7702c022-0742-457c-a483-97189417d9b0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DropController"",
+                    ""type"": ""Button"",
+                    ""id"": ""9764c3a0-75f2-4ce8-b042-e113f34adc2a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""1a019dd9-b61f-4086-8a3c-17706f9d5eb7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -938,8 +1056,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ff2aa983-e515-4f6e-9e66-f081904d9f1a"",
-                    ""path"": """",
+                    ""id"": ""3e47b3fb-736e-45f3-bd0d-c7ec3c017584"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -949,8 +1067,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3e47b3fb-736e-45f3-bd0d-c7ec3c017584"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""ff2aa983-e515-4f6e-9e66-f081904d9f1a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -966,6 +1084,72 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CloseTrashCompactor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44a995ef-93ca-4bb2-817a-6aaf4b21bf7c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseTrashCompactor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d4d769a-8084-4fd0-b6d2-1c8c5dbea643"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextSlotController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5941bdd8-e77c-44fa-acb1-de711f01533e"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousSlotController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c54e0d1b-058c-4b5b-8049-862afdaac99d"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DragController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fd50e63-71a4-4fc9-93b6-f8b9b05b1b5e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8439f282-cd86-4af9-a92f-1648baa29515"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1052,6 +1236,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_OpenBoxOrder = m_Player.FindAction("OpenBoxOrder", throwIfNotFound: true);
         m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
         m_Player_StickMove = m_Player.FindAction("StickMove", throwIfNotFound: true);
+        m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
+        m_Player_LeftClickMouse = m_Player.FindAction("LeftClickMouse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
@@ -1067,6 +1253,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_CloseTableCrafting = m_UI.FindAction("CloseTableCrafting", throwIfNotFound: true);
         m_UI_OpenTrashCompactor = m_UI.FindAction("OpenTrashCompactor", throwIfNotFound: true);
         m_UI_CloseTrashCompactor = m_UI.FindAction("CloseTrashCompactor", throwIfNotFound: true);
+        m_UI_NextSlotController = m_UI.FindAction("NextSlotController", throwIfNotFound: true);
+        m_UI_PreviousSlotController = m_UI.FindAction("PreviousSlotController", throwIfNotFound: true);
+        m_UI_DragController = m_UI.FindAction("DragController", throwIfNotFound: true);
+        m_UI_DropController = m_UI.FindAction("DropController", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1163,6 +1354,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenBoxOrder;
     private readonly InputAction m_Player_MousePos;
     private readonly InputAction m_Player_StickMove;
+    private readonly InputAction m_Player_RightClick;
+    private readonly InputAction m_Player_LeftClickMouse;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1235,6 +1428,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @StickMove => m_Wrapper.m_Player_StickMove;
         /// <summary>
+        /// Provides access to the underlying input action "Player/RightClick".
+        /// </summary>
+        public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/LeftClickMouse".
+        /// </summary>
+        public InputAction @LeftClickMouse => m_Wrapper.m_Player_LeftClickMouse;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1305,6 +1506,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @StickMove.started += instance.OnStickMove;
             @StickMove.performed += instance.OnStickMove;
             @StickMove.canceled += instance.OnStickMove;
+            @RightClick.started += instance.OnRightClick;
+            @RightClick.performed += instance.OnRightClick;
+            @RightClick.canceled += instance.OnRightClick;
+            @LeftClickMouse.started += instance.OnLeftClickMouse;
+            @LeftClickMouse.performed += instance.OnLeftClickMouse;
+            @LeftClickMouse.canceled += instance.OnLeftClickMouse;
         }
 
         /// <summary>
@@ -1361,6 +1568,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @StickMove.started -= instance.OnStickMove;
             @StickMove.performed -= instance.OnStickMove;
             @StickMove.canceled -= instance.OnStickMove;
+            @RightClick.started -= instance.OnRightClick;
+            @RightClick.performed -= instance.OnRightClick;
+            @RightClick.canceled -= instance.OnRightClick;
+            @LeftClickMouse.started -= instance.OnLeftClickMouse;
+            @LeftClickMouse.performed -= instance.OnLeftClickMouse;
+            @LeftClickMouse.canceled -= instance.OnLeftClickMouse;
         }
 
         /// <summary>
@@ -1411,6 +1624,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CloseTableCrafting;
     private readonly InputAction m_UI_OpenTrashCompactor;
     private readonly InputAction m_UI_CloseTrashCompactor;
+    private readonly InputAction m_UI_NextSlotController;
+    private readonly InputAction m_UI_PreviousSlotController;
+    private readonly InputAction m_UI_DragController;
+    private readonly InputAction m_UI_DropController;
+    private readonly InputAction m_UI_Navigate;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1474,6 +1692,26 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/CloseTrashCompactor".
         /// </summary>
         public InputAction @CloseTrashCompactor => m_Wrapper.m_UI_CloseTrashCompactor;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/NextSlotController".
+        /// </summary>
+        public InputAction @NextSlotController => m_Wrapper.m_UI_NextSlotController;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/PreviousSlotController".
+        /// </summary>
+        public InputAction @PreviousSlotController => m_Wrapper.m_UI_PreviousSlotController;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/DragController".
+        /// </summary>
+        public InputAction @DragController => m_Wrapper.m_UI_DragController;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/DropController".
+        /// </summary>
+        public InputAction @DropController => m_Wrapper.m_UI_DropController;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Navigate".
+        /// </summary>
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1539,6 +1777,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseTrashCompactor.started += instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.performed += instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.canceled += instance.OnCloseTrashCompactor;
+            @NextSlotController.started += instance.OnNextSlotController;
+            @NextSlotController.performed += instance.OnNextSlotController;
+            @NextSlotController.canceled += instance.OnNextSlotController;
+            @PreviousSlotController.started += instance.OnPreviousSlotController;
+            @PreviousSlotController.performed += instance.OnPreviousSlotController;
+            @PreviousSlotController.canceled += instance.OnPreviousSlotController;
+            @DragController.started += instance.OnDragController;
+            @DragController.performed += instance.OnDragController;
+            @DragController.canceled += instance.OnDragController;
+            @DropController.started += instance.OnDropController;
+            @DropController.performed += instance.OnDropController;
+            @DropController.canceled += instance.OnDropController;
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
         }
 
         /// <summary>
@@ -1589,6 +1842,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseTrashCompactor.started -= instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.performed -= instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.canceled -= instance.OnCloseTrashCompactor;
+            @NextSlotController.started -= instance.OnNextSlotController;
+            @NextSlotController.performed -= instance.OnNextSlotController;
+            @NextSlotController.canceled -= instance.OnNextSlotController;
+            @PreviousSlotController.started -= instance.OnPreviousSlotController;
+            @PreviousSlotController.performed -= instance.OnPreviousSlotController;
+            @PreviousSlotController.canceled -= instance.OnPreviousSlotController;
+            @DragController.started -= instance.OnDragController;
+            @DragController.performed -= instance.OnDragController;
+            @DragController.canceled -= instance.OnDragController;
+            @DropController.started -= instance.OnDropController;
+            @DropController.performed -= instance.OnDropController;
+            @DropController.canceled -= instance.OnDropController;
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
         }
 
         /// <summary>
@@ -1799,6 +2067,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnStickMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RightClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRightClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LeftClickMouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLeftClickMouse(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1898,5 +2180,40 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCloseTrashCompactor(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NextSlotController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextSlotController(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PreviousSlotController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPreviousSlotController(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DragController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDragController(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DropController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDropController(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Navigate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNavigate(InputAction.CallbackContext context);
     }
 }

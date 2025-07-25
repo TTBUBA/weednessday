@@ -15,8 +15,8 @@ public class TrashCompactor : MonoBehaviour
     [SerializeField] private float TimeToCompact = 1f;
     [SerializeField] private Light2D LightOn;
     [SerializeField] private Light2D LightOff;
-    [SerializeField] private List<SlootManager> slootManager = new List<SlootManager>();
     [SerializeField] private GameObject slootManagerPrefab;
+    [SerializeField] private Selectable TrashSlot;
 
     [Header("Input")]
     [SerializeField] private InputActionReference Butt_OpenTrashCompactor;
@@ -76,6 +76,7 @@ public class TrashCompactor : MonoBehaviour
             PanelTrashCompactor.SetActive(false);
             Text_Button.text = "Press 'E'";
             InCollision = false;
+            IsOpen = false;
         }
     }
 
@@ -85,7 +86,6 @@ public class TrashCompactor : MonoBehaviour
         {
             IsOpen = true;
 
-            slootManager.Clear();
 
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
@@ -93,6 +93,10 @@ public class TrashCompactor : MonoBehaviour
                 {
                     slot.InUse = true;
                     slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+
+                    var selectable = slot.GetComponent<Selectable>().navigation;
+                    selectable.selectOnUp = TrashSlot;
+                    slot.GetComponent<Selectable>().navigation = selectable;
                 }
             }
 
@@ -107,13 +111,15 @@ public class TrashCompactor : MonoBehaviour
         {
             IsOpen = false;
 
-            foreach (var slot in slootManager)
+            foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
                 slot.InUse = false;
+                var selectable = slot.GetComponent<Selectable>().navigation;
+                selectable.selectOnUp = null;
+                slot.GetComponent<Selectable>().navigation = selectable;
             }
 
-            slootManager.Clear();
             PanelTrashCompactor.SetActive(false);
             Text_Button.text = "Press 'E'";
         }
