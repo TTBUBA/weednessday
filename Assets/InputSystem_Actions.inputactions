@@ -735,18 +735,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "NextSlotController",
+                    "name": "OpenChest",
                     "type": "Button",
-                    "id": "e270e630-53ad-44bc-9659-718799ab1ff8",
+                    "id": "935bd717-058e-41db-bc4e-37fbc4e63e52",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PreviousSlotController",
+                    "name": "CloseChest",
                     "type": "Button",
-                    "id": "fb351709-94f5-4f89-9ae8-18419ddc90a6",
+                    "id": "7fc5c9f7-b276-4187-ad32-ace65bdb8238",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -992,6 +992,28 @@
                 },
                 {
                     "name": "",
+                    "id": "6bb7b604-f238-487d-8f88-9b7935063985",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenChest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4de14aae-f57d-4e18-ba08-cb41b22df3b9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenChest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7f5120bf-6475-4b6f-9cdc-ec0b2d77c55e",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -1014,23 +1036,23 @@
                 },
                 {
                     "name": "",
-                    "id": "1d4d769a-8084-4fd0-b6d2-1c8c5dbea643",
-                    "path": "<Gamepad>/dpad/right",
+                    "id": "e62d4bef-d9c6-45d7-a475-4bbbf18242a8",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "NextSlotController",
+                    "action": "CloseChest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "5941bdd8-e77c-44fa-acb1-de711f01533e",
-                    "path": "<Gamepad>/dpad/left",
+                    "id": "eb5292f4-b47e-4359-83dd-fd8ab1c9d651",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PreviousSlotController",
+                    "action": "CloseChest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -27,16 +27,8 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             InventoryManager.Instance.CurrentSlotSelect = slootData;
             InventoryManager.Instance.CurrentSlootManager = this;
-            AnimationSlotEnter();
-        }
-    }
-
-    public void OnPointerEnterr()
-    {
-        if (!isDragging)
-        {
-            InventoryManager.Instance.CurrentSlotSelect = slootData;
-            InventoryManager.Instance.CurrentSlootManager = this;
+            InventoryManager.Instance.CurrentIndex = Index;
+            InventoryManager.Instance.currentSelectedObject = gameObject;
             AnimationSlotEnter();
         }
     }

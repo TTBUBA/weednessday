@@ -939,8 +939,8 @@ MonoBehaviour:
   TimeToCompact: 1
   LightOn: {fileID: 7967090883727000210}
   LightOff: {fileID: 3438379108178783610}
-  slootManager: []
   slootManagerPrefab: {fileID: 0}
+  TrashSlot: {fileID: 3212906188156752042}
   Butt_OpenTrashCompactor: {fileID: 8709509032421074730, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_CloseTrashCompactor: {fileID: 585569832324067046, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   PanelTrashCompactor: {fileID: 2693557059618067340}

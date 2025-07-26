@@ -25,16 +25,44 @@ public class InventoryManager : MonoBehaviour
     //=========//
     public bool isOpenInventory = false;
     public SlootManager draggedSlotController;
-
+    public GameObject LastObjSelect;
+    public GameObject currentSelectedObject;
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(slootManager[0].gameObject);
+        currentSelectedObject = slootManager[0].gameObject;
         if (Instance == null)
         {
             Instance = this;
         }
     }
 
+    private void Update()
+    {
+        //save the currentSelectedObject select in the EventSystem
+        currentSelectedObject = EventSystem.current.currentSelectedGameObject;
+        if (currentSelectedObject != null && currentSelectedObject != LastObjSelect)
+        {
+            //save the previous index
+            int prevIndex = CurrentIndex;
+            LastObjSelect = currentSelectedObject;
+
+            SlootManager slot = currentSelectedObject.GetComponent<SlootManager>();
+            if (slot != null)
+            {
+                CurrentSlootManager = slot;
+                CurrentIndex = slot.Index;
+                CurrentSlotSelect = slot.slootData;
+                slot.AnimationSlotEnter();
+            }
+
+            // If the previous index is valid, exit the animation for that slot
+            if (prevIndex < slootManager.Count)
+            {
+                slootManager[prevIndex].AnimationSlotExit();
+            }
+        }
+    }
     //Debugging method to test adding items
     public void Test()
     {
@@ -69,38 +97,6 @@ public class InventoryManager : MonoBehaviour
         AddItem(Plastic, 10);
     }
     //================//
-
-    public void NextSlotController()
-    {
-        if (CurrentIndex >= 0 && CurrentIndex < slootManager.Count)
-        {
-            slootManager[CurrentIndex].AnimationSlotExit();
-        }
-        if(CurrentIndex >= slootManager.Count)
-        {
-            CurrentIndex = 0;
-        }
-        CurrentIndex++;
-        CurrentSlotSelect = slootManager[CurrentIndex].slootData;
-        slootManager[CurrentIndex].AnimationSlotEnter();
-
-    }
-
-    public void PreviousSlotController()
-    {
-        if (CurrentIndex >= 0 && CurrentIndex < slootManager.Count)
-        {
-            slootManager[CurrentIndex].AnimationSlotExit();
-        }
-
-        CurrentIndex--;
-        if (CurrentIndex < 0)
-        {
-            CurrentIndex = slootManager.Count - 1; // Loop to the last slot
-        }
-        CurrentSlotSelect = slootManager[CurrentIndex].slootData;
-        slootManager[CurrentIndex].AnimationSlotEnter();
-    }
 
     public void DragItemController()
     {

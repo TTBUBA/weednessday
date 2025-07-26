@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class ChestSystem : MonoBehaviour
@@ -17,7 +19,7 @@ public class ChestSystem : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private InputActionReference Butt_OpenPanel;
     [SerializeField] private InputActionReference Butt_ClosePanel;
-
+    [SerializeField] private List<SlootManager> SlootChest;
 
     [SerializeField] private InventoryManager InventoryManager;
 
@@ -54,6 +56,7 @@ public class ChestSystem : MonoBehaviour
             PanelSloot.SetActive(false);
             butt_panel.SetActive(false);
             text_panel.text = "Press 'E'";
+
         }
     }
 
@@ -72,6 +75,44 @@ public class ChestSystem : MonoBehaviour
                 {
                     slot.InUse = true;
                     slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+
+                    foreach (var sloot in SlootChest)
+                    {
+                        switch (slot.Index)
+                        {
+                            case 8:
+                                var slotNav = slot.GetComponent<Selectable>().navigation;
+                                var SlotChest = SlootChest[0].GetComponent<Selectable>();
+                                slotNav.selectOnRight = SlotChest;
+                                slot.GetComponent<Selectable>().navigation = slotNav;
+
+                                var trashNav = SlotChest.navigation;
+                                trashNav.selectOnLeft = slot.GetComponent<Selectable>();
+                                SlotChest.navigation = trashNav;
+                                break;
+                            case 12:
+                                var slotNav2 = slot.GetComponent<Selectable>().navigation;
+                                var SlotChest2 = SlootChest[2].GetComponent<Selectable>();
+                                slotNav2.selectOnRight = SlotChest2;
+                                slot.GetComponent<Selectable>().navigation = slotNav2;
+
+                                var trashNav2 = SlotChest2.navigation;
+                                trashNav2.selectOnLeft = slot.GetComponent<Selectable>();
+                                SlotChest2.navigation = trashNav2;
+                                break;
+                            case 16:
+                                var slotNav3 = slot.GetComponent<Selectable>().navigation;
+                                var SlotChest3 = SlootChest[4].GetComponent<Selectable>();
+                                slotNav3.selectOnRight = SlotChest3;
+                                slot.GetComponent<Selectable>().navigation = slotNav3;
+
+                                var trashNav3 = SlotChest3.navigation;
+                                trashNav3.selectOnLeft = slot.GetComponent<Selectable>();
+                                SlotChest3.navigation = trashNav3;
+                                break;
+                        }
+                        Debug.Log(sloot.Index);
+                    }
                 }
             }
         }
@@ -88,7 +129,7 @@ public class ChestSystem : MonoBehaviour
             {
                 if (slot.InUse)
                 {
-                    slot.transform.SetParent(PanelInventoryPlayer.transform, false);
+                    slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
                     slot.InUse = false;
                 }
             }

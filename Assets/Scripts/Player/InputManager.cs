@@ -15,7 +15,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public PlayerManager playerManager;
     public PlayerMovement PlayerMovement;
     public MouseManager MouseManager;
-    public UIItemSelector UIItemSelector;
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -198,21 +197,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     {
     }
 
-    public void OnNextSlotController(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
-            InventoryManager.NextSlotController();
-        }
-    }
-    public void OnPreviousSlotController(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            InventoryManager.PreviousSlotController();
-        }
-    }
-
     public void OnDragController(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -240,4 +224,8 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public void OnLeftClickMouse(InputAction.CallbackContext context)
     {
     }
+
+    public void OnOpenChest(InputAction.CallbackContext context) { }
+    public void OnCloseChest(InputAction.CallbackContext context) { }
+
 }

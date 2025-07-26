@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -94,9 +93,22 @@ public class TrashCompactor : MonoBehaviour
                     slot.InUse = true;
                     slot.transform.SetParent(PanelInventoryPlayer.transform, false);
 
-                    var selectable = slot.GetComponent<Selectable>().navigation;
-                    selectable.selectOnUp = TrashSlot;
-                    slot.GetComponent<Selectable>().navigation = selectable;
+                    switch (slot.Index)
+                    {
+                        case 8:
+                        case 12:
+                        case 16:
+                            // Collega lo slot al TrashSlot (destra)
+                            var slotNav = slot.GetComponent<Selectable>().navigation;
+                            slotNav.selectOnRight = TrashSlot;
+                            slot.GetComponent<Selectable>().navigation = slotNav;
+
+                            var trashNav = TrashSlot.navigation;
+                            trashNav.selectOnLeft = slot.GetComponent<Selectable>();
+                            TrashSlot.navigation = trashNav;
+                            break;
+                    }
+
                 }
             }
 
@@ -115,6 +127,7 @@ public class TrashCompactor : MonoBehaviour
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
                 slot.InUse = false;
+
                 var selectable = slot.GetComponent<Selectable>().navigation;
                 selectable.selectOnUp = null;
                 slot.GetComponent<Selectable>().navigation = selectable;

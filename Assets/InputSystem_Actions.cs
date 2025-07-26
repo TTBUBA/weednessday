@@ -821,18 +821,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""NextSlotController"",
+                    ""name"": ""OpenChest"",
                     ""type"": ""Button"",
-                    ""id"": ""e270e630-53ad-44bc-9659-718799ab1ff8"",
+                    ""id"": ""935bd717-058e-41db-bc4e-37fbc4e63e52"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PreviousSlotController"",
+                    ""name"": ""CloseChest"",
                     ""type"": ""Button"",
-                    ""id"": ""fb351709-94f5-4f89-9ae8-18419ddc90a6"",
+                    ""id"": ""7fc5c9f7-b276-4187-ad32-ace65bdb8238"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1078,6 +1078,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6bb7b604-f238-487d-8f88-9b7935063985"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenChest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4de14aae-f57d-4e18-ba08-cb41b22df3b9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenChest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7f5120bf-6475-4b6f-9cdc-ec0b2d77c55e"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -1100,23 +1122,23 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1d4d769a-8084-4fd0-b6d2-1c8c5dbea643"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""id"": ""e62d4bef-d9c6-45d7-a475-4bbbf18242a8"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""NextSlotController"",
+                    ""action"": ""CloseChest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5941bdd8-e77c-44fa-acb1-de711f01533e"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""id"": ""eb5292f4-b47e-4359-83dd-fd8ab1c9d651"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PreviousSlotController"",
+                    ""action"": ""CloseChest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1253,8 +1275,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_CloseTableCrafting = m_UI.FindAction("CloseTableCrafting", throwIfNotFound: true);
         m_UI_OpenTrashCompactor = m_UI.FindAction("OpenTrashCompactor", throwIfNotFound: true);
         m_UI_CloseTrashCompactor = m_UI.FindAction("CloseTrashCompactor", throwIfNotFound: true);
-        m_UI_NextSlotController = m_UI.FindAction("NextSlotController", throwIfNotFound: true);
-        m_UI_PreviousSlotController = m_UI.FindAction("PreviousSlotController", throwIfNotFound: true);
+        m_UI_OpenChest = m_UI.FindAction("OpenChest", throwIfNotFound: true);
+        m_UI_CloseChest = m_UI.FindAction("CloseChest", throwIfNotFound: true);
         m_UI_DragController = m_UI.FindAction("DragController", throwIfNotFound: true);
         m_UI_DropController = m_UI.FindAction("DropController", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1624,8 +1646,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CloseTableCrafting;
     private readonly InputAction m_UI_OpenTrashCompactor;
     private readonly InputAction m_UI_CloseTrashCompactor;
-    private readonly InputAction m_UI_NextSlotController;
-    private readonly InputAction m_UI_PreviousSlotController;
+    private readonly InputAction m_UI_OpenChest;
+    private readonly InputAction m_UI_CloseChest;
     private readonly InputAction m_UI_DragController;
     private readonly InputAction m_UI_DropController;
     private readonly InputAction m_UI_Navigate;
@@ -1693,13 +1715,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @CloseTrashCompactor => m_Wrapper.m_UI_CloseTrashCompactor;
         /// <summary>
-        /// Provides access to the underlying input action "UI/NextSlotController".
+        /// Provides access to the underlying input action "UI/OpenChest".
         /// </summary>
-        public InputAction @NextSlotController => m_Wrapper.m_UI_NextSlotController;
+        public InputAction @OpenChest => m_Wrapper.m_UI_OpenChest;
         /// <summary>
-        /// Provides access to the underlying input action "UI/PreviousSlotController".
+        /// Provides access to the underlying input action "UI/CloseChest".
         /// </summary>
-        public InputAction @PreviousSlotController => m_Wrapper.m_UI_PreviousSlotController;
+        public InputAction @CloseChest => m_Wrapper.m_UI_CloseChest;
         /// <summary>
         /// Provides access to the underlying input action "UI/DragController".
         /// </summary>
@@ -1777,12 +1799,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseTrashCompactor.started += instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.performed += instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.canceled += instance.OnCloseTrashCompactor;
-            @NextSlotController.started += instance.OnNextSlotController;
-            @NextSlotController.performed += instance.OnNextSlotController;
-            @NextSlotController.canceled += instance.OnNextSlotController;
-            @PreviousSlotController.started += instance.OnPreviousSlotController;
-            @PreviousSlotController.performed += instance.OnPreviousSlotController;
-            @PreviousSlotController.canceled += instance.OnPreviousSlotController;
+            @OpenChest.started += instance.OnOpenChest;
+            @OpenChest.performed += instance.OnOpenChest;
+            @OpenChest.canceled += instance.OnOpenChest;
+            @CloseChest.started += instance.OnCloseChest;
+            @CloseChest.performed += instance.OnCloseChest;
+            @CloseChest.canceled += instance.OnCloseChest;
             @DragController.started += instance.OnDragController;
             @DragController.performed += instance.OnDragController;
             @DragController.canceled += instance.OnDragController;
@@ -1842,12 +1864,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseTrashCompactor.started -= instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.performed -= instance.OnCloseTrashCompactor;
             @CloseTrashCompactor.canceled -= instance.OnCloseTrashCompactor;
-            @NextSlotController.started -= instance.OnNextSlotController;
-            @NextSlotController.performed -= instance.OnNextSlotController;
-            @NextSlotController.canceled -= instance.OnNextSlotController;
-            @PreviousSlotController.started -= instance.OnPreviousSlotController;
-            @PreviousSlotController.performed -= instance.OnPreviousSlotController;
-            @PreviousSlotController.canceled -= instance.OnPreviousSlotController;
+            @OpenChest.started -= instance.OnOpenChest;
+            @OpenChest.performed -= instance.OnOpenChest;
+            @OpenChest.canceled -= instance.OnOpenChest;
+            @CloseChest.started -= instance.OnCloseChest;
+            @CloseChest.performed -= instance.OnCloseChest;
+            @CloseChest.canceled -= instance.OnCloseChest;
             @DragController.started -= instance.OnDragController;
             @DragController.performed -= instance.OnDragController;
             @DragController.canceled -= instance.OnDragController;
@@ -2181,19 +2203,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCloseTrashCompactor(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "NextSlotController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "OpenChest" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNextSlotController(InputAction.CallbackContext context);
+        void OnOpenChest(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "PreviousSlotController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "CloseChest" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPreviousSlotController(InputAction.CallbackContext context);
+        void OnCloseChest(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "DragController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
