@@ -228,4 +228,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public void OnOpenChest(InputAction.CallbackContext context) { }
     public void OnCloseChest(InputAction.CallbackContext context) { }
 
+    public void OnOpenDesiccator(InputAction.CallbackContext context) { }
+    public void OnCloseDesiccator(InputAction.CallbackContext context) { }
+
 }

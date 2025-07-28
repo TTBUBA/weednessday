@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
     public SlootData weed;
     public SlootData Cane;
     public SlootData Plastic;
+    public SlootData Carbon;
     //=========//
     public bool isOpenInventory = false;
     public SlootManager draggedSlotController;
@@ -70,7 +71,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void Addweed()
     {
-        AddItem(weed, 2);
+        AddItem(weed, weed.MaxStorage);
     }
     public void Removeweed(int totalRemove)
     {
@@ -95,6 +96,11 @@ public class InventoryManager : MonoBehaviour
     public void AddPlastic()
     {
         AddItem(Plastic, 10);
+    }
+
+    public void AddCarbon()
+    {
+        AddItem(Carbon, Carbon.MaxStorage);
     }
     //================//
 

@@ -44,6 +44,8 @@ public class UiManager : MonoBehaviour
         Text_UtilityName.text = placementManager.CurrentplaceableObject.UtilityName;
         Text_UtilitySpaceOccupied.text = "Space Occupied:" + placementManager.CurrentplaceableObject.SpaceOccupied;
         Text_UtilityCost.text = "Price:" + placementManager.CurrentplaceableObject.Cost.ToString();
+        //remove currentslot when the panel is open 
+        inventoryManager.CurrentSlotSelect = null;
     }
     public void OpenPanelInventory()
     {

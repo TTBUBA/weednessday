@@ -20,8 +20,6 @@ public class PlacementManager : MonoBehaviour
 
     public Dictionary<Vector3Int, PlaceableObjectData> CellOccupateObj = new Dictionary<Vector3Int, PlaceableObjectData>();
 
-
-
     [Header("Managers")]
     public MouseManager MouseManager;
     public PlayerManager PlayerManager;
@@ -94,6 +92,7 @@ public class PlacementManager : MonoBehaviour
             var WellSystem = Obj.GetComponent<WellSystem>();
             var PoleLight = Obj.GetComponent<PoleLight>();
             var TrashCompactor = Obj.GetComponent<TrashCompactor>();
+            var Desiccator = Obj.GetComponent<Desiccator>();
             if (Chest)
             {
                 Chest.SetData(CamPlayer, InventoryManager);
@@ -109,6 +108,10 @@ public class PlacementManager : MonoBehaviour
             if(TrashCompactor)
             {
                 TrashCompactor.SetData(CamPlayer, InventoryManager);
+            }
+            if (Desiccator)
+            {
+                Desiccator.SetData(CamPlayer, InventoryManager);
             }
         }
     }

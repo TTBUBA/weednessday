@@ -839,6 +839,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""OpenDesiccator"",
+                    ""type"": ""Button"",
+                    ""id"": ""69177e5c-5b33-4cb8-bec9-2d69cfa181a8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseDesiccator"",
+                    ""type"": ""Button"",
+                    ""id"": ""073ee268-4672-4a47-9e95-6a78f7b2432d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""DragController"",
                     ""type"": ""Button"",
                     ""id"": ""7702c022-0742-457c-a483-97189417d9b0"",
@@ -1144,6 +1162,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d0592357-c632-4fd3-9452-8f7c79be80a6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""OpenDesiccator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4711016-d058-43d2-bbd9-a3f4379c207d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenDesiccator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45eb3541-d228-4801-aa0c-7d9770efecb7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseDesiccator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""941d10d4-a880-4105-832b-696a2900ab17"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseDesiccator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c54e0d1b-058c-4b5b-8049-862afdaac99d"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -1277,6 +1339,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_CloseTrashCompactor = m_UI.FindAction("CloseTrashCompactor", throwIfNotFound: true);
         m_UI_OpenChest = m_UI.FindAction("OpenChest", throwIfNotFound: true);
         m_UI_CloseChest = m_UI.FindAction("CloseChest", throwIfNotFound: true);
+        m_UI_OpenDesiccator = m_UI.FindAction("OpenDesiccator", throwIfNotFound: true);
+        m_UI_CloseDesiccator = m_UI.FindAction("CloseDesiccator", throwIfNotFound: true);
         m_UI_DragController = m_UI.FindAction("DragController", throwIfNotFound: true);
         m_UI_DropController = m_UI.FindAction("DropController", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1648,6 +1712,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CloseTrashCompactor;
     private readonly InputAction m_UI_OpenChest;
     private readonly InputAction m_UI_CloseChest;
+    private readonly InputAction m_UI_OpenDesiccator;
+    private readonly InputAction m_UI_CloseDesiccator;
     private readonly InputAction m_UI_DragController;
     private readonly InputAction m_UI_DropController;
     private readonly InputAction m_UI_Navigate;
@@ -1722,6 +1788,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/CloseChest".
         /// </summary>
         public InputAction @CloseChest => m_Wrapper.m_UI_CloseChest;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/OpenDesiccator".
+        /// </summary>
+        public InputAction @OpenDesiccator => m_Wrapper.m_UI_OpenDesiccator;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CloseDesiccator".
+        /// </summary>
+        public InputAction @CloseDesiccator => m_Wrapper.m_UI_CloseDesiccator;
         /// <summary>
         /// Provides access to the underlying input action "UI/DragController".
         /// </summary>
@@ -1805,6 +1879,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseChest.started += instance.OnCloseChest;
             @CloseChest.performed += instance.OnCloseChest;
             @CloseChest.canceled += instance.OnCloseChest;
+            @OpenDesiccator.started += instance.OnOpenDesiccator;
+            @OpenDesiccator.performed += instance.OnOpenDesiccator;
+            @OpenDesiccator.canceled += instance.OnOpenDesiccator;
+            @CloseDesiccator.started += instance.OnCloseDesiccator;
+            @CloseDesiccator.performed += instance.OnCloseDesiccator;
+            @CloseDesiccator.canceled += instance.OnCloseDesiccator;
             @DragController.started += instance.OnDragController;
             @DragController.performed += instance.OnDragController;
             @DragController.canceled += instance.OnDragController;
@@ -1870,6 +1950,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @CloseChest.started -= instance.OnCloseChest;
             @CloseChest.performed -= instance.OnCloseChest;
             @CloseChest.canceled -= instance.OnCloseChest;
+            @OpenDesiccator.started -= instance.OnOpenDesiccator;
+            @OpenDesiccator.performed -= instance.OnOpenDesiccator;
+            @OpenDesiccator.canceled -= instance.OnOpenDesiccator;
+            @CloseDesiccator.started -= instance.OnCloseDesiccator;
+            @CloseDesiccator.performed -= instance.OnCloseDesiccator;
+            @CloseDesiccator.canceled -= instance.OnCloseDesiccator;
             @DragController.started -= instance.OnDragController;
             @DragController.performed -= instance.OnDragController;
             @DragController.canceled -= instance.OnDragController;
@@ -2216,6 +2302,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCloseChest(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenDesiccator" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenDesiccator(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CloseDesiccator" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCloseDesiccator(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "DragController" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
