@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -38,7 +39,8 @@ public class Desiccator : MonoBehaviour
     void Start()
     {
         coroutineDesiccator = StartCoroutine(ActiveDesiccator());
-        SlootWeedDried.iconTools.enabled = false;
+        SlootWeedDried.iconTools.gameObject.SetActive(false);
+
     }
     private void OnEnable()
     {
@@ -118,7 +120,7 @@ public class Desiccator : MonoBehaviour
         {
             InventoryManager.AddItem(SlootWeedDried.slootData, SlootWeedDried.CurrentStorage);
             SlootWeedDried.CurrentStorage = 0;
-            SlootWeedDried.iconTools.enabled = false;
+            SlootWeedDried.iconTools.gameObject.SetActive(false);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = DesiccatorEmpty;
         }
     }
@@ -127,15 +129,15 @@ public class Desiccator : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(TimeDesiccator);
-            if (slootWeed.slootData != null && SlootCarbon.slootData != null && slootWeed.slootData.NameTools == "Weed" && SlootCarbon.slootData.NameTools == "carbon")
+            if (slootWeed.slootData != null && SlootCarbon.slootData != null && slootWeed.slootData.NameTools == "Weed" && SlootCarbon.slootData.NameTools == "battery")
             {
 
                 BarProgress.fillAmount += 0.1f;
-                SlootWeedDried.iconTools.enabled = true;
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = DesiccatorFull;
 
                 if (BarProgress.fillAmount >= 1f && slootWeed.CurrentStorage > 0 && SlootCarbon.CurrentStorage > 0 && SlootWeedDried.CurrentStorage <= SlootWeedDried.slootData.MaxStorage -1)
                 {
+                    SlootWeedDried.iconTools.gameObject.SetActive(true);
                     SlootWeedDried.CurrentStorage++;
                     SlootWeedDried.UpdateSlot();
                     BarProgress.fillAmount = 0f;
