@@ -1,7 +1,8 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
- 
+using UnityEngine.Rendering;
+
 public class AppSetting : MonoBehaviour
 {
     [Header("Audio")]
@@ -13,6 +14,7 @@ public class AppSetting : MonoBehaviour
     [SerializeField] private GameObject PanelNotification;
     [SerializeField] private GameObject ContainerApp;
     [SerializeField] private GameObject Butt_QuitApp;
+
     public void ClosePanelSetting()
     {
         ContainerApp.SetActive(true);

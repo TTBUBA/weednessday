@@ -29,7 +29,7 @@ public class AppMessagingManager : MonoBehaviour
 
 
     public PlayerManager PlayerManager;
-    public AppManager AppManager;   
+   // public AppManager AppManager;   
     public AppSetting AppSetting;
 
     public void CreateNewMessage()
@@ -46,11 +46,6 @@ public class AppMessagingManager : MonoBehaviour
                 yield return new WaitForSeconds(1f);
                 continue;
             }
-            if (!AppManager.IsActiveApp)
-            {
-                yield return new WaitForSeconds(1f);
-                continue;
-            }
 
             int time = Random.Range(1, 2);
             yield return new WaitForSeconds(time);
@@ -63,7 +58,6 @@ public class AppMessagingManager : MonoBehaviour
             ListMessage.Add(message);
             newMessage.transform.SetParent(ParentMessageContainer);
             AppSetting.CurrentNoticationManager.Play();
-            //AppSetting.CurrentNoticationManager.volume = 0.4f;
         }
     }
 

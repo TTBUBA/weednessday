@@ -30,14 +30,15 @@ public class MessageSystem : MonoBehaviour
     public void AcceptOffering()
     {
         PlayerManager.CurrentMoney += PriceOffering;
-        this.gameObject.SetActive(false);
         AppMessagingManager.ListMessage.Remove(this);
         InventoryManager.Instance.Removeweed(TotalWeed);
+        Destroy(this.gameObject);
     }
 
     public void RejectOffering()
     {
         this.gameObject.SetActive(false);
         AppMessagingManager.ListMessage.Remove(this);
+        Destroy(this.gameObject);
     }
 }
