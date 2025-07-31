@@ -16,7 +16,9 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 0
   SpaceOccupiedY: 0
-  UtilityDescription: 
+  UtilityDescription: La chest serve per conservare tutti gli oggetti che non entrano
+    nello zaino
+  IsPlaceable: 1
   UtilityID: 0
   Cost: 50
   UtilityIcon: {fileID: 3440385213206880287, guid: bb84a3bc8dd54194e875e7de4c8de80b, type: 3}

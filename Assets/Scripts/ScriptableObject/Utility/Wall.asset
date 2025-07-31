@@ -16,7 +16,8 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 0
   SpaceOccupiedY: 0
-  UtilityDescription: 
+  UtilityDescription: 'serve per confondere la polizia '
+  IsPlaceable: 0
   UtilityID: 0
   Cost: 15
   UtilityIcon: {fileID: -6026266321714558976, guid: b12742f0cec7f6544969f2eb81e4a5ba, type: 3}

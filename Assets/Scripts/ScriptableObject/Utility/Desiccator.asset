@@ -16,7 +16,9 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 1
   SpaceOccupiedY: 1
-  UtilityDescription: 
+  UtilityDescription: Con essicatore puoi trasformare l'erba per essere venduta e
+    messa nei saccheti
+  IsPlaceable: 0
   UtilityID: 0
   Cost: 1000
   UtilityIcon: {fileID: 3263843279208916186, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}

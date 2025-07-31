@@ -16,7 +16,9 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 1
   SpaceOccupiedY: 1
-  UtilityDescription: 
+  UtilityDescription: Con il tritaRifiuti puoi produre plastica in polvere per creare
+    i paccheti di plastica per inserire erba
+  IsPlaceable: 0
   UtilityID: 0
   Cost: 500
   UtilityIcon: {fileID: -2086074764514488249, guid: f332735b0ff5f174dbe1e9db4ab190f2, type: 3}

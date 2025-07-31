@@ -16,7 +16,8 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 0
   SpaceOccupiedY: 2
-  UtilityDescription: 
+  UtilityDescription: serve per creare una migliore illuminazione
+  IsPlaceable: 0
   UtilityID: 5
   Cost: 150
   UtilityIcon: {fileID: 21300000, guid: 815c6e03229579040926992cd6b2e414, type: 3}

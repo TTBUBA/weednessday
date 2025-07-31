@@ -16,7 +16,9 @@ MonoBehaviour:
   SpaceOccupied: 1x1
   SpaceOccupiedX: 2
   SpaceOccupiedY: 2
-  UtilityDescription: 
+  UtilityDescription: Con il pozzo puoi riempire il tuo annafiatoio per fare crescere
+    l'erba
+  IsPlaceable: 0
   UtilityID: 0
   Cost: 50
   UtilityIcon: {fileID: 8564897322420170456, guid: 9e6fb59a1cd7a464fb4df32b56101d7e, type: 3}

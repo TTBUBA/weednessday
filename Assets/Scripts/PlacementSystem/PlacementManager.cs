@@ -27,6 +27,9 @@ public class PlacementManager : MonoBehaviour
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
     public Cicle_DayNight CicleDayNight;
+    public SmsManager SmsManager;
+
+
     private void Awake()
     {
         Instance = this;
@@ -75,6 +78,15 @@ public class PlacementManager : MonoBehaviour
             GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
             Obj.transform.parent = ParentObjspawn.transform; 
             PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
+            CurrentplaceableObject.IsPlaceable = true;
+
+            
+            if(CurrentplaceableObject.IsPlaceable)
+            {
+                //send the sms with the description of the object created
+                SmsManager.CreateNewSms(CurrentplaceableObject.UtilityDescription);
+            }
+
 
             //this create a cube around the object create
             for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
