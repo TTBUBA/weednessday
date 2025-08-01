@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -105,6 +106,7 @@ public class PlacementManager : MonoBehaviour
             var PoleLight = Obj.GetComponent<PoleLight>();
             var TrashCompactor = Obj.GetComponent<TrashCompactor>();
             var Desiccator = Obj.GetComponent<Desiccator>();
+            var packer = Obj.GetComponent<PackerSystem>();
             if (Chest)
             {
                 Chest.SetData(CamPlayer, InventoryManager);
@@ -124,6 +126,10 @@ public class PlacementManager : MonoBehaviour
             if (Desiccator)
             {
                 Desiccator.SetData(CamPlayer, InventoryManager);
+            }
+            if (packer)
+            {
+                packer.SetData(CamPlayer, InventoryManager);
             }
         }
     }

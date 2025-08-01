@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d5743bc6050a65469e1f0f8cd02872c, type: 3}
-  m_Name: TableWork
+  m_Name: Packer
   m_EditorClassIdentifier: 
-  UtilityName: Table work
-  SpaceOccupied: 3x2
-  SpaceOccupiedX: 3
-  SpaceOccupiedY: 2
-  UtilityDescription: 
+  UtilityName: packer
+  SpaceOccupied: 1x1
+  SpaceOccupiedX: 1
+  SpaceOccupiedY: 1
+  UtilityDescription: Puoi trasformare la plastica triturata in buste di plastica
+  IsPlaceable: 0
   UtilityID: 0
-  Cost: 500
-  UtilityIcon: {fileID: 7807699668187343237, guid: 4a3e7047ed25cdf428cc990496f012dd, type: 3}
-  UtilityPrefab: {fileID: 2457069278282457741, guid: e24a015ec3f8a1a43831273cbfddfbb4, type: 3}
+  Cost: 600
+  UtilityIcon: {fileID: -1805323084, guid: e4ee5169a71013c4c8f31b5401938609, type: 3}
+  UtilityPrefab: {fileID: 5687209562755717802, guid: 86e65b6e3f96e8b488ee3e566a9ad5f6, type: 3}
   Type: 1
   Object: {fileID: 0}

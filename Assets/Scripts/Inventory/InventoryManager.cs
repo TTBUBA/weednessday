@@ -22,7 +22,8 @@ public class InventoryManager : MonoBehaviour
     public SlootData weed;
     public SlootData Cane;
     public SlootData Plastic;
-    public SlootData Carbon;
+    public SlootData Battery;
+    public SlootData ziploc;
     //=========//
     public bool isOpenInventory = false;
     public SlootManager draggedSlotController;
@@ -98,9 +99,13 @@ public class InventoryManager : MonoBehaviour
         AddItem(Plastic, 10);
     }
 
-    public void AddCarbon()
+    public void AddBattery()
     {
-        AddItem(Carbon, Carbon.MaxStorage);
+        AddItem(Battery, Battery.MaxStorage);
+    }
+    public void AddZiploc()
+    {
+        AddItem(ziploc, ziploc.MaxStorage);
     }
     //================//
 
@@ -127,41 +132,44 @@ public class InventoryManager : MonoBehaviour
     //Add item 
     public bool AddItem(SlootData item, int amount)
     {
-        // Check if the item is null or not
-        if(item.itemType != ItemType.MultiplyItem)
+        if (item == null || amount <= 0) return false;
+
+        int remaining = amount;
+        // before full item exist that contains the item
+        foreach (var slot in slootManager)
         {
-            foreach (var slot in slootManager)
+            if (slot.slootData == item && slot.CurrentStorage < slot.slootData.MaxStorage)
             {
-                if (slot.slootData == item && slot.CurrentStorage < slot.slootData.MaxStorage)
-                {
-                    slot.CurrentStorage++;
-                    slot.UpdateSlot();
-                    if (slot.CurrentStorage >= slot.slootData.MaxStorage)
-                    {
-                        slot.StorageFull = true;
-                    }
-                    return true;
-                }
+                int space = slot.slootData.MaxStorage - slot.CurrentStorage;
+                int toAdd = Mathf.Min(space, remaining);
+                slot.CurrentStorage += toAdd;
+                slot.UpdateSlot();
+                slot.StorageFull = (slot.CurrentStorage >= slot.slootData.MaxStorage);
+                remaining -= toAdd;
+
+                if (remaining <= 0) return true;
             }
         }
 
-        // Check if the item is not singleItem and if there is an empty slot
-        if (item.itemType != ItemType.singleItem)
+        // if the slot is empty, try to add the item
+        foreach (var slot in slootManager)
         {
-            foreach (var slot in slootManager)
+            if (slot.slootData == null)
             {
-                if (slot.slootData == null)
-                {
-                    slot.slootData = item;
-                    slot.CurrentStorage = amount;
-                    slot.StorageFull = (slot.CurrentStorage >= slot.slootData.MaxStorage);
-                    slot.UpdateSlot();
-                    return true;
-                }
+                slot.slootData = item;
+                int toAdd = Mathf.Min(item.MaxStorage, remaining);
+                slot.CurrentStorage = toAdd;
+                slot.StorageFull = (slot.CurrentStorage >= slot.slootData.MaxStorage);
+                slot.UpdateSlot();
+                remaining -= toAdd;
+
+                if (remaining <= 0) return true;
             }
         }
-        return false;
+
+        return remaining <= 0;
     }
+
     public bool RemoveItem(SlootData item, int total)
     {
         if (item.itemType != ItemType.singleItem)
