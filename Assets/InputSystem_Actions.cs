@@ -900,6 +900,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenPackingSystem"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b05e671-534e-4e2c-82a5-edaf9b7d6462"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClosePackingSystem"",
+                    ""type"": ""Button"",
+                    ""id"": ""fbac17ce-4169-41c5-a1cb-839b9b01f25e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1184,7 +1202,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
+                    ""groups"": """",
                     ""action"": ""OpenDesiccator"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1257,17 +1275,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8d59aa72-84ea-4db1-8d26-a5a50b7bf269"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenPacker"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e168352b-ead3-4ccc-88ea-d913b6b74fd8"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -1279,12 +1286,23 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2925ca36-1a89-4bcf-b129-44d3a0ea1c55"",
-                    ""path"": """",
+                    ""id"": ""2e834047-1889-4dcd-afe2-81109acecb0d"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ClosePacker"",
+                    ""action"": ""OpenPackingSystem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3ce63da-3dd3-4298-990f-38366efae462"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClosePackingSystem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1408,6 +1426,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_OpenPacker = m_UI.FindAction("OpenPacker", throwIfNotFound: true);
         m_UI_ClosePacker = m_UI.FindAction("ClosePacker", throwIfNotFound: true);
+        m_UI_OpenPackingSystem = m_UI.FindAction("OpenPackingSystem", throwIfNotFound: true);
+        m_UI_ClosePackingSystem = m_UI.FindAction("ClosePackingSystem", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1783,6 +1803,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_OpenPacker;
     private readonly InputAction m_UI_ClosePacker;
+    private readonly InputAction m_UI_OpenPackingSystem;
+    private readonly InputAction m_UI_ClosePackingSystem;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1883,6 +1905,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ClosePacker => m_Wrapper.m_UI_ClosePacker;
         /// <summary>
+        /// Provides access to the underlying input action "UI/OpenPackingSystem".
+        /// </summary>
+        public InputAction @OpenPackingSystem => m_Wrapper.m_UI_OpenPackingSystem;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/ClosePackingSystem".
+        /// </summary>
+        public InputAction @ClosePackingSystem => m_Wrapper.m_UI_ClosePackingSystem;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -1974,6 +2004,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePacker.started += instance.OnClosePacker;
             @ClosePacker.performed += instance.OnClosePacker;
             @ClosePacker.canceled += instance.OnClosePacker;
+            @OpenPackingSystem.started += instance.OnOpenPackingSystem;
+            @OpenPackingSystem.performed += instance.OnOpenPackingSystem;
+            @OpenPackingSystem.canceled += instance.OnOpenPackingSystem;
+            @ClosePackingSystem.started += instance.OnClosePackingSystem;
+            @ClosePackingSystem.performed += instance.OnClosePackingSystem;
+            @ClosePackingSystem.canceled += instance.OnClosePackingSystem;
         }
 
         /// <summary>
@@ -2051,6 +2087,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePacker.started -= instance.OnClosePacker;
             @ClosePacker.performed -= instance.OnClosePacker;
             @ClosePacker.canceled -= instance.OnClosePacker;
+            @OpenPackingSystem.started -= instance.OnOpenPackingSystem;
+            @OpenPackingSystem.performed -= instance.OnOpenPackingSystem;
+            @OpenPackingSystem.canceled -= instance.OnOpenPackingSystem;
+            @ClosePackingSystem.started -= instance.OnClosePackingSystem;
+            @ClosePackingSystem.performed -= instance.OnClosePackingSystem;
+            @ClosePackingSystem.canceled -= instance.OnClosePackingSystem;
         }
 
         /// <summary>
@@ -2437,5 +2479,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClosePacker(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenPackingSystem" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenPackingSystem(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ClosePackingSystem" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClosePackingSystem(InputAction.CallbackContext context);
     }
 }

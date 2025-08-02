@@ -145,14 +145,12 @@ public class PackerSystem : MonoBehaviour
                     if (slootPlastic.CurrentStorage < 1)
                     {
                         slootPlastic.CurrentStorage = 0;
-                        slootPlastic.StorageFull = true;
                         slootPlastic.iconTools.enabled = false;
                     }
 
                     if (SlootBattery.CurrentStorage < 1)
                     {
                         SlootBattery.CurrentStorage = 0;
-                        SlootBattery.StorageFull = true;
                         SlootBattery.iconTools.enabled = false;
                     }
 

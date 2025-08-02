@@ -23,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     public SlootData Cane;
     public SlootData Plastic;
     public SlootData Battery;
-    public SlootData ziploc;
+    public SlootData baggie;
     //=========//
     public bool isOpenInventory = false;
     public SlootManager draggedSlotController;
@@ -103,9 +103,9 @@ public class InventoryManager : MonoBehaviour
     {
         AddItem(Battery, Battery.MaxStorage);
     }
-    public void AddZiploc()
+    public void AddBaggie()
     {
-        AddItem(ziploc, ziploc.MaxStorage);
+        AddItem(baggie, baggie.MaxStorage);
     }
     //================//
 

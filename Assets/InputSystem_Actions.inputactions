@@ -814,6 +814,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPackingSystem",
+                    "type": "Button",
+                    "id": "4b05e671-534e-4e2c-82a5-edaf9b7d6462",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClosePackingSystem",
+                    "type": "Button",
+                    "id": "fbac17ce-4169-41c5-a1cb-839b9b01f25e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1098,7 +1116,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Touch",
+                    "groups": "",
                     "action": "OpenDesiccator",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1171,17 +1189,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8d59aa72-84ea-4db1-8d26-a5a50b7bf269",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenPacker",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e168352b-ead3-4ccc-88ea-d913b6b74fd8",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -1193,12 +1200,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2925ca36-1a89-4bcf-b129-44d3a0ea1c55",
-                    "path": "",
+                    "id": "2e834047-1889-4dcd-afe2-81109acecb0d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ClosePacker",
+                    "action": "OpenPackingSystem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3ce63da-3dd3-4298-990f-38366efae462",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePackingSystem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

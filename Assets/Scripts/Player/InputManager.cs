@@ -233,4 +233,10 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnOpenPacker(InputAction.CallbackContext context) { }
     public void OnClosePacker(InputAction.CallbackContext context) { }
+
+    public void OnOpenPackingSystem(InputAction.CallbackContext context) { }
+
+
+    public void OnClosePackingSystem(InputAction.CallbackContext context) { }
+
 }
