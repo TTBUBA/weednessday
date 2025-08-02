@@ -1184,7 +1184,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
+                    ""groups"": """",
                     ""action"": ""OpenDesiccator"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

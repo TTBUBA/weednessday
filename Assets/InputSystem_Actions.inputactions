@@ -1098,7 +1098,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Touch",
+                    "groups": "",
                     "action": "OpenDesiccator",
                     "isComposite": false,
                     "isPartOfComposite": false
