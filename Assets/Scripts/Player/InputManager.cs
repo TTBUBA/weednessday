@@ -50,14 +50,18 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     // Planting
     public void OnPlant(InputAction.CallbackContext context)
     {
-        if (!context.performed || InventoryManager.CurrentSlotSelect?.NameTools != "SeedWeed") return;
-        PlantManager.Plant();
+        if (context.performed && InventoryManager.CurrentSlotSelect.NameTools == "SeedWeed")
+        {
+            PlantManager.Plant();
+        }
     }
 
     public void OnHoeTerrain(InputAction.CallbackContext context)
     {
-        if (!context.performed || InventoryManager.CurrentSlotSelect?.NameTools != "Shovel") return;
-        PlantManager.HoeTerrain();
+        if (context.performed)
+        {
+            PlantManager.HoeTerrain();
+        }
     }
 
     public void OnWetTerrain(InputAction.CallbackContext context)
@@ -75,14 +79,19 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     // Phone
     public void OnOpenPhone(InputAction.CallbackContext context)
     {
-        if (!context.performed || PhoneManager == null) return;
+        if (context.performed)
+        {
+            PhoneManager.OpenPhone();
+        }
         PhoneManager.OpenPhone();
     }
 
     public void OnClosePhone(InputAction.CallbackContext context)
     {
-        if (!context.performed || PhoneManager == null) return;
-        PhoneManager.ClosePhone();
+        if (context.performed)
+        {
+            PhoneManager.ClosePhone();
+        }
     }
 
     // Player Movement
@@ -146,7 +155,10 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         {
             Uimanager.OpenPanelInventory();
         }
-        if(context.canceled)
+    }
+    public void OnCloseInventory(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             Uimanager.ClosePanelInventory();
         }
@@ -165,37 +177,14 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         Uimanager.ClosePanelUtilty();
     }
 
-    public void OnClosePanelWater(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnOpenPanelWater(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnOpenTableCrafting(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnCloseTableCrafting(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnOpenTrashCompactor(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnCloseTrashCompactor(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnOpenUtilty(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnCloseUtilty(InputAction.CallbackContext context)
-    {
-    }
+    public void OnClosePanelWater(InputAction.CallbackContext context) { }
+    public void OnOpenPanelWater(InputAction.CallbackContext context) { }
+    public void OnOpenTableCrafting(InputAction.CallbackContext context) { } 
+    public void OnCloseTableCrafting(InputAction.CallbackContext context) { }
+    public void OnOpenTrashCompactor(InputAction.CallbackContext context) { }
+    public void OnCloseTrashCompactor(InputAction.CallbackContext context) { }
+    public void OnOpenUtilty(InputAction.CallbackContext context) { }
+    public void OnCloseUtilty(InputAction.CallbackContext context) { }
 
     public void OnDragController(InputAction.CallbackContext context)
     {
@@ -213,30 +202,16 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         }
     }
 
-    public void OnNavigate(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnRightClick(InputAction.CallbackContext context)
-    {
-    }
-
-    public void OnLeftClickMouse(InputAction.CallbackContext context)
-    {
-    }
-
+    public void OnNavigate(InputAction.CallbackContext context) { }
+    public void OnRightClick(InputAction.CallbackContext context) { }
+    public void OnLeftClickMouse(InputAction.CallbackContext context) { }
     public void OnOpenChest(InputAction.CallbackContext context) { }
     public void OnCloseChest(InputAction.CallbackContext context) { }
-
     public void OnOpenDesiccator(InputAction.CallbackContext context) { }
     public void OnCloseDesiccator(InputAction.CallbackContext context) { }
-
     public void OnOpenPacker(InputAction.CallbackContext context) { }
     public void OnClosePacker(InputAction.CallbackContext context) { }
-
     public void OnOpenPackingSystem(InputAction.CallbackContext context) { }
-
-
     public void OnClosePackingSystem(InputAction.CallbackContext context) { }
 
 }

@@ -15,6 +15,7 @@ public class  WellSystem : MonoBehaviour
     [SerializeField] private float TimeCharge;
     [SerializeField] private InventoryManager InventoryManager;
     [SerializeField] private WateringCan WateringCan;
+    [SerializeField] private bool IsCollision;
 
     [Header("Input Actions")]
     [SerializeField] private InputActionReference OpenPanelWater;
@@ -45,6 +46,7 @@ public class  WellSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            IsCollision = true;
             ButtOpenPanelWater.SetActive(true);
             LevelWater = WateringCan.waterAmount;
             barWater.fillAmount = LevelWater / 100f;
@@ -55,6 +57,7 @@ public class  WellSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            IsCollision = false;
             PanelBarWater.SetActive(false);
             ButtOpenPanelWater.SetActive(false);
         }
@@ -62,12 +65,18 @@ public class  WellSystem : MonoBehaviour
 
     private void OpenPanelWaterAction(InputAction.CallbackContext context)
     {
-        PanelBarWater.SetActive(true);
-        ButtOpenPanelWater.SetActive(false);
+        if (IsCollision)
+        {
+            PanelBarWater.SetActive(true);
+            ButtOpenPanelWater.SetActive(false);
+        }
     }
     private void ClosePanelWaterAction(InputAction.CallbackContext context)
     {
-        PanelBarWater.SetActive(false);
+        if (IsCollision)
+        {
+            ButtOpenPanelWater.SetActive(false);
+        }
     }
 
     private void ChargeWaterCan()

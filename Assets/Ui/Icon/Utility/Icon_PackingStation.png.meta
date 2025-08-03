@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5bc7c16400aabe44891529aee8e7a635
+guid: 9a6a82758d9530348ae61c3230778068
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1978418702676515484
-    second: Workbench_Ziploc_0
+      213: 4712634346831404670
+    second: Icon_PackingStation_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PackingStation_0
+      name: Icon_PackingStation_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 35
-      alignment: 9
-      pivot: {x: 0.2, y: 0}
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f0ff3efb15c016149a0ceb6f92f5e16e
-      internalID: -680942642
+      spriteID: e7ed03748f3a66140800000000000000
+      internalID: 4712634346831404670
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 16c725d28a2cc41499494ac8b1611692
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -146,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      PackingStation_0: -680942642
+      Icon_PackingStation_0: 4712634346831404670
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

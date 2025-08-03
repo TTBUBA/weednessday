@@ -150,4 +150,10 @@ public class PackingWeedSystem : MonoBehaviour
             }
         }   
     }
+
+    public void SetData(Camera camera ,InventoryManager inventoryManager)
+    {
+        canvas.worldCamera = camera;
+        InventoryManager = inventoryManager;
+    }
 }

@@ -713,6 +713,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""CloseInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""982ccb19-7787-4a09-b8de-01eabf8f0ba4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""OpenPanelUtilty"",
                     ""type"": ""Button"",
                     ""id"": ""43b0e1de-e70b-4f44-b04e-f23b891ec460"",
@@ -929,6 +938,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""113b2763-234d-4ef5-9f92-aa6d4aa2028b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""CloseInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1405,6 +1425,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
+        m_UI_CloseInventory = m_UI.FindAction("CloseInventory", throwIfNotFound: true);
         m_UI_OpenPanelUtilty = m_UI.FindAction("OpenPanelUtilty", throwIfNotFound: true);
         m_UI_ClosePanelUtilty = m_UI.FindAction("ClosePanelUtilty", throwIfNotFound: true);
         m_UI_OpenUtilty = m_UI.FindAction("OpenUtilty", throwIfNotFound: true);
@@ -1782,6 +1803,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_OpenInventory;
+    private readonly InputAction m_UI_CloseInventory;
     private readonly InputAction m_UI_OpenPanelUtilty;
     private readonly InputAction m_UI_ClosePanelUtilty;
     private readonly InputAction m_UI_OpenUtilty;
@@ -1820,6 +1842,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/OpenInventory".
         /// </summary>
         public InputAction @OpenInventory => m_Wrapper.m_UI_OpenInventory;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CloseInventory".
+        /// </summary>
+        public InputAction @CloseInventory => m_Wrapper.m_UI_CloseInventory;
         /// <summary>
         /// Provides access to the underlying input action "UI/OpenPanelUtilty".
         /// </summary>
@@ -1941,6 +1967,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenInventory.started += instance.OnOpenInventory;
             @OpenInventory.performed += instance.OnOpenInventory;
             @OpenInventory.canceled += instance.OnOpenInventory;
+            @CloseInventory.started += instance.OnCloseInventory;
+            @CloseInventory.performed += instance.OnCloseInventory;
+            @CloseInventory.canceled += instance.OnCloseInventory;
             @OpenPanelUtilty.started += instance.OnOpenPanelUtilty;
             @OpenPanelUtilty.performed += instance.OnOpenPanelUtilty;
             @OpenPanelUtilty.canceled += instance.OnOpenPanelUtilty;
@@ -2024,6 +2053,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenInventory.started -= instance.OnOpenInventory;
             @OpenInventory.performed -= instance.OnOpenInventory;
             @OpenInventory.canceled -= instance.OnOpenInventory;
+            @CloseInventory.started -= instance.OnCloseInventory;
+            @CloseInventory.performed -= instance.OnCloseInventory;
+            @CloseInventory.canceled -= instance.OnCloseInventory;
             @OpenPanelUtilty.started -= instance.OnOpenPanelUtilty;
             @OpenPanelUtilty.performed -= instance.OnOpenPanelUtilty;
             @OpenPanelUtilty.canceled -= instance.OnOpenPanelUtilty;
@@ -2332,6 +2364,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenInventory(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CloseInventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCloseInventory(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "OpenPanelUtilty" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

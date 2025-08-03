@@ -89,11 +89,6 @@ public class PlantManager : MonoBehaviour
 
     private Vector3Int cellPos => MouseManager.GetMousePosition();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        plant = collision.GetComponent<Plant>();
-    }
-
     public void Plant()
     {
         if(!PlacementManager.Instance.DrawModeActive && !placementManager.CellOccupateObj.ContainsKey(cellPos))
@@ -120,7 +115,7 @@ public class PlantManager : MonoBehaviour
 
 
             // Check if the terrain is dry before planting
-            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
+            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
             {
                 InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(20f, 40f);
@@ -128,8 +123,9 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
+                //Debug.Log(plant.GetComponent<Plant>());
             }
-            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
+            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
             {
                 InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(5f, 10f);
@@ -137,6 +133,7 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
+                //Debug.Log(plant.GetComponent<Plant>());
             }
         }
     }

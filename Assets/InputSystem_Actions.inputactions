@@ -627,6 +627,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "CloseInventory",
+                    "type": "Button",
+                    "id": "982ccb19-7787-4a09-b8de-01eabf8f0ba4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "OpenPanelUtilty",
                     "type": "Button",
                     "id": "43b0e1de-e70b-4f44-b04e-f23b891ec460",
@@ -843,6 +852,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "113b2763-234d-4ef5-9f92-aa6d4aa2028b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CloseInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

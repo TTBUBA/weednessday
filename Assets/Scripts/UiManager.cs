@@ -16,6 +16,7 @@ public class UiManager : MonoBehaviour
 
     [Header("Panels-Inventory")]
     [SerializeField] private GameObject Panel_Inventory;
+    [SerializeField] private GameObject Butt_ClosePanelInventory;
 
     [Header("Player-Ui")]
     [SerializeField] private Image BarLife;
@@ -51,13 +52,17 @@ public class UiManager : MonoBehaviour
     {
         Panel_Inventory.SetActive(true);
         inventoryManager.isOpenInventory = true;
+        Butt_ClosePanelInventory.SetActive(true);
 
     }
+
     public void ClosePanelInventory()
     {
         Panel_Inventory.SetActive(false);
         inventoryManager.isOpenInventory = false;
+        Butt_ClosePanelInventory.SetActive(false);
     }
+
     public void OpenPanelUtilty()
     {
         Panel_Utility.SetActive(true);

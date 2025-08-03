@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Police
   - Tree
+  - Plant
   layers:
   - Default
   - TransparentFX
