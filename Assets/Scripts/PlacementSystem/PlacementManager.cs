@@ -38,7 +38,6 @@ public class PlacementManager : MonoBehaviour
     //Get the current cell position on the mousePosition
     private Vector3Int cellpos => MouseManager.GetMousePosition();
 
-
     public void SelectObject()
     {
         if (PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject)
@@ -48,92 +47,93 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
-
     // place the object at the current cell position
     public void PlaceObject()
     {
         if (CellOccupateObj.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied
-        if (plantManager.CellOccupate.ContainsKey(cellpos)) { return; } // Check if the cell is already occupied by a plant
 
-        //position of the object only is tile 
-        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Tile)
+        if (plantManager.GetTerrainState(cellpos) == PlantManager.TerrainState.None)
         {
-            Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
-
-            //this create a cube araund the object create
-            for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+            //position of the object only is tile 
+            if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Tile)
             {
-                for (int y = -CurrentplaceableObject.SpaceOccupiedX; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                Tm_ObjectPlacement.SetTile(cellpos, CurrentplaceableObject.Object);
+
+                //this create a cube araund the object create
+                for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
                 {
-                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
-                    CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                    for (int y = -CurrentplaceableObject.SpaceOccupiedX; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                    {
+                        Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                        CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                    }
                 }
-            }
-            PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
-        }
-
-        //position of the object only is prefabs 
-        if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Prefabs)
-        {
-            GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab,cellpos, Quaternion.identity);
-            Obj.transform.parent = ParentObjspawn.transform; 
-            PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
-            CurrentplaceableObject.IsPlaceable = true;
-
-            
-            if(CurrentplaceableObject.IsPlaceable)
-            {
-                //send the sms with the description of the object created
-                SmsManager.CreateNewSms(CurrentplaceableObject.UtilityDescription);
+                PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
             }
 
-
-            //this create a cube around the object create
-            for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+            //position of the object only is prefabs 
+            if (DrawModeActive && IsPlacementActive && PlayerManager.CurrentMoney >= CurrentplaceableObject.Cost && CurrentplaceableObject.Type == PlaceableObjectType.Prefabs)
             {
-                for (int y = -CurrentplaceableObject.SpaceOccupiedY; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                GameObject Obj = Instantiate(CurrentplaceableObject.UtilityPrefab, cellpos, Quaternion.identity);
+                Obj.transform.parent = ParentObjspawn.transform;
+                PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
+                CurrentplaceableObject.IsPlaceable = true;
+
+
+                if (CurrentplaceableObject.IsPlaceable)
                 {
-                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
-                    CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                    //send the sms with the description of the object created
+                    SmsManager.CreateNewSms(CurrentplaceableObject.UtilityDescription);
                 }
-            }
 
 
-            //When the object is create, set the data for the specific components in the object
-            var Chest = Obj.GetComponent<ChestSystem>();
-            var WellSystem = Obj.GetComponent<WellSystem>();
-            var PoleLight = Obj.GetComponent<PoleLight>();
-            var TrashCompactor = Obj.GetComponent<TrashCompactor>();
-            var Desiccator = Obj.GetComponent<Desiccator>();
-            var packer = Obj.GetComponent<PackerSystem>();
-            var packingStationWeed = Obj.GetComponent<PackingWeedSystem>();
-            if (Chest)
-            {
-                Chest.SetData(CamPlayer, InventoryManager);
-            }
-            if (WellSystem)
-            {
-                WellSystem.SetData(CamPlayer, InventoryManager, WateringCan);
-            }
-            if (PoleLight)
-            {
-                PoleLight.SetData(CicleDayNight);
-            }
-            if(TrashCompactor)
-            {
-                TrashCompactor.SetData(CamPlayer, InventoryManager);
-            }
-            if (Desiccator)
-            {
-                Desiccator.SetData(CamPlayer, InventoryManager);
-            }
-            if (packer)
-            {
-                packer.SetData(CamPlayer, InventoryManager);
-            }
-            if (packingStationWeed)
-            {
-                packingStationWeed.SetData(CamPlayer, InventoryManager);
+                //this create a cube around the object create
+                for (int x = -CurrentplaceableObject.SpaceOccupiedX; x <= CurrentplaceableObject.SpaceOccupiedX; x++)
+                {
+                    for (int y = -CurrentplaceableObject.SpaceOccupiedY; y <= CurrentplaceableObject.SpaceOccupiedY; y++)
+                    {
+                        Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                        CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
+                    }
+                }
+
+
+                //When the object is create, set the data for the specific components in the object
+                var Chest = Obj.GetComponent<ChestSystem>();
+                var WellSystem = Obj.GetComponent<WellSystem>();
+                var PoleLight = Obj.GetComponent<PoleLight>();
+                var TrashCompactor = Obj.GetComponent<TrashCompactor>();
+                var Desiccator = Obj.GetComponent<Desiccator>();
+                var packer = Obj.GetComponent<PackerSystem>();
+                var packingStationWeed = Obj.GetComponent<PackingWeedSystem>();
+                if (Chest)
+                {
+                    Chest.SetData(CamPlayer, InventoryManager);
+                }
+                if (WellSystem)
+                {
+                    WellSystem.SetData(CamPlayer, InventoryManager, WateringCan);
+                }
+                if (PoleLight)
+                {
+                    PoleLight.SetData(CicleDayNight);
+                }
+                if (TrashCompactor)
+                {
+                    TrashCompactor.SetData(CamPlayer, InventoryManager);
+                }
+                if (Desiccator)
+                {
+                    Desiccator.SetData(CamPlayer, InventoryManager);
+                }
+                if (packer)
+                {
+                    packer.SetData(CamPlayer, InventoryManager);
+                }
+                if (packingStationWeed)
+                {
+                    packingStationWeed.SetData(CamPlayer, InventoryManager);
+                }
             }
         }
     }

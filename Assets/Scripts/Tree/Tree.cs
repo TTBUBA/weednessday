@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.Tilemaps;
+using static PlantManager;
 
 
 public class Tree : MonoBehaviour
@@ -10,8 +12,30 @@ public class Tree : MonoBehaviour
     [SerializeField] private Sprite Sp_Tree;
     [SerializeField] private int Health = 100;
     [SerializeField] private SlootData Item;
+    [SerializeField] private Tilemap tilemapGround;
+    [SerializeField] private Vector3Int pos;
+    [SerializeField] private int SizeX;
+    [SerializeField] private int SizeY;
     public InventoryManager InventoryManager;
-    
+    public PlantManager plantManager;
+
+    private void Start() 
+    {
+        //the position of the tree is set in the cellOccupate in plantManager e for example when plant
+        //or placementObj this not place because the cell is occupied by the tree
+        pos = tilemapGround.WorldToCell(transform.position);
+        for (int x = -1; x < SizeX; x++)
+        {
+            for(int y = -1; y < SizeY; y++)
+            {
+                Vector3Int cellPos = new Vector3Int(pos.x + x, pos.y + y);
+                //Debug.Log($"Cell Position: {cellPos}" + gameObject.name);
+                //tilemapGround.SetTile(cellPos, null); // Clear the tile at the position of the tree
+                plantManager.CellOccupate[cellPos] = new WeedData { StateTerrain = TerrainState.obstacle };
+            }
+        }
+    }
+
     public void TreeHit()
     {
         int randomVal = Random.Range(1, 5);

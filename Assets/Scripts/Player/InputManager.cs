@@ -50,18 +50,14 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     // Planting
     public void OnPlant(InputAction.CallbackContext context)
     {
-        if (context.performed && InventoryManager.CurrentSlotSelect.NameTools == "SeedWeed")
-        {
-            PlantManager.Plant();
-        }
+        if(!context.performed && InventoryManager.CurrentSlotSelect?.NameTools != "SeedWeed") return;
+        PlantManager.Plant();
     }
 
     public void OnHoeTerrain(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            PlantManager.HoeTerrain();
-        }
+        if (!context.performed && InventoryManager.CurrentSlotSelect?.NameTools != "Shovel") return;
+        PlantManager.HoeTerrain();
     }
 
     public void OnWetTerrain(InputAction.CallbackContext context)
@@ -72,7 +68,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnCollectPlant(InputAction.CallbackContext context)
     {
-        if (!context.performed || PlantManager.plant == null || !PlantManager.plant.FinishGrowth) return;
+        if (!context.performed || PlantManager.plant == null || !PlantManager.plant.FinishGrowth) { return; }
         PlantManager.CollectPlant();
     }
 

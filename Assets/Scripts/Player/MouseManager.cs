@@ -18,6 +18,8 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private float SpeedController;
     public bool isUsingController;
 
+
+    public PlantManager PlantManager;
     private void Awake()
     {
         if (Instance == null)

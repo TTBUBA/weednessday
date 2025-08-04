@@ -39,7 +39,8 @@ public class PlantManager : MonoBehaviour
         None,
         Dry,
         wet,
-        planted
+        planted,
+        obstacle
     }
 
     private void Awake()
@@ -53,10 +54,11 @@ public class PlantManager : MonoBehaviour
                 TileBase tile = tilemapGround.GetTile(pos);
                 if (tile != null)
                 {
-                    //CellOccupate[cell] = new WeedData { StateTerrain = TerrainState.None }; 
                     GameObject plant = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(pos), Quaternion.identity);
                     PlantsCreate.Add(plant.GetComponent<Plant>());
-                    plant.transform.parent = PointPlat.transform; 
+                    plant.transform.parent = PointPlat.transform;
+                    CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.None };
+
                 }
             }
         }
@@ -98,22 +100,6 @@ public class PlantManager : MonoBehaviour
 
             if (!ActivePlant) return;
 
-            /*
-            if (Inventory.NameTools == "Shovel")
-            {
-                HoeTerrain();
-                return;
-            }
-
-            if (Inventory.NameTools == "WateringCan")
-            {
-                WetTerrain();
-                return;
-            }
-
-            */
-
-
             // Check if the terrain is dry before planting
             if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
             {
@@ -123,7 +109,8 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
-                //Debug.Log(plant.GetComponent<Plant>());
+                Debug.Log(plant.name);
+
             }
             else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
             {
@@ -141,7 +128,7 @@ public class PlantManager : MonoBehaviour
     {
         var Inventory = InventoryManager.Instance.CurrentSlotSelect;
 
-        if (GetTerrainState(cellPos) == TerrainState.planted && Inventory.NameTools == "Basket" && plant.FinishGrowth)
+        if (Inventory.NameTools == "Basket" && plant.FinishGrowth)
         {
             int RandomValue = Random.Range(1, 3);
             InventoryManager.Instance.AddItem(InventoryManager.Instance.weed, RandomValue);
