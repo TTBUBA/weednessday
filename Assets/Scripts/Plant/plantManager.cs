@@ -17,8 +17,8 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private Camera CamPlayer;
 
     [Header("Terrain-Tile")]
-    [SerializeField] private Tile DryTile;
-    [SerializeField] private Tile WetTile;
+    [SerializeField] private RuleTile DryTile;
+    [SerializeField] private RuleTile WetTile;
 
     [SerializeField] private GameObject WeedPlant;
     [SerializeField] private GameObject SelectBox;
@@ -109,7 +109,6 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
-                Debug.Log(plant.name);
 
             }
             else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
@@ -120,7 +119,6 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
-                //Debug.Log(plant.GetComponent<Plant>());
             }
         }
     }
