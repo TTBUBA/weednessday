@@ -63,6 +63,9 @@ public class MarketManager : MonoBehaviour
         {
             isOrderMade = true;
             boatOrder.StartCoroutine(boatOrder.TimeDelivery());
+            boatOrder.StartCoroutine(boatOrder.UpdateTimeDelivery());
+            boatOrder.Text_timedelivery.gameObject.SetActive(true);
+
             foreach (var item in cartItems)
             {
                 playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player

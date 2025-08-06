@@ -16,11 +16,11 @@ public class ChestSystem : MonoBehaviour
     [SerializeField] private GameObject PanelInventoryPlayer;
     [SerializeField] private TextMeshProUGUI text_panel;
     [SerializeField] private bool IsOpen = false;
+    [SerializeField] private bool Iscollision = false;
     [SerializeField] private Canvas canvas;
     [SerializeField] private InputActionReference Butt_OpenPanel;
     [SerializeField] private InputActionReference Butt_ClosePanel;
     [SerializeField] private List<SlootManager> SlootChest;
-
     [SerializeField] private InventoryManager InventoryManager;
 
     private void OnEnable()
@@ -46,6 +46,7 @@ public class ChestSystem : MonoBehaviour
         {
            butt_panel.SetActive(true);
            text_panel.text = "Press 'E'";
+           Iscollision = true;
         }
     }
 
@@ -56,13 +57,14 @@ public class ChestSystem : MonoBehaviour
             PanelSloot.SetActive(false);
             butt_panel.SetActive(false);
             text_panel.text = "Press 'E'";
-
+            Iscollision = false;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = chestClose;
         }
     }
 
     private void OpenPanel(InputAction.CallbackContext context)
     {
-        if (!IsOpen)
+        if (!IsOpen && Iscollision)
         {
             IsOpen = true;
             PanelSloot.SetActive(true);
@@ -76,6 +78,7 @@ public class ChestSystem : MonoBehaviour
                     slot.InUse = true;
                     slot.transform.SetParent(PanelInventoryPlayer.transform, false);
 
+                    //Input Controller set navigation for slots
                     foreach (var sloot in SlootChest)
                     {
                         switch (slot.Index)
@@ -111,7 +114,6 @@ public class ChestSystem : MonoBehaviour
                                 SlotChest3.navigation = trashNav3;
                                 break;
                         }
-                        Debug.Log(sloot.Index);
                     }
                 }
             }
@@ -119,7 +121,7 @@ public class ChestSystem : MonoBehaviour
     }
     private void ClosePanel(InputAction.CallbackContext context)
     {
-        if (IsOpen)
+        if (IsOpen && Iscollision)
         {
             IsOpen = false;
             PanelSloot.SetActive(false);

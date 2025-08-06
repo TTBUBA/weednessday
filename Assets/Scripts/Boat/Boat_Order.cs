@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Boat_Order : MonoBehaviour
@@ -14,7 +15,8 @@ public class Boat_Order : MonoBehaviour
     [SerializeField] private AudioSource AudioBoatClacson;
     [SerializeField] private int timedelivery;
 
-
+    [Header("Ui")]
+    public TextMeshProUGUI Text_timedelivery;
 
     public MarketManager marketManager;
     public InventoryManager InventoryManager;
@@ -32,8 +34,11 @@ public class Boat_Order : MonoBehaviour
                 Box.SetActive(true);
                 Box.transform.position = PointSpawnChest[Point].position;
                 AudioBoatClacson.Play();
+                timedelivery = 0;
+                Text_timedelivery.gameObject.SetActive(false);
             }
         }
+
         if (ArriveDestination && boxOrder.OpenBox)
         {
             ReturnTheBase();
@@ -45,22 +50,38 @@ public class Boat_Order : MonoBehaviour
             }
         }
     }
+
+    //move the boat in the pointfinal
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position,PointFinal.position,Speed * Time.deltaTime);
     }
 
+    //return the boat to the base
     private void ReturnTheBase()
     {
         transform.localScale = new Vector3(1, 1, 1);
         transform.position = Vector3.MoveTowards(transform.position, PointStart.position, Speed * Time.deltaTime);
     }
 
+
+    //Start the delivery time when the time is 0 the boat move in the pointFinal
     public IEnumerator TimeDelivery()
     {
         timedelivery = Random.Range(250, 300);
         yield return new WaitForSeconds(timedelivery);
         ActiveBoat = true;
-        Debug.Log("Time deliver real" + timedelivery / 60 + "Minutes");
+    }
+
+    public IEnumerator UpdateTimeDelivery()
+    {
+        while (timedelivery > 0)
+        {
+            int minutes = timedelivery / 60;
+            int seconds = timedelivery % 60;
+            Text_timedelivery.text = $"Time Delivery: {minutes:D2}:{seconds:D2}";
+            yield return new WaitForSeconds(1f);
+            timedelivery--;
+        }
     }
 }

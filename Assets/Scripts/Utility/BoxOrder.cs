@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -43,6 +44,7 @@ public class BoxOrder : MonoBehaviour
         if (ActiveBox)
         {
             OpenChestOrder();
+            StartCoroutine(DisactiveBox());
         }
     }
 
@@ -80,5 +82,13 @@ public class BoxOrder : MonoBehaviour
             ButtOpenChest.SetActive(false);
             Text_Chest.text = "Close Q";
         }
+    }
+
+    IEnumerator DisactiveBox()
+    {
+        yield return new WaitForSeconds(1.5f);
+        ActiveBox = false;
+        ButtOpenChest.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
