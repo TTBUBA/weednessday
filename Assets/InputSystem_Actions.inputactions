@@ -157,6 +157,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Sleep",
+                    "type": "Button",
+                    "id": "0841ab28-a084-4030-9a1a-dc8615ff5cf8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -610,6 +619,17 @@
                     "action": "LeftClickMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ae3ba81-256f-4741-89e8-f7a35191fdc6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sleep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -837,6 +857,24 @@
                     "name": "ClosePackingSystem",
                     "type": "Button",
                     "id": "fbac17ce-4169-41c5-a1cb-839b9b01f25e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EntryHouse",
+                    "type": "Button",
+                    "id": "3642a946-6b1b-4514-be11-9f738e1b5e6b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExitHouse",
+                    "type": "Button",
+                    "id": "4cf25c0e-67bb-4756-a4c5-5538d62c499c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1248,6 +1286,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClosePacker",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3de92f74-e272-4134-b7fe-e7e3f96c64ea",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EntryHouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aad4efae-d91b-49a5-95d4-e33f76614ff4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EntryHouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cf61466-de83-496e-b475-3629f9d70cc9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitHouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdcaf9be-d897-439f-9d13-f03a219f379c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitHouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

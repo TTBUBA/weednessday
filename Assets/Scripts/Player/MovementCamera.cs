@@ -4,9 +4,8 @@ public class MovementCamera : MonoBehaviour
 {
     [SerializeField] private Transform targetPosition;
     [SerializeField] private Vector3 offset; 
-    [SerializeField] private float SmoothCam;
+    public float SmoothCam;
     private Vector3 velocity = Vector3.zero;
-
 
 
     private void LateUpdate()

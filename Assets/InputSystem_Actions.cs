@@ -243,6 +243,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sleep"",
+                    ""type"": ""Button"",
+                    ""id"": ""0841ab28-a084-4030-9a1a-dc8615ff5cf8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -696,6 +705,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""LeftClickMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ae3ba81-256f-4741-89e8-f7a35191fdc6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sleep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -923,6 +943,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""ClosePackingSystem"",
                     ""type"": ""Button"",
                     ""id"": ""fbac17ce-4169-41c5-a1cb-839b9b01f25e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EntryHouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""3642a946-6b1b-4514-be11-9f738e1b5e6b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitHouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""4cf25c0e-67bb-4756-a4c5-5538d62c499c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1336,6 +1374,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ClosePacker"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3de92f74-e272-4134-b7fe-e7e3f96c64ea"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EntryHouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aad4efae-d91b-49a5-95d4-e33f76614ff4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EntryHouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cf61466-de83-496e-b475-3629f9d70cc9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitHouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdcaf9be-d897-439f-9d13-f03a219f379c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitHouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1422,6 +1504,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_StickMove = m_Player.FindAction("StickMove", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
         m_Player_LeftClickMouse = m_Player.FindAction("LeftClickMouse", throwIfNotFound: true);
+        m_Player_Sleep = m_Player.FindAction("Sleep", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
@@ -1449,6 +1532,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ClosePacker = m_UI.FindAction("ClosePacker", throwIfNotFound: true);
         m_UI_OpenPackingSystem = m_UI.FindAction("OpenPackingSystem", throwIfNotFound: true);
         m_UI_ClosePackingSystem = m_UI.FindAction("ClosePackingSystem", throwIfNotFound: true);
+        m_UI_EntryHouse = m_UI.FindAction("EntryHouse", throwIfNotFound: true);
+        m_UI_ExitHouse = m_UI.FindAction("ExitHouse", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1547,6 +1632,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_StickMove;
     private readonly InputAction m_Player_RightClick;
     private readonly InputAction m_Player_LeftClickMouse;
+    private readonly InputAction m_Player_Sleep;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1627,6 +1713,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @LeftClickMouse => m_Wrapper.m_Player_LeftClickMouse;
         /// <summary>
+        /// Provides access to the underlying input action "Player/Sleep".
+        /// </summary>
+        public InputAction @Sleep => m_Wrapper.m_Player_Sleep;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1703,6 +1793,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @LeftClickMouse.started += instance.OnLeftClickMouse;
             @LeftClickMouse.performed += instance.OnLeftClickMouse;
             @LeftClickMouse.canceled += instance.OnLeftClickMouse;
+            @Sleep.started += instance.OnSleep;
+            @Sleep.performed += instance.OnSleep;
+            @Sleep.canceled += instance.OnSleep;
         }
 
         /// <summary>
@@ -1765,6 +1858,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @LeftClickMouse.started -= instance.OnLeftClickMouse;
             @LeftClickMouse.performed -= instance.OnLeftClickMouse;
             @LeftClickMouse.canceled -= instance.OnLeftClickMouse;
+            @Sleep.started -= instance.OnSleep;
+            @Sleep.performed -= instance.OnSleep;
+            @Sleep.canceled -= instance.OnSleep;
         }
 
         /// <summary>
@@ -1827,6 +1923,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ClosePacker;
     private readonly InputAction m_UI_OpenPackingSystem;
     private readonly InputAction m_UI_ClosePackingSystem;
+    private readonly InputAction m_UI_EntryHouse;
+    private readonly InputAction m_UI_ExitHouse;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1939,6 +2037,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ClosePackingSystem => m_Wrapper.m_UI_ClosePackingSystem;
         /// <summary>
+        /// Provides access to the underlying input action "UI/EntryHouse".
+        /// </summary>
+        public InputAction @EntryHouse => m_Wrapper.m_UI_EntryHouse;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/ExitHouse".
+        /// </summary>
+        public InputAction @ExitHouse => m_Wrapper.m_UI_ExitHouse;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -2039,6 +2145,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePackingSystem.started += instance.OnClosePackingSystem;
             @ClosePackingSystem.performed += instance.OnClosePackingSystem;
             @ClosePackingSystem.canceled += instance.OnClosePackingSystem;
+            @EntryHouse.started += instance.OnEntryHouse;
+            @EntryHouse.performed += instance.OnEntryHouse;
+            @EntryHouse.canceled += instance.OnEntryHouse;
+            @ExitHouse.started += instance.OnExitHouse;
+            @ExitHouse.performed += instance.OnExitHouse;
+            @ExitHouse.canceled += instance.OnExitHouse;
         }
 
         /// <summary>
@@ -2125,6 +2237,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePackingSystem.started -= instance.OnClosePackingSystem;
             @ClosePackingSystem.performed -= instance.OnClosePackingSystem;
             @ClosePackingSystem.canceled -= instance.OnClosePackingSystem;
+            @EntryHouse.started -= instance.OnEntryHouse;
+            @EntryHouse.performed -= instance.OnEntryHouse;
+            @EntryHouse.canceled -= instance.OnEntryHouse;
+            @ExitHouse.started -= instance.OnExitHouse;
+            @ExitHouse.performed -= instance.OnExitHouse;
+            @ExitHouse.canceled -= instance.OnExitHouse;
         }
 
         /// <summary>
@@ -2349,6 +2467,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLeftClickMouse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Sleep" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSleep(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -2532,5 +2657,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClosePackingSystem(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EntryHouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEntryHouse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ExitHouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnExitHouse(InputAction.CallbackContext context);
     }
 }

@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: bd58131cc45a5294e8fb817cc60d6b1f
+guid: e50ae0f5ab8138f4cb547e338c158d33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -486596617647696711
-    second: Intern_House_0
+      213: 7378076674117489061
+    second: animated_door_6_0
+  - first:
+      213: 1047980951247171524
+    second: animated_door_6_1
+  - first:
+      213: 2694951509224113996
+    second: animated_door_6_2
+  - first:
+      213: 2373996545570089242
+    second: animated_door_6_3
+  - first:
+      213: -4577349023052572432
+    second: animated_door_6_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,10 +84,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,111 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Intern_House_0
+      name: animated_door_6_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 31
+        y: 0
         width: 16
-        height: 98
+        height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b4d33054f24f39f0800000000000000
-      internalID: -486596617647696711
+      spriteID: 5a15e56f4a1346660800000000000000
+      internalID: 7378076674117489061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Intern_House_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 31
-        width: 15
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6cc1fbe4eb0d0c4a83881fa335dc659
-      internalID: 355338425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Intern_House_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 175
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17efc0dceaa5b4a4a85a57c0638c4ebd
-      internalID: -587243281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Intern_House_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 129
-        width: 175
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04cbc5129c95d4d40b00778091a6f142
-      internalID: -873959016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Intern_House_4
+      name: animated_door_6_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 32
-        width: 144
-        height: 96
+        y: 0
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 82e703ba908fced4e91e401be767a171
-      internalID: -1240690935
+      spriteID: 4cfa67a6f1d2b8e00800000000000000
+      internalID: 1047980951247171524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated_door_6_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c47c4328e14666520800000000000000
+      internalID: 2694951509224113996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated_door_6_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19a5bcb74122f020800000000000000
+      internalID: 2373996545570089242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated_door_6_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f858fbb05df970c0800000000000000
+      internalID: -4577349023052572432
       vertices: []
       indices: 
       edges: []
@@ -226,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b0124af9f44daf34aad4f345083d6e38
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Intern_House_0: -486596617647696711
-      Intern_House_1: 355338425
-      Intern_House_2: -587243281
-      Intern_House_3: -873959016
-      Intern_House_4: -1240690935
+      animated_door_6_0: 7378076674117489061
+      animated_door_6_1: 1047980951247171524
+      animated_door_6_2: 2694951509224113996
+      animated_door_6_3: 2373996545570089242
+      animated_door_6_4: -4577349023052572432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

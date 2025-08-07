@@ -5,10 +5,12 @@ using UnityEngine.Rendering.Universal;
 public class Cicle_DayNight : MonoBehaviour
 { 
     [SerializeField] private Light2D light2D;
+    [SerializeField] private float LightNight;
     public float CurrentHours;
     public float CurrentMinutes;
-    [SerializeField] private float LightNight;
-    [SerializeField] private float IncreseTime = 2f;
+    public float IncreseTime = 2f;
+    public bool ActiveCicledayNight = true;
+
 
     private void Awake()
     {
@@ -18,7 +20,7 @@ public class Cicle_DayNight : MonoBehaviour
 
     IEnumerator CicleDay()
     {
-        while (true)
+        while (ActiveCicledayNight)
         {
             yield return new WaitForSeconds(IncreseTime);
             CurrentMinutes += 1f;

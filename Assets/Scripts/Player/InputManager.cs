@@ -15,6 +15,9 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public PlayerManager playerManager;
     public PlayerMovement PlayerMovement;
     public MouseManager MouseManager;
+    public HouseBehaviour HouseBehaviour;
+    public BedBehaviur BedBehaviour;
+
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -210,4 +213,29 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public void OnOpenPackingSystem(InputAction.CallbackContext context) { }
     public void OnClosePackingSystem(InputAction.CallbackContext context) { }
 
+    public void OnEntryHouse(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            HouseBehaviour.EntryHouse();
+        }
+    }
+
+    public void OnExitHouse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            HouseBehaviour.ExitHouse();
+        }
+
+    }
+
+    public void OnSleep(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            BedBehaviour.Sleep();
+        }
+ ;
+    }
 }
