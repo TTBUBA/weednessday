@@ -7,7 +7,7 @@ public class PoleLight : MonoBehaviour
 {
     [SerializeField] private Light2D poleLight;
 
-    [SerializeField] private Cicle_DayNight Clock;
+    [SerializeField] private cycleDayNight Clock;
 
     private void Start()
     {
@@ -30,9 +30,9 @@ public class PoleLight : MonoBehaviour
         }
     }
 
-    public void SetData(Cicle_DayNight CicleDayNight)
+    public void SetData(cycleDayNight cycleDayNight)
     {
-        Clock = CicleDayNight;
+        Clock = cycleDayNight;
     }
 }
 

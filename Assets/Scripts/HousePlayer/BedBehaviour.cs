@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class BedBehaviur : MonoBehaviour
@@ -9,12 +10,26 @@ public class BedBehaviur : MonoBehaviour
     [SerializeField] private bool IsCollision;
     [SerializeField] private bool IsSleeping;
     [SerializeField] private CanvasGroup FadeOutImage;
+    [SerializeField] private TextMeshProUGUI Text_Message;
     [SerializeField] private float timeSleep;
-    public Cicle_DayNight cicledayNight;
+    public cycleDayNight cycleDayNight;
+
+    private void Update()
+    {
+        if(cycleDayNight.CurrentHours < 19 && cycleDayNight.CurrentHours > 8)
+        {
+            Text_Message.gameObject.SetActive(true);
+        }
+        else
+        {
+            Text_Message.gameObject.SetActive(false);
+        }
+    }
     public void Sleep()
     {
-        if (IsCollision && cicledayNight.CurrentHours >= 19)
+        if (IsCollision && cycleDayNight.CurrentHours >= 19)
         {
+            Debug.Log("Sleep active");
             IsSleeping = true;
             AnimationFadeOut();
             StartCoroutine(ActiveSleep());
@@ -24,8 +39,9 @@ public class BedBehaviur : MonoBehaviour
     IEnumerator ActiveSleep()
     {
         yield return new WaitForSeconds(5f);
-        cicledayNight.CurrentHours = 8;
-
+        cycleDayNight.CurrentHours = 8;
+        cycleDayNight.CurrentMinutes = 0f;
+        cycleDayNight.light2D.intensity = 1f; 
     }
 
     private void AnimationFadeOut()

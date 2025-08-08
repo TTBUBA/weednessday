@@ -26,7 +26,7 @@ public class PlacementManager : MonoBehaviour
     public PlantManager plantManager;
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
-    public Cicle_DayNight CicleDayNight;
+    public cycleDayNight cycleDayNight;
     public SmsManager SmsManager;
 
 
@@ -116,7 +116,7 @@ public class PlacementManager : MonoBehaviour
                 }
                 if (PoleLight)
                 {
-                    PoleLight.SetData(CicleDayNight);
+                    PoleLight.SetData(cycleDayNight);
                 }
                 if (TrashCompactor)
                 {

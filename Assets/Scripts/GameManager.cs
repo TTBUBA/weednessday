@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject PointDestination;
 
     public SpawnPolice SpawnPolice;
-    public Cicle_DayNight Cicle_DayNight;
+    public cycleDayNight cycleDayNight;
 
     private void Update()
     {
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
     public void ActiveRandomBoat()
     {
-        if (Cicle_DayNight.CurrentHours == 3 && !BoatSpawned)
+        if (cycleDayNight.CurrentHours == 3 && !BoatSpawned)
         {
             MovementBoat movementBoat = m_Boats[Random.Range(0, m_Boats.Length)];
             boat = movementBoat;

@@ -13,7 +13,7 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Text_Button;
     [SerializeField] private TextMeshProUGUI Text_Hours;
 
-    public Cicle_DayNight Cicle_DayNight;
+    public cycleDayNight cycleDayNight;
     public void OpenPhone()
     {
         ContainerPhone.SetActive(true);
@@ -22,7 +22,7 @@ public class PhoneManager : MonoBehaviour
     
     private void Update()
     {
-        Text_Hours.text = Cicle_DayNight.CurrentHours.ToString("00") + ":" + Cicle_DayNight.CurrentMinutes.ToString("00");
+        Text_Hours.text = cycleDayNight.CurrentHours.ToString("00") + ":" + cycleDayNight.CurrentMinutes.ToString("00");
     }
     public void ClosePhone()
     {

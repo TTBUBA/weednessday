@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class PlantManager : MonoBehaviour
 {
+    public static PlantManager Instance;
     //use this struct to store weed data for use in the dictionary
     public struct WeedData
     {
@@ -12,7 +13,7 @@ public class PlantManager : MonoBehaviour
         public TerrainState StateTerrain { get; set; }
     }
 
-    [SerializeField] private bool ActivePlant;
+    public bool ActivePlant;
     [SerializeField] private Tilemap tilemapGround;
     [SerializeField] private Camera CamPlayer;
 
@@ -45,6 +46,8 @@ public class PlantManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this; 
+
         BoundsInt bounds = tilemapGround.cellBounds;    
         for(int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -143,6 +146,7 @@ public class PlantManager : MonoBehaviour
     //changing the state to dry if the player has a shovel and the terrain
     public void HoeTerrain()
     {
+        if (!ActivePlant) { return; }
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
         {
             tilemapGround.SetTile(cellPos, DryTile);
@@ -156,6 +160,7 @@ public class PlantManager : MonoBehaviour
     //changing the state to wet if the player has a watering can and the terrain is dry
     public void WetTerrain()
     {
+        if (!ActivePlant) { return; }
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "WateringCan" && GetTerrainState(cellPos) == TerrainState.Dry || GetTerrainState(cellPos) == TerrainState.planted)
         {
             if (WateringCan.waterAmount <= 0f) { return; } // Check if the watering can has water
