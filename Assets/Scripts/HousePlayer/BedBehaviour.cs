@@ -16,7 +16,7 @@ public class BedBehaviur : MonoBehaviour
 
     private void Update()
     {
-        if(cycleDayNight.CurrentHours < 19 && cycleDayNight.CurrentHours > 8)
+        if(cycleDayNight.CurrentHours < 19 && cycleDayNight.CurrentHours > 7)
         {
             Text_Message.gameObject.SetActive(true);
         }

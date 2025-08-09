@@ -1,7 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+
 
 public class Plant : MonoBehaviour
 {
@@ -26,7 +25,7 @@ public class Plant : MonoBehaviour
     }
     IEnumerator TimeGrowth()
     {
-        while (CurrentIndex < plants.Length - 1)
+        while (CurrentIndex < plants.Length)
         {
             GetComponent<SpriteRenderer>().sprite = plants[CurrentIndex];
             yield return new WaitForSeconds(time);

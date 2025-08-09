@@ -37,7 +37,7 @@ public class PoliceGun : MonoBehaviour
         rb.AddForce(Gun.transform.up * 1f, ForceMode2D.Impulse);
         float randomDrag = Random.Range(0.3f, 1f);
         rb.linearDamping = randomDrag;
-
+        StartCoroutine(DestroyAmmo());
         PosTarget.Add(targetPosition.position);
         AmmoCount--;
     }
@@ -52,6 +52,15 @@ public class PoliceGun : MonoBehaviour
         }
     }
 
+    IEnumerator DestroyAmmo()
+    {
+        yield return new WaitForSeconds(5f);
+        foreach (Transform child in ContainerAmmo)
+        {
+            Destroy(child.gameObject);
+        }
+        PosTarget.Clear();
+    }
     //Active Shoot Coroutine
     public IEnumerator ActiveShoot()
     {

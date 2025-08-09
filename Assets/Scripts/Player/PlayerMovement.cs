@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Vector2 moveInput;
     private PlayerInput playerInput;
-
+    public Tilemap tilemapGround;
+    public Vector3Int CurrentPosCell;
+    public Vector3Int NextPosCell;
+    public float TimeMove;
     public enum Direction
     {
         up,
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animatorPlayer = GetComponent<Animator>();
+        CurrentPosCell = tilemapGround.WorldToCell(transform.position);
     }
 
     // Update is called once per frame
@@ -36,9 +40,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.linearVelocity = moveInput * speed; 
-        animatorPlayer.SetFloat("Right", moveInput.x);
-        animatorPlayer.SetFloat("Left", -moveInput.x);
+        if (moveInput.y > 0)
+        {
+            CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+            NextPosCell = new Vector3Int(CurrentPosCell.x, CurrentPosCell.y + 1, CurrentPosCell.z);
+            Vector3 nextWorldPosition = tilemapGround.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f); 
+            transform.position = Vector3.Lerp(transform.position, nextWorldPosition, TimeMove);
+        }
+        if (moveInput.y < 0)
+        {
+            CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+            NextPosCell = new Vector3Int(CurrentPosCell.x, CurrentPosCell.y - 1, CurrentPosCell.z);
+            Vector3 nextWorldPosition = tilemapGround.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
+            transform.position = Vector3.Lerp(transform.position, nextWorldPosition, TimeMove);
+        }
+        if (moveInput.x > 0)
+        {
+            CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+            NextPosCell = new Vector3Int(CurrentPosCell.x + 1, CurrentPosCell.y, CurrentPosCell.z);
+            Vector3 nextWorldPosition = tilemapGround.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
+            transform.position = Vector3.Lerp(transform.position, nextWorldPosition, TimeMove);
+        }
+        if (moveInput.x < 0)
+        {
+            CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+            NextPosCell = new Vector3Int(CurrentPosCell.x - 1, CurrentPosCell.y, CurrentPosCell.z);
+            Vector3 nextWorldPosition = tilemapGround.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
+            transform.position = Vector3.Lerp(transform.position, nextWorldPosition, TimeMove);
+        }
+        animatorPlayer.SetBool("IsMoving", moveInput != Vector2.zero);
     }
     private void UpdateCurrentDirection()
     {

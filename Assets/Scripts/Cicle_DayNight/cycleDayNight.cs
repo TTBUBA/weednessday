@@ -45,7 +45,7 @@ public class cycleDayNight : MonoBehaviour
             if (CurrentHours == 8)
             {
                 IncreseTime = 1f; 
-                if (light2D.intensity >= 1f) {
+                if (light2D.intensity > 1f) {
                     yield return new WaitForSeconds(0.5f);
                     light2D.intensity += 0.1f;
                 }

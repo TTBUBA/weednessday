@@ -147,6 +147,7 @@ public class PlantManager : MonoBehaviour
     public void HoeTerrain()
     {
         if (!ActivePlant) { return; }
+        if (!plant) { return; } 
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
         {
             tilemapGround.SetTile(cellPos, DryTile);

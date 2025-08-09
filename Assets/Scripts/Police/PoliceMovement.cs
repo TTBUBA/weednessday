@@ -32,7 +32,7 @@ public class PoliceMovement : MonoBehaviour
         ActiveMovement = true;
         ReturnBaseActive = false;
         StartCoroutine(ChooseDirection());
-        StartCoroutine(TimerReturnBase());
+        //StartCoroutine(TimerReturnBase());
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class PoliceMovement : MonoBehaviour
         Raycast();
         MoveToTarget();
         Move();
-        ReturnBase();
+        //ReturnBase();
     }
 
     //Move the police to the target position
@@ -85,7 +85,7 @@ public class PoliceMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, MovementDirection, speed * Time.deltaTime);
     }
 
-
+    /*
     //Return the position of the police to the start position
     private void ReturnBase()
     {
@@ -102,12 +102,13 @@ public class PoliceMovement : MonoBehaviour
         }
     }
 
+
     public IEnumerator TimerReturnBase()
     {
         yield return new WaitForSeconds(TimerReturn);
         ReturnBase();
     }
-
+     */
     IEnumerator ChooseDirection()
     {
         //if(!ActiveMovement) { yield return null; }
