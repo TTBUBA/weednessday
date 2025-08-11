@@ -3,6 +3,7 @@ using UnityEngine;
 public class SelectBoxManager : MonoBehaviour
 {
     public PlantManager PlantManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Plant"))

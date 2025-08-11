@@ -13,9 +13,9 @@ public class Tree : MonoBehaviour
     [SerializeField] private int Health = 100;
     [SerializeField] private SlootData Item;
     [SerializeField] private Tilemap tilemapGround;
-    [SerializeField] private Vector3Int pos;
-    [SerializeField] private int SizeX;
-    [SerializeField] private int SizeY;
+    public Vector3Int pos;
+    public int SizeX;
+    public int SizeY;
     public InventoryManager InventoryManager;
     public PlantManager plantManager;
 
@@ -29,8 +29,6 @@ public class Tree : MonoBehaviour
             for(int y = -1; y < SizeY; y++)
             {
                 Vector3Int cellPos = new Vector3Int(pos.x + x, pos.y + y);
-                //Debug.Log($"Cell Position: {cellPos}" + gameObject.name);
-                //tilemapGround.SetTile(cellPos, null); // Clear the tile at the position of the tree
                 plantManager.CellOccupate[cellPos] = new WeedData { StateTerrain = TerrainState.obstacle };
             }
         }

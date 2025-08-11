@@ -1,0 +1,19 @@
+LICENSE
+
+This asset is the intellectual property of Antipixel Games.
+By purchasing this asset, the buyer agrees to the following terms:
+
+ALLOWED:
+- Use this asset in personal and commercial projects.
+- Modify, adapt, or integrate the asset into your own projects.
+- Publish, distribute, or sell products that use this asset as part of a finished project (e.g.: video games, applications, etc).
+
+NOT ALLOWED:
+- Resell, redistribute, or share this asset, in original or modified form.
+- Upload this asset to other marketplaces, forums, repositories, or download sites, whether free or paid.
+- Include this asset in resource packs, templates, bundles, or development kits.
+
+NOTES:
+- This license is valid only for the original purchaser.
+- Credit is not required but appreciated.
+- If you have any questions about this license or its terms, please contact the author: antipixelgames@gmail.com

@@ -1,0 +1,1 @@
+public enum Tag { None, Error, Notification, Success, Warning }
