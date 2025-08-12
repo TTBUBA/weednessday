@@ -85,7 +85,7 @@ public class PoliceMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, MovementDirection, speed * Time.deltaTime);
     }
 
-    /*
+
     //Return the position of the police to the start position
     private void ReturnBase()
     {
@@ -108,7 +108,7 @@ public class PoliceMovement : MonoBehaviour
         yield return new WaitForSeconds(TimerReturn);
         ReturnBase();
     }
-     */
+
     IEnumerator ChooseDirection()
     {
         //if(!ActiveMovement) { yield return null; }

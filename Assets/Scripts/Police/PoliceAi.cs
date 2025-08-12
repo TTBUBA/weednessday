@@ -1,17 +1,26 @@
-using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
-using static PlantManager;
-using static UnityEditor.PlayerSettings;
 
 public class PoliceAi : MonoBehaviour
 {
+    [Header("Settings Police")]
     [SerializeField] private Transform target; // Target to follow
     [SerializeField] private Tilemap ground;
     [SerializeField] private bool activeGizmos;
-
+    public Transform PointSpawn;
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float Radius;
+    [SerializeField] private bool ActiveMovementTarget;
+    [SerializeField] private LayerMask LayerMask;
+    [SerializeField] private float Angle;
+    [SerializeField] private float Distance;
+    [SerializeField] private float TimerReturn = 10f;
+    [SerializeField] private Vector3Int CurrentCellRandom;
+    [SerializeField] private bool FindRandomCell;
+    public bool ActiveMovement = true;
+    public bool ReturnBaseActive;
 
     [SerializeField] private List<Vector3Int> CellToSearch = new List<Vector3Int>();
     [SerializeField] private List<Vector3Int> path = new List<Vector3Int>();
@@ -20,11 +29,14 @@ public class PoliceAi : MonoBehaviour
 
     public PlantManager plantManager;
     public Tree[] tree;
+    public PoliceGun policeGun;
+    private Ray2D ray;
+    private RaycastHit2D hit;
+    private Coroutine ShootCoroutine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         BoundsInt boundsInt = ground.cellBounds;
-    
         for (int x = boundsInt.xMin; x < boundsInt.xMax; x++)
         {
             for (int y = boundsInt.yMin; y < boundsInt.yMax; y++)
@@ -56,18 +68,46 @@ public class PoliceAi : MonoBehaviour
     {
         Vector3Int starPos = ground.WorldToCell(transform.position);
         Vector3Int endPos = ground.WorldToCell(target.position);
-        path = FindPath(starPos, endPos);
-        MovetoTarget();
+        //path = FindPath(starPos, endPos);
+        //MovetoTarget();
+        Move();
+        Raycast();
     }
 
+    private void Move()
+    {
+        if (!ActiveMovement) { return; }
+
+        if (!FindRandomCell)
+        {
+            CurrentCellRandom = CellToSearch[Random.Range(0,CellToSearch.Count)];
+            path = FindPath(ground.WorldToCell(transform.position), CurrentCellRandom);
+            FindRandomCell = true;
+        }
+        Vector3 targetPos = ground.CellToWorld(path[CurrentIndexPath]) + new Vector3(0.5f, 0.5f, 0f);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 4f);
+
+        if(Vector3.Distance(transform.position, targetPos) < 0.1)
+        {
+            CurrentIndexPath++;
+
+            // Se abbiamo raggiunto la destinazione finale, resetta per scegliere una nuova
+            if (CurrentIndexPath >= path.Count)
+            {
+                FindRandomCell = false;
+                CurrentIndexPath = 0;
+            }
+        }
+    }
     private void MovetoTarget()
     {
         if(path.Count == 0 || CurrentIndexPath >= path.Count) { return; } // No path found or index out of bounds
-
+        if (!ActiveMovementTarget) { return; }
+        if (target == null) { return; }
         Vector3 CurrentPosCell = transform.position;
         Vector3Int NextPosCell = path[CurrentIndexPath];
         Vector3 targetPos = ground.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
-        transform.transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * 4f);
+        transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * 4f);
 
         if (Vector3.Distance(CurrentPosCell, targetPos) < 0.1f)
         {
@@ -130,13 +170,11 @@ public class PoliceAi : MonoBehaviour
         }
         return new List<Vector3Int>(); 
     }
-
     int Heuristic(Vector3Int a, Vector3Int b)
     {
         // Using Manhattan distance as heuristic
         return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
     }
-
     List<Vector3Int> GetNeighBords(Vector3Int cell)
     {
         return new List<Vector3Int>
@@ -147,7 +185,6 @@ public class PoliceAi : MonoBehaviour
             cell + new Vector3Int(0, -1, 0),
         };
     }
-
     List<Vector3Int> BuildThePath(Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)
     {
         var totalPath = new List<Vector3Int> { current };
@@ -158,6 +195,32 @@ public class PoliceAi : MonoBehaviour
         }
         totalPath.Reverse(); // Reverse the path to get it from start to end
         return totalPath;
+    }
+
+    //Check obstacles and player in the radius of the police
+    private void Raycast()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, Radius, LayerMask.GetMask("Player"));
+        float Distance = Vector2.Distance(transform.position, target.transform.position);
+
+        if (hit != null && hit.CompareTag("Player"))
+        {
+            ActiveMovementTarget = true;
+            policeGun.EnableGun = true;
+
+            if (ShootCoroutine == null)
+                ShootCoroutine = policeGun.StartCoroutine(policeGun.ActiveShoot());
+        }
+        else
+        {
+            ActiveMovementTarget = false;
+            policeGun.EnableGun = false;
+            if (ShootCoroutine != null)
+            {
+                policeGun.StopCoroutine(ShootCoroutine);
+                ShootCoroutine = null;
+            }
+        }
     }
 
     private void OnDrawGizmos()
