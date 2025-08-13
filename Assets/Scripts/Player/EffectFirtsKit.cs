@@ -28,7 +28,7 @@ public class EffectFirtsKit : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.IncreseHealth(15);
-                inventoryManager.RemoveItem(inventoryManager.CurrentSlootManager.slootData,1);
+                inventoryManager.CurrentSlootManager.CurrentStorage--;
                 inventoryManager.CurrentSlootManager.UpdateSlot();
             }
         }
