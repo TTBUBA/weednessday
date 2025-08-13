@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour
     public SlootData Plastic;
     public SlootData Battery;
     public SlootData baggie;
+    public SlootData FirtKit;
     //=========//
     public bool isOpenInventory = false;
     public SlootManager draggedSlotController;
@@ -106,6 +107,10 @@ public class InventoryManager : MonoBehaviour
     public void AddBaggie()
     {
         AddItem(baggie, baggie.MaxStorage);
+    }
+    public void AddFirstKit()
+    {
+        AddItem(FirtKit, FirtKit.MaxStorage);
     }
     //================//
 

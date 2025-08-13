@@ -191,6 +191,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""UseFirstKit"",
+                    ""type"": ""Button"",
+                    ""id"": ""648fbe98-35ac-4ea4-8122-b368db5800fc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""UseAxe"",
                     ""type"": ""Button"",
                     ""id"": ""a1ad9382-55ee-40fc-a1c8-07e73baa0553"",
@@ -626,6 +635,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UseDrog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c13f5a68-0e0a-4b61-8a8c-d693ac09e183"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseFirstKit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37b02968-2dec-4e15-ad8c-a88783f7a237"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseFirstKit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1498,6 +1529,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_IncreseSpeedWord = m_Player.FindAction("IncreseSpeedWord", throwIfNotFound: true);
         m_Player_DecreseSpeedWord = m_Player.FindAction("DecreseSpeedWord", throwIfNotFound: true);
         m_Player_UseDrog = m_Player.FindAction("UseDrog", throwIfNotFound: true);
+        m_Player_UseFirstKit = m_Player.FindAction("UseFirstKit", throwIfNotFound: true);
         m_Player_UseAxe = m_Player.FindAction("UseAxe", throwIfNotFound: true);
         m_Player_OpenBoxOrder = m_Player.FindAction("OpenBoxOrder", throwIfNotFound: true);
         m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
@@ -1626,6 +1658,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_IncreseSpeedWord;
     private readonly InputAction m_Player_DecreseSpeedWord;
     private readonly InputAction m_Player_UseDrog;
+    private readonly InputAction m_Player_UseFirstKit;
     private readonly InputAction m_Player_UseAxe;
     private readonly InputAction m_Player_OpenBoxOrder;
     private readonly InputAction m_Player_MousePos;
@@ -1688,6 +1721,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/UseDrog".
         /// </summary>
         public InputAction @UseDrog => m_Wrapper.m_Player_UseDrog;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/UseFirstKit".
+        /// </summary>
+        public InputAction @UseFirstKit => m_Wrapper.m_Player_UseFirstKit;
         /// <summary>
         /// Provides access to the underlying input action "Player/UseAxe".
         /// </summary>
@@ -1775,6 +1812,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @UseDrog.started += instance.OnUseDrog;
             @UseDrog.performed += instance.OnUseDrog;
             @UseDrog.canceled += instance.OnUseDrog;
+            @UseFirstKit.started += instance.OnUseFirstKit;
+            @UseFirstKit.performed += instance.OnUseFirstKit;
+            @UseFirstKit.canceled += instance.OnUseFirstKit;
             @UseAxe.started += instance.OnUseAxe;
             @UseAxe.performed += instance.OnUseAxe;
             @UseAxe.canceled += instance.OnUseAxe;
@@ -1840,6 +1880,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @UseDrog.started -= instance.OnUseDrog;
             @UseDrog.performed -= instance.OnUseDrog;
             @UseDrog.canceled -= instance.OnUseDrog;
+            @UseFirstKit.started -= instance.OnUseFirstKit;
+            @UseFirstKit.performed -= instance.OnUseFirstKit;
+            @UseFirstKit.canceled -= instance.OnUseFirstKit;
             @UseAxe.started -= instance.OnUseAxe;
             @UseAxe.performed -= instance.OnUseAxe;
             @UseAxe.canceled -= instance.OnUseAxe;
@@ -2425,6 +2468,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUseDrog(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UseFirstKit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUseFirstKit(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "UseAxe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

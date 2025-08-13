@@ -88,7 +88,6 @@ public class UiManager : MonoBehaviour
     }   
     private void UiPlayer()
     {
-        BarLife.fillAmount = playerManager.PlayerLife;
         Text_CurrentMoney.text = playerManager.CurrentMoney.ToString();
     }
 

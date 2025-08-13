@@ -1,14 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Range(0, 1)]
-    public float PlayerLife;
     public int CurrentMoney;
 
     [Header("System Drog")]

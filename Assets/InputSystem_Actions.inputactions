@@ -105,6 +105,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "UseFirstKit",
+                    "type": "Button",
+                    "id": "648fbe98-35ac-4ea4-8122-b368db5800fc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "UseAxe",
                     "type": "Button",
                     "id": "a1ad9382-55ee-40fc-a1c8-07e73baa0553",
@@ -540,6 +549,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseDrog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c13f5a68-0e0a-4b61-8a8c-d693ac09e183",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseFirstKit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37b02968-2dec-4e15-ad8c-a88783f7a237",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseFirstKit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnPolice : MonoBehaviour
 {
     [SerializeField] private GameObject PointspawnPolice;
-    public PoliceMovement[] Police;
+    public PoliceAi[] Police;
     private Vector3 PosPolice;
     public MovementBoat MovementBoat;
     public GameManager m_GameManager;

@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public MouseManager MouseManager;
     public HouseBehaviour HouseBehaviour;
     public BedBehaviur BedBehaviour;
+    public EffectFirtsKit EffectFirtsKit;
 
     private void Awake()
     {
@@ -237,5 +238,13 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
             BedBehaviour.Sleep();
         }
  ;
+    }
+
+    public void OnUseFirstKit(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            EffectFirtsKit.UseFirtsKit();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,10 +15,10 @@ public class PoliceAi : MonoBehaviour
     [SerializeField] private float Radius;
     [SerializeField] private bool ActiveMovementTarget;
     [SerializeField] private LayerMask LayerMask;
-    [SerializeField] private float Angle;
-    [SerializeField] private float Distance;
     [SerializeField] private float TimerReturn = 10f;
     [SerializeField] private Vector3Int CurrentCellRandom;
+    [SerializeField] private Vector3 TargetCell;
+    [SerializeField] private Vector3Int StartPos;
     [SerializeField] private bool FindRandomCell;
     public bool ActiveMovement = true;
     public bool ReturnBaseActive;
@@ -26,16 +27,24 @@ public class PoliceAi : MonoBehaviour
     [SerializeField] private List<Vector3Int> path = new List<Vector3Int>();
     [SerializeField] private int CurrentIndexPath;
 
-
     public PlantManager plantManager;
     public Tree[] tree;
     public PoliceGun policeGun;
     private Ray2D ray;
     private RaycastHit2D hit;
     private Coroutine ShootCoroutine;
+
+    private void OnEnable()
+    {
+        ActiveMovement = true;
+        ReturnBaseActive = false;
+        StartCoroutine(TimerReturnBase());
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        StartPos = ground.WorldToCell(transform.position);
         BoundsInt boundsInt = ground.cellBounds;
         for (int x = boundsInt.xMin; x < boundsInt.xMax; x++)
         {
@@ -57,7 +66,6 @@ public class PoliceAi : MonoBehaviour
                 for (int y = -1; y < tree.SizeY; y++)
                 {
                     Vector3Int cellPos = new Vector3Int(pos.x + x, pos.y + y);
-                    Debug.Log(cellPos);
                     CellToSearch.Remove(cellPos);
                 }
             }
@@ -66,10 +74,7 @@ public class PoliceAi : MonoBehaviour
 
     private void Update()
     {
-        Vector3Int starPos = ground.WorldToCell(transform.position);
-        Vector3Int endPos = ground.WorldToCell(target.position);
-        //path = FindPath(starPos, endPos);
-        //MovetoTarget();
+        MovetoTarget();
         Move();
         Raycast();
     }
@@ -77,21 +82,21 @@ public class PoliceAi : MonoBehaviour
     private void Move()
     {
         if (!ActiveMovement) { return; }
-
+        
         if (!FindRandomCell)
         {
             CurrentCellRandom = CellToSearch[Random.Range(0,CellToSearch.Count)];
             path = FindPath(ground.WorldToCell(transform.position), CurrentCellRandom);
             FindRandomCell = true;
         }
-        Vector3 targetPos = ground.CellToWorld(path[CurrentIndexPath]) + new Vector3(0.5f, 0.5f, 0f);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 4f);
 
-        if(Vector3.Distance(transform.position, targetPos) < 0.1)
+        TargetCell = ground.CellToWorld(path[CurrentIndexPath]) + new Vector3(0.5f, 0.5f, 0f);
+        transform.position = Vector3.MoveTowards(transform.position, TargetCell, Time.deltaTime * speed);
+
+        if (Vector3.Distance(transform.position, TargetCell) < 0.1)
         {
             CurrentIndexPath++;
 
-            // Se abbiamo raggiunto la destinazione finale, resetta per scegliere una nuova
             if (CurrentIndexPath >= path.Count)
             {
                 FindRandomCell = false;
@@ -101,23 +106,55 @@ public class PoliceAi : MonoBehaviour
     }
     private void MovetoTarget()
     {
-        if(path.Count == 0 || CurrentIndexPath >= path.Count) { return; } // No path found or index out of bounds
-        if (!ActiveMovementTarget) { return; }
-        if (target == null) { return; }
+        if (!ActiveMovementTarget) return;
+
+        path = FindPath(ground.WorldToCell(transform.position), ground.WorldToCell(target.position));
+
+        if (path == null || path.Count == 0) return;
+
+        if (CurrentIndexPath >= path.Count)
+            CurrentIndexPath = 0;
+
         Vector3 CurrentPosCell = transform.position;
         Vector3Int NextPosCell = path[CurrentIndexPath];
         Vector3 targetPos = ground.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
-        transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * 4f);
+        transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * speed);
 
         if (Vector3.Distance(CurrentPosCell, targetPos) < 0.1f)
         {
             CurrentIndexPath++;
             if (CurrentIndexPath >= path.Count)
             {
-                CurrentIndexPath = 0; // Reset index if we reached the end of the path
+                CurrentIndexPath = 0; // Reset index se arrivi alla fine
             }
         }
+    }
 
+
+    //Return the position of the police to the start position
+    private void ReturnBase()
+    {
+        if (ReturnBaseActive)
+        {
+            path = FindPath(ground.WorldToCell(transform.position), ground.WorldToCell(StartPos));
+            Vector3 CurrentPosCell = transform.position;
+            Vector3Int NextPosCell = path[CurrentIndexPath];
+            Vector3 targetPos = ground.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
+            transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * speed);
+            ActiveMovement = false;
+        }
+        if (Vector3.Distance(transform.position, StartPos) < 0.1f)
+        {
+            ActiveMovement = false;
+            ReturnBaseActive = false;
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    public IEnumerator TimerReturnBase()
+    {
+        yield return new WaitForSeconds(TimerReturn);
+        ReturnBase();
     }
     List<Vector3Int> FindPath(Vector3Int startPos , Vector3Int endPos)
     {
@@ -205,22 +242,39 @@ public class PoliceAi : MonoBehaviour
 
         if (hit != null && hit.CompareTag("Player"))
         {
+            if (!ActiveMovementTarget) 
+            {
+                CurrentIndexPath = 0;//reset the index Path
+                path.Clear();
+            }
+
             ActiveMovementTarget = true;
             policeGun.EnableGun = true;
-
+            FindRandomCell = false; 
+            ActiveMovement = false; // Stop random movement when player is detected
             if (ShootCoroutine == null)
                 ShootCoroutine = policeGun.StartCoroutine(policeGun.ActiveShoot());
         }
         else
         {
             ActiveMovementTarget = false;
+            ActiveMovement = true;
             policeGun.EnableGun = false;
+
             if (ShootCoroutine != null)
             {
                 policeGun.StopCoroutine(ShootCoroutine);
                 ShootCoroutine = null;
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CurrentCellRandom = CellToSearch[Random.Range(0, CellToSearch.Count)];
+        //find new path when collision 
+        path = FindPath(ground.WorldToCell(transform.position), CurrentCellRandom);
+
     }
 
     private void OnDrawGizmos()
