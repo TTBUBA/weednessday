@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PhoneManager : MonoBehaviour
@@ -9,15 +10,20 @@ public class PhoneManager : MonoBehaviour
 
     public AppManager CurrentAppSelect;
 
-    [SerializeField] private GameObject ContainerPhone;
+    [Header("UI Components")]
+    [SerializeField] private Image Phone;
+    [SerializeField] private GameObject ContainerApp;
     [SerializeField] private TextMeshProUGUI Text_Button;
     [SerializeField] private TextMeshProUGUI Text_Hours;
 
     public cycleDayNight cycleDayNight;
+    public AppMessagingManager AppMessagingManager;
     public void OpenPhone()
     {
-        ContainerPhone.SetActive(true);
+        Phone.enabled = true;
         Text_Button.text = "Q";
+        Text_Hours.enabled = true;
+        ContainerApp.SetActive(true);
     }
     
     private void Update()
@@ -26,17 +32,23 @@ public class PhoneManager : MonoBehaviour
     }
     public void ClosePhone()
     {
+        AppMessagingManager.CloseApp();
         foreach (var app in AppManagers)
         {
             if (!app.IsActiveApp)
             {
-                ContainerPhone.SetActive(false);
+                Phone.enabled = false;
+                Text_Hours.enabled = false;
                 Text_Button.text = "C";
+                ContainerApp.SetActive(false);
+                app.gameObject.SetActive(false);
             }
             else
             {
                 app.CloseApp();
-                ContainerPhone.SetActive(true);
+                Phone.enabled = true;
+                Text_Hours.enabled = true;
+                ContainerApp.SetActive(false);
             }
         }
     }
