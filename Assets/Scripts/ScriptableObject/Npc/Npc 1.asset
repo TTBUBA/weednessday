@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Npc 1
   m_EditorClassIdentifier: 
   NameNpc: Bonghilda
-  NpcImage: {fileID: 0}
-  IconNpc: {fileID: 0}
+  NpcImage: {fileID: 139538610114222702, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
+  IconNpc: {fileID: 3016672210312788027, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
   TotalWeedAssuming: 0
   Name: 0
   Type: 0

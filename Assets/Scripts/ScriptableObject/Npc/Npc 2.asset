@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Npc 2
   m_EditorClassIdentifier: 
   NameNpc: Erbinator
-  NpcImage: {fileID: 0}
-  IconNpc: {fileID: 0}
+  NpcImage: {fileID: 4228557963587719408, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
+  IconNpc: {fileID: -7728008480424882142, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
   TotalWeedAssuming: 0
   Name: 1
   Type: 0

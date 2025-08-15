@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NpcManager : MonoBehaviour
 {
@@ -8,12 +9,13 @@ public class NpcManager : MonoBehaviour
     [SerializeField] public int TotalWeed;
     [SerializeField] public int TotalPrice;
     [SerializeField] private bool IsCollisionEnabled;
-
+    [SerializeField] public SpriteRenderer NpcSpriteRenderer;
 
     [Header("Ui")]
     [SerializeField] private GameObject PanelNpc;
     [SerializeField] private TextMeshProUGUI Text_Name;
-
+    [SerializeField] private Image BarLevelDrog;
+    public TextMeshProUGUI Text_Order;
 
 
     [Header("Script")]
@@ -40,22 +42,35 @@ public class NpcManager : MonoBehaviour
         TotalWeed = 0;
         TotalPrice = 0;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OpenPanel()
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            PanelNpc.SetActive(true);
-            IsCollisionEnabled = false;
-            Text_Name.text = Npc.NameNpc.ToString();
-        }
+        BarLevelDrog.fillAmount = Npc.TotalWeedAssuming;
+        PanelNpc.SetActive(true);
+        IsCollisionEnabled = true;
+        Text_Name.text = Npc.NameNpc.ToString();
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void ClosePanel()
+    {
+        PanelNpc.SetActive(false);
+        IsCollisionEnabled = false;
+        Text_Name.text = "";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PanelNpc.SetActive(false);
-            IsCollisionEnabled = true;
-            Text_Name.text = "";
+            OpenPanel();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ClosePanel();
         }
     }
 }

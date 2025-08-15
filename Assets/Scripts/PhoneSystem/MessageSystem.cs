@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class MessageSystem : MonoBehaviour
 {
 
-    [SerializeField] private Sprite UserIcon;
-    [SerializeField] public string NameUser;
+    public Sprite UserIcon;
+    public string NameUser;
     [SerializeField] private string MessageText;
     [SerializeField] private int PriceOffering;
     [SerializeField] private int PriceTotal;
@@ -22,7 +22,8 @@ public class MessageSystem : MonoBehaviour
     public PlayerManager PlayerManager;
     public AppMessagingManager AppMessagingManager;
     public NpcManager NpcManager;
-    private void Awake()
+
+    private void Start()
     {
         TotalWeed = Random.Range(1, 10);
         PriceOffering = Random.Range(40, 60);
@@ -31,6 +32,10 @@ public class MessageSystem : MonoBehaviour
         UserNameText.text = NameUser;
         MessageTextComponent.text = TotalWeed + "-" + MessageText.ToString();
         PriceText.text = PriceTotal.ToString() + "$";
+
+        //TEST
+        float randomValue = Random.Range(0f, 1f);
+        currentNpc.TotalWeedAssuming = randomValue;
     }
     public void AcceptOffering()
     {
@@ -38,9 +43,9 @@ public class MessageSystem : MonoBehaviour
         {
             NpcManager.TotalWeed = TotalWeed;
             NpcManager.TotalPrice = PriceTotal;
-            //PlayerManager.CurrentMoney += PriceTotal;
+            NpcManager.NpcSpriteRenderer.sprite = currentNpc.NpcImage;
+            NpcManager.Text_Order.text = MessageTextComponent.text;
             AppMessagingManager.ListMessage.Remove(this);
-            //InventoryManager.Instance.Removeweed(TotalWeed);
             NpcManager.Npc = currentNpc;
             Destroy(this.gameObject);
         }

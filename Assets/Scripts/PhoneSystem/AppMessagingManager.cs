@@ -59,6 +59,7 @@ public class AppMessagingManager : MonoBehaviour
             message.PlayerManager = PlayerManager;
             message.AppMessagingManager = this;
             message.NpcManager = NpcManager;
+            message.UserIcon = lastMessage.currentNpc.IconNpc;
             ListMessage.Add(message);
             newMessage.transform.SetParent(ParentMessageContainer);
             AppSetting.CurrentNoticationManager.Play();

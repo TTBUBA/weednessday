@@ -172,7 +172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 111.75, y: -40.900017}
+  m_AnchoredPosition: {x: 111.75, y: -57.599968}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8892642569321995148
@@ -303,8 +303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -17.589996, y: -11}
-  m_SizeDelta: {x: 87.96, y: 22}
+  m_AnchoredPosition: {x: -30.1, y: -25.7}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: -0.2, y: 0.5}
 --- !u!222 &8498520989518306335
 CanvasRenderer:
@@ -327,14 +327,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3797251272856746426, guid: aa0b9f64cc15c5d479ab390658878c5a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -378,8 +378,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -36.700005}
-  m_SizeDelta: {x: 300.01, y: 29.4}
+  m_AnchoredPosition: {x: 191.49986, y: -36.700005}
+  m_SizeDelta: {x: 289.1263, y: 29.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4210885912483302605
 CanvasRenderer:
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -755,10 +755,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f332041020085104e9e6d6fb836c3952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIcon: {fileID: -5899639821950934525, guid: dcfddcf5f97af2b4bac0f1877998ba7a, type: 3}
+  UserIcon: {fileID: 0}
   NameUser: Bonghilda
   MessageText: Total weed
   PriceOffering: 50
+  PriceTotal: 0
   TotalWeed: 0
   UserIconComponent: {fileID: 3687725886244510942}
   UserNameText: {fileID: 2651561382508344400}
@@ -802,8 +803,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 94.37, y: -0.000061035156}
-  m_SizeDelta: {x: 199.01, y: 22}
+  m_AnchoredPosition: {x: 46.937, y: 15}
+  m_SizeDelta: {x: 253.06, y: 24.331}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2034101902153780842
 CanvasRenderer:
@@ -860,14 +861,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -940,7 +941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.1, y: -40.9}
+  m_AnchoredPosition: {x: 21.1, y: -57.6}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8679831392386067652
@@ -1071,8 +1072,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.28, y: -25.7}
-  m_SizeDelta: {x: 101.45, y: 51.4}
+  m_AnchoredPosition: {x: 263.23, y: -36}
+  m_SizeDelta: {x: 73.525, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7177733062447021503
 CanvasRenderer:

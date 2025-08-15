@@ -48,7 +48,7 @@ public class PhoneManager : MonoBehaviour
                 app.CloseApp();
                 Phone.enabled = true;
                 Text_Hours.enabled = true;
-                ContainerApp.SetActive(false);
+                ContainerApp.SetActive(true);
             }
         }
     }

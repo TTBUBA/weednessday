@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Npc 5
   m_EditorClassIdentifier: 
   NameNpc: lady
-  NpcImage: {fileID: 0}
-  IconNpc: {fileID: 0}
+  NpcImage: {fileID: -705119432799824522, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
+  IconNpc: {fileID: 6471981791642760923, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
   TotalWeedAssuming: 0
   Name: 4
   Type: 0
