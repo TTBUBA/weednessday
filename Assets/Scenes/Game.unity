@@ -44863,7 +44863,7 @@ MonoBehaviour:
   Arm: {fileID: 329792237}
   Gun: {fileID: 1574741104}
   Ammo: {fileID: 5326330766758764257, guid: a6afa475bd1a21f46a08aebf0361db85, type: 3}
-  ContainerAmmo: {fileID: 0}
+  ContainerAmmo: {fileID: 400433749}
   targetPosition: {fileID: 1709458324}
   SoundShoot: {fileID: 867228383}
   AmmoList: []
@@ -45372,7 +45372,7 @@ MonoBehaviour:
   Arm: {fileID: 1225336071}
   Gun: {fileID: 1949569576}
   Ammo: {fileID: 5326330766758764257, guid: a6afa475bd1a21f46a08aebf0361db85, type: 3}
-  ContainerAmmo: {fileID: 0}
+  ContainerAmmo: {fileID: 1364475}
   targetPosition: {fileID: 1709458324}
   SoundShoot: {fileID: 1376359060}
   AmmoList: []
@@ -93413,7 +93413,7 @@ MonoBehaviour:
   Arm: {fileID: 230346231}
   Gun: {fileID: 2092727177}
   Ammo: {fileID: 5326330766758764257, guid: a6afa475bd1a21f46a08aebf0361db85, type: 3}
-  ContainerAmmo: {fileID: 0}
+  ContainerAmmo: {fileID: 2146541050}
   targetPosition: {fileID: 1709458324}
   SoundShoot: {fileID: 256979409}
   AmmoList: []
@@ -105738,7 +105738,7 @@ MonoBehaviour:
   Arm: {fileID: 53252093}
   Gun: {fileID: 1457866912}
   Ammo: {fileID: 5326330766758764257, guid: a6afa475bd1a21f46a08aebf0361db85, type: 3}
-  ContainerAmmo: {fileID: 0}
+  ContainerAmmo: {fileID: 1491929448}
   targetPosition: {fileID: 1709458324}
   SoundShoot: {fileID: 1727255338}
   AmmoList: []
