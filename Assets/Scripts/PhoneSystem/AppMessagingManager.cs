@@ -23,6 +23,7 @@ public class AppMessagingManager : MonoBehaviour
     public PlayerManager PlayerManager; 
     public AppSetting AppSetting;
     public NpcManager NpcManager;
+    public Boat_Npc BoatNpc;
     private void OnEnable()
     {
         StartCoroutine(spawnMessage());
@@ -48,7 +49,7 @@ public class AppMessagingManager : MonoBehaviour
                 yield return new WaitForSeconds(1f);
                 continue;
             }
-
+            timetoSpawn = Random.Range(30, 120);
             yield return new WaitForSeconds(timetoSpawn);
             GameObject newMessage = Instantiate(MessagePrefab, transform);
             MessageSystem message = newMessage.GetComponent<MessageSystem>();
@@ -60,6 +61,7 @@ public class AppMessagingManager : MonoBehaviour
             message.AppMessagingManager = this;
             message.NpcManager = NpcManager;
             message.UserIcon = lastMessage.currentNpc.IconNpc;
+            message.BoatNpc = BoatNpc;
             ListMessage.Add(message);
             newMessage.transform.SetParent(ParentMessageContainer);
             AppSetting.CurrentNoticationManager.Play();

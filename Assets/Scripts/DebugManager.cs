@@ -37,7 +37,7 @@ public class DebugManager : MonoBehaviour
     }
     private void Update()
     {
-        currentfps();
+        //currentfps();
         UseCpu();
     }
 

@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         animatorPlayer = GetComponent<Animator>();
         CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+        transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
     }
 
     // Update is called once per frame
@@ -62,6 +63,13 @@ public class PlayerMovement : MonoBehaviour
 
         animatorPlayer.SetBool("IsMoving", moveInput != Vector2.zero);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IsMoving = false;
+        transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
+    }
+
     private void UpdateCurrentDirection()   
     {
         if (moveInput.y > 0)

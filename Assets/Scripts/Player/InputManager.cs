@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public HouseBehaviour HouseBehaviour;
     public BedBehaviur BedBehaviour;
     public EffectFirtsKit EffectFirtsKit;
-
+    public NpcManager NpcManager;
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -245,6 +245,22 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         if (context.performed)
         {
             EffectFirtsKit.UseFirtsKit();
+        }
+    }
+
+    public void OnOpenPanelNpc(InputAction.CallbackContext context)
+    {
+        if(context.performed && NpcManager != null)
+        {
+            NpcManager.OpenPanelNpc();
+        }
+    }
+
+    public void OnClosePanelNpc(InputAction.CallbackContext context)
+    {
+        if (context.performed && NpcManager != null)
+        {
+            NpcManager.ClosePanelNpc();
         }
     }
 }

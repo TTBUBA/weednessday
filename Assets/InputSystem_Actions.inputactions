@@ -910,6 +910,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPanelNpc",
+                    "type": "Button",
+                    "id": "7518b11f-2a48-47e2-a69d-5e021ab0e369",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ClosePanelNpc",
+                    "type": "Button",
+                    "id": "cb1c4bfd-2b07-43bb-9983-a6cef2d933c8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1361,6 +1379,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "ExitHouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5f13065-a474-4448-9f62-8bcaa98fda0d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelNpc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "490c3614-a4c2-4cc5-a49f-d51e4e7bd2b7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPanelNpc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "892b85d0-f3b0-4004-b687-02320039b1e9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanelNpc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1db8d7b-c421-4d41-82f5-6c70e73dd8ae",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanelNpc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

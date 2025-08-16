@@ -996,6 +996,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenPanelNpc"",
+                    ""type"": ""Button"",
+                    ""id"": ""7518b11f-2a48-47e2-a69d-5e021ab0e369"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClosePanelNpc"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb1c4bfd-2b07-43bb-9983-a6cef2d933c8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1449,6 +1467,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ExitHouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5f13065-a474-4448-9f62-8bcaa98fda0d"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPanelNpc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""490c3614-a4c2-4cc5-a49f-d51e4e7bd2b7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPanelNpc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""892b85d0-f3b0-4004-b687-02320039b1e9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClosePanelNpc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1db8d7b-c421-4d41-82f5-6c70e73dd8ae"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClosePanelNpc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1566,6 +1628,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ClosePackingSystem = m_UI.FindAction("ClosePackingSystem", throwIfNotFound: true);
         m_UI_EntryHouse = m_UI.FindAction("EntryHouse", throwIfNotFound: true);
         m_UI_ExitHouse = m_UI.FindAction("ExitHouse", throwIfNotFound: true);
+        m_UI_OpenPanelNpc = m_UI.FindAction("OpenPanelNpc", throwIfNotFound: true);
+        m_UI_ClosePanelNpc = m_UI.FindAction("ClosePanelNpc", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1968,6 +2032,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ClosePackingSystem;
     private readonly InputAction m_UI_EntryHouse;
     private readonly InputAction m_UI_ExitHouse;
+    private readonly InputAction m_UI_OpenPanelNpc;
+    private readonly InputAction m_UI_ClosePanelNpc;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2088,6 +2154,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ExitHouse => m_Wrapper.m_UI_ExitHouse;
         /// <summary>
+        /// Provides access to the underlying input action "UI/OpenPanelNpc".
+        /// </summary>
+        public InputAction @OpenPanelNpc => m_Wrapper.m_UI_OpenPanelNpc;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/ClosePanelNpc".
+        /// </summary>
+        public InputAction @ClosePanelNpc => m_Wrapper.m_UI_ClosePanelNpc;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -2194,6 +2268,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ExitHouse.started += instance.OnExitHouse;
             @ExitHouse.performed += instance.OnExitHouse;
             @ExitHouse.canceled += instance.OnExitHouse;
+            @OpenPanelNpc.started += instance.OnOpenPanelNpc;
+            @OpenPanelNpc.performed += instance.OnOpenPanelNpc;
+            @OpenPanelNpc.canceled += instance.OnOpenPanelNpc;
+            @ClosePanelNpc.started += instance.OnClosePanelNpc;
+            @ClosePanelNpc.performed += instance.OnClosePanelNpc;
+            @ClosePanelNpc.canceled += instance.OnClosePanelNpc;
         }
 
         /// <summary>
@@ -2286,6 +2366,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ExitHouse.started -= instance.OnExitHouse;
             @ExitHouse.performed -= instance.OnExitHouse;
             @ExitHouse.canceled -= instance.OnExitHouse;
+            @OpenPanelNpc.started -= instance.OnOpenPanelNpc;
+            @OpenPanelNpc.performed -= instance.OnOpenPanelNpc;
+            @OpenPanelNpc.canceled -= instance.OnOpenPanelNpc;
+            @ClosePanelNpc.started -= instance.OnClosePanelNpc;
+            @ClosePanelNpc.performed -= instance.OnClosePanelNpc;
+            @ClosePanelNpc.canceled -= instance.OnClosePanelNpc;
         }
 
         /// <summary>
@@ -2721,5 +2807,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnExitHouse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenPanelNpc" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenPanelNpc(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ClosePanelNpc" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClosePanelNpc(InputAction.CallbackContext context);
     }
 }

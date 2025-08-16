@@ -22,7 +22,7 @@ public class MessageSystem : MonoBehaviour
     public PlayerManager PlayerManager;
     public AppMessagingManager AppMessagingManager;
     public NpcManager NpcManager;
-
+    public Boat_Npc BoatNpc;
     private void Start()
     {
         TotalWeed = Random.Range(1, 10);
@@ -37,6 +37,8 @@ public class MessageSystem : MonoBehaviour
         float randomValue = Random.Range(0f, 1f);
         currentNpc.TotalWeedAssuming = randomValue;
     }
+
+    //Accetp and Reject Offering 
     public void AcceptOffering()
     {
         if(NpcManager.Npc == null)
@@ -47,6 +49,8 @@ public class MessageSystem : MonoBehaviour
             NpcManager.Text_Order.text = MessageTextComponent.text;
             AppMessagingManager.ListMessage.Remove(this);
             NpcManager.Npc = currentNpc;
+            BoatNpc.Text_timedelivery.gameObject.SetActive(true);//Active text when the boat is active
+            BoatNpc.StartCoroutine(BoatNpc.ActiveBoat());//Start the coroutine to active the boat
             Destroy(this.gameObject);
         }
     }
