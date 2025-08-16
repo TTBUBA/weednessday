@@ -98,14 +98,4 @@ public class DebugManager : MonoBehaviour
         Time.timeScale -= 0.2f;
         Text_Timescale.text = "Timescale: " + Time.timeScale.ToString("F1");
     }
-
-    public void ButtActiveRandomBoat()
-    {
-        m_GameManager.ActiveRandomBoat();   
-    }
-
-    public void ButtReturnBaseBoat()
-    {
-        m_GameManager.ReturnBaseBoat();
-    }
 }

@@ -14,6 +14,7 @@ public class NpcManager : MonoBehaviour
     [Header("Ui")]
     [SerializeField] private GameObject PanelNpc;
     [SerializeField] private TextMeshProUGUI Text_Name;
+    [SerializeField] private TextMeshProUGUI Text_TotalMoney;
     [SerializeField] private Image BarLevelDrog;
     [SerializeField] private GameObject Butt_OpenPanel;
     [SerializeField] private TextMeshProUGUI Text_Button;
@@ -59,6 +60,7 @@ public class NpcManager : MonoBehaviour
         PanelNpc.SetActive(true);
         IsCollisionEnabled = true;
         Text_Name.text = Npc.NameNpc.ToString();
+        Text_TotalMoney.text = $"Total Order: {TotalPrice} $";
         Text_Button.text = "Close Q";
     }
 
@@ -67,6 +69,7 @@ public class NpcManager : MonoBehaviour
         PanelNpc.SetActive(false);
         IsCollisionEnabled = false;
         Text_Button.text = "Open E";
+        Text_TotalMoney.text = "";
         Text_Name.text = "";
     }
 

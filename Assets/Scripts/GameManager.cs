@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image[] Image_StarPolice;
     [SerializeField] private bool BoatSpawned;
     [SerializeField] private bool BoatReturn;
+    [SerializeField] private NpcData[] NpcData;
     public MovementBoat boat;
     public GameObject PointDestination;
 
@@ -19,23 +20,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        ActiveRandomBoat();
-        ReturnBaseBoat();
-    }
-    public void ActiveRandomBoat()
-    {
-        if (cycleDayNight.CurrentHours == 3 && !BoatSpawned)
-        {
-            MovementBoat movementBoat = m_Boats[Random.Range(0, m_Boats.Length)];
-            boat = movementBoat;
-            boat.ActiveBoat();
-            StartCoroutine(AnimationStar());
-            PointDestination = boat.CurrentPoint;
-            BoatSpawned = true;
-        }
+        ActiveRandomBoatPolice();
+        ReturnBaseBoatPolice();
     }
 
-    public void ReturnBaseBoat()
+    //ActivePolice
+    public void ActiveRandomBoatPolice()
+    {
+        foreach (var npc in NpcData)
+        {
+            if (npc.TotalWeedAssuming > 0.5 && !BoatSpawned)
+            {
+                MovementBoat movementBoat = m_Boats[Random.Range(0, m_Boats.Length)];
+                boat = movementBoat;
+                boat.ActiveBoat();
+                StartCoroutine(AnimationStar());
+                PointDestination = boat.CurrentPoint;
+                BoatSpawned = true;
+            }
+        }
+
+    }
+
+    public void ReturnBaseBoatPolice()
     {
         foreach(var police in SpawnPolice.Police)
         {
