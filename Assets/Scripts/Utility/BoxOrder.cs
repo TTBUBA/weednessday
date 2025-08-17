@@ -63,8 +63,7 @@ public class BoxOrder : MonoBehaviour
         }
     }
 
-    //Active Ui if the player collider with the box
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -74,7 +73,7 @@ public class BoxOrder : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

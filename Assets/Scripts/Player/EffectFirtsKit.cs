@@ -9,7 +9,7 @@ public class EffectFirtsKit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inventoryManager.CurrentSlotSelect.NameTools == "firstkit")
+        if(inventoryManager.CurrentSlotSelect != null && inventoryManager.CurrentSlotSelect.NameTools == "firstkit")
         {
             buttUseFirtsKit.SetActive(true);
             IsUseFirtsKit = true;

@@ -7,8 +7,11 @@ public class NpcData : ScriptableObject
     public Sprite NpcImage;
     public Sprite IconNpc;
     public float TotalWeedAssuming;
+    public float loyaltyNpc;//Probability of loyalty to the player
+    public float AbilityNpc;//Ability to avoid police detection
+    public bool IsHome;
+    public bool IsArrested;
     public NpcName Name;
-    public NpcType Type;
 }
 
 public enum NpcName
@@ -28,10 +31,4 @@ public enum NpcName
     Ganjalf,
     Cheech,
     Sativar
-}
-public enum NpcType
-{
-    Customer,
-    Dealer,
-    Delivery
 }

@@ -31,6 +31,7 @@ public class Boat_Npc : MonoBehaviour
                 ArriveDestination = true;
                 Npc.SetActive(true);
                 Npc.transform.position = PointSpawnNpc.position;
+                NpcManager.Npc.IsHome = false;
                 AudioBoatClacson.Play();
                 timedelivery = 0;
                 Text_timedelivery.gameObject.SetActive(false);
@@ -44,6 +45,7 @@ public class Boat_Npc : MonoBehaviour
             {
                 ArriveDestination = false;
                 transform.localScale = new Vector3(1, -1, 1);
+                NpcManager.Npc.IsHome = true;
             }
         }
     }

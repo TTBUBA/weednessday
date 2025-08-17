@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 649272057398421168}
   - component: {fileID: 3166925138549599454}
   m_Layer: 0
-  m_Name: Canvas (1)
+  m_Name: 'Canvas '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,6 +1374,7 @@ GameObject:
   - component: {fileID: 3802274545859971846}
   - component: {fileID: 6112433376708394558}
   - component: {fileID: 9190809645134156098}
+  - component: {fileID: 3817318368972840782}
   m_Layer: 0
   m_Name: Desiccator
   m_TagString: Untagged
@@ -1439,7 +1440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -882844965
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 6608479266619400224, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1511,12 +1512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slootWeed: {fileID: 1210273616592823251}
-  SlootCarbon: {fileID: 8407719005156248060}
+  SlootBattery: {fileID: 0}
   SlootWeedDried: {fileID: 5259460455293258202}
   TimeDesiccator: 1
   DesiccatorFull: {fileID: 3263843279208916186, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}
   DesiccatorEmpty: {fileID: 6608479266619400224, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}
-  PanelDesiccator: {fileID: 8463914910694851004}
+  PanelPacker: {fileID: 0}
   Button: {fileID: 1563452797918995755}
   Text_Button: {fileID: 1464823315699550265}
   PanelInventoryPlayer: {fileID: 5251324965285556412}
@@ -1528,6 +1529,42 @@ MonoBehaviour:
   Butt_OpenDesiccator: {fileID: 1934964133097236588, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_CloseDesiccator: {fileID: 5082139555774423023, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   InventoryManager: {fileID: 0}
+--- !u!58 &3817318368972840782
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159228763056188408}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.53125, y: 0.484375}
+  m_Radius: 1
 --- !u!1 &4741219246016591435
 GameObject:
   m_ObjectHideFlags: 0

@@ -1178,6 +1178,7 @@ GameObject:
   - component: {fileID: 914560923742740582}
   - component: {fileID: 1744727081332337922}
   - component: {fileID: 6703355040791503538}
+  - component: {fileID: 1660738048442704758}
   m_Layer: 0
   m_Name: packer
   m_TagString: Untagged
@@ -1243,7 +1244,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -882844965
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 6553444758886127456, guid: c5bc662bc82cacb45975f1974fcd0994, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1330,6 +1331,42 @@ MonoBehaviour:
   Butt_OpenPacker: {fileID: -3447548432288498052, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   Butt_ClosePacker: {fileID: -5154598948694808674, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   InventoryManager: {fileID: 0}
+--- !u!58 &1660738048442704758
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687209562755717802}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_Radius: 1
 --- !u!1 &5832791806373441462
 GameObject:
   m_ObjectHideFlags: 0

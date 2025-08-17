@@ -40,17 +40,17 @@ public class ChestSystem : MonoBehaviour
         Butt_ClosePanel.action.performed -= ClosePanel;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           butt_panel.SetActive(true);
-           text_panel.text = "Press 'E'";
-           Iscollision = true;
+            butt_panel.SetActive(true);
+            text_panel.text = "Press 'E'";
+            Iscollision = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

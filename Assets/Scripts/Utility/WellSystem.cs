@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class  WellSystem : MonoBehaviour
     [SerializeField] private GameObject PanelBarWater;
     [SerializeField] private GameObject ButtOpenPanelWater;
     [SerializeField] private Image barWater;
-    [SerializeField] private Button Butt_Refill;
+    [SerializeField] private TextMeshProUGUI Text_Button;
 
     [Header("Settings")]
     [SerializeField] private int LevelWater;
@@ -23,7 +24,6 @@ public class  WellSystem : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private void Awake()
     {
-        Butt_Refill.onClick.AddListener(ChargeWaterCan);
         barWater.fillAmount = LevelWater;
     }
 
@@ -42,7 +42,8 @@ public class  WellSystem : MonoBehaviour
         OpenPanelWater.action.performed -= OpenPanelWaterAction;
         ClosePanelWater.action.performed -= ClosePanelWaterAction;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -53,7 +54,7 @@ public class  WellSystem : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -68,7 +69,7 @@ public class  WellSystem : MonoBehaviour
         if (IsCollision)
         {
             PanelBarWater.SetActive(true);
-            ButtOpenPanelWater.SetActive(false);
+            Text_Button.text = "Close Q";
         }
     }
     private void ClosePanelWaterAction(InputAction.CallbackContext context)
@@ -76,6 +77,7 @@ public class  WellSystem : MonoBehaviour
         if (IsCollision)
         {
             ButtOpenPanelWater.SetActive(false);
+            Text_Button.text = "Open E";
         }
     }
 

@@ -57,7 +57,7 @@ public class TrashCompactor : MonoBehaviour
         Butt_CloseTrashCompactor.action.performed -= CloseTrashCompactor;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -67,7 +67,7 @@ public class TrashCompactor : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

@@ -16,5 +16,8 @@ MonoBehaviour:
   NpcImage: {fileID: 6556807587593774760, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
   IconNpc: {fileID: 1952382643648801557, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
   TotalWeedAssuming: 0
+  loyaltyNpc: 0.9
+  AppearanceNpc: 0.6
+  AbilityNpc: 1
+  IsHome: 1
   Name: 3
-  Type: 0
