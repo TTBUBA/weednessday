@@ -30,7 +30,7 @@ public class PlantManager : MonoBehaviour
     public Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
     public List<Plant> PlantsCreate = new List<Plant>();
 
-    public MouseManager MouseManager;
+    public PlayerMovement PlayerMovement;
     public PlacementManager placementManager;
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
@@ -92,7 +92,7 @@ public class PlantManager : MonoBehaviour
         return CellOccupate.TryGetValue(cell, out WeedData data) ? data.StateTerrain : TerrainState.None;
     }
 
-    private Vector3Int cellPos => MouseManager.GetMousePosition();
+    private Vector3Int cellPos => PlayerMovement.NextPosBox;
 
     public void Plant()
     {

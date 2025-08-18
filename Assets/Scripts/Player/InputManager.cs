@@ -62,7 +62,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     {
         if (!context.performed && InventoryManager.CurrentSlotSelect?.NameTools != "Shovel") return;
         PlantManager.HoeTerrain();
-        Debug.Log("Hoe Terrain Action Triggered");
     }
 
     public void OnWetTerrain(InputAction.CallbackContext context)
