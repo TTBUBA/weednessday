@@ -6,10 +6,7 @@ public class MouseManager : MonoBehaviour
 {
     public static MouseManager Instance;
 
-
-    public GameObject SelectBox;
     public Camera CamPlayer;
-    public Tilemap tilemapGround;
     public Vector3 MousePos;
     public Vector3Int cellPos;
     public Vector2 PositionController;
@@ -48,8 +45,6 @@ public class MouseManager : MonoBehaviour
 
         worldPos = posCursor;
         MousePos = CamPlayer.ScreenToWorldPoint(worldPos);
-        cellPos = tilemapGround.WorldToCell(MousePos);
-        SelectBox.transform.position = tilemapGround.GetCellCenterWorld(cellPos);
     }
 
     //this method is used to center the position of the controller in the screen

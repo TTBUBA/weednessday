@@ -1,8 +1,7 @@
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
 
 public class AppManager : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler  ,IPointerClickHandler
 {
@@ -28,9 +27,13 @@ public class AppManager : MonoBehaviour , IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        AppPanel.SetActive(true);
-        ContainerApp.SetActive(false);
-        IsActiveApp = true;
+        if (AppPanel != null && ContainerApp != null)
+        {
+            AppPanel.SetActive(true);
+            ContainerApp.SetActive(false);
+            IsActiveApp = true;
+        }
+
     }
     private void AnimationExitApp()
     {

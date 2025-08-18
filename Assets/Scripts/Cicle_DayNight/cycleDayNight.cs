@@ -10,7 +10,7 @@ public class cycleDayNight : MonoBehaviour
     public float CurrentMinutes;
     public float IncreseTime = 2f;
     public bool ActiveCicledayNight = true;
-
+    public int CurrentDay = 0;
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class cycleDayNight : MonoBehaviour
             if(CurrentHours >= 24f)
             {
                 CurrentHours = 0f; // Reset hours after 24
+                CurrentDay += 1; // Increment day count
             }
             if (CurrentHours == 8)
             {

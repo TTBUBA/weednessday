@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3Int CurrentPosCell;
     public Vector3Int NextPosCell;
     public bool IsMoving;
+    public Transform SelectBox;
+    public Vector3Int NextPosBox;
+
     public enum Direction
     {
         up,
@@ -53,6 +56,25 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 targetPos = tilemapGround.GetCellCenterWorld(NextPosCell);
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+
+            NextPosBox = NextPosCell;
+            switch (direction)
+            {
+                case Direction.up:
+                    NextPosBox += new Vector3Int(0, 1, 0);
+                    break;
+                case Direction.right:
+                    NextPosBox += new Vector3Int(1, 0, 0);
+                    break;
+                case Direction.down:
+                    NextPosBox += new Vector3Int(0, -1, 0);
+                    break;
+                case Direction.left:
+                    NextPosBox += new Vector3Int(-1, 0, 0);
+                    break;
+            }
+
+            SelectBox.position = tilemapGround.GetCellCenterWorld(NextPosBox);
 
             if (Vector3.Distance(transform.position, targetPos) < 0.01f)
             {

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class MovementBoat : MonoBehaviour
+public class BoatPoliceMovement : MonoBehaviour
 {
     [SerializeField] private GameObject[] m_Position;
     [SerializeField] private GameObject PointFinal;
