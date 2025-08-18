@@ -168,8 +168,8 @@ namespace Pathfinding {
 					return false;
 				}
 #if UNITY_2018_1_OR_NEWER
-				UpdateCheckCompleted(updateCheckDownload.downloadHandler.text);
-				updateCheckDownload.Dispose();
+				//UpdateCheckCompleted(updateCheckDownload.downloadHandler.text);
+				//updateCheckDownload.Dispose();
 #else
 				UpdateCheckCompleted(updateCheckDownload.text);
 #endif
