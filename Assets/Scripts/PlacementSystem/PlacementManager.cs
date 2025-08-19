@@ -9,11 +9,14 @@ public class PlacementManager : MonoBehaviour
     [Header("Placement Settings")]
     public PlaceableObjectData CurrentplaceableObject;
     public ChestSystem chestSystem;
+    public GameObject LastObjSpawn;
     [SerializeField] private GameObject PanelUtilty;
     [SerializeField] private Camera CamPlayer;
     [SerializeField] private Tilemap Tm_ObjectPlacement;
+    [SerializeField] private Tilemap Ground;
     [SerializeField] private GameObject ParentObjspawn;
-
+    [SerializeField] private GameObject Obj_DrawMap;
+    [SerializeField] private Transform containerDrawMap;
 
     public bool DrawModeActive = false;
     public bool IsPlacementActive = false;
@@ -29,11 +32,34 @@ public class PlacementManager : MonoBehaviour
     public cycleDayNight cycleDayNight;
     public SmsManager SmsManager;
 
-
     private void Awake()
     {
         Instance = this;
+
+        /*
+        BoundsInt bounds = Ground.cellBounds;
+
+        for(int x =  bounds.xMin; x < bounds.xMax; x++)
+        {
+            for(int y = bounds.yMin; x < bounds.yMax; y++)
+            {
+                Vector3Int pos = new Vector3Int(x, y, 0);
+                TileBase tile = Ground.GetTile(pos); 
+                if(tile != null)
+                {
+                    GameObject obj = Instantiate(Obj_DrawMap, Ground.GetCellCenterWorld(pos), Quaternion.identity);
+                    obj.transform.SetParent(containerDrawMap);
+                }
+            }
+        }
+        */
     }
+
+    private void Update()
+    {
+        BeforePlaceObj();
+    }
+
 
     //Get the current cell position on the mousePosition
     private Vector3Int cellpos => MouseManager.GetMousePosition();
@@ -46,6 +72,19 @@ public class PlacementManager : MonoBehaviour
             PanelUtilty.gameObject.SetActive(false);
         }
     }
+
+    //Before placing the object, set the position and transparency of the last spawned object
+    public void BeforePlaceObj()
+    {
+        if(LastObjSpawn != null)
+        {
+            LastObjSpawn.transform.position = MouseManager.GetMousePosition();
+            SpriteRenderer spriteRenderer = LastObjSpawn.GetComponent<SpriteRenderer>();
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); 
+        }
+
+    }
+
 
     // place the object at the current cell position
     public void PlaceObject()

@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
     [Header("Panels-Utilty")]
     public GameObject Panel_Utility;
     [SerializeField] private GameObject Butt_OpenPanelUtilty;
-    [SerializeField] private Tilemap DrawTile;
+    [SerializeField] private GameObject DrawTile;
     [SerializeField] private Image ImgCurrentUtily;
     [SerializeField] private TextMeshProUGUI Text_UtilityName;
     [SerializeField] private TextMeshProUGUI Text_UtilitySpaceOccupied;
@@ -67,17 +67,20 @@ public class UiManager : MonoBehaviour
     {
         Panel_Utility.SetActive(true);
         Butt_OpenPanelUtilty.SetActive(false);
-        DrawTile.gameObject.SetActive(true);
+        DrawTile.SetActive(true);
         placementManager.DrawModeActive = true;
+        placementManager.CurrentplaceableObject = null;
+        placementManager.LastObjSpawn = null;
     }
     public void ClosePanelUtilty()
     {
         Panel_Utility.SetActive(false);
         Butt_OpenPanelUtilty.SetActive(true);
-        DrawTile.gameObject.SetActive(false);
+        DrawTile.SetActive(false);
         placementManager.DrawModeActive = false;
         placementManager.CurrentplaceableObject = null;
         placementManager.IsPlacementActive = false;
+        placementManager.LastObjSpawn = null;
     }
     private void UiInventory()
     {

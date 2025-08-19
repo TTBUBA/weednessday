@@ -6,6 +6,8 @@ public class MouseManager : MonoBehaviour
 {
     public static MouseManager Instance;
 
+
+    public Tilemap tilemapGround;
     public Camera CamPlayer;
     public Vector3 MousePos;
     public Vector3Int cellPos;
@@ -45,6 +47,8 @@ public class MouseManager : MonoBehaviour
 
         worldPos = posCursor;
         MousePos = CamPlayer.ScreenToWorldPoint(worldPos);
+        MousePos.z = 0;
+        cellPos = tilemapGround.WorldToCell(MousePos);
     }
 
     //this method is used to center the position of the controller in the screen

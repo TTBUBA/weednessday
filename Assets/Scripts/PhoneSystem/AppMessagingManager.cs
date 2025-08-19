@@ -24,6 +24,7 @@ public class AppMessagingManager : MonoBehaviour
     public AppSetting AppSetting;
     public NpcManager NpcManager;
     public Boat_Npc BoatNpc;
+    public cycleDayNight CycleDayNight;
     private void OnEnable()
     {
         StartCoroutine(spawnMessage());
@@ -38,33 +39,36 @@ public class AppMessagingManager : MonoBehaviour
     {
         while (true)
         {
-            if (ListMessage.Count >= 10)
+            if(CycleDayNight.CurrentDay >= 1)
             {
-                yield return new WaitForSeconds(1f);
-                continue;
-            }
+                if (ListMessage.Count >= 10)
+                {
+                    yield return new WaitForSeconds(1f);
+                    continue;
+                }
 
-            if (CheakMessage())
-            {
-                yield return new WaitForSeconds(1f);
-                continue;
+                if (CheakMessage())
+                {
+                    yield return new WaitForSeconds(1f);
+                    continue;
+                }
+                timetoSpawn = Random.Range(30, 120);
+                yield return new WaitForSeconds(timetoSpawn);
+                GameObject newMessage = Instantiate(MessagePrefab, transform);
+                MessageSystem message = newMessage.GetComponent<MessageSystem>();
+                lastMessage = message;
+                message.currentNpc = Customers[Random.Range(0, Customers.Length)];
+                message.NameUser = lastMessage.currentNpc.NameNpc;
+                message.UserNameText.text = message.NameUser;
+                message.PlayerManager = PlayerManager;
+                message.AppMessagingManager = this;
+                message.NpcManager = NpcManager;
+                message.UserIcon = lastMessage.currentNpc.IconNpc;
+                message.BoatNpc = BoatNpc;
+                ListMessage.Add(message);
+                newMessage.transform.SetParent(ParentMessageContainer);
+                AppSetting.CurrentNoticationManager.Play();
             }
-            timetoSpawn = Random.Range(30, 120);
-            yield return new WaitForSeconds(timetoSpawn);
-            GameObject newMessage = Instantiate(MessagePrefab, transform);
-            MessageSystem message = newMessage.GetComponent<MessageSystem>();
-            lastMessage = message;
-            message.currentNpc = Customers[Random.Range(0, Customers.Length)];
-            message.NameUser = lastMessage.currentNpc.NameNpc;
-            message.UserNameText.text = message.NameUser;
-            message.PlayerManager = PlayerManager;
-            message.AppMessagingManager = this;
-            message.NpcManager = NpcManager;
-            message.UserIcon = lastMessage.currentNpc.IconNpc;
-            message.BoatNpc = BoatNpc;
-            ListMessage.Add(message);
-            newMessage.transform.SetParent(ParentMessageContainer);
-            AppSetting.CurrentNoticationManager.Play();
         }
     }
 
@@ -72,7 +76,7 @@ public class AppMessagingManager : MonoBehaviour
     {
         foreach (var message in ListMessage)
         {
-            if (message.currentNpc == lastMessage.currentNpc)
+            if (message.currentNpc == lastMessage.currentNpc || message.currentNpc.IsArrested)
             {
                 return false; // Prevent creating a message for the same NPC
             }

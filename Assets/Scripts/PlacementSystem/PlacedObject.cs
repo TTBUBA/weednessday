@@ -17,6 +17,13 @@ public class PlacedObject : MonoBehaviour,IPointerClickHandler,IPointerEnterHand
     public void OnPointerClick(PointerEventData eventData)
     {
         PlacementManager.Instance.CurrentplaceableObject = placeableObjectData;
+
+        if(PlacementManager.Instance.LastObjSpawn != null)
+        {
+            Destroy(PlacementManager.Instance.LastObjSpawn);
+        }
+
+        PlacementManager.Instance.LastObjSpawn = Instantiate(placeableObjectData.UtilityPrefab, PlacementManager.Instance.MouseManager.MousePos, Quaternion.identity);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
