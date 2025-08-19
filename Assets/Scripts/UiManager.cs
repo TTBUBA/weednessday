@@ -50,7 +50,7 @@ public class UiManager : MonoBehaviour
     }
     public void OpenPanelInventory()
     {
-        Panel_Inventory.SetActive(true);
+        Panel_Inventory.SetActive(true); 
         inventoryManager.isOpenInventory = true;
         Butt_ClosePanelInventory.SetActive(true);
 
