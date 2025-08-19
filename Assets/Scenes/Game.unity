@@ -42727,6 +42727,7 @@ MonoBehaviour:
   CurrentMinutes: 30
   IncreseTime: 1
   ActiveCicledayNight: 1
+  CurrentDay: 0
 --- !u!1 &737305614
 GameObject:
   m_ObjectHideFlags: 0
@@ -97349,6 +97350,7 @@ MonoBehaviour:
   NextPosCell: {x: 0, y: 0, z: 0}
   IsMoving: 0
   SelectBox: {fileID: 2044702034}
+  NextPosBox: {x: 0, y: 0, z: 0}
 --- !u!114 &1709458327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97680,9 +97682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8561d05aac3fa114cb76b0cc768f9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectBox: {fileID: 2044702033}
   CamPlayer: {fileID: 519420031}
-  tilemapGround: {fileID: 26618475}
   MousePos: {x: 0, y: 0, z: 0}
   cellPos: {x: 0, y: 0, z: 0}
   PositionController: {x: 0, y: 0}
@@ -97773,7 +97773,7 @@ MonoBehaviour:
   MultiplyTime: 0
   plant: {fileID: 0}
   PlantsCreate: []
-  MouseManager: {fileID: 1709458333}
+  PlayerMovement: {fileID: 1709458326}
   placementManager: {fileID: 1709458331}
   WateringCan: {fileID: 1437099757}
   InventoryManager: {fileID: 579743082}
@@ -102070,6 +102070,7 @@ MonoBehaviour:
   TotalWeedFound: 0
   AppNews: {fileID: 1745418104}
   SpawnPolice: {fileID: 1861145506}
+  CycleDayNight: {fileID: 0}
 --- !u!1 &1865720762
 GameObject:
   m_ObjectHideFlags: 0
