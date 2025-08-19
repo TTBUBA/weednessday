@@ -24,6 +24,9 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private GameObject WeedPlant;
     [SerializeField] private GameObject SelectBox;
     [SerializeField] private GameObject PointPlat;
+    [SerializeField] private GameObject Obj_DrawMap;
+    [SerializeField] private Transform containerDrawMap;
+
 
     public int MultiplyTime;
     public Plant plant; 

@@ -70,6 +70,7 @@ public class UiManager : MonoBehaviour
         DrawTile.SetActive(true);
         placementManager.DrawModeActive = true;
         placementManager.CurrentplaceableObject = null;
+        Destroy(placementManager.LastObjSpawn);
         placementManager.LastObjSpawn = null;
     }
     public void ClosePanelUtilty()
@@ -80,6 +81,7 @@ public class UiManager : MonoBehaviour
         placementManager.DrawModeActive = false;
         placementManager.CurrentplaceableObject = null;
         placementManager.IsPlacementActive = false;
+        Destroy(placementManager.LastObjSpawn);
         placementManager.LastObjSpawn = null;
     }
     private void UiInventory()

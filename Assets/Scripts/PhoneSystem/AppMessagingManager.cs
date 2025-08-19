@@ -39,36 +39,40 @@ public class AppMessagingManager : MonoBehaviour
     {
         while (true)
         {
-            if(CycleDayNight.CurrentDay >= 1)
+            if (CycleDayNight.CurrentDay < 1)
             {
-                if (ListMessage.Count >= 10)
-                {
-                    yield return new WaitForSeconds(1f);
-                    continue;
-                }
-
-                if (CheakMessage())
-                {
-                    yield return new WaitForSeconds(1f);
-                    continue;
-                }
-                timetoSpawn = Random.Range(30, 120);
-                yield return new WaitForSeconds(timetoSpawn);
-                GameObject newMessage = Instantiate(MessagePrefab, transform);
-                MessageSystem message = newMessage.GetComponent<MessageSystem>();
-                lastMessage = message;
-                message.currentNpc = Customers[Random.Range(0, Customers.Length)];
-                message.NameUser = lastMessage.currentNpc.NameNpc;
-                message.UserNameText.text = message.NameUser;
-                message.PlayerManager = PlayerManager;
-                message.AppMessagingManager = this;
-                message.NpcManager = NpcManager;
-                message.UserIcon = lastMessage.currentNpc.IconNpc;
-                message.BoatNpc = BoatNpc;
-                ListMessage.Add(message);
-                newMessage.transform.SetParent(ParentMessageContainer);
-                AppSetting.CurrentNoticationManager.Play();
+                yield return null;
+                continue;
             }
+
+            if (ListMessage.Count >= 10)
+            {
+                yield return new WaitForSeconds(1f);
+                continue;
+            }
+
+            if (CheakMessage())
+            {
+                yield return new WaitForSeconds(1f);
+                continue;
+            }
+            timetoSpawn = Random.Range(30, 120);
+            yield return new WaitForSeconds(timetoSpawn);
+            GameObject newMessage = Instantiate(MessagePrefab, transform);
+            MessageSystem message = newMessage.GetComponent<MessageSystem>();
+            lastMessage = message;
+            message.currentNpc = Customers[Random.Range(0, Customers.Length)];
+            message.NameUser = lastMessage.currentNpc.NameNpc;
+            message.UserNameText.text = message.NameUser;
+            message.PlayerManager = PlayerManager;
+            message.AppMessagingManager = this;
+            message.NpcManager = NpcManager;
+            message.UserIcon = lastMessage.currentNpc.IconNpc;
+            message.BoatNpc = BoatNpc;
+            ListMessage.Add(message);
+            newMessage.transform.SetParent(ParentMessageContainer);
+            AppSetting.CurrentNoticationManager.Play();
+
         }
     }
 

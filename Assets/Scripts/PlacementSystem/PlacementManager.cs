@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static PlantManager;
 
 public class PlacementManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] private GameObject PanelUtilty;
     [SerializeField] private Camera CamPlayer;
     [SerializeField] private Tilemap Tm_ObjectPlacement;
-    [SerializeField] private Tilemap Ground;
     [SerializeField] private GameObject ParentObjspawn;
+    [SerializeField] private Tilemap tilemapGround;
     [SerializeField] private GameObject Obj_DrawMap;
     [SerializeField] private Transform containerDrawMap;
 
@@ -36,23 +37,20 @@ public class PlacementManager : MonoBehaviour
     {
         Instance = this;
 
-        /*
-        BoundsInt bounds = Ground.cellBounds;
-
-        for(int x =  bounds.xMin; x < bounds.xMax; x++)
+        BoundsInt bounds = tilemapGround.cellBounds;
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
-            for(int y = bounds.yMin; x < bounds.yMax; y++)
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
             {
                 Vector3Int pos = new Vector3Int(x, y, 0);
-                TileBase tile = Ground.GetTile(pos); 
+                TileBase tile = tilemapGround.GetTile(pos);
                 if(tile != null)
                 {
-                    GameObject obj = Instantiate(Obj_DrawMap, Ground.GetCellCenterWorld(pos), Quaternion.identity);
+                    GameObject obj = Instantiate(Obj_DrawMap, tilemapGround.GetCellCenterWorld(pos), Quaternion.identity);
                     obj.transform.SetParent(containerDrawMap);
                 }
             }
         }
-        */
     }
 
     private void Update()
@@ -81,6 +79,15 @@ public class PlacementManager : MonoBehaviour
             LastObjSpawn.transform.position = MouseManager.GetMousePosition();
             SpriteRenderer spriteRenderer = LastObjSpawn.GetComponent<SpriteRenderer>();
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); 
+            if(plantManager.GetTerrainState(cellpos) == PlantManager.TerrainState.obstacle || CellOccupateObj.ContainsKey(cellpos))
+            {
+                spriteRenderer.color = new Color(1f, 0, 0, 0.5f);
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); // Reset to semi-transparent white
+            }
+
         }
 
     }

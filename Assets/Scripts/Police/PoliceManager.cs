@@ -30,52 +30,53 @@ public class PoliceManager : MonoBehaviour
     {
         while (true)
         {
-            if(CycleDayNight.CurrentDay >= 3)
+            if (CycleDayNight.CurrentDay < 3)
             {
-                float randomTime = Random.Range(60f, 120f);
-                yield return new WaitForSeconds(randomTime);
-                foreach (var npc in Npc)
+                yield return null;
+                continue;
+            }
+            float randomTime = Random.Range(60f, 120f);
+            yield return new WaitForSeconds(randomTime);
+            foreach (var npc in Npc)
+            {
+                if (npc.IsHome)
                 {
-                    if (npc.IsHome)
+                    if (Random.value < Probability_Controll)
                     {
-                        if (Random.value < Probability_Controll)
+                        if (Random.value > npc.TotalWeedAssuming)
                         {
-                            if (Random.value > npc.TotalWeedAssuming)
+                            var probability_free = npc.AbilityNpc - npc.TotalWeedAssuming;
+                            if (Random.value < probability_free)
                             {
-                                var probability_free = npc.AbilityNpc - npc.TotalWeedAssuming;
-                                if (Random.value < probability_free)
+                                //Debug.Log($"{npc.NameNpc} is free");
+                            }
+                            else
+                            {
+                                //Debug.Log($"{npc.NameNpc} is found of drog");
+
+                                if (Random.value > npc.loyaltyNpc && !npc.IsArrested)
                                 {
-                                    //Debug.Log($"{npc.NameNpc} is free");
+                                    SendNews(npc);
+                                    float TimeRelease = Random.Range(10, 20f);
+                                    TotalWeedFound = Random.Range(1, 15);
+                                    StartCoroutine(TimeReleaseNpc(TimeRelease, npc));
+                                    npc.IsArrested = true;
+                                    NpcArrested.Add(npc);
+
+                                    //the npc talk by police and activePolice
+                                    if (Random.value < npc.ProbabilityTalkPolice)
+                                    {
+                                        SpawnPolice.ActiveRandomBoatPolice();
+                                        //Debug.Log("Npc talk");
+                                    }
                                 }
                                 else
                                 {
-                                    //Debug.Log($"{npc.NameNpc} is found of drog");
-
-                                    if (Random.value > npc.loyaltyNpc && !npc.IsArrested)
-                                    {
-                                        SendNews(npc);
-                                        float TimeRelease = Random.Range(10, 20f);
-                                        TotalWeedFound = Random.Range(1, 15);
-                                        StartCoroutine(TimeReleaseNpc(TimeRelease, npc));
-                                        npc.IsArrested = true;
-                                        NpcArrested.Add(npc);
-
-                                        //the npc talk by police and activePolice
-                                        if (Random.value < npc.ProbabilityTalkPolice)
-                                        {
-                                            SpawnPolice.ActiveRandomBoatPolice();
-                                            //Debug.Log("Npc talk");
-                                        }
-                                    }
-                                    else
-                                    {
-                                    }
                                 }
                             }
                         }
                     }
                 }
-
             }
         }
     } 
