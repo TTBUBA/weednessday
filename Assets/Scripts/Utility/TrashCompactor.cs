@@ -17,10 +17,6 @@ public class TrashCompactor : MonoBehaviour
     [SerializeField] private GameObject slootManagerPrefab;
     [SerializeField] private Selectable TrashSlot;
 
-    [Header("Input")]
-    [SerializeField] private InputActionReference Butt_OpenTrashCompactor;
-    [SerializeField] private InputActionReference Butt_CloseTrashCompactor;
-
     [Header("Ui")]
     [SerializeField] private GameObject PanelTrashCompactor;
     [SerializeField] private GameObject Button;
@@ -39,22 +35,6 @@ public class TrashCompactor : MonoBehaviour
     {
         coroutineTrash = StartCoroutine(ActiveTrashCompactor());
         slootTrash.iconTools.enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        Butt_OpenTrashCompactor.action.Enable();
-        Butt_OpenTrashCompactor.action.performed += OpenTrashCompactor;
-        Butt_CloseTrashCompactor.action.Enable();
-        Butt_CloseTrashCompactor.action.performed += CloseTrashCompactor;
-    }
-
-    private void OnDisable()
-    {
-        Butt_OpenTrashCompactor.action.Disable();
-        Butt_OpenTrashCompactor.action.performed -= OpenTrashCompactor;
-        Butt_CloseTrashCompactor.action.Disable();
-        Butt_CloseTrashCompactor.action.performed -= CloseTrashCompactor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,7 +59,7 @@ public class TrashCompactor : MonoBehaviour
         }
     }
 
-    private void OpenTrashCompactor(InputAction.CallbackContext context)
+    public void OpenTrashCompactor()
     {
         if (!IsOpen && InCollision) 
         {
@@ -117,7 +97,7 @@ public class TrashCompactor : MonoBehaviour
         }
     }
 
-    private void CloseTrashCompactor(InputAction.CallbackContext context)
+    public void CloseTrashCompactor()
     {
         if (IsOpen && InCollision) 
         {

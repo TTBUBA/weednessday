@@ -27,22 +27,6 @@ public class  WellSystem : MonoBehaviour
         barWater.fillAmount = LevelWater;
     }
 
-    private void OnEnable()
-    {
-        OpenPanelWater.action.Enable();
-        ClosePanelWater.action.Enable();
-        OpenPanelWater.action.performed += OpenPanelWaterAction;
-        ClosePanelWater.action.performed += ClosePanelWaterAction;
-    }
-
-    private void OnDisable()
-    {
-        OpenPanelWater.action.Disable();
-        ClosePanelWater.action.Disable();
-        OpenPanelWater.action.performed -= OpenPanelWaterAction;
-        ClosePanelWater.action.performed -= ClosePanelWaterAction;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -64,7 +48,7 @@ public class  WellSystem : MonoBehaviour
         }
     }
 
-    private void OpenPanelWaterAction(InputAction.CallbackContext context)
+    public void Open()
     {
         if (IsCollision)
         {
@@ -72,11 +56,13 @@ public class  WellSystem : MonoBehaviour
             Text_Button.text = "Close Q";
         }
     }
-    private void ClosePanelWaterAction(InputAction.CallbackContext context)
+
+    public void Close()
     {
         if (IsCollision)
         {
             ButtOpenPanelWater.SetActive(false);
+            PanelBarWater.SetActive(false);
             Text_Button.text = "Open E";
         }
     }

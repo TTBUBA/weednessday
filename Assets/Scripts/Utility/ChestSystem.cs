@@ -18,27 +18,8 @@ public class ChestSystem : MonoBehaviour
     [SerializeField] private bool IsOpen = false;
     [SerializeField] private bool Iscollision = false;
     [SerializeField] private Canvas canvas;
-    [SerializeField] private InputActionReference Butt_OpenPanel;
-    [SerializeField] private InputActionReference Butt_ClosePanel;
     [SerializeField] private List<SlootManager> SlootChest;
     [SerializeField] private InventoryManager InventoryManager;
-
-    private void OnEnable()
-    {
-        Butt_OpenPanel.action.Enable();
-        Butt_OpenPanel.action.performed += OpenPanel;
-
-        Butt_ClosePanel.action.Enable();
-        Butt_ClosePanel.action.performed += ClosePanel;
-    }
-    private void OnDisable()
-    {
-        Butt_OpenPanel.action.Disable();
-        Butt_OpenPanel.action.performed -= OpenPanel;
-
-        Butt_ClosePanel.action.Disable();
-        Butt_ClosePanel.action.performed -= ClosePanel;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -62,7 +43,7 @@ public class ChestSystem : MonoBehaviour
         }
     }
 
-    private void OpenPanel(InputAction.CallbackContext context)
+    public void OpenPanel()
     {
         if (!IsOpen && Iscollision)
         {
@@ -119,7 +100,7 @@ public class ChestSystem : MonoBehaviour
             }
         }
     }
-    private void ClosePanel(InputAction.CallbackContext context)
+    public void ClosePanel()
     {
         if (IsOpen && Iscollision)
         {

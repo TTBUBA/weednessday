@@ -15,16 +15,22 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] private GameObject ContainerApp;
     [SerializeField] private TextMeshProUGUI Text_Button;
     [SerializeField] private TextMeshProUGUI Text_Hours;
+    [SerializeField] private bool PhoneEnabled = false;
 
     public cycleDayNight cycleDayNight;
     public AppMessagingManager AppMessagingManager;
     public AppNews AppNews;
     public void OpenPhone()
     {
-        Phone.enabled = true;
-        Text_Button.text = "Q";
-        Text_Hours.enabled = true;
-        ContainerApp.SetActive(true);
+        if (!PhoneEnabled)
+        {
+            Phone.enabled = true;
+            Text_Button.text = "Q";
+            Text_Hours.enabled = true;
+            ContainerApp.SetActive(true);
+            PhoneEnabled = true;
+        }
+
     }
     
     private void Update()
@@ -33,24 +39,28 @@ public class PhoneManager : MonoBehaviour
     }
     public void ClosePhone()
     {
-        AppMessagingManager.CloseApp();
-        AppNews.CloseApp();
-        foreach (var app in AppManagers)
+        if(PhoneEnabled)
         {
-            if (!app.IsActiveApp)
+            AppMessagingManager.CloseApp();
+            AppNews.CloseApp();
+            PhoneEnabled = false;
+            foreach (var app in AppManagers)
             {
-                Phone.enabled = false;
-                Text_Hours.enabled = false;
-                Text_Button.text = "C";
-                ContainerApp.SetActive(false);
-                app.gameObject.SetActive(false);
-            }
-            else
-            {
-                app.CloseApp();
-                Phone.enabled = true;
-                Text_Hours.enabled = true;
-                ContainerApp.SetActive(true);
+                if (!app.IsActiveApp)
+                {
+                    Phone.enabled = false;
+                    Text_Hours.enabled = false;
+                    Text_Button.text = "C";
+                    ContainerApp.SetActive(false);
+                    app.gameObject.SetActive(true);
+                }
+                else
+                {
+                    app.CloseApp();
+                    Phone.enabled = true;
+                    Text_Hours.enabled = true;
+                    ContainerApp.SetActive(true);
+                }
             }
         }
     }

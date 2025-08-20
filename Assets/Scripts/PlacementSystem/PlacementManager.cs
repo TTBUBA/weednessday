@@ -44,7 +44,7 @@ public class PlacementManager : MonoBehaviour
             {
                 Vector3Int pos = new Vector3Int(x, y, 0);
                 TileBase tile = tilemapGround.GetTile(pos);
-                if(tile != null)
+                if (tile != null)
                 {
                     GameObject obj = Instantiate(Obj_DrawMap, tilemapGround.GetCellCenterWorld(pos), Quaternion.identity);
                     obj.transform.SetParent(containerDrawMap);

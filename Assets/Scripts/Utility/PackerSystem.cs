@@ -26,10 +26,6 @@ public class PackerSystem : MonoBehaviour
     [SerializeField] private bool InCollision;
     [SerializeField] private Canvas canvas;
 
-    [Header("Input")]
-    [SerializeField] private InputActionReference Butt_OpenPacker;
-    [SerializeField] private InputActionReference Butt_ClosePacker;
-
 
     private Coroutine coroutinePacker;
     [SerializeField] private InventoryManager InventoryManager;
@@ -40,23 +36,8 @@ public class PackerSystem : MonoBehaviour
         SlootZiploc.iconTools.gameObject.SetActive(false);
 
     }
-    private void OnEnable()
-    {
-        Butt_OpenPacker.action.Enable();
-        Butt_ClosePacker.action.Enable();
-        Butt_OpenPacker.action.performed += OpenClosePacker;
-        Butt_ClosePacker.action.performed += ClosePacker;
-    }
 
-    private void OnDisable()
-    {
-        Butt_OpenPacker.action.Disable();
-        Butt_ClosePacker.action.Disable();
-        Butt_OpenPacker.action.performed -= OpenClosePacker;
-        Butt_ClosePacker.action.performed -= ClosePacker;
-    }
-
-    private void OpenClosePacker(InputAction.CallbackContext context)
+    public void OpenClosePacker()
     {
         if (!IsOpen && InCollision)
         {
@@ -76,7 +57,7 @@ public class PackerSystem : MonoBehaviour
         }
     }
 
-    private void ClosePacker(InputAction.CallbackContext context)
+    public void ClosePacker()
     {
         if (IsOpen && InCollision)
         {

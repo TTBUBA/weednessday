@@ -10734,7 +10734,7 @@ Transform:
   m_GameObject: {fileID: 54150530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.6, y: 25.1, z: 0}
+  m_LocalPosition: {x: -2.63, y: 25.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19450,6 +19450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveBox: 0
   OpenBox: 0
+  OpenChest: {fileID: -2613143623131225661, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   ButtOpenChest: {fileID: 2055636528}
   Text_Chest: {fileID: 1807743878}
   boatOrder: {fileID: 1510401877}
@@ -19728,7 +19729,7 @@ Transform:
   m_GameObject: {fileID: 415465441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.6, y: 22, z: 0}
+  m_LocalPosition: {x: -2.63, y: 22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36189,7 +36190,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.551, y: 26.53, z: -10}
+  m_LocalPosition: {x: -29.65, y: 26.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55977,13 +55978,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 942569406}
   - {fileID: 1669891834}
   - {fileID: 2118904415}
   - {fileID: 1031864136}
   - {fileID: 2027556259}
   - {fileID: 579743081}
   - {fileID: 1375537608}
+  - {fileID: 942569406}
   - {fileID: 1951123990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60455,7 +60456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppManagers:
   - {fileID: 954801993}
-  - {fileID: 1564855811}
+  - {fileID: 0}
   - {fileID: 674671539}
   - {fileID: 1241938614}
   - {fileID: 1026487558}
@@ -60464,7 +60465,6 @@ MonoBehaviour:
   ContainerApp: {fileID: 821305117}
   Text_Button: {fileID: 439354594}
   Text_Hours: {fileID: 1114528247}
-  PhoneEnabled: 0
   cycleDayNight: {fileID: 731504624}
   AppMessagingManager: {fileID: 1733856871}
   AppNews: {fileID: 1745418104}
@@ -67219,7 +67219,7 @@ Transform:
   m_GameObject: {fileID: 1600538835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.6, y: 29, z: 0}
+  m_LocalPosition: {x: -2.63, y: 29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70086,7 +70086,7 @@ Transform:
   m_GameObject: {fileID: 1709458322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.551, y: 26.53, z: 0}
+  m_LocalPosition: {x: -29.65, y: 26.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70455,7 +70455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0650cf8390e24d4fb50b198ee5f9ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentObject: {fileID: 0}
   PlacementManager: {fileID: 1709458331}
   Uimanager: {fileID: 1223114008}
   PlantManager: {fileID: 1709458337}
@@ -77443,7 +77442,7 @@ Transform:
   m_GameObject: {fileID: 1964825292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.551, y: 26.53, z: -10}
+  m_LocalPosition: {x: -29.65, y: 26.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80525,7 +80524,7 @@ Transform:
   m_GameObject: {fileID: 2044702033}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.049, y: -0.017, z: 0}
+  m_LocalPosition: {x: 1.33, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

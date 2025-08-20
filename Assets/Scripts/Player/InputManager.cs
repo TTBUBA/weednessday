@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, InputSystem_Actions.IUIActions
 {
     public InputSystem_Actions inputActions;
+    public GameObject CurrentObject;
 
     [Header("Manager References")]
     public PlacementManager PlacementManager;
@@ -38,6 +39,22 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         inputActions.UI.Disable();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Utility"))
+        {
+            CurrentObject = collision.gameObject;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Utility"))
+        {
+            CurrentObject = null;
+        }
+    }
     // Placement
     public void OnPlacementObjet(InputAction.CallbackContext context)
     {
@@ -116,11 +133,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         MouseManager.UpdateCursorController(PosController);
     }
 
-    // Interaction
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-    }
-
     // Speed Word 
     public void OnIncreseSpeedWord(InputAction.CallbackContext context)
     {
@@ -144,6 +156,12 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     // Orders / Boxes
     public void OnOpenBoxOrder(InputAction.CallbackContext context)
     {
+        if(context.performed && CurrentObject != null)
+        {
+            BoxOrder boxOrder = CurrentObject.GetComponent<BoxOrder>();
+            if (boxOrder == null) return;
+            boxOrder.OpenChestOrder();
+        }
     }
 
     //========Input Ui========//
@@ -164,25 +182,58 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         }
     }
 
+
     // Utility Panels
     public void OnOpenPanelUtilty(InputAction.CallbackContext context)
     {
         if (!context.performed || Uimanager == null) return;
         Uimanager.OpenPanelUtilty();
     }
-
     public void OnClosePanelUtilty(InputAction.CallbackContext context)
     {
         if (!context.performed || Uimanager == null) return;
         Uimanager.ClosePanelUtilty();
     }
 
-    public void OnClosePanelWater(InputAction.CallbackContext context) { }
-    public void OnOpenPanelWater(InputAction.CallbackContext context) { }
-    public void OnOpenTableCrafting(InputAction.CallbackContext context) { } 
-    public void OnCloseTableCrafting(InputAction.CallbackContext context) { }
-    public void OnOpenTrashCompactor(InputAction.CallbackContext context) { }
-    public void OnCloseTrashCompactor(InputAction.CallbackContext context) { }
+    public void OnOpenPanelWater(InputAction.CallbackContext context)
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            WellSystem wellSystem = CurrentObject.GetComponent<WellSystem>();
+            if (wellSystem == null) return;
+            wellSystem.Open();
+        }
+
+    }
+    public void OnClosePanelWater(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            WellSystem wellSystem = CurrentObject.GetComponent<WellSystem>();
+            if (wellSystem == null) return;
+            wellSystem.Close();
+        }
+
+    }
+
+    public void OnOpenTrashCompactor(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            TrashCompactor trashCompactor = CurrentObject.GetComponent<TrashCompactor>();
+            if (trashCompactor == null) return;
+            trashCompactor.OpenTrashCompactor();
+        }
+    }
+    public void OnCloseTrashCompactor(InputAction.CallbackContext context) 
+    { 
+        if(context.performed && CurrentObject != null)
+        {
+            TrashCompactor trashCompactor = CurrentObject.GetComponent<TrashCompactor>();
+            if (trashCompactor == null) return;
+            trashCompactor.CloseTrashCompactor();
+        }
+    }
     public void OnOpenUtilty(InputAction.CallbackContext context) { }
     public void OnCloseUtilty(InputAction.CallbackContext context) { }
 
@@ -193,7 +244,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
             InventoryManager.DragItemController();
         }
     }
-
     public void OnDropController(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -205,15 +255,81 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public void OnNavigate(InputAction.CallbackContext context) { }
     public void OnRightClick(InputAction.CallbackContext context) { }
     public void OnLeftClickMouse(InputAction.CallbackContext context) { }
-    public void OnOpenChest(InputAction.CallbackContext context) { }
-    public void OnCloseChest(InputAction.CallbackContext context) { }
-    public void OnOpenDesiccator(InputAction.CallbackContext context) { }
-    public void OnCloseDesiccator(InputAction.CallbackContext context) { }
-    public void OnOpenPacker(InputAction.CallbackContext context) { }
-    public void OnClosePacker(InputAction.CallbackContext context) { }
-    public void OnOpenPackingSystem(InputAction.CallbackContext context) { }
-    public void OnClosePackingSystem(InputAction.CallbackContext context) { }
+    public void OnOpenChest(InputAction.CallbackContext context) 
+    {
+        if(context.performed && CurrentObject != null)
+        {
+            ChestSystem chestSystem = CurrentObject.GetComponent<ChestSystem>();
+            if (chestSystem == null) return;
+            chestSystem.OpenPanel();
+        }
+    }
+    public void OnCloseChest(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            ChestSystem chestSystem = CurrentObject.GetComponent<ChestSystem>();
+            if (chestSystem == null) return;
+            chestSystem.ClosePanel();
+        }
+    }
+    public void OnOpenDesiccator(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            Desiccator desiccator = CurrentObject.GetComponent<Desiccator>();
+            if (desiccator == null) return;
+            desiccator.OpenEsiccator();
+        }
+    }
+    public void OnCloseDesiccator(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            Desiccator desiccator = CurrentObject.GetComponent<Desiccator>();
+            if (desiccator == null) return;
+            desiccator.CloseDesiccator();
+        }
+    }
+    public void OnOpenPacker(InputAction.CallbackContext context) 
+    { 
+        if(context.performed && CurrentObject != null)
+        {
+            PackerSystem packerSystem = CurrentObject.GetComponent<PackerSystem>();
+            if (packerSystem == null) return;
+            packerSystem.OpenClosePacker();
+        }
+    }
+    public void OnClosePacker(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            PackerSystem packerSystem = CurrentObject.GetComponent<PackerSystem>();
+            if (packerSystem == null) return;
+            packerSystem.ClosePacker();
+        }
+    }
+    public void OnOpenPackingSystem(InputAction.CallbackContext context) 
+    { 
+        if(context.performed && CurrentObject != null)
+        {
+            PackingWeedSystem packingWeedSystem = CurrentObject.GetComponent<PackingWeedSystem>();
+            if (packingWeedSystem == null) return;
+            packingWeedSystem.OnOpenPackingSystem();
+        }
+    }
+    public void OnClosePackingSystem(InputAction.CallbackContext context) 
+    {
+        if (context.performed && CurrentObject != null)
+        {
+            PackingWeedSystem packingWeedSystem = CurrentObject.GetComponent<PackingWeedSystem>();
+            if (packingWeedSystem == null) return;
+            packingWeedSystem.OnClosePackingSystem();
+        }
+    }
 
+
+    // House and Bed
     public void OnEntryHouse(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -250,7 +366,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnOpenPanelNpc(InputAction.CallbackContext context)
     {
-        if(context.performed && NpcManager != null)
+        if(context.performed)
         {
             NpcManager.OpenPanelNpc();
         }
@@ -258,7 +374,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnClosePanelNpc(InputAction.CallbackContext context)
     {
-        if (context.performed && NpcManager != null)
+        if (context.performed)
         {
             NpcManager.ClosePanelNpc();
         }

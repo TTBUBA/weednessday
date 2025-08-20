@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         animatorPlayer = GetComponent<Animator>();
         CurrentPosCell = tilemapGround.WorldToCell(transform.position);
         transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
-        //SelectBox.position = tilemapGround.GetCellCenterWorld(NextPosBox);
+        SelectBox.position = tilemapGround.GetCellCenterWorld(NextPosBox);
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IsMoving = false;
-        transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
+        transform.position = tilemapGround.GetCellCenterWorld(NextPosCell);
     }
 
     private void UpdateCurrentDirection()   

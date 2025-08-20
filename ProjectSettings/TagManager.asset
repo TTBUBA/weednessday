@@ -8,6 +8,7 @@ TagManager:
   - Police
   - Tree
   - Plant
+  - Utility
   layers:
   - Default
   - TransparentFX

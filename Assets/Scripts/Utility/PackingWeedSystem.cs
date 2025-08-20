@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -24,12 +23,6 @@ public class PackingWeedSystem : MonoBehaviour
     [SerializeField] private GameObject ButtonPacking;
     [SerializeField] private TextMeshProUGUI Text_Button;
 
-
-    [Header("Input")]
-    [SerializeField] private InputActionReference OpenPackingSystem;
-    [SerializeField] private InputActionReference ClosePackingSystem;
-
-
     private Coroutine coroutinePacking;
     [SerializeField] private InventoryManager InventoryManager;
 
@@ -38,22 +31,8 @@ public class PackingWeedSystem : MonoBehaviour
         //coroutinePacking = StartCoroutine(ActivePackingSystem());
         SlootDataBaggieWeed.iconTools.gameObject.SetActive(false);
     }
-    private void OnEnable()
-    {
-        OpenPackingSystem.action.Enable();
-        ClosePackingSystem.action.Enable();
-        OpenPackingSystem.action.performed += OnOpenPackingSystem;
-        ClosePackingSystem.action.performed += OnClosePackingSystem;
-    }
 
-    private void OnDisable()
-    {
-        OpenPackingSystem.action.Disable();
-        ClosePackingSystem.action.Disable();
-        OpenPackingSystem.action.performed -= OnOpenPackingSystem;
-        ClosePackingSystem.action.performed -= OnClosePackingSystem;
-    }
-    private void OnOpenPackingSystem(InputAction.CallbackContext context)
+    public void OnOpenPackingSystem()
     {
         if (!IsOpen && InCollision)
         {
@@ -72,7 +51,7 @@ public class PackingWeedSystem : MonoBehaviour
 
         }
     }
-    private void OnClosePackingSystem(InputAction.CallbackContext context)
+    public void OnClosePackingSystem()
     {
         if (IsOpen && InCollision)
         {

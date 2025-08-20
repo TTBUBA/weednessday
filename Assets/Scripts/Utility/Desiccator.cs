@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -28,11 +27,6 @@ public class Desiccator : MonoBehaviour
     [SerializeField] private bool InCollision;
     [SerializeField] private Canvas canvas;
 
-    [Header("Input")]
-    [SerializeField] private InputActionReference Butt_OpenDesiccator;
-    [SerializeField] private InputActionReference Butt_CloseDesiccator;
-
-
     private Coroutine coroutineDesiccator;
     [SerializeField] private InventoryManager InventoryManager;
 
@@ -42,23 +36,7 @@ public class Desiccator : MonoBehaviour
         SlootWeedDried.iconTools.gameObject.SetActive(false);
 
     }
-    private void OnEnable()
-    {
-        Butt_OpenDesiccator.action.Enable();
-        Butt_CloseDesiccator.action.Enable();
-        Butt_OpenDesiccator.action.performed += OpenCloseDesiccator;
-        Butt_CloseDesiccator.action.performed += CloseDesiccator;
-    }
-
-    private void OnDisable()
-    {
-        Butt_OpenDesiccator.action.Disable();
-        Butt_CloseDesiccator.action.Disable();
-        Butt_OpenDesiccator.action.performed -= OpenCloseDesiccator;
-        Butt_CloseDesiccator.action.performed -= CloseDesiccator;
-    }
-
-    private void OpenCloseDesiccator(InputAction.CallbackContext context)
+    public void OpenEsiccator()
     {
         if (!IsOpen && InCollision)
         {
@@ -78,7 +56,7 @@ public class Desiccator : MonoBehaviour
         }
     }
 
-    private void CloseDesiccator(InputAction.CallbackContext context)
+    public void CloseDesiccator()
     {
         if (IsOpen && InCollision)
         {

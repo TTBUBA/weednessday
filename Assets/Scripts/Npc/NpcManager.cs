@@ -56,21 +56,27 @@ public class NpcManager : MonoBehaviour
 
     public void OpenPanelNpc()
     {
-        BarLevelDrog.fillAmount = Npc.TotalWeedAssuming;
-        PanelNpc.SetActive(true);
-        IsCollisionEnabled = true;
-        Text_Name.text = Npc.NameNpc.ToString();
-        Text_TotalMoney.text = $"Total Order: {TotalPrice} $";
-        Text_Button.text = "Close Q";
+        if(IsCollisionEnabled)
+        {
+            BarLevelDrog.fillAmount = Npc.TotalWeedAssuming;
+            PanelNpc.SetActive(true);
+            IsCollisionEnabled = true;
+            Text_Name.text = Npc.NameNpc.ToString();
+            Text_TotalMoney.text = $"Total Order: {TotalPrice} $";
+            Text_Button.text = "Close Q";
+        }
     }
 
     public void ClosePanelNpc()
     {
-        PanelNpc.SetActive(false);
-        IsCollisionEnabled = false;
-        Text_Button.text = "Open E";
-        Text_TotalMoney.text = "";
-        Text_Name.text = "";
+        if (!IsCollisionEnabled)
+        {
+            PanelNpc.SetActive(false);
+            IsCollisionEnabled = false;
+            Text_Button.text = "Open E";
+            Text_TotalMoney.text = "";
+            Text_Name.text = "";
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,6 +85,7 @@ public class NpcManager : MonoBehaviour
         {
             Butt_OpenPanel.SetActive(true);
             Text_Button.text = "Open E";
+            IsCollisionEnabled = true;
         }
     }
 

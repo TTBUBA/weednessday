@@ -101,15 +101,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Plant"",
                     ""type"": ""Button"",
                     ""id"": ""c9485b5a-922c-46f1-ad34-cc61138b17fb"",
@@ -450,28 +441,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1c04ea5f-b012-41d1-a6f7-02e963b52893"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b3f66d0b-7751-423f-908b-a11c5bd95930"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -845,24 +814,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OpenTableCrafting"",
-                    ""type"": ""Button"",
-                    ""id"": ""d2853bb1-145f-4ff1-a563-2c58e3fbf7df"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CloseTableCrafting"",
-                    ""type"": ""Button"",
-                    ""id"": ""5233efd0-2f52-4165-9077-e7cd96eb1782"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""OpenTrashCompactor"",
                     ""type"": ""Button"",
                     ""id"": ""9d6abecb-3773-4dd2-9e14-3e02dc84e001"",
@@ -1168,50 +1119,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ClosePhone"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d730a44f-7555-43ee-946d-1f606524db04"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenTableCrafting"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e289c3cc-1542-472a-84d2-8407f0a3beda"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenTableCrafting"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fec38a54-b4bc-4dba-a67a-9a30f9998e0a"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CloseTableCrafting"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e44f84a-25c6-440e-ae26-a5ef0399f413"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CloseTableCrafting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1581,7 +1488,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Plant = m_Player.FindAction("Plant", throwIfNotFound: true);
         m_Player_HoeTerrain = m_Player.FindAction("HoeTerrain", throwIfNotFound: true);
         m_Player_WetTerrain = m_Player.FindAction("WetTerrain", throwIfNotFound: true);
@@ -1611,8 +1517,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_OpenPanelWater = m_UI.FindAction("OpenPanelWater", throwIfNotFound: true);
         m_UI_OpenPhone = m_UI.FindAction("OpenPhone", throwIfNotFound: true);
         m_UI_ClosePhone = m_UI.FindAction("ClosePhone", throwIfNotFound: true);
-        m_UI_OpenTableCrafting = m_UI.FindAction("OpenTableCrafting", throwIfNotFound: true);
-        m_UI_CloseTableCrafting = m_UI.FindAction("CloseTableCrafting", throwIfNotFound: true);
         m_UI_OpenTrashCompactor = m_UI.FindAction("OpenTrashCompactor", throwIfNotFound: true);
         m_UI_CloseTrashCompactor = m_UI.FindAction("CloseTrashCompactor", throwIfNotFound: true);
         m_UI_OpenChest = m_UI.FindAction("OpenChest", throwIfNotFound: true);
@@ -1712,7 +1616,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Plant;
     private readonly InputAction m_Player_HoeTerrain;
     private readonly InputAction m_Player_WetTerrain;
@@ -1745,10 +1648,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
         /// Provides access to the underlying input action "Player/Plant".
         /// </summary>
@@ -1846,9 +1745,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @Plant.started += instance.OnPlant;
             @Plant.performed += instance.OnPlant;
             @Plant.canceled += instance.OnPlant;
@@ -1914,9 +1810,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @Plant.started -= instance.OnPlant;
             @Plant.performed -= instance.OnPlant;
             @Plant.canceled -= instance.OnPlant;
@@ -2015,8 +1908,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_OpenPanelWater;
     private readonly InputAction m_UI_OpenPhone;
     private readonly InputAction m_UI_ClosePhone;
-    private readonly InputAction m_UI_OpenTableCrafting;
-    private readonly InputAction m_UI_CloseTableCrafting;
     private readonly InputAction m_UI_OpenTrashCompactor;
     private readonly InputAction m_UI_CloseTrashCompactor;
     private readonly InputAction m_UI_OpenChest;
@@ -2085,14 +1976,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/ClosePhone".
         /// </summary>
         public InputAction @ClosePhone => m_Wrapper.m_UI_ClosePhone;
-        /// <summary>
-        /// Provides access to the underlying input action "UI/OpenTableCrafting".
-        /// </summary>
-        public InputAction @OpenTableCrafting => m_Wrapper.m_UI_OpenTableCrafting;
-        /// <summary>
-        /// Provides access to the underlying input action "UI/CloseTableCrafting".
-        /// </summary>
-        public InputAction @CloseTableCrafting => m_Wrapper.m_UI_CloseTableCrafting;
         /// <summary>
         /// Provides access to the underlying input action "UI/OpenTrashCompactor".
         /// </summary>
@@ -2217,12 +2100,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePhone.started += instance.OnClosePhone;
             @ClosePhone.performed += instance.OnClosePhone;
             @ClosePhone.canceled += instance.OnClosePhone;
-            @OpenTableCrafting.started += instance.OnOpenTableCrafting;
-            @OpenTableCrafting.performed += instance.OnOpenTableCrafting;
-            @OpenTableCrafting.canceled += instance.OnOpenTableCrafting;
-            @CloseTableCrafting.started += instance.OnCloseTableCrafting;
-            @CloseTableCrafting.performed += instance.OnCloseTableCrafting;
-            @CloseTableCrafting.canceled += instance.OnCloseTableCrafting;
             @OpenTrashCompactor.started += instance.OnOpenTrashCompactor;
             @OpenTrashCompactor.performed += instance.OnOpenTrashCompactor;
             @OpenTrashCompactor.canceled += instance.OnOpenTrashCompactor;
@@ -2315,12 +2192,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ClosePhone.started -= instance.OnClosePhone;
             @ClosePhone.performed -= instance.OnClosePhone;
             @ClosePhone.canceled -= instance.OnClosePhone;
-            @OpenTableCrafting.started -= instance.OnOpenTableCrafting;
-            @OpenTableCrafting.performed -= instance.OnOpenTableCrafting;
-            @OpenTableCrafting.canceled -= instance.OnOpenTableCrafting;
-            @CloseTableCrafting.started -= instance.OnCloseTableCrafting;
-            @CloseTableCrafting.performed -= instance.OnCloseTableCrafting;
-            @CloseTableCrafting.canceled -= instance.OnCloseTableCrafting;
             @OpenTrashCompactor.started -= instance.OnOpenTrashCompactor;
             @OpenTrashCompactor.performed -= instance.OnOpenTrashCompactor;
             @OpenTrashCompactor.canceled -= instance.OnOpenTrashCompactor;
@@ -2484,13 +2355,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Plant" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -2688,20 +2552,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClosePhone(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "OpenTableCrafting" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnOpenTableCrafting(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "CloseTableCrafting" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCloseTableCrafting(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "OpenTrashCompactor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
