@@ -76,10 +76,16 @@ public class PlacementManager : MonoBehaviour
     {
         if(LastObjSpawn != null)
         {
-            LastObjSpawn.transform.position = MouseManager.GetMousePosition();
+            LastObjSpawn.transform.position = MouseManager.GetMousePosition();          
             SpriteRenderer spriteRenderer = LastObjSpawn.GetComponent<SpriteRenderer>();
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f); 
-            if(plantManager.GetTerrainState(cellpos) == PlantManager.TerrainState.obstacle || CellOccupateObj.ContainsKey(cellpos))
+            BoxCollider2D collider = LastObjSpawn.GetComponent<BoxCollider2D>();
+            CircleCollider2D circleCollider = LastObjSpawn.GetComponent<CircleCollider2D>();
+            if (spriteRenderer == null) return; // Ensure spriteRenderer exists
+            if (collider == null || circleCollider == null) return; 
+            collider.enabled = false; // Disable collider for placement preview
+            circleCollider.enabled = false; // Disable circle collider for placement preview
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+            if (plantManager.GetTerrainState(cellpos) == PlantManager.TerrainState.obstacle || CellOccupateObj.ContainsKey(cellpos))
             {
                 spriteRenderer.color = new Color(1f, 0, 0, 0.5f);
             }

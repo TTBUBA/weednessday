@@ -1512,12 +1512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slootWeed: {fileID: 1210273616592823251}
-  SlootBattery: {fileID: 0}
+  SlootBattery: {fileID: 8407719005156248060}
   SlootWeedDried: {fileID: 5259460455293258202}
   TimeDesiccator: 1
   DesiccatorFull: {fileID: 3263843279208916186, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}
   DesiccatorEmpty: {fileID: 6608479266619400224, guid: 4ac9a381c58cec746b530374b5a5311a, type: 3}
-  PanelPacker: {fileID: 0}
+  PanelPacker: {fileID: 8463914910694851004}
   Button: {fileID: 1563452797918995755}
   Text_Button: {fileID: 1464823315699550265}
   PanelInventoryPlayer: {fileID: 5251324965285556412}
@@ -1526,8 +1526,6 @@ MonoBehaviour:
   ActiveLight: 0
   InCollision: 0
   canvas: {fileID: 3882997525050449255}
-  Butt_OpenDesiccator: {fileID: 1934964133097236588, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  Butt_CloseDesiccator: {fileID: 5082139555774423023, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   InventoryManager: {fileID: 0}
 --- !u!58 &3817318368972840782
 CircleCollider2D:
@@ -2048,7 +2046,7 @@ GameObject:
   - component: {fileID: 6456824253315369307}
   - component: {fileID: 8407719005156248060}
   m_Layer: 5
-  m_Name: Slot_Carbon
+  m_Name: Slot_Battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2314,7 +2312,7 @@ GameObject:
   - component: {fileID: 4114453246614390286}
   - component: {fileID: 8458419579372529258}
   m_Layer: 0
-  m_Name: Slot_TrashCompactor
+  m_Name: Slot_Dessicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

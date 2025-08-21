@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PackingStationWeed
   m_EditorClassIdentifier: 
   UtilityName: PackingStationWeed
-  SpaceOccupied: 2x1
-  SpaceOccupiedX: 1
-  SpaceOccupiedY: 1
+  SpaceOccupied: 2x2
+  SpaceOccupiedX: 2
+  SpaceOccupiedY: 2
   UtilityDescription: 
   IsPlaceable: 1
   UtilityID: 0

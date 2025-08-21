@@ -7,6 +7,7 @@ public class SmsManager : MonoBehaviour
     [SerializeField] private GameObject message;
     [SerializeField] private GameObject SmsPrefabs;
     [SerializeField] private Transform containerSms;
+    [SerializeField] private GameObject ContainerPanel;
 
     public AppSetting AppSetting;
     //create new sms and set the message text with placement object
@@ -30,5 +31,10 @@ public class SmsManager : MonoBehaviour
     {
         smsPanel.SetActive(true);
         message.SetActive(false);
+    }
+
+    public void CloseApp()
+    {
+        ContainerPanel.SetActive(false);
     }
 }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Packer
   m_EditorClassIdentifier: 
   UtilityName: packer
-  SpaceOccupied: 1x1
-  SpaceOccupiedX: 1
-  SpaceOccupiedY: 1
+  SpaceOccupied: 2x2
+  SpaceOccupiedX: 2
+  SpaceOccupiedY: 2
   UtilityDescription: Puoi trasformare la plastica triturata in buste di plastica
-  IsPlaceable: 0
+  IsPlaceable: 1
   UtilityID: 0
   Cost: 600
   UtilityIcon: {fileID: -1805323084, guid: e4ee5169a71013c4c8f31b5401938609, type: 3}

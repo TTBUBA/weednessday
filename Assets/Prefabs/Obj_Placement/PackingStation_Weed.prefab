@@ -1408,7 +1408,7 @@ Transform:
   m_GameObject: {fileID: 4123521381907256487}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.426, y: 0.371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1448,7 +1448,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.6098814, y: 0.6200533}
+  m_Offset: {x: 0.6098814, y: 0.26927662}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1458,7 +1458,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9240627, y: 0.8601742}
+  m_Size: {x: 1.9240627, y: 0.9240513}
   m_EdgeRadius: 0
 --- !u!1 &4426930617001634584
 GameObject:
@@ -1893,7 +1893,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.58373356, y: 0.7438612}
+  m_Offset: {x: 1.025228, y: 0.7681203}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1930,8 +1930,6 @@ MonoBehaviour:
   canvas: {fileID: 7506713694692157344}
   ButtonPacking: {fileID: 6712394090872070046}
   Text_Button: {fileID: 111292748502177710}
-  OpenPackingSystem: {fileID: 4695705448382933962, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  ClosePackingSystem: {fileID: -3798915045783355563, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   InventoryManager: {fileID: 0}
 --- !u!1 &5359609040106311742
 GameObject:

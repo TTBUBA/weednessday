@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UtilityName: Chest
   SpaceOccupied: 1x1
-  SpaceOccupiedX: 0
-  SpaceOccupiedY: 0
+  SpaceOccupiedX: 1
+  SpaceOccupiedY: 1
   UtilityDescription: La chest serve per conservare tutti gli oggetti che non entrano
     nello zaino
   IsPlaceable: 1

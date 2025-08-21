@@ -20,6 +20,9 @@ public class PhoneManager : MonoBehaviour
     public cycleDayNight cycleDayNight;
     public AppMessagingManager AppMessagingManager;
     public AppNews AppNews;
+    public SmsManager SmsManager;
+
+
     public void OpenPhone()
     {
         if (!PhoneEnabled)
@@ -43,6 +46,7 @@ public class PhoneManager : MonoBehaviour
         {
             AppMessagingManager.CloseApp();
             AppNews.CloseApp();
+            SmsManager.CloseApp();
             PhoneEnabled = false;
             foreach (var app in AppManagers)
             {

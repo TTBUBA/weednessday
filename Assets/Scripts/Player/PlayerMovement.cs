@@ -51,12 +51,23 @@ public class PlayerMovement : MonoBehaviour
             Vector3Int Direction = new Vector3Int((int)moveInput.x, (int)moveInput.y, 0);
             NextPosCell = CurrentPosCell + Direction;
             IsMoving = true;
+
+            if(IsCellWalkable(NextPosCell))
+            {
+                IsMoving = true;
+            }
+            else
+            {
+                moveInput = Vector2.zero;
+            }
         }
 
         if (IsMoving)
         {
             Vector3 targetPos = tilemapGround.GetCellCenterWorld(NextPosCell);
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+
+
 
             NextPosBox = NextPosCell;
             switch (direction)
@@ -87,10 +98,17 @@ public class PlayerMovement : MonoBehaviour
         animatorPlayer.SetBool("IsMoving", moveInput != Vector2.zero);
     }
 
+    private bool IsCellWalkable(Vector3Int cell)
+    {
+        //if (tilemapGround.HasTile(cell)) return false;
+
+        return true;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IsMoving = false;
-        transform.position = tilemapGround.GetCellCenterWorld(NextPosCell);
+        moveInput = Vector2.zero;
+        transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
     }
 
     private void UpdateCurrentDirection()   
