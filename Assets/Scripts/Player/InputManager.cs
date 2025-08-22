@@ -182,6 +182,11 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         }
     }
 
+    public void OnChangeSloot(InputAction.CallbackContext context)
+    {
+
+    }
+
 
     // Utility Panels
     public void OnOpenPanelUtilty(InputAction.CallbackContext context)

@@ -37,7 +37,7 @@ public class PackingWeedSystem : MonoBehaviour
         if (!IsOpen && InCollision)
         {
             IsOpen = true;
-
+            InventoryManager.ActiveInventory = false;
             foreach (var sloot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 if (!sloot.InUse)
@@ -55,6 +55,7 @@ public class PackingWeedSystem : MonoBehaviour
     {
         if (IsOpen && InCollision)
         {
+            InventoryManager.ActiveInventory = true;
             foreach (var sloot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 if (sloot.InUse)

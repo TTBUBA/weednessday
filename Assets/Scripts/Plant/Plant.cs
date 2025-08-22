@@ -21,6 +21,8 @@ public class Plant : MonoBehaviour
     {
         CurrentIndex = 0;
         FinishGrowth = false;
+        time = 0f;
+        TimeBase = 0f;
         GetComponent<SpriteRenderer>().sprite = null;
     }
     IEnumerator TimeGrowth()

@@ -41,7 +41,7 @@ public class Desiccator : MonoBehaviour
         if (!IsOpen && InCollision)
         {
             IsOpen = true;
-
+            InventoryManager.ActiveInventory = false;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 if (!slot.InUse)
@@ -61,7 +61,7 @@ public class Desiccator : MonoBehaviour
         if (IsOpen && InCollision)
         {
             IsOpen = false;
-
+            InventoryManager.ActiveInventory = true;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);

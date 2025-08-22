@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,7 +16,7 @@ public class InventoryManager : MonoBehaviour
     public SlootData CurrentSlotSelect;
     public SlootManager CurrentSlootManager;
     public int CurrentIndex;
-
+    public int PreviusIndex = -1;
 
     //ITEM DEBUG//
     public SlootData Seedweed;
@@ -26,10 +27,13 @@ public class InventoryManager : MonoBehaviour
     public SlootData baggie;
     public SlootData FirtKit;
     //=========//
+
     public bool isOpenInventory = false;
+    public bool ActiveInventory = true;
     public SlootManager draggedSlotController;
     public GameObject LastObjSelect;
     public GameObject currentSelectedObject;
+
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(slootManager[0].gameObject);
@@ -65,7 +69,42 @@ public class InventoryManager : MonoBehaviour
                 slootManager[prevIndex].AnimationSlotExit();
             }
         }
+
+        ChangeSlot();
     }
+
+    //change sloot when using number keyboard
+    public void ChangeSlot()
+    {
+        for(int i = 0; i < slootManager.Count; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                SetSloot(i);
+                return;
+            }
+        }
+    }
+
+    private void SetSloot(int index)
+    {
+        if (index < 0 || index >= slootManager.Count) return;
+
+
+
+        if (PreviusIndex != -1 && PreviusIndex < slootManager.Count)
+        {
+            slootManager[PreviusIndex].AnimationSlotExit();
+        }
+
+        CurrentIndex = index;
+        CurrentSlootManager = slootManager[index];
+        CurrentSlotSelect = CurrentSlootManager.slootData;
+
+        CurrentSlootManager.AnimationSlotEnter();
+        PreviusIndex = index;
+    }
+
     //Debugging method to test adding items
     public void Test()
     {

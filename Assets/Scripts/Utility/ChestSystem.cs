@@ -47,6 +47,7 @@ public class ChestSystem : MonoBehaviour
     {
         if (!IsOpen && Iscollision)
         {
+            InventoryManager.ActiveInventory = false;// disable inventory when open chest
             IsOpen = true;
             PanelSloot.SetActive(true);
             text_panel.text = "Press 'Q'";
@@ -104,6 +105,7 @@ public class ChestSystem : MonoBehaviour
     {
         if (IsOpen && Iscollision)
         {
+            InventoryManager.ActiveInventory = true;// active inventory when close chest
             IsOpen = false;
             PanelSloot.SetActive(false);
             text_panel.text = "Press 'E'";

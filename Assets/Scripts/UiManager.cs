@@ -50,14 +50,14 @@ public class UiManager : MonoBehaviour
     }
     public void OpenPanelInventory()
     {
+        if (!inventoryManager.ActiveInventory) { return; }
         Panel_Inventory.SetActive(true); 
         inventoryManager.isOpenInventory = true;
         Butt_ClosePanelInventory.SetActive(true);
-
     }
-
     public void ClosePanelInventory()
     {
+        if (!inventoryManager.ActiveInventory) { return; }
         Panel_Inventory.SetActive(false);
         inventoryManager.isOpenInventory = false;
         Butt_ClosePanelInventory.SetActive(false);
@@ -72,6 +72,7 @@ public class UiManager : MonoBehaviour
         placementManager.CurrentplaceableObject = null;
         Destroy(placementManager.LastObjSpawn);
         placementManager.LastObjSpawn = null;
+        inventoryManager.ActiveInventory = false;
     }
     public void ClosePanelUtilty()
     {
@@ -83,6 +84,7 @@ public class UiManager : MonoBehaviour
         placementManager.IsPlacementActive = false;
         Destroy(placementManager.LastObjSpawn);
         placementManager.LastObjSpawn = null;
+        inventoryManager.ActiveInventory = true;
     }
     private void UiInventory()
     {

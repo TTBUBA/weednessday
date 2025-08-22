@@ -42,7 +42,7 @@ public class PackerSystem : MonoBehaviour
         if (!IsOpen && InCollision)
         {
             IsOpen = true;
-
+            InventoryManager.ActiveInventory = false;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 if (!slot.InUse)
@@ -62,7 +62,7 @@ public class PackerSystem : MonoBehaviour
         if (IsOpen && InCollision)
         {
             IsOpen = false;
-
+            InventoryManager.ActiveInventory = true;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);
@@ -96,7 +96,7 @@ public class PackerSystem : MonoBehaviour
 
     public void ButtWithonpacker()
     {
-        if (SlootZiploc.CurrentStorage >= 1 && slootPlastic.slootData.NameTools == "plastic" && SlootBattery.slootData.NameTools == "battery")
+        if (SlootZiploc.CurrentStorage >= 1 && slootPlastic.slootData.NameTools == "trash" && SlootBattery.slootData.NameTools == "battery")
         {
             InventoryManager.AddItem(SlootZiploc.slootData, SlootZiploc.CurrentStorage);
             SlootZiploc.CurrentStorage = 0;

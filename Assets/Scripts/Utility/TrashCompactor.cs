@@ -64,7 +64,7 @@ public class TrashCompactor : MonoBehaviour
         if (!IsOpen && InCollision) 
         {
             IsOpen = true;
-
+            InventoryManager.ActiveInventory = false;
 
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
@@ -102,7 +102,7 @@ public class TrashCompactor : MonoBehaviour
         if (IsOpen && InCollision) 
         {
             IsOpen = false;
-
+            InventoryManager.ActiveInventory = true;
             foreach (var slot in InventoryManager.slootManager.Skip(5).ToList())
             {
                 slot.transform.SetParent(InventoryManager.PanelInventory.transform, false);

@@ -115,6 +115,7 @@ public class PlantManager : MonoBehaviour
                 plant.GetComponent<Plant>().GrowthPlant(); 
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
+                Debug.Log(GetTerrainState(cellPos));
 
             }
             else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
@@ -139,10 +140,9 @@ public class PlantManager : MonoBehaviour
             plant.GetComponent<Plant>().ResetPlant();
             CellOccupate[cellPos] = new WeedData
             {
-                StateTerrain = TerrainState.None
+                StateTerrain = TerrainState.Dry
             };
-            CellOccupate.Remove(cellPos);
-            tilemapGround.SetTile(cellPos, WetTile);
+            tilemapGround.SetTile(cellPos, DryTile);
         }
     }
 

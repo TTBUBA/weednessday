@@ -52,6 +52,7 @@ public class  WellSystem : MonoBehaviour
     {
         if (IsCollision)
         {
+            InventoryManager.ActiveInventory = false; // Disable inventory when the well panel is open
             PanelBarWater.SetActive(true);
             Text_Button.text = "Close Q";
         }
@@ -61,6 +62,7 @@ public class  WellSystem : MonoBehaviour
     {
         if (IsCollision)
         {
+            InventoryManager.ActiveInventory = true; // Disable inventory when the well panel is open
             ButtOpenPanelWater.SetActive(false);
             PanelBarWater.SetActive(false);
             Text_Button.text = "Open E";
