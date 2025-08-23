@@ -28,7 +28,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             InventoryManager.Instance.CurrentSlotSelect = slootData;
             InventoryManager.Instance.CurrentSlootManager = this;
             InventoryManager.Instance.CurrentIndex = Index;
-            InventoryManager.Instance.currentSelectedObject = gameObject;
+            Gun.Instance.currentGun = slootData.gunData;
             AnimationSlotEnter();
         }
     }

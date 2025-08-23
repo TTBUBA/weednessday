@@ -29,7 +29,7 @@ public class PlantManager : MonoBehaviour
 
 
     public int MultiplyTime;
-    public Plant plant; 
+    public Plant plant;
     public Dictionary<Vector3Int, WeedData> CellOccupate = new Dictionary<Vector3Int, WeedData>();
     public List<Plant> PlantsCreate = new List<Plant>();
 
@@ -49,10 +49,10 @@ public class PlantManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this; 
+        Instance = this;
 
-        BoundsInt bounds = tilemapGround.cellBounds;    
-        for(int x = bounds.xMin; x < bounds.xMax; x++)
+        BoundsInt bounds = tilemapGround.cellBounds;
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
             for (int y = bounds.yMin; y < bounds.yMax; y++)
             {
@@ -72,14 +72,14 @@ public class PlantManager : MonoBehaviour
 
     private void Update()
     {
-        foreach(var plant in PlantsCreate)
+        foreach (var plant in PlantsCreate)
         {
             Vector3Int CurrentCellPos = tilemapGround.WorldToCell(plant.transform.position);
 
             if (GetTerrainState(CurrentCellPos) == TerrainState.wet && !plant.IsWet)
             {
-               plant.time = plant.TimeBase / 2f;
-               plant.IsWet = true; 
+                plant.time = plant.TimeBase / 2f;
+                plant.IsWet = true;
             }
             else if (GetTerrainState(CurrentCellPos) == TerrainState.Dry && plant.IsWet)
             {
@@ -99,7 +99,7 @@ public class PlantManager : MonoBehaviour
 
     public void Plant()
     {
-        if(!PlacementManager.Instance.DrawModeActive && !placementManager.CellOccupateObj.ContainsKey(cellPos))
+        if (!PlacementManager.Instance.DrawModeActive && !placementManager.CellOccupateObj.ContainsKey(cellPos))
         {
             var Inventory = InventoryManager.Instance.CurrentSlotSelect;
             var slotmanager = InventoryManager.Instance.CurrentSlootManager;
@@ -107,23 +107,23 @@ public class PlantManager : MonoBehaviour
             if (!ActivePlant) return;
 
             // Check if the terrain is dry before planting
-            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
+            if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
                 InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(20f, 40f);
                 plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant(); 
+                plant.GetComponent<Plant>().GrowthPlant();
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
                 Debug.Log(GetTerrainState(cellPos));
 
             }
-            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 1)
+            else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
                 InventoryManager.RemoveSeedWeed();
                 float Time = Random.Range(5f, 10f);
                 plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant(); 
+                plant.GetComponent<Plant>().GrowthPlant();
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
             }
@@ -150,7 +150,7 @@ public class PlantManager : MonoBehaviour
     public void HoeTerrain()
     {
         if (!ActivePlant) { return; }
-        if (!plant) { return; } 
+        if (!plant) { return; }
         if (InventoryManager.Instance.CurrentSlotSelect.NameTools == "Shovel" && GetTerrainState(cellPos) == TerrainState.None)
         {
             tilemapGround.SetTile(cellPos, DryTile);

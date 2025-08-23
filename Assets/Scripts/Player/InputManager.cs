@@ -20,6 +20,9 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public BedBehaviur BedBehaviour;
     public EffectFirtsKit EffectFirtsKit;
     public NpcManager NpcManager;
+    public Gun Gun;
+
+
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -55,6 +58,17 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
             CurrentObject = null;
         }
     }
+
+    //========Input Player========//
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Gun.Shoot();
+        }
+    }
+
+
     // Placement
     public void OnPlacementObjet(InputAction.CallbackContext context)
     {
@@ -384,4 +398,5 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
             NpcManager.ClosePanelNpc();
         }
     }
+
 }

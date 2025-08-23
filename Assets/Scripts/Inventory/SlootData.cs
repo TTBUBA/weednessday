@@ -11,7 +11,7 @@ public class SlootData : ScriptableObject
     public int ToolsID;
     public int MaxStorage;
     public ItemType itemType;
-
+    public GunData gunData; // Reference to GunData if this SlootData is a gun
 }
 
 public enum ItemType
