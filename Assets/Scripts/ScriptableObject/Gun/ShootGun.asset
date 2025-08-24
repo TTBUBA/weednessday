@@ -15,8 +15,10 @@ MonoBehaviour:
   SlootData: {fileID: 11400000, guid: 0c1754d73f223f142b2a74443fb7594f, type: 2}
   NameGun: ShootGun
   icon: {fileID: -8128018368595608653, guid: d131fed6c43bf80438a5891478edf26f, type: 3}
-  MaxAmmo: 999
+  MaxRange: 10
+  MaxAmmo: 8
   currentAmmo: 0
+  ReloadTime: 0.4
   FireRate: 1.2
   ShootAnimation: {fileID: 7400000, guid: f56e341dffd840240a9359ac9f72fb18, type: 2}
   soundShoot: {fileID: 8300000, guid: baf91b62f8a8e8f46ac64504506d20fa, type: 3}

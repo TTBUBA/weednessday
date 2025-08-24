@@ -77,14 +77,14 @@ public class PlayerMovement : MonoBehaviour
                     break;
                 case Direction.right:
                     NextPosBox += new Vector3Int(1, 0, 0);
-                    transform.localScale = new Vector3(1, 1, 1); 
+                    //transform.localScale = new Vector3(1, 1, 1); 
                     break;
                 case Direction.down:
                     NextPosBox += new Vector3Int(0, -1, 0);
                     break;
                 case Direction.left:
                     NextPosBox += new Vector3Int(-1, 0, 0);
-                    transform.localScale = new Vector3(-1, 1, 1); 
+                    //transform.localScale = new Vector3(-1, 1, 1); 
                     break;
             }
 

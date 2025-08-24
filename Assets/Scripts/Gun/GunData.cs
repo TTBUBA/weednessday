@@ -7,8 +7,10 @@ public class GunData : ScriptableObject
     public SlootData SlootData;
     public string NameGun;
     public Sprite icon;
+    public float MaxRange;
     public int MaxAmmo;
     public int currentAmmo;
+    public float ReloadTime;
     public float FireRate;
     public AnimationClip ShootAnimation;
     public AudioResource soundShoot;

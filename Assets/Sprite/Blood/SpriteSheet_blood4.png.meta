@@ -1,67 +1,49 @@
 fileFormatVersion: 2
-guid: 193a70a9cac51be4fa2135255e19ed82
+guid: 42a3211d9dd934d4a9f2ef4510911946
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4926808636134849640
-    second: shotgun1-Sheet_0
+      213: -8406278906388915010
+    second: 4_100x100px_0
   - first:
-      213: 1148113755553035655
-    second: shotgun1-Sheet_1
+      213: -973527765333764698
+    second: 4_100x100px_1
   - first:
-      213: -6030357019131013507
-    second: shotgun1-Sheet_2
+      213: 1636502311795987730
+    second: 4_100x100px_2
   - first:
-      213: 4474125106245383883
-    second: shotgun1-Sheet_3
+      213: -287466838608317732
+    second: 4_100x100px_3
   - first:
-      213: -1451602806442532209
-    second: shotgun1-Sheet_4
+      213: 1287104513675345706
+    second: 4_100x100px_4
   - first:
-      213: 495192150736745791
-    second: shotgun1-Sheet_5
+      213: 881338932496070425
+    second: 4_100x100px_5
   - first:
-      213: -6034717046932544384
-    second: shotgun1-Sheet_6
+      213: -608373657415601673
+    second: 4_100x100px_6
   - first:
-      213: 4739688541075596799
-    second: shotgun1-Sheet_7
+      213: -3916951328503331570
+    second: 4_100x100px_7
   - first:
-      213: -2231248703444537179
-    second: shotgun1-Sheet_8
+      213: -8570171930610217649
+    second: 4_100x100px_8
   - first:
-      213: -8914321923085898478
-    second: shotgun1-Sheet_9
+      213: 8784566908582201722
+    second: 4_100x100px_9
   - first:
-      213: 8206055512529890453
-    second: shotgun1-Sheet_10
+      213: -5483521024900349325
+    second: 4_100x100px_10
   - first:
-      213: 8377854939861823889
-    second: shotgun1-Sheet_11
+      213: -1466245893449506310
+    second: 4_100x100px_11
   - first:
-      213: 716324525105003462
-    second: shotgun1-Sheet_12
+      213: 49387746319543070
+    second: 4_100x100px_12
   - first:
-      213: -5049714763534415604
-    second: shotgun1-Sheet_13
-  - first:
-      213: 8639620990306742678
-    second: shotgun1-Sheet_14
-  - first:
-      213: -1040373658299356897
-    second: shotgun1-Sheet_15
-  - first:
-      213: 6979076479483744427
-    second: shotgun1-Sheet_16
-  - first:
-      213: 3347432093039617478
-    second: shotgun1-Sheet_17
-  - first:
-      213: -2846433228783591076
-    second: shotgun1-Sheet_18
-  - first:
-      213: 8463254151287935970
-    second: shotgun1-Sheet_19
+      213: 8997466619120606522
+    second: 4_100x100px_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -170,353 +152,309 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shotgun1-Sheet_0
+      name: 4_100x100px_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 78
-        width: 33
+        x: 41
+        y: 549
+        width: 12
         height: 12
-      alignment: 9
-      pivot: {x: 0.0449515, y: 0.545063}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86cf429e95a8f5440800000000000000
-      internalID: 4926808636134849640
+      spriteID: ebc54dd7fd5e65b80800000000000000
+      internalID: -8406278906388915010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun1-Sheet_1
+      name: 4_100x100px_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 53
-        width: 43
-        height: 14
-      alignment: 9
-      pivot: {x: 0.032756563, y: 0.45543125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7857a71b06beeef00800000000000000
-      internalID: 1148113755553035655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 55
-        width: 43
-        height: 18
-      alignment: 9
-      pivot: {x: 0.03469139, y: 0.30587938}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d7699e5cd3edf4ca0800000000000000
-      internalID: -6030357019131013507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 54
-        width: 45
-        height: 18
-      alignment: 9
-      pivot: {x: 0.03411085, y: 0.30819023}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f82680f30fedadbe0800000000000000
-      internalID: -1451602806442532209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 51
-        width: 46
-        height: 18
-      alignment: 9
-      pivot: {x: 0.030845974, y: 0.35353768}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0846791b1d0604ca0800000000000000
-      internalID: -6034717046932544384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 52
-        width: 47
-        height: 16
-      alignment: 9
-      pivot: {x: 0.031696726, y: 0.41186714}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a033a930230901e0800000000000000
-      internalID: -2231248703444537179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 27
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.04482061, y: 0.52043694}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 59cea77d204c1e170800000000000000
-      internalID: 8206055512529890453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 27
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.046678483, y: 0.52043694}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19137361eae144470800000000000000
-      internalID: 8377854939861823889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 27
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.04482061, y: 0.5357644}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6cbb8ce3c55e0f900800000000000000
-      internalID: 716324525105003462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 28
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.04482061, y: 0.5255458}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c094c765d2fcbe9b0800000000000000
-      internalID: -5049714763534415604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 28
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.04482015, y: 0.54598236}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 691fd39148916e770800000000000000
-      internalID: 8639620990306742678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun1-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 2
-        width: 33
+        x: 141
+        y: 549
+        width: 12
         height: 13
-      alignment: 9
-      pivot: {x: 0.044820525, y: 0.5707425}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f19a46f7ba9df81f0800000000000000
-      internalID: -1040373658299356897
+      spriteID: 6a51d48c7a55d72f0800000000000000
+      internalID: -973527765333764698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun1-Sheet_16
+      name: 4_100x100px_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 3
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.046678483, y: 0.54087347}
+        x: 240
+        y: 444
+        width: 16
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba099e3d419aad060800000000000000
-      internalID: 6979076479483744427
+      spriteID: 21594b89e2606b610800000000000000
+      internalID: 1636502311795987730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun1-Sheet_17
+      name: 4_100x100px_3
       rect:
         serializedVersion: 2
-        x: 136
-        y: 4
-        width: 33
-        height: 13
-      alignment: 9
-      pivot: {x: 0.046678483, y: 0.49056816}
+        x: 340
+        y: 347
+        width: 16
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c56e5fc0c7747e20800000000000000
-      internalID: 3347432093039617478
+      spriteID: cd2fb00fe66b20cf0800000000000000
+      internalID: -287466838608317732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun1-Sheet_18
+      name: 4_100x100px_4
       rect:
         serializedVersion: 2
-        x: 200
-        y: 3
-        width: 33
-        height: 13
-      alignment: 9
-      pivot: {x: 0.04482015, y: 0.50000006}
+        x: 440
+        y: 443
+        width: 16
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c516c793f007f78d0800000000000000
-      internalID: -2846433228783591076
+      spriteID: a2fbb6e5cb6bcd110800000000000000
+      internalID: 1287104513675345706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun1-Sheet_19
+      name: 4_100x100px_5
       rect:
         serializedVersion: 2
-        x: 264
-        y: 3
-        width: 33
-        height: 12
-      alignment: 9
-      pivot: {x: 0.04482015, y: 0.525546}
+        x: 540
+        y: 553
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e31e537fc4837570800000000000000
-      internalID: 8463254151287935970
+      spriteID: 917762ee6152b3c00800000000000000
+      internalID: 881338932496070425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_6
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 442
+        width: 16
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1b903c16f9e87f0800000000000000
+      internalID: -608373657415601673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_7
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 551
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e058016058134a9c0800000000000000
+      internalID: -3916951328503331570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 453
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d44fb2902a01980800000000000000
+      internalID: -8570171930610217649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_9
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 353
+        width: 17
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7981bb8f0d09e970800000000000000
+      internalID: 8784566908582201722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 451
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372cd684eae96e3b0800000000000000
+      internalID: -5483521024900349325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_11
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 451
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1219fd029d6abe0800000000000000
+      internalID: -1466245893449506310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 445
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b22a3c4e57fa000800000000000000
+      internalID: 49387746319543070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_100x100px_13
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 150
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d5e1f283c6ddc70800000000000000
+      internalID: 8997466619120606522
       vertices: []
       indices: 
       edges: []
@@ -525,7 +463,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c8b95a3904b2d4248870620124f7d593
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -535,26 +473,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      shotgun1-Sheet_0: 4926808636134849640
-      shotgun1-Sheet_1: 1148113755553035655
-      shotgun1-Sheet_10: 8206055512529890453
-      shotgun1-Sheet_11: 8377854939861823889
-      shotgun1-Sheet_12: 716324525105003462
-      shotgun1-Sheet_13: -5049714763534415604
-      shotgun1-Sheet_14: 8639620990306742678
-      shotgun1-Sheet_15: -1040373658299356897
-      shotgun1-Sheet_16: 6979076479483744427
-      shotgun1-Sheet_17: 3347432093039617478
-      shotgun1-Sheet_18: -2846433228783591076
-      shotgun1-Sheet_19: 8463254151287935970
-      shotgun1-Sheet_2: -6030357019131013507
-      shotgun1-Sheet_3: 4474125106245383883
-      shotgun1-Sheet_4: -1451602806442532209
-      shotgun1-Sheet_5: 495192150736745791
-      shotgun1-Sheet_6: -6034717046932544384
-      shotgun1-Sheet_7: 4739688541075596799
-      shotgun1-Sheet_8: -2231248703444537179
-      shotgun1-Sheet_9: -8914321923085898478
+      4_100x100px_0: -8406278906388915010
+      4_100x100px_1: -973527765333764698
+      4_100x100px_10: -5483521024900349325
+      4_100x100px_11: -1466245893449506310
+      4_100x100px_12: 49387746319543070
+      4_100x100px_13: 8997466619120606522
+      4_100x100px_2: 1636502311795987730
+      4_100x100px_3: -287466838608317732
+      4_100x100px_4: 1287104513675345706
+      4_100x100px_5: 881338932496070425
+      4_100x100px_6: -608373657415601673
+      4_100x100px_7: -3916951328503331570
+      4_100x100px_8: -8570171930610217649
+      4_100x100px_9: 8784566908582201722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
