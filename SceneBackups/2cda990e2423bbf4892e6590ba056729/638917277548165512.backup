@@ -42846,7 +42846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a3fd2b8c76a64bac18ab0fa5b9942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slootData: {fileID: 11400000, guid: ca9ddca6579683a4e95fe82e1a45445e, type: 2}
+  slootData: {fileID: 11400000, guid: 0c1754d73f223f142b2a74443fb7594f, type: 2}
   CurrentStorage: 0
   StorageFull: 0
   iconTools: {fileID: 12664851}
@@ -68449,7 +68449,7 @@ MonoBehaviour:
   blood: {fileID: 3102603249858752609, guid: c16e8375b9daa18448712bcbffa5ceec, type: 3}
   snappedAngle: 0
   CurrentAmmo: 0
-  CurrentAmmoloader: 100
+  CurrentAmmoloader: 8
   gunIcon: {fileID: 1442723715}
   textAmmo: {fileID: 783536578}
   InventoryManager: {fileID: 579743082}

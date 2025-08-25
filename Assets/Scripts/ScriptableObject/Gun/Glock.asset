@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc34f99758fdb546aa914151657dde8, type: 3}
+  m_Name: Glock
+  m_EditorClassIdentifier: 
+  SlootData: {fileID: 11400000, guid: ca9ddca6579683a4e95fe82e1a45445e, type: 2}
+  NameGun: glock
+  NameAmmo: Ammo glock
+  icon: {fileID: 33959761, guid: d131fed6c43bf80438a5891478edf26f, type: 3}
+  MaxRange: 25
+  MaxAmmo: 12
+  currentAmmo: 0
+  ReloadTime: 0.2
+  FireRate: 0.8
+  ShootAnimation: {fileID: 7400000, guid: d466f2e0f28e7964495d3391f0fdb90a, type: 2}
+  soundShoot: {fileID: 8300000, guid: c66c1020762fa7f44b722f94527f209a, type: 3}

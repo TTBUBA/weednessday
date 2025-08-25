@@ -6,6 +6,7 @@ public class GunData : ScriptableObject
 {
     public SlootData SlootData;
     public string NameGun;
+    public string NameAmmo;
     public Sprite icon;
     public float MaxRange;
     public int MaxAmmo;

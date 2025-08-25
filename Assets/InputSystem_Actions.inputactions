@@ -175,6 +175,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ReloadGun",
+                    "type": "Button",
+                    "id": "dae88d3a-3906-41df-a9c8-81724d063aef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -672,6 +681,17 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79df2751-87d5-4199-853f-6921ff9eb90d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReloadGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1059,7 +1079,7 @@
                 {
                     "name": "",
                     "id": "9769aa07-ee50-493d-80d3-0909205f6c3f",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

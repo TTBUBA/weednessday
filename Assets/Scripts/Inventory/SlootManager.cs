@@ -16,6 +16,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private Vector3 iconOriginalPosition;
     private bool isDragging = false;
     private EventSystem eventSystem;
+
     private void Awake()
     {
         UpdateSlot();
@@ -28,8 +29,15 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             InventoryManager.Instance.CurrentSlotSelect = slootData;
             InventoryManager.Instance.CurrentSlootManager = this;
             InventoryManager.Instance.CurrentIndex = Index;
-            Gun.Instance.currentGun = slootData.gunData;
-            AnimationSlotEnter();
+            if(slootData != null && slootData.NameTools == "gun")
+            {
+                Gun.Instance.currentGun = slootData.gunData;
+            }
+            else
+            {
+                Gun.Instance.currentGun = null;
+            }
+                AnimationSlotEnter();
         }
     }
 

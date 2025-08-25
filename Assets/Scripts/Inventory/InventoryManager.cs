@@ -26,6 +26,7 @@ public class InventoryManager : MonoBehaviour
     public SlootData Battery;
     public SlootData baggie;
     public SlootData FirtKit;
+    public SlootData AmmoShooGun;
     //=========//
 
     public bool isOpenInventory = false;
@@ -110,6 +111,12 @@ public class InventoryManager : MonoBehaviour
     {
         AddItem(Seedweed, 1);
     }
+
+    public void AddAmmoShootGun()
+    {
+        AddItem(AmmoShooGun, AmmoShooGun.MaxStorage);
+    }
+
     public void Addweed()
     {
         AddItem(weed, weed.MaxStorage);

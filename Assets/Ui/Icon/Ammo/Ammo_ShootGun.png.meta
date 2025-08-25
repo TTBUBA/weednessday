@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: d131fed6c43bf80438a5891478edf26f
+guid: 3cfaaba365506eb44955534e306fc759
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8128018368595608653
-    second: Icon_Gun_0
+      213: 4605002285479254416
+    second: Amo2_0
   - first:
-      213: -2860214499024728137
-    second: Icon_Gun_1
+      213: -2442609720915938159
+    second: Amo2_1
+  - first:
+      213: 8246889544569101246
+    second: Amo2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,67 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_Gun_0
+      name: Amo2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 115
-        width: 31
-        height: 10
-      alignment: 9
-      pivot: {x: 0.020442186, y: 0.5150673}
+        x: 4
+        y: 6
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bb320c9b5a733f80800000000000000
-      internalID: -8128018368595608653
+      spriteID: 0995ad72e2148ef30800000000000000
+      internalID: 4605002285479254416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon_Gun_1
+      name: Amo2_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 117
-        width: 31
+        x: 14
+        y: 3
+        width: 9
         height: 9
-      alignment: 9
-      pivot: {x: 0.023682501, y: 0.3549084}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bf8534311a7e48d0800000000000000
-      internalID: -2860214499024728137
+      spriteID: 194b3eb766b1a1ed0800000000000000
+      internalID: -2442609720915938159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon_Gun_2
+      name: Amo2_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 112
-        width: 14
-        height: 10
-      alignment: 9
-      pivot: {x: -0.5, y: 0}
+        x: 22
+        y: 5
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8d12b88315b616146a17775121badfc3
-      internalID: 33959761
+      spriteID: ebb9cedc856d27270800000000000000
+      internalID: 8246889544569101246
       vertices: []
       indices: 
       edges: []
@@ -185,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e9ca86162842ba4ca802b2d88a4a96b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -193,13 +196,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Icon_Gun_0: -8128018368595608653
-      Icon_Gun_1: -2860214499024728137
-      Icon_Gun_2: 33959761
+      Amo2_0: 4605002285479254416
+      Amo2_1: -2442609720915938159
+      Amo2_2: 8246889544569101246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

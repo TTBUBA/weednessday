@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ShootGun
   m_EditorClassIdentifier: 
   SlootData: {fileID: 11400000, guid: 0c1754d73f223f142b2a74443fb7594f, type: 2}
-  NameGun: ShootGun
+  NameGun: shootgun
+  NameAmmo: Ammo shootgun
   icon: {fileID: -8128018368595608653, guid: d131fed6c43bf80438a5891478edf26f, type: 3}
   MaxRange: 10
   MaxAmmo: 8

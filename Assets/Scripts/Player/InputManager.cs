@@ -68,6 +68,11 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
         }
     }
 
+    public void OnReloadGun(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
+
 
     // Placement
     public void OnPlacementObjet(InputAction.CallbackContext context)
@@ -398,5 +403,4 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
             NpcManager.ClosePanelNpc();
         }
     }
-
 }

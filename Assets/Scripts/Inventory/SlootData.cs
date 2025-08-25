@@ -8,7 +8,6 @@ public class SlootData : ScriptableObject
 {
     public string NameTools;
     public Sprite ToolsImages;
-    public int ToolsID;
     public int MaxStorage;
     public ItemType itemType;
     public GunData gunData; // Reference to GunData if this SlootData is a gun

@@ -1,13 +1,31 @@
 fileFormatVersion: 2
-guid: d131fed6c43bf80438a5891478edf26f
+guid: a882e7998fa00a349b59a09b225b3f82
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8128018368595608653
-    second: Icon_Gun_0
+      213: -387115749769769184
+    second: SpriteSheet_Glock_0
   - first:
-      213: -2860214499024728137
-    second: Icon_Gun_1
+      213: 4846354333168875112
+    second: SpriteSheet_Glock_1
+  - first:
+      213: -652615190097437519
+    second: SpriteSheet_Glock_2
+  - first:
+      213: 7837487373359828579
+    second: SpriteSheet_Glock_3
+  - first:
+      213: 3420790683616648347
+    second: SpriteSheet_Glock_4
+  - first:
+      213: -3319492579863793759
+    second: SpriteSheet_Glock_5
+  - first:
+      213: -3057246224688230903
+    second: SpriteSheet_Glock_6
+  - first:
+      213: -2407167625233564519
+    second: SpriteSheet_Glock_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,67 +134,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_Gun_0
+      name: SpriteSheet_Glock_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 115
-        width: 31
-        height: 10
+        y: 47
+        width: 16
+        height: 17
       alignment: 9
-      pivot: {x: 0.020442186, y: 0.5150673}
+      pivot: {x: -0.2, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bb320c9b5a733f80800000000000000
-      internalID: -8128018368595608653
+      spriteID: 02f8300d640b0aaf0800000000000000
+      internalID: -387115749769769184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon_Gun_1
+      name: SpriteSheet_Glock_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 117
-        width: 31
-        height: 9
+        x: 17
+        y: 47
+        width: 28
+        height: 17
       alignment: 9
-      pivot: {x: 0.023682501, y: 0.3549084}
+      pivot: {x: -0.2, y: 0.20458962}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bf8534311a7e48d0800000000000000
-      internalID: -2860214499024728137
+      spriteID: 866b434c695b14340800000000000000
+      internalID: 4846354333168875112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icon_Gun_2
+      name: SpriteSheet_Glock_3
       rect:
         serializedVersion: 2
-        x: 66
-        y: 112
-        width: 14
-        height: 10
+        x: 48
+        y: 47
+        width: 29
+        height: 17
       alignment: 9
-      pivot: {x: -0.5, y: 0}
+      pivot: {x: -0.2, y: 0.26195773}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8d12b88315b616146a17775121badfc3
-      internalID: 33959761
+      spriteID: 36ec8b4cd3954cc60800000000000000
+      internalID: 7837487373359828579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Glock_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 47
+        width: 29
+        height: 17
+      alignment: 9
+      pivot: {x: -0.2, y: 0.19541079}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af6ca6061bcee1d0800000000000000
+      internalID: -3319492579863793759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_Glock_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 47
+        width: 31
+        height: 17
+      alignment: 9
+      pivot: {x: -0.2, y: 0.16063084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99cf12f6cc5089ed0800000000000000
+      internalID: -2407167625233564519
       vertices: []
       indices: 
       edges: []
@@ -185,7 +247,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e9ca86162842ba4ca802b2d88a4a96b
+    spriteID: dd5f881c2f1c87f4d82678652186c8cd
     internalID: 0
     vertices: []
     indices: 
@@ -193,13 +255,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Icon_Gun_0: -8128018368595608653
-      Icon_Gun_1: -2860214499024728137
-      Icon_Gun_2: 33959761
+      SpriteSheet_Glock_0: -387115749769769184
+      SpriteSheet_Glock_1: 4846354333168875112
+      SpriteSheet_Glock_2: -652615190097437519
+      SpriteSheet_Glock_3: 7837487373359828579
+      SpriteSheet_Glock_4: 3420790683616648347
+      SpriteSheet_Glock_5: -3319492579863793759
+      SpriteSheet_Glock_6: -3057246224688230903
+      SpriteSheet_Glock_7: -2407167625233564519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

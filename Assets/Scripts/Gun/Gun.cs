@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,16 +10,17 @@ public class Gun : MonoBehaviour
 
     [Header("Gun Settings")]
     public GunData currentGun;
+    public GunData previousGun;
     [SerializeField] private Transform gun;
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] private bool ActiveShoot;
     [SerializeField] private bool Iscollision;
     [SerializeField] private AudioSource soundShoot;
     [SerializeField] private Transform PointSpawnBullet;
     [SerializeField] private GameObject blood;
     [SerializeField] private float snappedAngle;
-    [SerializeField] private int CurrentAmmo;
-    [SerializeField] private int CurrentAmmoloader;
+    [SerializeField] public int CurrentAmmo;
+    [SerializeField] public int CurrentAmmoloader;
 
 
     [Header("Ui")]
@@ -43,24 +45,69 @@ public class Gun : MonoBehaviour
         if ((InventoryManager.CurrentSlotSelect != null && InventoryManager.CurrentSlotSelect.NameTools == "gun"))
         {
             gunIcon.enabled = true;
-            gunIcon.sprite = currentGun.icon;
+
+            if (previousGun != null && previousGun != currentGun)
+            {
+                animator.SetBool(previousGun.NameGun + "Idle", false);
+            }
+
+            animator.SetBool(currentGun.NameGun + "Idle", true);
             TrackerMouse();
             textAmmo.gameObject.SetActive(true);
-            textAmmo.text = $"{CurrentAmmoloader}/{CurrentAmmo}";
+            int totalAmmo = GetTotalAmmoInInventory();
+            textAmmo.text = $"{CurrentAmmoloader}/{totalAmmo}";
+            previousGun = currentGun; 
+
         }
         else
         {
             gunIcon.enabled = false;
             textAmmo.gameObject.SetActive(false);
+            animator.SetTrigger("Idle");
+            previousGun = null;
         }
     }
 
+    public int GetTotalAmmoInInventory()
+    {
+        CurrentAmmo = 0;
+        foreach (var ammo in InventoryManager.slootManager)
+        {
+            if (ammo.slootData != null && ammo.slootData.NameTools == currentGun.NameAmmo)
+            {
+                CurrentAmmo += ammo.CurrentStorage;
+                ammo.UpdateSlot();
+            }
+        }
+        return CurrentAmmo;
+    }
+
+    public void RemoveAmmoFromInventory(int total)
+    {
+        foreach (var ammo in InventoryManager.slootManager)
+        {
+            if (ammo.slootData != null && ammo.slootData.NameTools == currentGun.NameAmmo && ammo.CurrentStorage > 0)
+            {
+                int toRemove = Mathf.Min(total, ammo.CurrentStorage);
+                ammo.CurrentStorage -= toRemove;
+                ammo.UpdateSlot();
+                total -= toRemove;
+                if (total <= 0) break;
+                if(ammo.CurrentStorage <= 0)
+                {
+                    ammo.slootData = null;
+                    ammo.UpdateSlot();
+                }
+            }
+        }
+
+    }
     public void Shoot()
     {
         if (currentGun != null && ActiveShoot && CurrentAmmoloader >= 1)
         {
             Raycast();
-            animator.SetTrigger(currentGun.NameGun);
+            animator.SetBool(currentGun.NameGun, true);
             CurrentAmmoloader--;
             if (currentGun.soundShoot is AudioClip audioClip)
             {
@@ -83,7 +130,6 @@ public class Gun : MonoBehaviour
             }
         }
     }
-
     private void Raycast()
     {
         //convert the snapped angle to radians
@@ -137,7 +183,7 @@ public class Gun : MonoBehaviour
     IEnumerator ResetIdle()
     {
         yield return new WaitForSeconds(currentGun.ShootAnimation.length);
-        animator.SetTrigger("Idle");
+        animator.SetBool(currentGun.NameGun, false);
         ActiveShoot = true;
     }
 
@@ -145,13 +191,26 @@ public class Gun : MonoBehaviour
     {
         while (true)
         {
+            CurrentAmmo = GetTotalAmmoInInventory();
+
             if (CurrentAmmo <= 0 || CurrentAmmoloader >= currentGun.MaxAmmo)
             {
                 yield break; // Exit if no ammo or loader is full
             }
             yield return new WaitForSeconds(currentGun.ReloadTime);
-            CurrentAmmoloader++;
-            CurrentAmmo--;
+
+            int ammoNeeded = currentGun.MaxAmmo - CurrentAmmoloader;
+
+            if(CurrentAmmo >= ammoNeeded)
+            {
+                CurrentAmmoloader += ammoNeeded;
+                RemoveAmmoFromInventory(ammoNeeded);
+            }
+            else
+            {
+                CurrentAmmoloader += CurrentAmmo;
+                RemoveAmmoFromInventory(CurrentAmmo);
+            }
         }
     }
 

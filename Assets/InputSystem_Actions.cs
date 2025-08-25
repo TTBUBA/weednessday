@@ -261,6 +261,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReloadGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""dae88d3a-3906-41df-a9c8-81724d063aef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -758,6 +767,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79df2751-87d5-4199-853f-6921ff9eb90d"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1145,7 +1165,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9769aa07-ee50-493d-80d3-0909205f6c3f"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1548,6 +1568,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_LeftClickMouse = m_Player.FindAction("LeftClickMouse", throwIfNotFound: true);
         m_Player_Sleep = m_Player.FindAction("Sleep", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_ReloadGun = m_Player.FindAction("ReloadGun", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
@@ -1677,6 +1698,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LeftClickMouse;
     private readonly InputAction m_Player_Sleep;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_ReloadGun;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1765,6 +1787,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         /// <summary>
+        /// Provides access to the underlying input action "Player/ReloadGun".
+        /// </summary>
+        public InputAction @ReloadGun => m_Wrapper.m_Player_ReloadGun;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1847,6 +1873,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @ReloadGun.started += instance.OnReloadGun;
+            @ReloadGun.performed += instance.OnReloadGun;
+            @ReloadGun.canceled += instance.OnReloadGun;
         }
 
         /// <summary>
@@ -1915,6 +1944,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @ReloadGun.started -= instance.OnReloadGun;
+            @ReloadGun.performed -= instance.OnReloadGun;
+            @ReloadGun.canceled -= instance.OnReloadGun;
         }
 
         /// <summary>
@@ -2535,6 +2567,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShoot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ReloadGun" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnReloadGun(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
