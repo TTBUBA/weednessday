@@ -6,18 +6,28 @@ public class PoliceGun : MonoBehaviour
 {
     [SerializeField] private GameObject Arm;
     [SerializeField] private GameObject Gun;
+    [SerializeField] private Transform PointSpawnBullet;
+    [SerializeField] private GameObject blood;
     [SerializeField] private GameObject Ammo;
     [SerializeField] private Transform ContainerAmmo;
     [SerializeField] private Transform targetPosition;
     [SerializeField] private AudioSource SoundShoot;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AnimationClip anim_Shoot;
     [SerializeField] private List<GameObject> AmmoList = new List<GameObject>();
-    [SerializeField] private int AmmoCount = 30;
+    [SerializeField] private bool HitPlayer;
+    [SerializeField] private bool ShootIsActive;
+    [SerializeField] private int AmmoCount = 12;
+    [SerializeField] private float snappedAngle;
     public float TimeFire;
     public bool EnableGun;
 
 
+    private RaycastHit2D hit;
     public PoliceAi PoliceAi;
     public PlayerHealth PlayerHealth;
+
+
     private void Start()
     {
         SoundShoot.Stop();
@@ -27,11 +37,15 @@ public class PoliceGun : MonoBehaviour
             ammoInstance.SetActive(false);
             AmmoList.Add(ammoInstance);
         }
+        StartCoroutine(ActiveShoot());
     }
-    // Update is called once per frame  
     void Update()
     {
-        GunTrackPlayer();
+        if (PoliceAi.ActiveMovementTarget)
+        {
+            GunTrackPlayer();
+            Raycast();
+        }
     }
 
     //Shoot bullet in the position of the player
@@ -39,22 +53,32 @@ public class PoliceGun : MonoBehaviour
     {
         if (AmmoCount <= 0) { return; }
         SoundShoot.Play();
-
         GameObject Ammo = GetAmmo();
-
+        animator.SetTrigger("Shoot");
         Ammo.SetActive(true);
         float randomAngle = Random.Range(-10f, 10f);
         Ammo.transform.eulerAngles = new Vector3(0, 0, 90f + randomAngle);
         Ammo.transform.SetParent(ContainerAmmo);
 
+        //create blood effect when hit the player
+        GameObject blood = Instantiate(this.blood, hit.transform.position, Quaternion.identity);
+        blood.transform.parent = hit.transform;
+        Animator bloodAnimator = blood.GetComponent<Animator>();
+        bloodAnimator.SetBool("Active", true);
+        Destroy(blood, 1f);
+
         Rigidbody2D rb = Ammo.GetComponent<Rigidbody2D>();
         rb.AddForce(Gun.transform.up * 1f, ForceMode2D.Impulse);
         float randomDrag = Random.Range(0.3f, 1f);
         rb.linearDamping = randomDrag;
-        StartCoroutine(DestroyAmmo(Ammo));
+
         AmmoCount--;
-        PlayerHealth.DecreseHealth(5);
+        int randomDamage = Random.Range(5, 15);
+        PlayerHealth.DecreseHealth(randomDamage);
+        StartCoroutine(DestroyAmmo(Ammo));
+        StartCoroutine(ResetIdle());
     }
+
 
     //return the first inactive ammo from the list
     private GameObject GetAmmo()
@@ -71,13 +95,12 @@ public class PoliceGun : MonoBehaviour
     //Reload Gun
     IEnumerator Reload()
     {
-        while (AmmoCount <= 30)
+        while (AmmoCount <= 12)
         {
             yield return new WaitForSeconds(0.5f);
             AmmoCount++;
         }
     }
-
     IEnumerator DestroyAmmo(GameObject ammo)
     {
         yield return new WaitForSeconds(4f);
@@ -93,9 +116,15 @@ public class PoliceGun : MonoBehaviour
     //Active Shoot Coroutine
     public IEnumerator ActiveShoot()
     {
-        while (EnableGun)
+        while (true)
         {
+            if (!HitPlayer)
+            {
+                yield return null;
+                continue;
+            }
             Shoot();
+            ShootIsActive = true;
             yield return new WaitForSeconds(TimeFire);
             if (AmmoCount <= 0)
             {
@@ -103,6 +132,13 @@ public class PoliceGun : MonoBehaviour
             }
         }
     }
+    IEnumerator ResetIdle()
+    {
+        yield return new WaitForSeconds(anim_Shoot.length);
+        animator.SetTrigger("Shoot");
+        ShootIsActive = false;
+    }
+
 
     //Track Position of player
     private void GunTrackPlayer()
@@ -123,7 +159,7 @@ public class PoliceGun : MonoBehaviour
         int sector = Mathf.RoundToInt(angle / 45f) % 8;
 
         // Snap the angle to the nearest 45° sector
-        float snappedAngle = sector * 45f;
+        snappedAngle = sector * 45f;
 
         // Rotate the arm to face the snapped angle
         Arm.transform.eulerAngles = new Vector3(0, 0, snappedAngle);
@@ -136,6 +172,27 @@ public class PoliceGun : MonoBehaviour
         else
         {
             Gun.transform.localScale = new Vector3(1, 1, 1); // normal orientation
+        }
+    }
+
+    private void Raycast()
+    {
+        float anglerad = snappedAngle * Mathf.Deg2Rad;
+
+        Vector2 direction = new Vector2(Mathf.Cos(anglerad), Mathf.Sin(anglerad));
+
+        hit = Physics2D.Raycast(PointSpawnBullet.transform.position, direction, 10f , LayerMask.GetMask("Player"));
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            HitPlayer = true;
+            PoliceAi.speed = 0;
+            Debug.DrawRay(Gun.transform.position, direction * 10f, Color.red);
+        }
+        else
+        {
+            HitPlayer = false;
+            PoliceAi.speed = 1;
+            Debug.DrawRay(Gun.transform.position, direction * 10f, Color.green);
         }
     }
 

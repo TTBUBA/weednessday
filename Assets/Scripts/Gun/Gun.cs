@@ -46,12 +46,15 @@ public class Gun : MonoBehaviour
         {
             gunIcon.enabled = true;
 
-            if (previousGun != null && previousGun != currentGun)
+            if (currentGun.NameGun == "glock")
             {
-                animator.SetBool(previousGun.NameGun + "Idle", false);
+                animator.SetInteger("GunType", 1); // GlockIdle
+            }
+            else if (currentGun.NameGun == "shootgun")
+            {
+                animator.SetInteger("GunType", 2); // ShotGunIdle
             }
 
-            animator.SetBool(currentGun.NameGun + "Idle", true);
             TrackerMouse();
             textAmmo.gameObject.SetActive(true);
             int totalAmmo = GetTotalAmmoInInventory();
@@ -63,7 +66,7 @@ public class Gun : MonoBehaviour
         {
             gunIcon.enabled = false;
             textAmmo.gameObject.SetActive(false);
-            animator.SetTrigger("Idle");
+            animator.SetInteger("GunType", 0); 
             previousGun = null;
         }
     }
@@ -107,7 +110,7 @@ public class Gun : MonoBehaviour
         if (currentGun != null && ActiveShoot && CurrentAmmoloader >= 1)
         {
             Raycast();
-            animator.SetBool(currentGun.NameGun, true);
+            animator.SetTrigger("Shoot"); 
             CurrentAmmoloader--;
             if (currentGun.soundShoot is AudioClip audioClip)
             {
@@ -116,10 +119,14 @@ public class Gun : MonoBehaviour
             if (Iscollision)
             {
                 GameObject bloodEffect = Instantiate(blood, hit.point, Quaternion.identity);
+
                 bloodEffect.transform.parent = hit.transform;
                 Animator bloodAnimator = bloodEffect.GetComponent<Animator>();
                 bloodAnimator.SetBool("Active", true);
                 Destroy(bloodEffect, 1f);
+                int randomDamage = Random.Range(10, 20);
+                PoliceHealth policeHealth = hit.transform.GetComponent<PoliceHealth>();
+                policeHealth.TakeDamage(randomDamage);
             }
             StartCoroutine(ResetIdle());
             ActiveShoot = false;
@@ -139,16 +146,13 @@ public class Gun : MonoBehaviour
 
         hit = Physics2D.Raycast(PointSpawnBullet.position, direction, currentGun.MaxRange, LayerMask.GetMask("Enemy"));
 
-        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        if (hit.collider != null  && hit.collider.CompareTag("Enemy") && !hit.collider.isTrigger)
         {
-            Debug.Log("Hit: " + hit.collider.name);
             Iscollision = true;
-            Debug.DrawRay(PointSpawnBullet.position, direction * currentGun.MaxRange, Color.green, 0.1f);
         }
         else
         {
             Iscollision = false;
-            Debug.DrawRay(PointSpawnBullet.position, direction * currentGun.MaxRange, Color.red, 0.1f);
         }
     }
     private void TrackerMouse()
@@ -183,7 +187,7 @@ public class Gun : MonoBehaviour
     IEnumerator ResetIdle()
     {
         yield return new WaitForSeconds(currentGun.ShootAnimation.length);
-        animator.SetBool(currentGun.NameGun, false);
+        animator.SetTrigger("Shoot");
         ActiveShoot = true;
     }
 

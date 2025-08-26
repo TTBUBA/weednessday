@@ -11,9 +11,7 @@ public class PoliceAi : MonoBehaviour
     [SerializeField] private Tilemap ground;
     [SerializeField] private bool activeGizmos;
     public Transform PointSpawn;
-    [SerializeField] private float speed = 1.0f;
-    [SerializeField] private float Radius;
-    [SerializeField] private bool ActiveMovementTarget;
+    public float speed = 1.0f;
     [SerializeField] private LayerMask LayerMask;
     [SerializeField] private float TimerReturn = 10f;
     [SerializeField] private Vector3Int CurrentCellRandom;
@@ -21,6 +19,7 @@ public class PoliceAi : MonoBehaviour
     [SerializeField] private Vector3Int StartPos;
     [SerializeField] private bool FindRandomCell;
     public bool ActiveMovement = true;
+    public bool ActiveMovementTarget;
     public bool ReturnBaseActive;
 
     [SerializeField] private List<Vector3Int> CellToSearch = new List<Vector3Int>();
@@ -76,7 +75,7 @@ public class PoliceAi : MonoBehaviour
     {
         MovetoTarget();
         Move();
-        Raycast();
+        //Raycast();
     }
 
     private void Move()
@@ -104,6 +103,8 @@ public class PoliceAi : MonoBehaviour
             }
         }
     }
+
+    //Move the police to the player position
     private void MovetoTarget()
     {
         if (!ActiveMovementTarget) return;
@@ -129,7 +130,6 @@ public class PoliceAi : MonoBehaviour
             }
         }
     }
-
 
     //Return the position of the police to the start position
     private void ReturnBase()
@@ -234,38 +234,33 @@ public class PoliceAi : MonoBehaviour
         return totalPath;
     }
 
-    //Check obstacles and player in the radius of the police
-    private void Raycast()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, Radius, LayerMask.GetMask("Player"));
-        float Distance = Vector2.Distance(transform.position, target.transform.position);
-
-        if (hit != null && hit.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            if (!ActiveMovementTarget) 
+            if (!ActiveMovementTarget)
+            {
+                //CurrentIndexPath = 0;//reset the index Path
+                //path.Clear();
+            }
+
+            ActiveMovementTarget = true;
+            FindRandomCell = false;
+            ActiveMovement = false; // Stop random movement when player is detected
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (ActiveMovementTarget)
             {
                 CurrentIndexPath = 0;//reset the index Path
                 path.Clear();
             }
-
-            ActiveMovementTarget = true;
-            policeGun.EnableGun = true;
-            FindRandomCell = false; 
-            ActiveMovement = false; // Stop random movement when player is detected
-            if (ShootCoroutine == null)
-                ShootCoroutine = policeGun.StartCoroutine(policeGun.ActiveShoot());
-        }
-        else
-        {
             ActiveMovementTarget = false;
             ActiveMovement = true;
-            policeGun.EnableGun = false;
-
-            if (ShootCoroutine != null)
-            {
-                policeGun.StopCoroutine(ShootCoroutine);
-                ShootCoroutine = null;
-            }
         }
     }
 
