@@ -54,7 +54,7 @@ public class PhoneManager : MonoBehaviour
                 {
                     Phone.enabled = false;
                     Text_Hours.enabled = false;
-                    Text_Button.text = "C";
+                    Text_Button.text = "Tab";
                     ContainerApp.SetActive(false);
                     app.gameObject.SetActive(true);
                 }

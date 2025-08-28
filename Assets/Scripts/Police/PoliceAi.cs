@@ -1,6 +1,5 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -38,6 +37,8 @@ public class PoliceAi : MonoBehaviour
         ActiveMovement = true;
         ReturnBaseActive = false;
         StartCoroutine(TimerReturnBase());
+        StartPos = ground.WorldToCell(transform.position);
+        transform.position = ground.CellToWorld(StartPos) + new Vector3(0.5f, 0.5f, 0f);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,9 +76,10 @@ public class PoliceAi : MonoBehaviour
     {
         MovetoTarget();
         Move();
-        //Raycast();
+        ReturnBase();
     }
 
+    //move in random cell in the tilemap
     private void Move()
     {
         if (!ActiveMovement) { return; }
@@ -86,7 +88,14 @@ public class PoliceAi : MonoBehaviour
         {
             CurrentCellRandom = CellToSearch[Random.Range(0,CellToSearch.Count)];
             path = FindPath(ground.WorldToCell(transform.position), CurrentCellRandom);
+            CurrentIndexPath = 0;
             FindRandomCell = true;
+        }
+
+        if (path == null || path.Count == 0 || CurrentIndexPath >= path.Count)
+        {
+            FindRandomCell = false;
+            return;
         }
 
         TargetCell = ground.CellToWorld(path[CurrentIndexPath]) + new Vector3(0.5f, 0.5f, 0f);
@@ -136,26 +145,48 @@ public class PoliceAi : MonoBehaviour
     {
         if (ReturnBaseActive)
         {
-            path = FindPath(ground.WorldToCell(transform.position), ground.WorldToCell(StartPos));
+
+            //if the path not calculated calculate the path one time
+            if (path == null || path.Count == 0)
+            {
+                path = FindPath(ground.WorldToCell(transform.position), StartPos);
+                CurrentIndexPath = 0;
+                return; 
+            }
+
             Vector3 CurrentPosCell = transform.position;
             Vector3Int NextPosCell = path[CurrentIndexPath];
             Vector3 targetPos = ground.CellToWorld(NextPosCell) + new Vector3(0.5f, 0.5f, 0f);
             transform.position = Vector3.MoveTowards(CurrentPosCell, targetPos, Time.deltaTime * speed);
             ActiveMovement = false;
-        }
-        if (Vector3.Distance(transform.position, StartPos) < 0.1f)
-        {
-            ActiveMovement = false;
-            ReturnBaseActive = false;
-            this.gameObject.SetActive(false);
+            FindRandomCell = false;
+
+            if (Vector3.Distance(CurrentPosCell, targetPos) < 0.1f)
+            {
+                CurrentIndexPath++;
+
+                if (CurrentIndexPath >= path.Count)
+                {
+                    Debug.Log("Arrived Base");
+                    ActiveMovement = true;
+                    FindRandomCell = true;
+                    ReturnBaseActive = false;
+                    this.gameObject.SetActive(false);
+                    CurrentIndexPath = 0;
+                    path.Clear();
+                }
+            }
         }
     }
+
 
     public IEnumerator TimerReturnBase()
     {
         yield return new WaitForSeconds(TimerReturn);
-        ReturnBase();
+        Debug.Log("Return Base");
+        ReturnBaseActive = true;    
     }
+
     List<Vector3Int> FindPath(Vector3Int startPos , Vector3Int endPos)
     {
         var openSet = new List<Vector3Int>() { startPos };
@@ -238,16 +269,10 @@ public class PoliceAi : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (!ActiveMovementTarget)
-            {
-                //CurrentIndexPath = 0;//reset the index Path
-                //path.Clear();
-            }
-
             ActiveMovementTarget = true;
             FindRandomCell = false;
             ActiveMovement = false; // Stop random movement when player is detected
-
+            StopCoroutine(TimerReturnBase());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -261,6 +286,7 @@ public class PoliceAi : MonoBehaviour
             }
             ActiveMovementTarget = false;
             ActiveMovement = true;
+            StartCoroutine(TimerReturnBase());
         }
     }
 

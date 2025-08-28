@@ -115,8 +115,6 @@ public class WeatherSystem : MonoBehaviour
                     };
 
                     activeClouds.Add(cloudData);
-
-                    Debug.Log("Cloud Spawned: " + cloudPrefabs[spawnIndex].name);
                     activeSpawnCloud = false;
                 }
             }

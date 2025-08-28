@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,6 @@ public class NpcManager : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private Boat_Npc boatNpc;
-
     private void OnEnable()
     {
         ActiveBoatReturn = false;
@@ -37,6 +37,11 @@ public class NpcManager : MonoBehaviour
         ResetData();
         PanelNpc.SetActive(false);
         ActiveBoatReturn = true;
+        float Loyalty = Random.Range(0.01f, 0.1f);
+        if (Npc.loyaltyNpc <= 0)
+        {
+            Npc.loyaltyNpc += Loyalty;
+        }
     }
 
     public void RejectOffert()
@@ -45,6 +50,11 @@ public class NpcManager : MonoBehaviour
         PanelNpc.SetActive(false);
         this.gameObject.SetActive(false);
         ActiveBoatReturn = true;
+        float Loyalty = Random.Range(0.01f, 0.1f);
+        if (Npc.loyaltyNpc >= 0)
+        {
+            Npc.loyaltyNpc -= Loyalty;
+        }
     }
 
     private void ResetData()

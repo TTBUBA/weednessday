@@ -10,6 +10,7 @@ public class NpcData : ScriptableObject
     public float loyaltyNpc;//Probability of loyalty to the player
     public float AbilityNpc;//Ability to avoid police detection
     public float ProbabilityTalkPolice; //Probability of talking to the police
+    public float ProbabilitySmoke;
     public bool IsHome;
     public bool IsArrested;
     public NpcName Name;

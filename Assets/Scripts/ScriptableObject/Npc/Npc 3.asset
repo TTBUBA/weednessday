@@ -15,10 +15,11 @@ MonoBehaviour:
   NameNpc: MrAlways
   NpcImage: {fileID: 3043073051497800022, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
   IconNpc: {fileID: 8841998982315092483, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
-  TotalWeedAssuming: 0.55
-  loyaltyNpc: 0.5
+  TotalWeedAssuming: 0
+  loyaltyNpc: 1
   AbilityNpc: 0.3
   ProbabilityTalkPolice: 0.3
+  ProbabilitySmoke: 0.1
   IsHome: 1
   IsArrested: 0
   Name: 2

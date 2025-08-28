@@ -15,10 +15,11 @@ MonoBehaviour:
   NameNpc: lady
   NpcImage: {fileID: -705119432799824522, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
   IconNpc: {fileID: 6471981791642760923, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
-  TotalWeedAssuming: 0.3
-  loyaltyNpc: 0.4
+  TotalWeedAssuming: 0
+  loyaltyNpc: 1
   AbilityNpc: 0.55
   ProbabilityTalkPolice: 0.4
+  ProbabilitySmoke: 0.3
   IsHome: 1
   IsArrested: 0
   Name: 4

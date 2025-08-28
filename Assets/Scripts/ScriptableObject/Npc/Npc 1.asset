@@ -15,10 +15,11 @@ MonoBehaviour:
   NameNpc: Bonghilda
   NpcImage: {fileID: 139538610114222702, guid: 71138bca00ce53b40aa552dc9dee122a, type: 3}
   IconNpc: {fileID: 3016672210312788027, guid: 0767eeadbc0ce734888c707a5cdc312a, type: 3}
-  TotalWeedAssuming: 0.5
-  loyaltyNpc: 0.1
+  TotalWeedAssuming: 0
+  loyaltyNpc: 1
   AbilityNpc: 0.45
   ProbabilityTalkPolice: 0.1
+  ProbabilitySmoke: 0.2
   IsHome: 1
   IsArrested: 0
   Name: 0
