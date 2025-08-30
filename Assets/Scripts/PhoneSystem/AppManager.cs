@@ -7,7 +7,7 @@ public class AppManager : MonoBehaviour , IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] private GameObject AppPanel;
     [SerializeField] private GameObject ContainerApp;
-
+    
     public bool IsActiveApp = false;
     public PhoneManager PhoneManager;
     public void OnPointerEnter(PointerEventData eventData)

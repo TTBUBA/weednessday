@@ -16,12 +16,18 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Text_Button;
     [SerializeField] private TextMeshProUGUI Text_Hours;
     [SerializeField] private bool PhoneEnabled = false;
+    public bool openedPhoneFirstTime;
 
     public cycleDayNight cycleDayNight;
     public AppMessagingManager AppMessagingManager;
     public AppNews AppNews;
     public SmsManager SmsManager;
 
+    
+    private void Update()
+    {
+        Text_Hours.text = cycleDayNight.CurrentHours.ToString("00") + ":" + cycleDayNight.CurrentMinutes.ToString("00");
+    }
 
     public void OpenPhone()
     {
@@ -32,14 +38,10 @@ public class PhoneManager : MonoBehaviour
             Text_Hours.enabled = true;
             ContainerApp.SetActive(true);
             PhoneEnabled = true;
+            openedPhoneFirstTime = true;
         }
+    }
 
-    }
-    
-    private void Update()
-    {
-        Text_Hours.text = cycleDayNight.CurrentHours.ToString("00") + ":" + cycleDayNight.CurrentMinutes.ToString("00");
-    }
     public void ClosePhone()
     {
         if(PhoneEnabled)

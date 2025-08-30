@@ -29,11 +29,11 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             InventoryManager.Instance.CurrentSlotSelect = slootData;
             InventoryManager.Instance.CurrentSlootManager = this;
             InventoryManager.Instance.CurrentIndex = Index;
-            if(slootData != null && slootData.NameTools == "gun")
+            if(Gun.Instance != null && slootData != null && slootData.NameTools == "gun")
             {
                 Gun.Instance.currentGun = slootData.gunData;
             }
-            else
+            else if(Gun.Instance != null)
             {
                 Gun.Instance.currentGun = null;
             }

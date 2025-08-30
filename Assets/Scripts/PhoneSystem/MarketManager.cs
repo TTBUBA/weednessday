@@ -19,7 +19,9 @@ public class MarketManager : MonoBehaviour
     public Transform PointSpawn;
     public int TotalPriceCart;
     public bool isOrderMade = false;
-    
+    public bool OpenAppFirstTime;
+    public bool AddFirstObjetInCart;
+    public bool EffectFirstOrder;
 
     [Header("Ui")]
     [SerializeField] private TextMeshProUGUI Text_ItemInTheCart;
@@ -29,10 +31,16 @@ public class MarketManager : MonoBehaviour
     public Boat_Order boatOrder;
     public BoxOrder boxOrder;
 
+    public void OpenApp()
+    {
+        OpenAppFirstTime = true;
+    }
+
     public void AddToCart()
     {
         if (playerManager.CurrentMoney >= currentSlot.CurrentPrice)
         {
+            AddFirstObjetInCart = true;
             TotalItemAddCart++;
             Text_ItemInTheCart.text = TotalItemAddCart.ToString();
             GameObject obj = Instantiate(Obj_Spawn);
@@ -59,13 +67,29 @@ public class MarketManager : MonoBehaviour
     }
     public void MakeOrder()
     {
-        if (!isOrderMade && !boxOrder.OpenBox)
+        if (!EffectFirstOrder)
+        {
+            EffectFirstOrder = true;
+            foreach (var item in cartItems)
+            {
+                playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player
+
+                BoxOrder.ItemChest chestItem = new BoxOrder.ItemChest();
+                chestItem.quantity = item.quantity;
+                chestItem.MarketSlot = item.MarketSlot;
+
+                InventoryManager.AddItem(item.MarketSlot.SlootMarket, item.quantity);
+
+                TotalPriceCart = 0; // Reset the total price after the order is made
+                Text_PriceTotal.text = "Total: " + TotalPriceCart.ToString() + "$";
+            }
+        }
+        else if (!isOrderMade && !boxOrder.OpenBox && EffectFirstOrder)
         {
             isOrderMade = true;
             boatOrder.StartCoroutine(boatOrder.TimeDelivery());
             boatOrder.StartCoroutine(boatOrder.UpdateTimeDelivery());
             boatOrder.Text_timedelivery.gameObject.SetActive(true);
-
             foreach (var item in cartItems)
             {
                 playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player

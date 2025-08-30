@@ -27,6 +27,12 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private GameObject Obj_DrawMap;
     [SerializeField] private Transform containerDrawMap;
 
+    //===Player stats===//
+    public bool UseHoeFirstTime;
+    public bool UseWaterCanFirstTime;
+    public bool UseBacketFirstTime;
+    public bool PlantFirstTime;
+    //================//
 
     public int MultiplyTime;
     public Plant plant;
@@ -105,25 +111,41 @@ public class PlantManager : MonoBehaviour
             var slotmanager = InventoryManager.Instance.CurrentSlootManager;
 
             if (!ActivePlant) return;
-
+            
             // Check if the terrain is dry before planting
             if (GetTerrainState(cellPos) == TerrainState.Dry && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
                 InventoryManager.RemoveSeedWeed();
-                float Time = Random.Range(20f, 40f);
-                plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant();
+                if (!PlantFirstTime)
+                {
+                    PlantFirstTime = true;
+                    plant.GetComponent<Plant>().time = 1.5f;
+                    plant.GetComponent<Plant>().GrowthPlant();
+                }
+                else
+                {
+                    float Time = Random.Range(5f, 10f);
+                    plant.GetComponent<Plant>().time = Time;
+                    plant.GetComponent<Plant>().GrowthPlant();
+                }
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
-                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
-                Debug.Log(GetTerrainState(cellPos));
-
+                if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied          
             }
             else if (GetTerrainState(cellPos) == TerrainState.wet && Inventory.NameTools == "SeedWeed" && slotmanager.CurrentStorage > 0)
             {
                 InventoryManager.RemoveSeedWeed();
-                float Time = Random.Range(5f, 10f);
-                plant.GetComponent<Plant>().time = Time;
-                plant.GetComponent<Plant>().GrowthPlant();
+                if (!PlantFirstTime)
+                {
+                    PlantFirstTime = true;
+                    plant.GetComponent<Plant>().time = 1.5f;
+                    plant.GetComponent<Plant>().GrowthPlant();
+                }
+                else
+                {
+                    float Time = Random.Range(5f, 10f);
+                    plant.GetComponent<Plant>().time = Time;
+                    plant.GetComponent<Plant>().GrowthPlant();
+                }
                 CellOccupate[cellPos] = new WeedData { WeedObject = plant.gameObject, StateTerrain = TerrainState.planted };//set the terrain state to planted
                 if (CellOccupate.ContainsKey(cellPos)) { return; } // Check if the cell is already occupied 
             }
@@ -143,6 +165,7 @@ public class PlantManager : MonoBehaviour
                 StateTerrain = TerrainState.Dry
             };
             tilemapGround.SetTile(cellPos, DryTile);
+            UseBacketFirstTime = true;
         }
     }
 
@@ -158,6 +181,7 @@ public class PlantManager : MonoBehaviour
             {
                 StateTerrain = TerrainState.Dry
             };
+            UseHoeFirstTime = true;
         }
     }
 
@@ -177,6 +201,7 @@ public class PlantManager : MonoBehaviour
                 StateTerrain = TerrainState.wet
             };
             StartCoroutine(changeStateTerrain(cellPos));
+            UseWaterCanFirstTime = true;
         }
     }
 

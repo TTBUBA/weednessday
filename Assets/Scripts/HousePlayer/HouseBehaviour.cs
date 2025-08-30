@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class HouseBehaviour : MonoBehaviour
 {
+    public static HouseBehaviour Instance;
+
     [SerializeField] private Transform Player;
     [SerializeField] private Transform PointEntry;
     [SerializeField] private Transform PointExit;
     [SerializeField] private bool Incollision;
     [SerializeField] private bool IsEntryHouse;
-
+    public bool IsExitHouseFirstTime;
 
     [Header("Ui elements")]
     [SerializeField] private GameObject ButtEntryHouse;
@@ -17,8 +19,11 @@ public class HouseBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textButton;
     [SerializeField] private CanvasGroup FadeOutImage;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
-    public MovementCamera camera;
     public void EntryHouse()
     {
         if (Incollision)
@@ -28,8 +33,6 @@ public class HouseBehaviour : MonoBehaviour
            textButton.text = "Exit Q";
            ButtEntryHouse.SetActive(false);
            ButtExitHouse.SetActive(true);
-           camera.SmoothCam = 0;
-           PlantManager.Instance.ActivePlant = false; // Disable plantSystem when entering the house
         }
     }
 
@@ -39,9 +42,7 @@ public class HouseBehaviour : MonoBehaviour
         {
             AnimationFadeOut(PointExit);
             textButton.text = "Entry E";
-            camera.SmoothCam = 0f;
             ButtExitHouse.SetActive(false);
-            PlantManager.Instance.ActivePlant = true; // active plantSystem when entering the house
         }
     }
 
@@ -51,11 +52,13 @@ public class HouseBehaviour : MonoBehaviour
         {
             // Move the player to the destination point
             Player.transform.position = destination.position;
-            camera.SmoothCam = 0.6f;
-          
+ 
+
             DOTween.Sequence()
                 .AppendInterval(0.5f) //wait the 0.5 before change the alpha image
                 .Append(FadeOutImage.DOFade(0f, 1f));
+                IsExitHouseFirstTime = true;
+
         });
     }
 
@@ -67,6 +70,7 @@ public class HouseBehaviour : MonoBehaviour
             Incollision = true;
             ButtEntryHouse.SetActive(true);
         }
+      
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -22,7 +22,6 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     public NpcManager NpcManager;
     public Gun Gun;
 
-
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -62,7 +61,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     //========Input Player========//
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && Gun != null)
         {
             Gun.Shoot();
         }
@@ -117,9 +116,8 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
     {
         if (context.performed)
         {
-            PhoneManager.OpenPhone();
+            PhoneManager.OpenPhone();         
         }
-        PhoneManager.OpenPhone();
     }
 
     public void OnClosePhone(InputAction.CallbackContext context)
