@@ -32,7 +32,6 @@ public class BoxOrder : MonoBehaviour
             OpenBox = true;
             foreach (var item in chestItems)
             {
-                Debug.Log("You have ordered: " + item.quantity + " of " + item.MarketSlot.SlootMarket.NameTools);
                 InventoryManager.AddItem(item.MarketSlot.SlootMarket, item.quantity);
 
                 //Reset the list 

@@ -21,6 +21,10 @@ public class Tree : MonoBehaviour
 
     private void Start() 
     {
+        //set Tree in the center of the cell
+        Vector3Int pos = tilemapGround.WorldToCell(transform.position);
+        transform.position = tilemapGround.GetCellCenterWorld(pos);
+
         //the position of the tree is set in the cellOccupate in plantManager e for example when plant
         //or placementObj this not place because the cell is occupied by the tree
         pos = tilemapGround.WorldToCell(transform.position);

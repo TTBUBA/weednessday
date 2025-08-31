@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HouseBehaviour : MonoBehaviour
 {
@@ -38,11 +39,12 @@ public class HouseBehaviour : MonoBehaviour
 
     public void ExitHouse()
     {
-        if (!Incollision && IsEntryHouse)
+        if (IsEntryHouse)
         {
             AnimationFadeOut(PointExit);
             textButton.text = "Entry E";
             ButtExitHouse.SetActive(false);
+            IsEntryHouse = false;
         }
     }
 
@@ -52,13 +54,12 @@ public class HouseBehaviour : MonoBehaviour
         {
             // Move the player to the destination point
             Player.transform.position = destination.position;
- 
-
             DOTween.Sequence()
                 .AppendInterval(0.5f) //wait the 0.5 before change the alpha image
-                .Append(FadeOutImage.DOFade(0f, 1f));
-                IsExitHouseFirstTime = true;
-
+                .Append(FadeOutImage.DOFade(0f, 1f)).OnComplete(() =>
+                {
+                    IsExitHouseFirstTime = true;
+                });
         });
     }
 

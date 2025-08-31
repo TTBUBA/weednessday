@@ -19,9 +19,13 @@ public class MarketManager : MonoBehaviour
     public Transform PointSpawn;
     public int TotalPriceCart;
     public bool isOrderMade = false;
+
+    //===Player stats Tutorial===//
     public bool OpenAppFirstTime;
     public bool AddFirstObjetInCart;
     public bool EffectFirstOrder;
+    public bool OpenCartFirstTime;
+
 
     [Header("Ui")]
     [SerializeField] private TextMeshProUGUI Text_ItemInTheCart;
@@ -36,6 +40,10 @@ public class MarketManager : MonoBehaviour
         OpenAppFirstTime = true;
     }
 
+    public void OpenCart()
+    {
+        OpenCartFirstTime = true;
+    }
     public void AddToCart()
     {
         if (playerManager.CurrentMoney >= currentSlot.CurrentPrice)
@@ -51,11 +59,12 @@ public class MarketManager : MonoBehaviour
             marketSlot.marketManager = this;
             marketSlot.PriceItem = currentSlot.PriceItem;
             marketSlot.CurrentPrice = currentSlot.PriceItem;
+            marketSlot.quantity = 1;
             TotalPriceCart += marketSlot.CurrentPrice;
             Text_PriceTotal.text = "Total: " + TotalPriceCart.ToString() + "$";
 
             //Save Item in the cart
-            ItemCard item= new ItemCard();
+            ItemCard item = new ItemCard();
             item.MarketSlot = marketSlot;
             item.quantity = marketSlot.quantity;
             cartItems.Add(item);
@@ -70,22 +79,22 @@ public class MarketManager : MonoBehaviour
         if (!EffectFirstOrder)
         {
             EffectFirstOrder = true;
+            Debug.Log("First Order Made");
             foreach (var item in cartItems)
             {
                 playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player
 
-                BoxOrder.ItemChest chestItem = new BoxOrder.ItemChest();
-                chestItem.quantity = item.quantity;
-                chestItem.MarketSlot = item.MarketSlot;
+                InventoryManager.AddItem(item.MarketSlot.SlootMarket, 1);
 
-                InventoryManager.AddItem(item.MarketSlot.SlootMarket, item.quantity);
-
+                item.quantity = 0; // Reset the quantity after adding to the inventory
+                item.MarketSlot = null; // Reset the market slot after adding to the inventory
                 TotalPriceCart = 0; // Reset the total price after the order is made
                 Text_PriceTotal.text = "Total: " + TotalPriceCart.ToString() + "$";
             }
         }
         else if (!isOrderMade && !boxOrder.OpenBox && EffectFirstOrder)
         {
+            Debug.Log("Order Made");
             isOrderMade = true;
             boatOrder.StartCoroutine(boatOrder.TimeDelivery());
             boatOrder.StartCoroutine(boatOrder.UpdateTimeDelivery());
