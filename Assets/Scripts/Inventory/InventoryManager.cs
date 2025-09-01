@@ -243,21 +243,52 @@ public class InventoryManager : MonoBehaviour
     }
     public void DropItem(SlootManager fromSlot, SlootManager toSlot)
     {
-        SlootData tempSlootData = fromSlot.slootData;
-        int tempStorage = fromSlot.CurrentStorage;
-        bool tempStorageFull = fromSlot.StorageFull;
+        if (fromSlot.slootData == null) return;
 
+        if (toSlot.slootData == null)
+        {
+            toSlot.slootData = fromSlot.slootData;
+            toSlot.CurrentStorage = fromSlot.CurrentStorage;
+            toSlot.StorageFull = fromSlot.StorageFull;
 
-        fromSlot.slootData = toSlot.slootData;
-        fromSlot.CurrentStorage += toSlot.CurrentStorage;
-        fromSlot.StorageFull = toSlot.StorageFull;
+            fromSlot.slootData = null;
+            fromSlot.CurrentStorage = 0;
+            fromSlot.StorageFull = false;
+        }
+        else if (toSlot.slootData == fromSlot.slootData && !toSlot.StorageFull)
+        {
+            int space = toSlot.slootData.MaxStorage - toSlot.CurrentStorage;
+            int toAdd = Mathf.Min(space, fromSlot.CurrentStorage);
 
-        toSlot.slootData = null;
-        toSlot.CurrentStorage = 0;
-        toSlot.StorageFull = false;
+            toSlot.CurrentStorage += toAdd;
+            fromSlot.CurrentStorage -= toAdd;
 
-        toSlot.UpdateSlot();
+            toSlot.StorageFull = (toSlot.CurrentStorage >= toSlot.slootData.MaxStorage);
+
+            if (fromSlot.CurrentStorage <= 0)
+            {
+                fromSlot.slootData = null;
+                fromSlot.StorageFull = false;
+            }
+        }
+        else
+        {
+            var tempData = toSlot.slootData;
+            var tempStorage = toSlot.CurrentStorage;
+            var tempFull = toSlot.StorageFull;
+
+            toSlot.slootData = fromSlot.slootData;
+            toSlot.CurrentStorage = fromSlot.CurrentStorage;
+            toSlot.StorageFull = fromSlot.StorageFull;
+
+            fromSlot.slootData = tempData;
+            fromSlot.CurrentStorage = tempStorage;
+            fromSlot.StorageFull = tempFull;
+        }
+
         fromSlot.UpdateSlot();
+        toSlot.UpdateSlot();
     }
+
 
 }

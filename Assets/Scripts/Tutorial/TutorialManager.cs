@@ -131,6 +131,7 @@ public class TutorialManager : MonoBehaviour
                 case TutorialState.End:
                     StartCoroutine(TutorialEnd());
                     TutorialActive = false;
+                    GameManager.Instance.TutorialCompleted = true;
                     break;
                 default:
                     break;

@@ -9,6 +9,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public SlootData slootData;
     public int CurrentStorage;
     public bool StorageFull = false;
+    public bool IsStatic;
     public Image iconTools;
     public TextMeshProUGUI CountText;
     public bool InUse;
@@ -37,7 +38,7 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 Gun.Instance.currentGun = null;
             }
-                AnimationSlotEnter();
+            AnimationSlotEnter();
         }
     }
 
@@ -67,8 +68,6 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         //save the position Original
         iconOriginalPosition = iconTools.transform.position;
-
-        iconTools.transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -89,13 +88,19 @@ public class SlootManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnDrop(PointerEventData eventData)
     {
-        SlootManager draggedSlot = eventData.pointerDrag.GetComponent<SlootManager>();
-
-        if (draggedSlot != null && draggedSlot != this && draggedSlot.slootData != null)
+        var draggedSlot = eventData.pointerDrag?.GetComponent<SlootManager>();
+        if (draggedSlot == null || draggedSlot == this) return;
+        if (draggedSlot.IsStatic == false)
         {
-            InventoryManager.Instance.DropItem(this, draggedSlot);
+            InventoryManager.Instance.DropItem(draggedSlot, this);
+
+            // Reset Ui
+            this.transform.localScale = Vector3.one;
+            iconTools.transform.localPosition = Vector3.zero;
         }
     }
+
+
 
     public void UpdateSlot()
     {
