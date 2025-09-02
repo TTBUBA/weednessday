@@ -39,23 +39,17 @@ public class PlayerManager : MonoBehaviour, ISaveable
 
     public void save(GameData data)
     {
-        if(GameManager.Instance.TutorialCompleted == true)
-        {
-            data.health = PlayerHealth.health;
-            data.TotalMoney = CurrentMoney;
-            data.positionCurrentCell = PlayerMovement.CurrentPosCell;
-            data.PosPlayer = PlayerMovement.PositionPlayer;
-        }
+        data.health = PlayerHealth.health;
+        data.TotalMoney = CurrentMoney;
+        data.positionCurrentCell = PlayerMovement.CurrentPosCell;
+        data.PosPlayer = PlayerMovement.PositionPlayer;
     }
 
     public void load(GameData data)
     {
-        if (GameManager.Instance.TutorialCompleted == true)
-        {
-            PlayerHealth.health = data.health;
-            CurrentMoney = data.TotalMoney;
-            PlayerMovement.CurrentPosCell = data.positionCurrentCell;
-            PlayerMovement.PositionPlayer = data.PosPlayer;
-        }
+        PlayerHealth.health = data.health;
+        CurrentMoney = data.TotalMoney;
+        PlayerMovement.CurrentPosCell = data.positionCurrentCell;
+        PlayerMovement.PositionPlayer = data.PosPlayer;
     }
 }

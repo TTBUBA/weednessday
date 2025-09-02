@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
     public SlootManager draggedSlotController;
     public GameObject LastObjSelect;
     public GameObject currentSelectedObject;
-
+    public SaveSystem saveSystem;
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(slootManager[0].gameObject);
@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         {
             Instance = this;
         }
-        SaveSystem.Instance.saveables.Add(this);
+        saveSystem.saveables.Add(this);
     }
 
     private void Update()
@@ -114,8 +114,6 @@ public class InventoryManager : MonoBehaviour, ISaveable
             SlootSaveData saveSlot = new SlootSaveData();
             saveSlot.slootData = slot.slootData;
             saveSlot.CurrentStorage = slot.CurrentStorage;
-            //slot.UpdateSlot();
-            //Debug.Log($"Saving Slot: {slot.slootData.NameTools}, CurrentStorage: {slot.CurrentStorage}");
             data.slootSlots.Add(saveSlot);
         }
     }

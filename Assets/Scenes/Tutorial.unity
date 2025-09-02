@@ -48272,7 +48272,6 @@ GameObject:
   - component: {fileID: 731504622}
   - component: {fileID: 731504624}
   - component: {fileID: 731504625}
-  - component: {fileID: 731504626}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48331,26 +48330,6 @@ MonoBehaviour:
   PanelReword: {fileID: 0}
   seedWeed: {fileID: 0}
   Playermanager: {fileID: 0}
---- !u!114 &731504626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731504620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2626afae07054114d860576329d907b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameData:
-    health: 0
-    TotalMoney: 0
-    positionCurrentCell: {x: 0, y: 0, z: 0}
-    PosPlayer: {x: 0, y: 0, z: 0}
-    TutorialCompleted: 0
-    slootSlots: []
-  gameManager: {fileID: 0}
 --- !u!1 &736827878
 GameObject:
   m_ObjectHideFlags: 0
@@ -77509,6 +77488,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d771a92f-a2dc-44a9-8fb3-cd9bcb9961e1
     m_ActionName: 'Player/Shoot[/Mouse/rightButton,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dae88d3a-3906-41df-a9c8-81724d063aef
+    m_ActionName: Player/ReloadGun
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -77657,8 +77640,8 @@ MonoBehaviour:
   - {fileID: 1518666353}
   TotalCaneSmoke: 0
   ActiveButtun: 1
-  PlayerMovement: {fileID: 0}
-  PlayerHealth: {fileID: 0}
+  PlayerMovement: {fileID: 1709458326}
+  PlayerHealth: {fileID: 1709458338}
   InventoryManager: {fileID: 579743082}
   EffectWeed: {fileID: 1709458335}
 --- !u!114 &1709458335

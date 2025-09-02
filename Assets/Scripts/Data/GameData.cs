@@ -10,8 +10,6 @@ public class GameData
     public Vector3Int positionCurrentCell;
     public Vector3 PosPlayer;
 
-    public bool TutorialCompleted;
-
     //Inventory Data
     public List<SlootSaveData> slootSlots = new List<SlootSaveData>();
 

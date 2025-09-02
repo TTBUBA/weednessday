@@ -8,7 +8,7 @@ public class SaveSystem : MonoBehaviour
     public string filepath => Application.persistentDataPath + "/savefile.json";
     public List<ISaveable> saveables = new List<ISaveable>();
     public GameData gameData;
-    public GameManager gameManager;
+
     private void Awake()
     {
         Instance = this;

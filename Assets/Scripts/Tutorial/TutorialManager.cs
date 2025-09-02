@@ -132,7 +132,6 @@ public class TutorialManager : MonoBehaviour
                     StartCoroutine(TutorialEnd());
                     TutorialActive = false;
                     GameManager.Instance.TutorialCompleted = true;
-                    SaveSystem.Instance.SaveGame();
                     break;
                 default:
                     break;

@@ -43729,6 +43729,7 @@ MonoBehaviour:
   draggedSlotController: {fileID: 0}
   LastObjSelect: {fileID: 0}
   currentSelectedObject: {fileID: 0}
+  saveSystem: {fileID: 731504626}
 --- !u!1 &581927240
 GameObject:
   m_ObjectHideFlags: 0
@@ -49345,9 +49346,8 @@ MonoBehaviour:
     TotalMoney: 500
     positionCurrentCell: {x: 30, y: 25, z: 0}
     PosPlayer: {x: -30, y: 25, z: 0}
-    TutorialCompleted: 0
+    TutorialIsComplete: 0
     slootSlots: []
-  gameManager: {fileID: 0}
 --- !u!1 &736827878
 GameObject:
   m_ObjectHideFlags: 0
