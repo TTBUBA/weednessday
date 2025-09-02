@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 moveInput;
     private PlayerInput playerInput;
     public Tilemap tilemapGround;
+    public Vector3 PositionPlayer;
     public Vector3Int CurrentPosCell;
     public Vector3Int NextPosCell;
     public bool IsMoving;
@@ -26,16 +27,16 @@ public class PlayerMovement : MonoBehaviour
         left
     }
 
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animatorPlayer = GetComponent<Animator>();
+        transform.position = PositionPlayer;
         CurrentPosCell = tilemapGround.WorldToCell(transform.position);
         transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
         SelectBox.position = tilemapGround.GetCellCenterWorld(NextPosBox);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 targetPos = tilemapGround.GetCellCenterWorld(NextPosCell);
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
-
+            PositionPlayer = transform.position;
 
 
             NextPosBox = NextPosCell;

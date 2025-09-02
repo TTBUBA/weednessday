@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InventoryManager : MonoBehaviour 
+public class InventoryManager : MonoBehaviour, ISaveable
 {
     public static InventoryManager Instance;
 
@@ -43,6 +42,7 @@ public class InventoryManager : MonoBehaviour
         {
             Instance = this;
         }
+        SaveSystem.Instance.saveables.Add(this);
     }
 
     private void Update()
@@ -105,6 +105,33 @@ public class InventoryManager : MonoBehaviour
         CurrentSlootManager.AnimationSlotEnter();
         PreviusIndex = index;
     }
+
+    public void save(GameData data)
+    {
+        Debug.Log("Saving Inventory");
+        foreach (var slot in slootManager)
+        {
+            SlootSaveData saveSlot = new SlootSaveData();
+            saveSlot.slootData = slot.slootData;
+            saveSlot.CurrentStorage = slot.CurrentStorage;
+            //slot.UpdateSlot();
+            //Debug.Log($"Saving Slot: {slot.slootData.NameTools}, CurrentStorage: {slot.CurrentStorage}");
+            data.slootSlots.Add(saveSlot);
+        }
+    }
+
+    public void load(GameData data)
+    {
+        Debug.Log("Loading Inventory");
+        for (int i = 0 ;i < slootManager.Count && i < data.slootSlots.Count; i++)
+        {
+            SlootSaveData saveSlot = data.slootSlots[i];
+            slootManager[i].slootData = saveSlot.slootData;
+            slootManager[i].CurrentStorage = saveSlot.CurrentStorage;
+            slootManager[i].UpdateSlot();
+        }
+    }
+
 
     //Debugging method to test adding items
     public void Test()
@@ -289,6 +316,4 @@ public class InventoryManager : MonoBehaviour
         fromSlot.UpdateSlot();
         toSlot.UpdateSlot();
     }
-
-
 }

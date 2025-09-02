@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    public int health = 100;
     [SerializeField] private Image BarLife;
 
     private void Update()

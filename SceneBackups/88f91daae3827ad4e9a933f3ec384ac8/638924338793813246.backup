@@ -16655,7 +16655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &109135619
 Transform:
   m_ObjectHideFlags: 0
@@ -48272,7 +48272,6 @@ GameObject:
   - component: {fileID: 731504622}
   - component: {fileID: 731504624}
   - component: {fileID: 731504625}
-  - component: {fileID: 731504626}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48331,26 +48330,6 @@ MonoBehaviour:
   PanelReword: {fileID: 0}
   seedWeed: {fileID: 0}
   Playermanager: {fileID: 0}
---- !u!114 &731504626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731504620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2626afae07054114d860576329d907b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameData:
-    health: 0
-    TotalMoney: 0
-    positionCurrentCell: {x: 0, y: 0, z: 0}
-    PosPlayer: {x: 0, y: 0, z: 0}
-    TutorialCompleted: 0
-    slootSlots: []
-  gameManager: {fileID: 0}
 --- !u!1 &736827878
 GameObject:
   m_ObjectHideFlags: 0
@@ -77294,7 +77273,7 @@ MonoBehaviour:
   animatorPlayer: {fileID: 0}
   moveInput: {x: 0, y: 0}
   tilemapGround: {fileID: 26618475}
-  PositionPlayer: {x: -33.88, y: 59.53, z: 0}
+  PositionPlayer: {x: 0, y: 0, z: 0}
   CurrentPosCell: {x: 0, y: 0, z: 0}
   NextPosCell: {x: 0, y: 0, z: 0}
   IsMoving: 0
