@@ -17,9 +17,9 @@ public class PlayerManager : MonoBehaviour, ISaveable
     public InventoryManager InventoryManager;
     public EffectWeed EffectWeed;
 
-    private void Awake()
+    private void Start()
     {
-       SaveSystem.Instance.saveables.Add(this);
+        SaveSystem.Instance.saveables.Add(this);
     }
 
     public void UseWeed()

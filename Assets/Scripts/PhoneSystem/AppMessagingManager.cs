@@ -39,7 +39,7 @@ public class AppMessagingManager : MonoBehaviour
     {
         while (true)
         {
-            if (CycleDayNight.CurrentDay < 1)
+            if (CycleDayNight.CurrentDay < 1 && CycleDayNight != null)
             {
                 yield return null;
                 continue;

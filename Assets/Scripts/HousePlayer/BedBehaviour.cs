@@ -16,7 +16,7 @@ public class BedBehaviur : MonoBehaviour
 
     private void Update()
     {
-        if(cycleDayNight.CurrentHours < 19 && cycleDayNight.CurrentHours > 7)
+        if(cycleDayNight != null && cycleDayNight.CurrentHours < 19 && cycleDayNight.CurrentHours > 7)
         {
             Text_Message.gameObject.SetActive(true);
         }
@@ -27,7 +27,7 @@ public class BedBehaviur : MonoBehaviour
     }
     public void Sleep()
     {
-        if (IsCollision && cycleDayNight.CurrentHours >= 19)
+        if (cycleDayNight != null && IsCollision && cycleDayNight.CurrentHours >= 19)
         {
             Debug.Log("Sleep active");
             IsSleeping = true;

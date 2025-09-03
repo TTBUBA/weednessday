@@ -42,9 +42,11 @@ public class InventoryManager : MonoBehaviour, ISaveable
         {
             Instance = this;
         }
+    }
+    private void Start()
+    {
         SaveSystem.Instance.saveables.Add(this);
     }
-
     private void Update()
     {
         //save the currentSelectedObject select in the EventSystem

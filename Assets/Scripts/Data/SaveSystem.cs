@@ -16,16 +16,12 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
-        if (!GameManager.Instance.TutorialCompleted)
-        {
-            DeleteData();
-        }
+        //LoadGame();
     }
 
     public void SaveGame()
     {
         var data = new GameData();
-        data.TutorialCompleted = GameManager.Instance.TutorialCompleted;
         foreach (ISaveable saveable in saveables)
         {
             saveable.save(data);

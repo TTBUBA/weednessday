@@ -26,7 +26,10 @@ public class PhoneManager : MonoBehaviour
     
     private void Update()
     {
-        Text_Hours.text = cycleDayNight.CurrentHours.ToString("00") + ":" + cycleDayNight.CurrentMinutes.ToString("00");
+        if(cycleDayNight != null)
+        {
+            Text_Hours.text = cycleDayNight.CurrentHours.ToString("00") + ":" + cycleDayNight.CurrentMinutes.ToString("00");
+        }
     }
 
     public void OpenPhone()

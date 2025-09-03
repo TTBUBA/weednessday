@@ -388,7 +388,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnOpenPanelNpc(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && NpcManager != null)
         {
             NpcManager.OpenPanelNpc();
         }
@@ -396,7 +396,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions, I
 
     public void OnClosePanelNpc(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && NpcManager != null)
         {
             NpcManager.ClosePanelNpc();
         }

@@ -4,12 +4,14 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour,ISaveable
 {
     [SerializeField] private TutorialState tutorialState;
     [SerializeField] private bool TutorialActive;
     [SerializeField] private string NameSceneLoad;
+    public bool TutorialComplete;
 
     [Header("Ui")]
     [SerializeField] private Image Icon_ArrowHoe;
@@ -43,6 +45,10 @@ public class TutorialManager : MonoBehaviour
         End
     }
 
+    private void Start()
+    {
+        SaveSystem.Instance.saveables.Add(this);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -141,8 +147,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator TutorialEnd()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.TutorialCompleted = true;
-        GameManager.Instance.PlayFirstTime = false;
+        TutorialComplete = true;
         SaveSystem.Instance.SaveGame();
         Text_TutorialComplete.DOFade(0f, 1f).OnComplete(() =>
         {
@@ -183,5 +188,23 @@ public class TutorialManager : MonoBehaviour
     private bool UseOrderSeed() => MarketManager.AddFirstObjetInCart;
     private bool OpenCart() => MarketManager.OpenCartFirstTime;
     private bool MakefirstOrder() => MarketManager.EffectFirstOrder;
-    
+
+    public void save(GameData data)
+    {
+       data.TutorialCompleted = TutorialComplete;
+       data.UseHoeFirstTime = PlantManager.Instance.UseHoeFirstTime;
+       data.UseWaterCanFirstTime = PlantManager.Instance.UseWaterCanFirstTime;
+       data.UseBacketFirstTime = PlantManager.Instance.UseBacketFirstTime;
+       data.PlantFirstTime = PlantManager.Instance.PlantFirstTime;
+
+    }
+
+    public void load(GameData data)
+    {
+        TutorialComplete = data.TutorialCompleted;
+        PlantManager.Instance.UseHoeFirstTime = data.UseHoeFirstTime;
+        PlantManager.Instance.UseWaterCanFirstTime = data.UseWaterCanFirstTime;
+        PlantManager.Instance.UseBacketFirstTime = data.UseBacketFirstTime;
+        PlantManager.Instance.PlantFirstTime = data.PlantFirstTime;
+    }
 }

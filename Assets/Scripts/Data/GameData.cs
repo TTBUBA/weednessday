@@ -12,7 +12,10 @@ public class GameData
 
     public bool TutorialCompleted;
     public bool PlayFirstTime;
-    public bool SceneTutorialActive;
+    public bool UseHoeFirstTime;
+    public bool UseWaterCanFirstTime;
+    public bool UseBacketFirstTime;
+    public bool PlantFirstTime;
 
     //Inventory Data
     public List<SlootSaveData> slootSlots = new List<SlootSaveData>();

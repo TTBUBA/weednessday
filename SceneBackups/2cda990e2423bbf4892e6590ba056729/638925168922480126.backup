@@ -589,7 +589,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 393169221
   m_SortingLayer: 2
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -49346,7 +49346,7 @@ MonoBehaviour:
     positionCurrentCell: {x: 30, y: 25, z: 0}
     PosPlayer: {x: -30, y: 25, z: 0}
     TutorialCompleted: 0
-    PlayFirstTime: 1
+    PlayFirstTime: 0
     SceneTutorialActive: 0
     slootSlots: []
 --- !u!1 &736827878
