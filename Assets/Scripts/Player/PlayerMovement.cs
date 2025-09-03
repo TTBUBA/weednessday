@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         animatorPlayer = GetComponent<Animator>();
         transform.position = PositionPlayer;
-        CurrentPosCell = tilemapGround.WorldToCell(transform.position);
+        CurrentPosCell = tilemapGround.WorldToCell(PositionPlayer);
         transform.position = tilemapGround.GetCellCenterWorld(CurrentPosCell);
         SelectBox.position = tilemapGround.GetCellCenterWorld(NextPosBox);
     }

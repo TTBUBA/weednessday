@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
     public SlootManager draggedSlotController;
     public GameObject LastObjSelect;
     public GameObject currentSelectedObject;
-    public SaveSystem saveSystem;
+
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(slootManager[0].gameObject);
@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         {
             Instance = this;
         }
-        saveSystem.saveables.Add(this);
+        SaveSystem.Instance.saveables.Add(this);
     }
 
     private void Update()

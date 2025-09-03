@@ -8,6 +8,12 @@ public class MenuManager : MonoBehaviour
 {
     [Header("Ui")]
     [SerializeField] private Image FadeOut;
+
+    private void Start()
+    {
+        GameManager.Instance.MenuOpen = true;
+    }
+
     public void ButtPlayGame()
     {
         StartCoroutine(LoadingScene());
@@ -24,12 +30,10 @@ public class MenuManager : MonoBehaviour
                 if (GameManager.Instance.TutorialCompleted)
                 {
                     SceneManager.LoadScene("Game");
-                    SaveSystem.Instance.LoadGame();
                 }
                 else
                 {
                     SceneManager.LoadScene("Tutorial");
-                    SaveSystem.Instance.LoadGame();
                 }
                 FadeOut.DOFade(0, 1f).OnComplete(() =>
                 {

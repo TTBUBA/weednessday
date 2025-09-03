@@ -79,7 +79,6 @@ public class MarketManager : MonoBehaviour
         if (!EffectFirstOrder)
         {
             EffectFirstOrder = true;
-            Debug.Log("First Order Made");
             foreach (var item in cartItems)
             {
                 playerManager.CurrentMoney -= TotalPriceCart; //remove money from the player

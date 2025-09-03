@@ -44277,6 +44277,7 @@ MonoBehaviour:
   draggedSlotController: {fileID: 0}
   LastObjSelect: {fileID: 0}
   currentSelectedObject: {fileID: 0}
+  saveSystem: {fileID: 0}
 --- !u!1 &581927240
 GameObject:
   m_ObjectHideFlags: 0
@@ -68351,7 +68352,6 @@ GameObject:
   - component: {fileID: 1332467103}
   - component: {fileID: 1332467105}
   - component: {fileID: 1332467104}
-  - component: {fileID: 1332467106}
   m_Layer: 0
   m_Name: --Player
   m_TagString: Untagged
@@ -68384,7 +68384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332467102}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7d9c4130a2a7a44a872ddaf1d7bb604, type: 3}
   m_Name: 
@@ -68408,19 +68408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKeyPressed: 0
---- !u!114 &1332467106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332467102}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa855496309af443bbed3a5a117089c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedInSeconds: 1
 --- !u!1 &1332815041
 GameObject:
   m_ObjectHideFlags: 0
@@ -79270,13 +79257,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   direction: 0
-  IsMoving: 0
+  animatorPlayer: {fileID: 0}
   moveInput: {x: 0, y: 0}
+  tilemapGround: {fileID: 26618475}
+  PositionPlayer: {x: 0, y: 0, z: 0}
   CurrentPosCell: {x: 0, y: 0, z: 0}
   NextPosCell: {x: 0, y: 0, z: 0}
-  animatorPlayer: {fileID: 0}
-  tilemapGround: {fileID: 26618475}
+  IsMoving: 0
   SelectBox: {fileID: 2044702034}
+  NextPosBox: {x: 0, y: 0, z: 0}
 --- !u!114 &1709458327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79638,6 +79627,8 @@ MonoBehaviour:
   - {fileID: 1518666353}
   TotalCaneSmoke: 0
   ActiveButtun: 1
+  PlayerMovement: {fileID: 0}
+  PlayerHealth: {fileID: 0}
   InventoryManager: {fileID: 579743082}
   EffectWeed: {fileID: 1709458335}
 --- !u!114 &1709458335

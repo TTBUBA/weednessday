@@ -16,12 +16,16 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
+        if (!GameManager.Instance.TutorialCompleted)
+        {
+            DeleteData();
+        }
     }
 
     public void SaveGame()
     {
         var data = new GameData();
+        data.TutorialCompleted = GameManager.Instance.TutorialCompleted;
         foreach (ISaveable saveable in saveables)
         {
             saveable.save(data);
@@ -30,7 +34,7 @@ public class SaveSystem : MonoBehaviour
 
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(filepath, json);
-        //Debug.Log($"Game Saved: {json}");
+        Debug.Log($"Game Saved: {json}");
     }
 
     public void LoadGame()
@@ -42,7 +46,7 @@ public class SaveSystem : MonoBehaviour
 
             foreach (ISaveable saveable in saveables)
             {
-                saveable.load(gameData); 
+                saveable.load(gameData);
             }
 
             Debug.Log($"Game Loaded: {FileJson}");
@@ -53,4 +57,11 @@ public class SaveSystem : MonoBehaviour
             Debug.Log("No save file found, starting new game");
         }
     }
+
+    public void DeleteData()
+    {
+        gameData = new GameData();
+        SaveGame();
+    }
+
 }

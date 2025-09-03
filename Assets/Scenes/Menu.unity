@@ -643,8 +643,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818138020}
+  - component: {fileID: 818138023}
   - component: {fileID: 818138022}
-  - component: {fileID: 818138021}
+  - component: {fileID: 818138024}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -667,23 +668,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &818138021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818138019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97b4d9de331e594194df007eeb25509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TutorialCompleted: 0
-  PlayFirstTime: 0
-  PanelReword: {fileID: 0}
-  seedWeed: {fileID: 0}
-  Playermanager: {fileID: 0}
 --- !u!114 &818138022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +681,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 1031900811}
+--- !u!114 &818138023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818138019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97b4d9de331e594194df007eeb25509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneTutorialActive: 0
+  MenuOpen: 0
+  TutorialCompleted: 0
+  PlayFirstTime: 0
+  PanelReword: {fileID: 0}
+  seedWeed: {fileID: 0}
+  Playermanager: {fileID: 0}
+--- !u!114 &818138024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818138019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2626afae07054114d860576329d907b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData:
+    health: 0
+    TotalMoney: 0
+    positionCurrentCell: {x: 0, y: 0, z: 0}
+    PosPlayer: {x: 0, y: 0, z: 0}
+    TutorialCompleted: 0
+    PlayFirstTime: 0
+    SceneTutorialActive: 0
+    slootSlots: []
 --- !u!1 &851062082
 GameObject:
   m_ObjectHideFlags: 0

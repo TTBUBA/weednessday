@@ -131,7 +131,6 @@ public class TutorialManager : MonoBehaviour
                 case TutorialState.End:
                     StartCoroutine(TutorialEnd());
                     TutorialActive = false;
-                    GameManager.Instance.TutorialCompleted = true;
                     break;
                 default:
                     break;
@@ -142,6 +141,9 @@ public class TutorialManager : MonoBehaviour
     IEnumerator TutorialEnd()
     {
         yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.TutorialCompleted = true;
+        GameManager.Instance.PlayFirstTime = false;
+        SaveSystem.Instance.SaveGame();
         Text_TutorialComplete.DOFade(0f, 1f).OnComplete(() =>
         {
             Text_TutorialComplete.DOFade(1f, 1f).OnComplete(() =>
@@ -168,6 +170,8 @@ public class TutorialManager : MonoBehaviour
                 });
         });
     }
+
+
     //===Check Player Stats Tutorial===//
     private bool IsExitHouse() => HouseBehaviour.Instance.IsExitHouseFirstTime;
     private bool IsUseHoe() => PlantManager.Instance.UseHoeFirstTime;
