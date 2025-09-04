@@ -49347,7 +49347,10 @@ MonoBehaviour:
     PosPlayer: {x: -30, y: 25, z: 0}
     TutorialCompleted: 0
     PlayFirstTime: 1
-    SceneTutorialActive: 0
+    UseHoeFirstTime: 0
+    UseWaterCanFirstTime: 0
+    UseBacketFirstTime: 0
+    PlantFirstTime: 0
     slootSlots: []
 --- !u!1 &736827878
 GameObject:
@@ -83387,7 +83390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1861145505
 Transform:
   m_ObjectHideFlags: 0
@@ -83410,7 +83413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861145504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 861d8c278d32f0346b0e115169631105, type: 3}
   m_Name: 
@@ -83446,7 +83449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861145504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33677910b5b16c4192f9931e5125854, type: 3}
   m_Name: 

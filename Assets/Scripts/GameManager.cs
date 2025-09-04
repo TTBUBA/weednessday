@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour,ISaveable
         {
             yield return new WaitForSeconds(TimeSaveGame);
             SaveSystem.Instance.SaveGame();
-            Debug.Log("Game Saved Automatically");
+            //Debug.Log("Game Saved Automatically");
         }
     }
     public void save(GameData data)
