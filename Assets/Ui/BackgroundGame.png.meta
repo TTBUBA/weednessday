@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cadf78ad02324948ac3c79ccfe4b0e5
+guid: 6f9a3b387e328f34f83684bcadcc91fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3357902245278981133
-    second: BackGround_ItchGame_0
+      213: 1761716331545441234
+    second: BackgroundGame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGround_ItchGame_0
+      name: BackgroundGame_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 360
+        width: 400
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f3e8a7e2b55661d0800000000000000
-      internalID: -3357902245278981133
+      spriteID: 2d335c86bafd27810800000000000000
+      internalID: 1761716331545441234
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackGround_ItchGame_0: -3357902245278981133
+      BackgroundGame_0: 1761716331545441234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

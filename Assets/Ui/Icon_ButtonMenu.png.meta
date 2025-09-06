@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 66d5e66a7ec2cb042b440df48ba2df05
+guid: 8e695fab93c4f2f4bb59036260d958ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 591012618668308787
-    second: BackGroundGamePixek_Art_0
+      213: -6279121248331112056
+    second: Icon_ButtonMenu_0
+  - first:
+      213: 1578557291490447806
+    second: Icon_ButtonMenu_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGroundGamePixek_Art_0
+      name: Icon_ButtonMenu_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 5120
-        height: 3412
+        y: 33
+        width: 48
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3397f7968d2b33800800000000000000
-      internalID: 591012618668308787
+      spriteID: 881ed9b2e741cd8a0800000000000000
+      internalID: -6279121248331112056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_ButtonMenu_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb114e83e7928e510800000000000000
+      internalID: 1578557291490447806
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ebeea8a0d1521c240bff98935b7bde77
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackGroundGamePixek_Art_0: 591012618668308787
+      Icon_ButtonMenu_0: -6279121248331112056
+      Icon_ButtonMenu_1: 1578557291490447806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
