@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour,ISaveable
         {
             PanelReword.SetActive(true);
         }
-        StartCoroutine(SaveGameTimer());
+        //StartCoroutine(SaveGameTimer());
+        SaveSystem.Instance.LoadGame();
     }
 
     public void CollectReward()
@@ -39,6 +40,10 @@ public class GameManager : MonoBehaviour,ISaveable
             Playermanager.CurrentMoney += 500;
             InventoryManager.Instance.AddItem(seedWeed, 10);
             SaveSystem.Instance.SaveGame();
+        }
+        else
+        {
+            PanelReword.SetActive(false);
         }
     }
 

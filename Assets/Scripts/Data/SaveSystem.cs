@@ -52,7 +52,11 @@ public class SaveSystem : MonoBehaviour
     public void DeleteData()
     {
         gameData = new GameData();
-        SaveGame();
+        if (File.Exists(filepath))
+        {
+            File.Delete(filepath);
+        }
+        LoadGame();
     }
 
 }

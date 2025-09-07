@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlantManager : MonoBehaviour
+public class PlantManager : MonoBehaviour,ISaveable
 {
     public static PlantManager Instance;
     //use this struct to store weed data for use in the dictionary
@@ -56,7 +57,7 @@ public class PlantManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        SaveSystem.Instance.saveables.Add(this);
         BoundsInt bounds = tilemapGround.cellBounds;
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -219,4 +220,82 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    public void save(GameData data)
+    {
+        data.plantDatas.Clear();
+
+        foreach (var plant in PlantsCreate)
+        {
+            Vector3Int CurrentCellPos = tilemapGround.WorldToCell(plant.transform.position);
+            PlantSaveData plantData = new PlantSaveData
+            {
+                CellPos = CurrentCellPos,
+                time = plant.time,
+                FinishGrowth = plant.FinishGrowth,
+                IsWet = plant.IsWet,
+                CurrentPlant = plant,
+                CurrentIndex = plant.CurrentIndex,
+                StateTerrain = GetTerrainState(CurrentCellPos)
+            };
+            Debug.Log($"Saving Plant at {CurrentCellPos} with TerrainState: {plantData.StateTerrain}");
+            data.plantDatas.Add(plantData);
+        }
+    }
+
+    public void load(GameData data)
+    {
+        for (int i = 0; i < data.plantDatas.Count; i++)
+        {
+            // Get the saved plant data
+            PlantSaveData savePlant = data.plantDatas[i];
+            Vector3Int cellpos = savePlant.CellPos;
+
+            Plant TargetPlant;
+
+            if (i < PlantsCreate.Count)
+            {
+                //set the existing plant to the saved plant data
+                TargetPlant = PlantsCreate[i];
+            }
+            else
+            {
+                GameObject plantObj = Instantiate(WeedPlant, tilemapGround.GetCellCenterWorld(cellpos), Quaternion.identity);
+                plantObj.transform.parent = PointPlat.transform;
+                TargetPlant = plantObj.GetComponent<Plant>();
+                PlantsCreate.Add(TargetPlant);
+                Debug.Log($"Spawn {plantObj}/Position plant {cellpos}");
+            }
+
+            //set data to the plant
+            TargetPlant.time = savePlant.time;
+            TargetPlant.FinishGrowth = savePlant.FinishGrowth;
+            TargetPlant.IsWet = savePlant.IsWet;
+            TargetPlant.CurrentIndex = savePlant.CurrentIndex;
+            TargetPlant.StatePlant();
+
+            // Update the cell occupancy dictionary
+            CellOccupate[cellPos] = new WeedData
+            {
+                WeedObject = TargetPlant.gameObject,
+                StateTerrain = savePlant.StateTerrain
+            };
+
+            // Set the tile based on the terrain state
+            switch (savePlant.StateTerrain)
+            {
+                case TerrainState.Dry:
+                    tilemapGround.SetTile(cellpos, DryTile);
+                    break;
+                case TerrainState.wet:
+                    tilemapGround.SetTile(cellpos, WetTile);
+                    break;
+                case TerrainState.planted:
+                    // The plant is already set
+                    break;
+                case TerrainState.obstacle:
+                    // Handle obstacle state if needed
+                    break;
+            }
+        }
+    }
 }

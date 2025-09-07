@@ -1,11 +1,12 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] private Sprite[] plants;
-    [SerializeField] private int CurrentIndex;
+    public Sprite[] plants;
+    public int CurrentIndex;
     public float time;
     public float TimeBase;
     public bool FinishGrowth;
@@ -35,5 +36,25 @@ public class Plant : MonoBehaviour
         }
         FinishGrowth = true;
         time = TimeBase;
+    }
+
+    public void StatePlant()
+    {
+        if(FinishGrowth)
+        {
+            GetComponent<SpriteRenderer>().sprite = plants[plants.Length - 1];
+        }
+        else if(!FinishGrowth)
+        {
+            if(CurrentIndex > 0 && CurrentIndex < plants.Length)
+            {
+                GetComponent<SpriteRenderer>().sprite = plants[CurrentIndex];
+                GrowthPlant();
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = null;
+            }
+        }
     }
 }

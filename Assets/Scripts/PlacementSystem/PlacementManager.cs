@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static PlantManager;
 
-public class PlacementManager : MonoBehaviour
+
+public class PlacementManager : MonoBehaviour, ISaveable
 {
     public static PlacementManager Instance;
 
@@ -23,6 +23,7 @@ public class PlacementManager : MonoBehaviour
     public bool IsPlacementActive = false;
 
     public Dictionary<Vector3Int, PlaceableObjectData> CellOccupateObj = new Dictionary<Vector3Int, PlaceableObjectData>();
+    public List<ObjectPlacement> placedObjects = new List<ObjectPlacement>();
 
     [Header("Managers")]
     public MouseManager MouseManager;
@@ -51,6 +52,7 @@ public class PlacementManager : MonoBehaviour
                 }
             }
         }
+        SaveSystem.Instance.saveables.Add(this);
     }
 
     private void Update()
@@ -74,14 +76,14 @@ public class PlacementManager : MonoBehaviour
     //Before placing the object, set the position and transparency of the last spawned object
     public void BeforePlaceObj()
     {
-        if(LastObjSpawn != null)
+        if (LastObjSpawn != null)
         {
-            LastObjSpawn.transform.position = MouseManager.GetMousePosition();          
+            LastObjSpawn.transform.position = MouseManager.GetMousePosition();
             SpriteRenderer spriteRenderer = LastObjSpawn.GetComponent<SpriteRenderer>();
             BoxCollider2D collider = LastObjSpawn.GetComponent<BoxCollider2D>();
             CircleCollider2D circleCollider = LastObjSpawn.GetComponent<CircleCollider2D>();
             if (spriteRenderer == null) return; // Ensure spriteRenderer exists
-            if (collider == null || circleCollider == null) return; 
+            if (collider == null || circleCollider == null) return;
             collider.enabled = false; // Disable collider for placement preview
             circleCollider.enabled = false; // Disable circle collider for placement preview
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
@@ -120,6 +122,14 @@ public class PlacementManager : MonoBehaviour
                         CellOccupateObj[cellpos + positionOffset] = CurrentplaceableObject;
                     }
                 }
+
+                placedObjects.Add(new ObjectPlacement
+                {
+                    CellPos = cellpos,
+                    occupiedAreaX = CurrentplaceableObject.SpaceOccupiedX,
+                    occupiedAreaY = CurrentplaceableObject.SpaceOccupiedY,
+                    placeableObjectData = CurrentplaceableObject
+                });
                 PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
             }
 
@@ -130,7 +140,7 @@ public class PlacementManager : MonoBehaviour
                 Obj.transform.parent = ParentObjspawn.transform;
                 PlayerManager.CurrentMoney -= CurrentplaceableObject.Cost;
                 CurrentplaceableObject.IsPlaceable = true;
-
+               
 
                 if (CurrentplaceableObject.IsPlaceable)
                 {
@@ -149,6 +159,14 @@ public class PlacementManager : MonoBehaviour
                     }
                 }
 
+                //save the object placed in the list
+                placedObjects.Add(new ObjectPlacement
+                {
+                    CellPos = cellpos,
+                    occupiedAreaX = CurrentplaceableObject.SpaceOccupiedX,
+                    occupiedAreaY = CurrentplaceableObject.SpaceOccupiedY,
+                    placeableObjectData = CurrentplaceableObject
+                });
 
                 //When the object is create, set the data for the specific components in the object
                 var Chest = Obj.GetComponent<ChestSystem>();
@@ -206,6 +224,53 @@ public class PlacementManager : MonoBehaviour
                     CellOccupateObj.Remove(cellpos + positionOffset);
                 }
             }
+        }
+    }
+
+    public void save(GameData data)
+    {
+        Debug.Log("Saving Placement");
+        data.objectPlacements.Clear();//clear previous data
+
+        foreach (var obj in placedObjects)
+        {
+            // Save only necessary data
+            data.objectPlacements.Add(obj);
+        }
+    }
+
+    public void load(GameData data)
+    {
+
+        // Clear existing placements
+        Tm_ObjectPlacement.RefreshAllTiles();
+        CellOccupateObj.Clear();
+        placedObjects.Clear();
+
+        // Load placements from saved data
+        foreach (var obj in data.objectPlacements)
+        {
+            if (obj.placeableObjectData.Type == PlaceableObjectType.Tile)
+            {
+                Tm_ObjectPlacement.SetTile(obj.CellPos, obj.placeableObjectData.Object);
+            }
+
+            if (obj.placeableObjectData.Type == PlaceableObjectType.Prefabs)
+            {
+                GameObject Obj = Instantiate(obj.placeableObjectData.UtilityPrefab, obj.CellPos, Quaternion.identity);
+                Obj.transform.parent = ParentObjspawn.transform;
+            }
+
+            for (int x = -obj.occupiedAreaX; x <= obj.occupiedAreaX; x++)
+            {
+                for (int y = -obj.occupiedAreaY; y <= obj.occupiedAreaY; y++)
+                {
+                    Vector3Int positionOffset = new Vector3Int(x, y, 0);
+                    CellOccupateObj[obj.CellPos + positionOffset] = obj.placeableObjectData;
+                }
+            }
+
+            placedObjects.Add(obj);
         }
     }
 }

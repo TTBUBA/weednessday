@@ -20,7 +20,13 @@ public class GameData
     //Inventory Data
     public List<SlootSaveData> slootSlots = new List<SlootSaveData>();
 
+    //Placement Data
+    public List<ObjectPlacement> objectPlacements = new List<ObjectPlacement>();
+
+    //Plant Data
+    public List<PlantSaveData> plantDatas = new List<PlantSaveData>();
 }
+
 [System.Serializable]
 public class SlootSaveData
 {
@@ -32,4 +38,27 @@ public class SlootSaveData
     public bool InUse;
     public GunData gunData;
 }
+
+[System.Serializable]
+public class ObjectPlacement
+{
+    public GameObject ObjSpawn;
+    public Vector3Int CellPos;
+    public int occupiedAreaX;
+    public int occupiedAreaY;
+    public PlaceableObjectData placeableObjectData;
+}
+[System.Serializable]
+public class PlantSaveData
+{
+    public Plant CurrentPlant;
+    public Sprite[] plants;
+    public Vector3Int CellPos;
+    public float time;
+    public int CurrentIndex;
+    public bool FinishGrowth;
+    public bool IsWet;
+    public PlantManager.TerrainState StateTerrain;
+}
+
 

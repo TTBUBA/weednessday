@@ -19,13 +19,16 @@ public class PoleLight : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            if(Clock.CurrentHours >= 19)
+            if(Clock != null)
             {
-                poleLight.enabled = true;
-            }
-            if (Clock.CurrentHours <= 8)
-            {
-                poleLight.enabled = false;
+                if (Clock.CurrentHours >= 19)
+                {
+                    poleLight.enabled = true;
+                }
+                if (Clock.CurrentHours <= 8)
+                {
+                    poleLight.enabled = false;
+                }
             }
         }
     }
