@@ -25,6 +25,11 @@ public class GameData
 
     //Plant Data
     public List<PlantSaveData> plantDatas = new List<PlantSaveData>();
+
+    //Time Data
+    public float currentHour;
+    public float currentMinute;
+    public int currentDay;
 }
 
 [System.Serializable]

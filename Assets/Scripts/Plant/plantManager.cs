@@ -57,7 +57,6 @@ public class PlantManager : MonoBehaviour,ISaveable
     private void Awake()
     {
         Instance = this;
-        SaveSystem.Instance.saveables.Add(this);
         BoundsInt bounds = tilemapGround.cellBounds;
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
@@ -76,7 +75,11 @@ public class PlantManager : MonoBehaviour,ISaveable
             }
         }
     }
-
+    private void Start()
+    {
+        SaveSystem.Instance.saveables.Add(this);
+        SaveSystem.Instance.LoadGame();
+    }
     private void Update()
     {
         foreach (var plant in PlantsCreate)
@@ -237,7 +240,6 @@ public class PlantManager : MonoBehaviour,ISaveable
                 CurrentIndex = plant.CurrentIndex,
                 StateTerrain = GetTerrainState(CurrentCellPos)
             };
-            Debug.Log($"Saving Plant at {CurrentCellPos} with TerrainState: {plantData.StateTerrain}");
             data.plantDatas.Add(plantData);
         }
     }

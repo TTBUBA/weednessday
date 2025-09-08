@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class cycleDayNight : MonoBehaviour
+public class cycleDayNight : MonoBehaviour, ISaveable
 {
     [SerializeField] private float LightNight;
     public Light2D light2D;
@@ -16,7 +16,11 @@ public class cycleDayNight : MonoBehaviour
     {
         StartCoroutine(CicleDay());
     }
-    
+
+    private void Start()
+    {
+        SaveSystem.Instance.saveables.Add(this);
+    }
 
     IEnumerator CicleDay()
     {
@@ -52,5 +56,19 @@ public class cycleDayNight : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void save(GameData data)
+    {
+        data.currentHour = CurrentHours;
+        data.currentMinute = CurrentMinutes;
+        data.currentDay = CurrentDay;
+    }
+
+    public void load(GameData data)
+    {
+        CurrentHours = data.currentHour;
+        CurrentMinutes = data.currentMinute;
+        CurrentDay = data.currentDay;
     }
 }

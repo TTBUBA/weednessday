@@ -46,6 +46,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
     private void Start()
     {
         SaveSystem.Instance.saveables.Add(this);
+        SaveSystem.Instance.LoadGame();
     }
     private void Update()
     {
@@ -110,7 +111,6 @@ public class InventoryManager : MonoBehaviour, ISaveable
 
     public void save(GameData data)
     {
-        Debug.Log("Saving Inventory");
         foreach (var slot in slootManager)
         {
             SlootSaveData saveSlot = new SlootSaveData();
@@ -122,7 +122,6 @@ public class InventoryManager : MonoBehaviour, ISaveable
 
     public void load(GameData data)
     {
-        Debug.Log("Loading Inventory");
         for (int i = 0 ;i < slootManager.Count && i < data.slootSlots.Count; i++)
         {
             SlootSaveData saveSlot = data.slootSlots[i];

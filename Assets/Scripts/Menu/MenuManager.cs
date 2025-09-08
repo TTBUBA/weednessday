@@ -10,6 +10,20 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Image FadeOut;
 
     public GameData GameData;
+
+    private void Start()
+    {
+        if (!GameData.TutorialCompleted)
+        {
+            SaveSystem.Instance.DeleteData();
+            Debug.Log("New Game, No Save Data");
+        }
+        else
+        {
+            SaveSystem.Instance.LoadGame();
+            Debug.Log("Load Save Data");
+        }
+    }
     public void ButtPlayGame()
     {
         StartCoroutine(LoadingScene());

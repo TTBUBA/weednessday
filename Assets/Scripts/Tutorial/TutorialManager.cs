@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using DG.Tweening;
-using UnityEngine.Rendering;
 
 public class TutorialManager : MonoBehaviour,ISaveable
 {
@@ -196,7 +195,6 @@ public class TutorialManager : MonoBehaviour,ISaveable
        data.UseWaterCanFirstTime = PlantManager.Instance.UseWaterCanFirstTime;
        data.UseBacketFirstTime = PlantManager.Instance.UseBacketFirstTime;
        data.PlantFirstTime = PlantManager.Instance.PlantFirstTime;
-
     }
 
     public void load(GameData data)

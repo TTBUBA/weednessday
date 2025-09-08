@@ -25,7 +25,7 @@ public class PoleLight : MonoBehaviour
                 {
                     poleLight.enabled = true;
                 }
-                if (Clock.CurrentHours <= 8)
+                if (Clock.CurrentHours == 8)
                 {
                     poleLight.enabled = false;
                 }
