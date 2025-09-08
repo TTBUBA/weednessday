@@ -29,6 +29,8 @@ public class TutorialManager : MonoBehaviour,ISaveable
     [Header("Managers")]
     [SerializeField] private PhoneManager phonemanager;
     [SerializeField] private MarketManager MarketManager;
+
+    private bool hasloaded;
     enum TutorialState
     {
         ExitHouse,
@@ -44,9 +46,20 @@ public class TutorialManager : MonoBehaviour,ISaveable
         End
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     private void Start()
     {
         SaveSystem.Instance.saveables.Add(this);
+
+        if (!hasloaded)
+        {
+            SaveSystem.Instance.LoadGame();
+            hasloaded = false;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -191,18 +204,10 @@ public class TutorialManager : MonoBehaviour,ISaveable
     public void save(GameData data)
     {
        data.TutorialCompleted = TutorialComplete;
-       data.UseHoeFirstTime = PlantManager.Instance.UseHoeFirstTime;
-       data.UseWaterCanFirstTime = PlantManager.Instance.UseWaterCanFirstTime;
-       data.UseBacketFirstTime = PlantManager.Instance.UseBacketFirstTime;
-       data.PlantFirstTime = PlantManager.Instance.PlantFirstTime;
     }
 
     public void load(GameData data)
     {
         TutorialComplete = data.TutorialCompleted;
-        PlantManager.Instance.UseHoeFirstTime = data.UseHoeFirstTime;
-        PlantManager.Instance.UseWaterCanFirstTime = data.UseWaterCanFirstTime;
-        PlantManager.Instance.UseBacketFirstTime = data.UseBacketFirstTime;
-        PlantManager.Instance.PlantFirstTime = data.PlantFirstTime;
     }
 }

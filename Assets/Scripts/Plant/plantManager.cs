@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlantManager : MonoBehaviour,ISaveable
+public class PlantManager : MonoBehaviour, ISaveable
 {
     public static PlantManager Instance;
     //use this struct to store weed data for use in the dictionary
@@ -45,6 +45,7 @@ public class PlantManager : MonoBehaviour,ISaveable
     public WateringCan WateringCan;
     public InventoryManager InventoryManager;
 
+    public bool hasLoaded;
     public enum TerrainState
     {
         None,
@@ -78,8 +79,14 @@ public class PlantManager : MonoBehaviour,ISaveable
     private void Start()
     {
         SaveSystem.Instance.saveables.Add(this);
-        SaveSystem.Instance.LoadGame();
+
+        if (!hasLoaded)
+        {
+            SaveSystem.Instance.LoadGame();
+            hasLoaded = true;
+        }
     }
+
     private void Update()
     {
         foreach (var plant in PlantsCreate)
@@ -242,10 +249,17 @@ public class PlantManager : MonoBehaviour,ISaveable
             };
             data.plantDatas.Add(plantData);
         }
+
+        //save player stats tutorial
+        data.UseHoeFirstTime = Instance.UseHoeFirstTime;
+        data.UseWaterCanFirstTime = UseWaterCanFirstTime;
+        data.UseBacketFirstTime = UseBacketFirstTime;
+        data.PlantFirstTime = PlantFirstTime;
     }
 
     public void load(GameData data)
     {
+        //load date plant from the saved data
         for (int i = 0; i < data.plantDatas.Count; i++)
         {
             // Get the saved plant data
@@ -299,5 +313,12 @@ public class PlantManager : MonoBehaviour,ISaveable
                     break;
             }
         }
+
+
+        //load player stats tutorial
+        UseHoeFirstTime = data.UseHoeFirstTime;
+        UseWaterCanFirstTime = data.UseWaterCanFirstTime;
+        UseBacketFirstTime = data.UseBacketFirstTime;
+        PlantFirstTime = data.PlantFirstTime;
     }
 }
