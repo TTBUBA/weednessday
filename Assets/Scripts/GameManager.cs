@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour,ISaveable
     [SerializeField] private PlayerManager Playermanager;
 
     [Header("Panel-FinishDemo")]
+    [SerializeField] private bool Demo;
     [SerializeField] private GameObject PanelDemo;
     [SerializeField] private cycleDayNight cycleDayNight;
 
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour,ISaveable
 
     public void ActiveDemo()
     {
+        if (!Demo) return;
         if (cycleDayNight.CurrentDay >= 3)
         {
 

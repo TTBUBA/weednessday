@@ -5,9 +5,12 @@ using System.Collections.Generic;
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance;
+
+    [SerializeField] private bool ActiveSaveSystem = true;
     public string filepath => Application.persistentDataPath + "/savefile.json";
     public List<ISaveable> saveables = new List<ISaveable>();
     public GameData gameData;
+
 
     private void Awake()
     {
@@ -16,6 +19,7 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGame()
     {
+        if(!ActiveSaveSystem) return;
         var data = new GameData();
         foreach (ISaveable saveable in saveables)
         {
@@ -30,6 +34,7 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadGame()
     {
+        if(!ActiveSaveSystem) return;
         if (File.Exists(filepath))
         {
             string FileJson = File.ReadAllText(filepath);

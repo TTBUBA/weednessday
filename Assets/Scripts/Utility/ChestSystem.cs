@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
@@ -10,7 +9,7 @@ public class ChestSystem : MonoBehaviour
 {
     [SerializeField] private Sprite ChestOpen;
     [SerializeField] private Sprite chestClose;
-
+    [SerializeField] private AudioSource AudioOpenChest;
     [SerializeField] private GameObject PanelSloot;
     [SerializeField] private GameObject butt_panel;
     [SerializeField] private GameObject PanelInventoryPlayer;
@@ -47,6 +46,7 @@ public class ChestSystem : MonoBehaviour
     {
         if (!IsOpen && Iscollision)
         {
+            AudioOpenChest.Play();
             InventoryManager.ActiveInventory = false;// disable inventory when open chest
             IsOpen = true;
             PanelSloot.SetActive(true);
@@ -61,6 +61,7 @@ public class ChestSystem : MonoBehaviour
                     slot.transform.SetParent(PanelInventoryPlayer.transform, false);
 
                     //Input Controller set navigation for slots
+                    /*
                     foreach (var sloot in SlootChest)
                     {
                         switch (slot.Index)
@@ -97,6 +98,7 @@ public class ChestSystem : MonoBehaviour
                                 break;
                         }
                     }
+                    */
                 }
             }
         }

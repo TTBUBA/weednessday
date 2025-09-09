@@ -109,7 +109,7 @@ public class PackerSystem : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(TimePacker);
-            if (slootPlastic.slootData != null && SlootBattery.slootData != null && slootPlastic.slootData.NameTools == "plastic" && SlootBattery.slootData.NameTools == "battery")
+            if (slootPlastic.slootData != null && SlootBattery.slootData != null && slootPlastic.slootData.NameTools == "trash" && SlootBattery.slootData.NameTools == "battery")
             {
                 BarProgress.fillAmount += 0.1f;
 

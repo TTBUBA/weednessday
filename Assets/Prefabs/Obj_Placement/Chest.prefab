@@ -305,6 +305,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 6354509003233359297}
   CountText: {fileID: 1272300036098633835}
   InUse: 0
@@ -519,6 +520,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 2818340834426485635}
   CountText: {fileID: 5555407117507225964}
   InUse: 0
@@ -1531,6 +1533,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 5859029783087821846}
   CountText: {fileID: 1254683353062373122}
   InUse: 0
@@ -2093,6 +2096,135 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &5822386088434439240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5717554230231278403}
+  - component: {fileID: 3903055946945486829}
+  m_Layer: 0
+  m_Name: AudioOpen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5717554230231278403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822386088434439240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3888715919580943022}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3903055946945486829
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822386088434439240}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c45b83c2493cfa345a2e2a62523dab9f, type: 3}
+  m_Resource: {fileID: 8300000, guid: c45b83c2493cfa345a2e2a62523dab9f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7015491514212822919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,6 +2319,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 3938195546156210374}
   CountText: {fileID: 5258324775433414099}
   InUse: 0
@@ -2266,6 +2399,7 @@ Transform:
   m_Children:
   - {fileID: 7848250704611255131}
   - {fileID: 81103936939671809}
+  - {fileID: 5717554230231278403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6334287280280055991
@@ -2337,6 +2471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChestOpen: {fileID: 530589122, guid: 686ce6cb5e84e2e43969430743827734, type: 3}
   chestClose: {fileID: 9211578166611704833, guid: 686ce6cb5e84e2e43969430743827734, type: 3}
+  AudioOpenChest: {fileID: 3903055946945486829}
   PanelSloot: {fileID: 3658619589188398354}
   butt_panel: {fileID: 8072540409924960734}
   PanelInventoryPlayer: {fileID: 7531498686845644602}
@@ -2344,8 +2479,6 @@ MonoBehaviour:
   IsOpen: 0
   Iscollision: 0
   canvas: {fileID: 8144838291374029575}
-  Butt_OpenPanel: {fileID: 2829723118667969839, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  Butt_ClosePanel: {fileID: 5027957818622796127, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   SlootChest:
   - {fileID: 3875019147025463212}
   - {fileID: 983478495407349847}
@@ -2481,6 +2614,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 1694478881946145002}
   CountText: {fileID: 2807425792759605754}
   InUse: 0
@@ -3015,6 +3149,7 @@ MonoBehaviour:
   slootData: {fileID: 0}
   CurrentStorage: 0
   StorageFull: 0
+  IsStatic: 0
   iconTools: {fileID: 8868282412085563511}
   CountText: {fileID: 9183865452018554652}
   InUse: 0

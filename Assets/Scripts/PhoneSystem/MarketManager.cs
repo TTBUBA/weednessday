@@ -110,7 +110,7 @@ public class MarketManager : MonoBehaviour
 
                 item.quantity = 0; // Reset the quantity after adding to the box order
                 item.MarketSlot = null; // Reset the market slot after adding to the box order
-
+                TotalItemAddCart = 0;//reset the total item in the cart
                 foreach (var obj in ObjSpawn)
                 {
                     Destroy(obj);

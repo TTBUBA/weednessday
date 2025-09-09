@@ -27,10 +27,10 @@ public class WeatherSystem : MonoBehaviour
     [SerializeField] private ParticleSystem rainParticle;
     [SerializeField] private ParticleSystem RainRipple;
     [SerializeField] private float DurationRain;
-
+    [SerializeField] private AudioSource rainSound;
 
     private List<CloudData> activeClouds = new List<CloudData>();
-    public int lastDayChack = -1;
+    private int lastDayChack = -1;
 
 
     public cycleDayNight cycleDayNight;
@@ -142,6 +142,8 @@ public class WeatherSystem : MonoBehaviour
                 {
                     rainParticle.Play();
                     RainRipple.Play();
+                    rainSound.enabled = true;
+                    rainSound.Play();
                     DurationRain = Random.Range(30, 80);
                     StartCoroutine(DisactiveRain());
 
@@ -155,6 +157,9 @@ public class WeatherSystem : MonoBehaviour
         yield return new WaitForSeconds(DurationRain);
         rainParticle.Stop();
         RainRipple.Stop();
+        rainSound.enabled = false;
+        rainSound.Stop();
         DurationRain = 0;
+
     }
 }
